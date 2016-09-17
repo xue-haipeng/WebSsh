@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+
+<style type="text/css">
+.mytextarea {
+  width: 40%;
+  margin-left: 15px;
+}
+
+</style>
+</head>
+<body>
+
+<form>
+	<br></br>
+	<textarea class="form-control mytextarea" rows="3"></textarea>
+	<br></br><br></br>
+	<button id="changepasswd" type="submit" class="btn btn-primary">修改密码</button>
+</form>
+<br></br>
+<br></br>
+
+  <form class="form-horizontal">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">表单名</legend>
+      </div>
+    <div class="control-group">
+          <label class="control-label">Textarea</label>
+          <div class="controls">
+            <div class="textarea">
+                  <textarea type="" class="form-control mytextarea"> </textarea>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+  </form>
+
+<form class="form-horizontal">
+   <fieldset>
+      <div id="legend" class="">
+        <legend class="">表单名</legend>
+      </div>
+    <div class="control-group">
+          <label class="control-label" for="input01">Text input</label>
+          <div class="controls">
+            <input type="text" placeholder="placeholder" class="input-xlarge" />
+            <p class="help-block">Supporting help text</p>
+          </div>
+    </div>
+   </fieldset>
+ </form>
+	<br></br>
+  <form class="form-horizontal">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">表单名</legend>
+      </div>
+    <div class="control-group">
+          <label class="control-label">Textarea</label>
+          <div class="controls">
+            <div class="textarea">
+                  <textarea type="" class=""> </textarea>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+  </form>
+	
+</body>
+</html>
