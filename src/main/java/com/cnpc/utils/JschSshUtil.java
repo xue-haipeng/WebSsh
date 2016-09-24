@@ -1,5 +1,6 @@
 package com.cnpc.utils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
@@ -8,15 +9,19 @@ import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
-public class JschSshShell {
+public class JschSshUtil {
 	private static final int PORT = 22;
-	public static String out = null;
+	private static JSch jsch = null;
+	private static Session session = null;
+	private static Channel channel = null;
+	private static InputStream inputStream = null;
+	private static OutputStream outputStream = null;
+	public static String out = null;	
 
-	public static void sshShell(String ip, String username, String passwd, List<String> cmd) throws Exception {
+	public static void sshConn(String ip, String username, String passwd, List<String> cmd) throws Exception {
 
-		JSch jsch = new JSch();
-		Session session = jsch.getSession(username, ip, PORT);
-		Channel channel = null;
+		jsch = new JSch();
+		session = jsch.getSession(username, ip, PORT);
 
 		if (session == null) {
 			throw new Exception("Unable to create session ...");
@@ -30,8 +35,8 @@ public class JschSshShell {
 			channel = (Channel) session.openChannel("shell");
 			channel.connect(1000);
 
-			InputStream inputStream = channel.getInputStream();
-			OutputStream outputStream = channel.getOutputStream();
+			inputStream = channel.getInputStream();
+			outputStream = channel.getOutputStream();
 
 			for (String command : cmd) {
 				command += "\n";
@@ -46,19 +51,26 @@ public class JschSshShell {
 					if (nLen < 0) {
 						throw new Exception("Network Error, Unable to Get InputStream ...");
 					}
-					String out = new String(data, 0, nLen, "UTF-8");
+					out = new String(data, 0, nLen, "UTF-8");
 					System.out.println(out);
 				}
 			}
-
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void sshDisconn() {
+		
+		try {
 			outputStream.close();
 			inputStream.close();
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			session.disconnect();
 			channel.disconnect();
-		}
+		}		
 	}
 
 }
