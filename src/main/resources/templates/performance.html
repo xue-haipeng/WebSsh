@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+
+<style type="text/css">
+#xo {
+    width: 30%;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+#bb {
+    width: 30%;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+</style>
+</head>
+<body>
+<div>
+<ul class="nav nav-tabs">
+<li><a href="/backup"><span class="icon-copy"></span> 备份</a></li>
+<li><a href="/availability"><span class="icon-cogs"></span> 可用性</a></li>
+<li class="active"><a href="#"><span class="icon-bar-chart"></span> 性能</a></li>
+<li><a href="/logsearch"><span class="icon-search"></span> 日志查询</a></li>
+<li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
+</ul>
+</div>
+
+<div class="row">
+	<div id="xo" class="col-md-4">
+		<h3>é›†æˆ�å¹³å�°</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>OSB</th>
+					<th>å‰�å¤©</th>
+					<th>æ˜¨å¤©</th>
+					<th>ä»Šå¤©</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">ä¸Šå¸‚OSB</th>
+					<td>æˆ�åŠŸ</td>
+					<td>æˆ�åŠŸ</td>
+					<td>æˆ�åŠŸ</td>
+				</tr>
+				<tr>
+					<th scope="row">æœªä¸Šå¸‚OSB</th>
+					<td>æˆ�åŠŸ</td>
+					<td>å¤±è´¥</td>
+					<td>æˆ�åŠŸ</td>
+				</tr>
+				<tr>
+					<th scope="row">æ€»éƒ¨OSB</th>
+					<td>æˆ�åŠŸ</td>
+					<td>æˆ�åŠŸ</td>
+					<td>å¤±è´¥</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="bb" class="col-md-4">
+		<h3>å†³ç­–æ”¯æŒ�</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>BW</th>
+					<th>å‰�å¤©</th>
+					<th>æ˜¨å¤©</th>
+					<th>ä»Šå¤©</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">å‹˜æŽ¢BW</th>
+					<td>æˆ�åŠŸ</td>
+					<td>æˆ�åŠŸ</td>
+					<td>æˆ�åŠŸ</td>
+				</tr>
+				<tr>
+					<th scope="row">äººåŠ›BW</th>
+					<td>æˆ�åŠŸ</td>
+					<td>å¤±è´¥</td>
+					<td>æˆ�åŠŸ</td>
+				</tr>
+				<tr>
+					<th scope="row">å·¥å»ºBW</th>
+					<td>æˆ�åŠŸ</td>
+					<td>æˆ�åŠŸ</td>
+					<td>å¤±è´¥</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+	  $('table').find('td').each(function(){
+	    if($(this).text()=='å¤±è´¥'){
+	      $(this).css('color', 'red');}
+	    });
+	});
+</script>
+</body>
+</html>

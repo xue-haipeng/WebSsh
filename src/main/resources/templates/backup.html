@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+
+<style type="text/css">
+#xo {
+    width: 30%;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+#bb {
+    width: 30%;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+</style>
+</head>
+<body>
+<div>
+<ul class="nav nav-tabs">
+<li class="active"><a href="#"><span class="icon-copy"></span> 备份</a></li>
+<li><a href="/availability"><span class="icon-cogs"></span> 可用性</a></li>
+<li><a href="/performance"><span class="icon-bar-chart"></span> 性能</a></li>
+<li><a href="/logsearch"><span class="icon-search"></span> 日志查询</a></li>
+<li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
+</ul>
+</div>
+
+<div class="row">
+	<div id="xo" class="col-md-4">
+		<h3>集成平台</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>OSB</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">上市OSB</th>
+					<td>成功</td>
+					<td>成功</td>
+					<td>成功</td>
+				</tr>
+				<tr>
+					<th scope="row">未上市OSB</th>
+					<td>成功</td>
+					<td>失败</td>
+					<td>成功</td>
+				</tr>
+				<tr>
+					<th scope="row">总部OSB</th>
+					<td>成功</td>
+					<td>成功</td>
+					<td>失败</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="bb" class="col-md-4">
+		<h3>决策支持</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>BW</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">勘探BW</th>
+					<td>成功</td>
+					<td>成功</td>
+					<td>成功</td>
+				</tr>
+				<tr>
+					<th scope="row">人力BW</th>
+					<td>成功</td>
+					<td>失败</td>
+					<td>成功</td>
+				</tr>
+				<tr>
+					<th scope="row">工建BW</th>
+					<td>成功</td>
+					<td>成功</td>
+					<td>失败</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+	  $('table').find('td').each(function(){
+	    if($(this).text()=='失败'){
+	      $(this).css('color', 'red');}
+	    });
+	});
+</script>
+</body>
+</html>

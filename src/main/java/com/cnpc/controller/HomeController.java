@@ -21,15 +21,34 @@ public class HomeController {
 		return "formPage";
 	}
 	
+	@RequestMapping("/availability")
+	public String availability() {
+		return "availability";
+	}
+	
+	@RequestMapping("/performance")
+	public String performance() {
+		return "performance";
+	}
+	
+	@RequestMapping("/logsearch")
+	public String logsearch() {
+		return "logsearch";
+	}
+	
+	@RequestMapping("/hostlist")
+	public String hostlist() {
+		return "hostlist";
+	}
+	
 	@RequestMapping("/backup")
-	@ResponseBody
 	public String backup() throws Exception {
 //		SftpService.sftpService();
 		SshService.sshService();
 		System.out.println(SshService.out);
 		System.out.println("...................................");
 		LogReaderService.LogChecker();
-		return null;
+		return "backup";
 		
 	}
 
