@@ -1,20 +1,55 @@
 package com.cnpc.service;
 
-import java.util.Arrays;
 import java.util.List;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import com.cnpc.utils.JschSshUtil;
 
+@Component
+@ConfigurationProperties(prefix = "ssh")
 public class SshService {
 
-	static String ip = "192.168.95.129";
-	static String username = "xue";
-	static String passwd = "mybasis0";
-	static String logfile = "C:/Users/hpxue/Desktop/hot_database_backup.sh.out";
-	public static String out = null;
-	static List<String> cmd = Arrays.asList("df -h");
-	
-	public static void sshService() {
+	private String ip;
+	private String username;
+	private String passwd;
+	private List<String> cmd;
+	public String out = null;
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public List<String> getCmd() {
+		return cmd;
+	}
+
+	public void setCmd(List<String> cmd) {
+		this.cmd = cmd;
+	}
+
+	public void sshService() {
 		try {
 			JschSshUtil.sshConn(ip, username, passwd, cmd);
 		} catch (Exception e) {
@@ -23,5 +58,5 @@ public class SshService {
 		out = JschSshUtil.out;
 		JschSshUtil.sshDisconn();
 	}
-	
+
 }

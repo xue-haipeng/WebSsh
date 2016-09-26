@@ -24,6 +24,7 @@ public class LogReaderService {
 		}  
 		raf.close();  
 		System.out.println(lastLine);
+		
 		String bakStatus = lastLine.substring(11, 23);
 		String bakDateStr = lastLine.substring(27, 55);
 		SimpleDateFormat sDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
