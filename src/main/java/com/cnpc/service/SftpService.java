@@ -1,14 +1,21 @@
 package com.cnpc.service;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
 import com.cnpc.utils.JschSftpUtil;
 
+@Component
+@ConfigurationProperties(prefix="sftp")
 public class SftpService {
-	static String ip = "192.168.95.129";
-	static String username = "xue";
-	static String passwd = "mybasis0";
-	static String remoteFile = "/home/xue/Documents/hot_database_backup.sh.out";
+	String ip;
+	String username;
+	String passwd;
+	String remoteFile;
+	String hello;
 	
-	public static void sftpService() {
+	public void sftpService() {
+		System.out.println("ip: " + ip + ", username: " + username + ", passwd: " + passwd + ", remoteFile: " + remoteFile + ", hello: " + hello);
 		JschSftpUtil.sftp(ip, username, passwd, remoteFile);
 		
 	}

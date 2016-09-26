@@ -8,69 +8,113 @@
 
 <style type="text/css">
 .mytextarea {
-  width: 40%;
+  width: 25%;
   margin-left: 15px;
 }
-
+#changepasswd {
+	margin-left: 15px;
+}
+#packt {
+	padding: 19px 30px;
+	 -webkit-border-radius: 35px;
+	 -moz-border-radius: 35px;
+	border-radius: 35px;
+	color: #123456
+}
 </style>
 </head>
 <body>
-
+<div class="container">
 <form>
+	<div class="row">
+		<div class="col-md-4">
+			<h3>主机列表</h3>
+			<textarea id="hoststxtarea" class="form-control mytextarea" rows="4"></textarea>
+		</div>
+		<div class="col-md-4">
+			<h3>用户名</h3>
+			<textarea id="username" class="form-control mytextarea" rows="1"></textarea>
+		</div>
+		<div class="col-md-4">
+			<h3>原始密码</h3>
+			<textarea id="currentpasswd" class="form-control mytextarea" rows="1"></textarea>
+		</div>
+		<div class="col-md-4">
+			<h3>新密码</h3>
+			<textarea id="targetpasswd" class="form-control mytextarea" rows="1"></textarea>
+		</div>
+		<div>
+			<button id="changepasswd" type="submit" class="btn btn-primary">修改密码</button>
+		</div>
+	</div>
+</form>
+</div>
+
+
+<!-- <form>
 	<br></br>
-	<textarea class="form-control mytextarea" rows="3"></textarea>
+	<textarea id="hoststxtarea" class="form-control mytextarea" rows="4"></textarea>
+	<br></br><br></br>
+	<textarea id="username" class="form-control mytextarea" rows="1"></textarea>
+	<br></br><br></br>
+	<textarea id="currentpasswd" class="form-control mytextarea" rows="1"></textarea>
+	<br></br><br></br>
+	<textarea id="targetpasswd" class="form-control mytextarea" rows="1"></textarea>
 	<br></br><br></br>
 	<button id="changepasswd" type="submit" class="btn btn-primary">修改密码</button>
+	<button id="packt" type="button" class="btn btn-default btn-sm">按钮</button>
 </form>
 <br></br>
-<br></br>
+<br></br> -->
+<div id="result"></div>
+<p id="result1"></p>
 
-  <form class="form-horizontal">
-    <fieldset>
-      <div id="legend" class="">
-        <legend class="">表单名</legend>
-      </div>
-    <div class="control-group">
-          <label class="control-label">Textarea</label>
-          <div class="controls">
-            <div class="textarea">
-                  <textarea type="" class="form-control mytextarea"> </textarea>
-            </div>
-          </div>
-        </div>
-    </fieldset>
-  </form>
+<script>
+$("form").submit(function() {	
+//	alert($("#hoststxtarea").val());
+//	alert($("#targetpasswd").val());
+//	var host = {"host": $("#hoststxtarea").val()};
+//	var passwd = {"passwd": $("#targetpasswd").val()};
+	$.post("/changpasswd", {"hostname":$("#hoststxtarea").val(),"passwd":$("#targetpasswd").val()}, function() {
+//		$("#result1").text(result);
+		alert("Data: " + data );
+		var content = $( data ).find( "#hoststxtarea" );
+	    $( "#result" ).empty().append( "host : " + $("#hoststxtarea").val() + "passwd : " +$("#targetpasswd").val() );
+	});
 
-<form class="form-horizontal">
-   <fieldset>
-      <div id="legend" class="">
-        <legend class="">表单名</legend>
-      </div>
-    <div class="control-group">
-          <label class="control-label" for="input01">Text input</label>
-          <div class="controls">
-            <input type="text" placeholder="placeholder" class="input-xlarge" />
-            <p class="help-block">Supporting help text</p>
-          </div>
-    </div>
-   </fieldset>
- </form>
-	<br></br>
-  <form class="form-horizontal">
-    <fieldset>
-      <div id="legend" class="">
-        <legend class="">表单名</legend>
-      </div>
-    <div class="control-group">
-          <label class="control-label">Textarea</label>
-          <div class="controls">
-            <div class="textarea">
-                  <textarea type="" class=""> </textarea>
-            </div>
-          </div>
-        </div>
-    </fieldset>
-  </form>
+});
+</script>
 	
+	
+
+<form action="/" id="searchForm">
+  <input type="text" name="s" placeholder="Search..."></input>
+  <input type="submit" value="Search"></input>
+</form>
+<!-- the result of the search will be rendered inside this div -->
+<div id="result"></div>
+ 
+<script>
+// Attach a submit handler to the form
+$( "#searchForm" ).submit(function( event ) {
+ 
+  // Stop form from submitting normally
+  event.preventDefault();
+ 
+  // Get some values from elements on the page:
+  var $form = $( this ),
+    term = $form.find( "input[name='s']" ).val(),
+    url = $form.attr( "action" );
+ 
+  // Send the data using post
+  var posting = $.post( url, { s: term } );
+ 
+  // Put the results in a div
+  posting.done(function( data ) {
+    var content = $( data ).find( "#content" );
+    $( "#result" ).empty().append( content );
+  });
+});
+</script>
 </body>
 </html>

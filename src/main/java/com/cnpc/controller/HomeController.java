@@ -1,12 +1,9 @@
 package com.cnpc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.cnpc.service.LogReaderService;
 import com.cnpc.service.SftpService;
-import com.cnpc.service.SshService;
 
 @Controller
 public class HomeController {
@@ -16,8 +13,10 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("/formPage")
-	public String formPage() {
+	@RequestMapping(value="/changpasswd")
+	public String changPass(@ModelAttribute("hostname") String hostname, @ModelAttribute("passwd") String passwd) {
+		System.out.println(hostname);
+		System.out.println(passwd);
 		return "formPage";
 	}
 	
@@ -43,11 +42,12 @@ public class HomeController {
 	
 	@RequestMapping("/backup")
 	public String backup() throws Exception {
-//		SftpService.sftpService();
-		SshService.sshService();
-		System.out.println(SshService.out);
+//		SshService.sshService();
+		SftpService sftpService = new SftpService();
+		sftpService.sftpService();
+//		System.out.println(SshService.out);
 		System.out.println("...................................");
-		LogReaderService.LogChecker();
+//		LogReaderService.LogChecker();
 		return "backup";
 		
 	}
