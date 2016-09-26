@@ -1,5 +1,6 @@
 package com.cnpc.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,10 +41,13 @@ public class HomeController {
 		return "hostlist";
 	}
 	
+	@Autowired
+	SftpService sftpService;
+	
 	@RequestMapping("/backup")
 	public String backup() throws Exception {
 //		SshService.sshService();
-		SftpService sftpService = new SftpService();
+//		SftpService sftpService = new SftpService();
 		sftpService.sftpService();
 //		System.out.println(SshService.out);
 		System.out.println("...................................");
