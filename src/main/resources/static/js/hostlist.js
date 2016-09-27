@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('#example').DataTable({
 		"ajax" : {
-			"url": "data/sampledata.json",
+			"url": "/listAllHosts",
 			"dataSrc": ""
 		},
 		"columns" : [ {
@@ -14,9 +14,9 @@ $(document).ready(function() {
 				}
 			}
 		}, {
-			"data" : "ip_address",
+			"data" : "ipAddress",
 			render : function(data, type, full, meta) {
-				if (!full["ip_address"]) {
+				if (!full["ipAddress"]) {
 					return ""
 				} else {
 					return data;
@@ -32,36 +32,36 @@ $(document).ready(function() {
 				}
 			}
 		}, {
-			"data" : "lifecycle_status",
+			"data" : "lifecycleStatus",
 			render : function(data, type, full, meta) {
-				if (!full["lifecycle_status"]) {
+				if (!full["lifecycleStatus"]) {
 					return ""
 				} else {
 					return data;
 				}
 			}
 		}, {
-			"data" : "platform_name",
+			"data" : "platformName",
 			render : function(data, type, full, meta) {
-				if (!full["platform_name"]) {
+				if (!full["platformName"]) {
 					return ""
 				} else {
 					return data;
 				}
 			}
 		}, {
-			"data" : "business_line",
+			"data" : "businessLine",
 			render : function(data, type, full, meta) {
-				if (!full["business_line"]) {
+				if (!full["businessLine"]) {
 					return ""
 				} else {
 					return data;
 				}
 			}
 		}, {
-			"data" : "node_type",
+			"data" : "nodeType",
 			render : function(data, type, full, meta) {
-				if (!full["node_type"]) {
+				if (!full["nodeType"]) {
 					return ""
 				} else {
 					return data;
@@ -77,9 +77,9 @@ $(document).ready(function() {
 				}
 			}
 		}, {
-			"data" : "administrator",
+			"data" : "administrators",
 			"render" : function(data, type, full, meta) {
-				if (!full["administrator"]) {
+				if (!full["administrators"]) {
 					return ""
 				} else {
 					return data;
