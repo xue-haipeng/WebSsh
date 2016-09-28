@@ -11,9 +11,18 @@ spring:
 
 # Sftp Configuration
 sftp:
-    ip: 10.30.47.218
-    username: wladm
-    passwd: mybasis0
+    ips:
+        - 10.30.36.56
+        - 10.30.47.97
+        - 10.30.47.96
+        - 10.30.49.48
+        - 10.30.36.55
+        - 10.30.36.56
+        - 10.30.37.11
+        - 11.11.3.58
+        - 11.11.3.250
+    username: itmuser
+    passwd: itmuser
     remoteFile: /usr/openv/sap_oracle/hot_database_backup.sh.out
     
 # Ssh Configuration

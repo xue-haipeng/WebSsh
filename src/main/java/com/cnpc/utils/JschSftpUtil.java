@@ -35,7 +35,7 @@ public class JschSftpUtil {
 			BufferedReader br = new BufferedReader(new InputStreamReader(out));
 			String line;
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+//				System.out.println(line);
 				//判断备份是否成功
 				if (line.indexOf("ended successfully") >= 0 || line.indexOf("ended in error") >= 0) {
 					// 获取最后一行				

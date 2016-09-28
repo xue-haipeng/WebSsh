@@ -61,8 +61,9 @@ public class BackupStatus {
 	protected BackupStatus() {
 	}
 
-	public BackupStatus(String ipAddress, String backupStatus) {
+	public BackupStatus(String ipAddress, Date recordDate, String backupStatus) {
 		this.ipAddress = ipAddress;
+		this.recordDate = recordDate;
 		this.backupStatus = backupStatus;
 	}
 }

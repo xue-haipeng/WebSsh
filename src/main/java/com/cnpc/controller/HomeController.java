@@ -1,5 +1,7 @@
 package com.cnpc.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -48,7 +50,7 @@ public class HomeController {
 	public String backup() throws Exception {
 //		SshService.sshService();
 //		SftpService sftpService = new SftpService();
-		String status = sftpService.getBakStatus();
+		Map<String, String> status = sftpService.getBakStatus();
 //		System.out.println(SshService.out);
 		System.out.println("......................." + status + ".............................");
 //		LogReaderService.LogChecker();
