@@ -48,9 +48,9 @@ public class HomeController {
 	public String backup() throws Exception {
 //		SshService.sshService();
 //		SftpService sftpService = new SftpService();
-		sftpService.sftpService();
+		String status = sftpService.getBakStatus();
 //		System.out.println(SshService.out);
-		System.out.println("...................................");
+		System.out.println("......................." + status + ".............................");
 //		LogReaderService.LogChecker();
 		return "backup";
 		
