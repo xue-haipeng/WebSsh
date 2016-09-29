@@ -60,7 +60,7 @@ public class HomeController {
 	@RequestMapping("/triggerBakCheck")
 	public String triggerBakCheck() {
 		sftpService.getBakStatus();
-		return null;
+		return "backup";
 	}
 
 }

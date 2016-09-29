@@ -220,17 +220,17 @@
 					$('#t_zk td:eq(6)').html(zkdp4[i][1]);
 				}				
 			}
+			$('table').find('td').each(function() {
+				if ($(this).text() == 'failed') {
+					$(this).css('color', 'red');
+				}
+				if ($(this).text() == 'succeed') {
+					$(this).css('color', 'green');
+				}
+			});
 		});
 		
 		
-		$('table').find('td').each(function() {
-			if ($(this).text() == 'failed') {
-				$(this).css('color', 'red');
-			}
-			if ($(this).text() == 'succeed') {
-				$(this).css('color', 'green');
-			}
-		});
 
 		var today = new Date();
 		var yesterday = new Date(today.getTime() - 24*60*60*1000);
