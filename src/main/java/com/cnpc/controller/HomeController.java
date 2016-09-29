@@ -43,19 +43,24 @@ public class HomeController {
 		return "hostlist";
 	}
 	
-	@Autowired
-	SftpService sftpService;
+	
 	
 	@RequestMapping("/backup")
 	public String backup() throws Exception {
-//		SshService.sshService();
-//		SftpService sftpService = new SftpService();
-		Map<String, String> status = sftpService.getBakStatus();
-//		System.out.println(SshService.out);
-		System.out.println("......................." + status + ".............................");
-//		LogReaderService.LogChecker();
+
+//		
+		System.out.println("....................................................");
 		return "backup";
 		
+	}
+	
+	@Autowired
+	SftpService sftpService;
+	
+	@RequestMapping("/triggerBakCheck")
+	public String triggerBakCheck() {
+		sftpService.getBakStatus();
+		return null;
 	}
 
 }

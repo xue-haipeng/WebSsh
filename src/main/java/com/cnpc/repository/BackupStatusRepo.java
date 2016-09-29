@@ -14,5 +14,7 @@ public interface BackupStatusRepo extends JpaRepository<BackupStatus, Long>{
 	List<BackupStatus> queryBackup();
 	
 	List<BackupStatus> findByRecordDate(Date date);
+	
+	List<BackupStatus> findByRecordDateBefore(Date date);
 
 }
