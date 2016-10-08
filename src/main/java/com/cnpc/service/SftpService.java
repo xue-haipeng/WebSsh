@@ -52,18 +52,6 @@ public class SftpService {
 	public void setRemoteFile(String remoteFile) {
 		this.remoteFile = remoteFile;
 	}
-
-	/*
-	 * public String getBakStatus() { System.out.println("ip: " + ip +
-	 * ", username: " + username + ", passwd: " + passwd + ", remoteFile: " +
-	 * remoteFile); JschSftpUtil.sftp(ip, username, passwd, remoteFile); String
-	 * lastLine = JschSftpUtil.getLastLine(); if
-	 * (lastLine.indexOf("successfully") >= 0) { return "succeed"; } else if
-	 * (lastLine.indexOf("successfully") < 0 && lastLine.indexOf("error") >= 0)
-	 * { return "failed"; } else { return "unknown"; }
-	 * 
-	 * }
-	 */
 	
 	@Autowired
 	private BackupStatusRepo repo;
@@ -86,12 +74,6 @@ public class SftpService {
 				repo.save(new BackupStatus(ip, today, "unknown"));
 			}
 		}
-//		repo.save(statusMap);
 		return statusMap;
-	}
-
-	public String saveStatus() {
-		
-		return "OK";
 	}
 }

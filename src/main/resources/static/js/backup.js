@@ -227,6 +227,9 @@
 				if ($(this).text() == 'succeed') {
 					$(this).css('color', 'green');
 				}
+				if ($(this).text() == 'unknown') {
+					$(this).css('color', 'yellow');
+				}
 			});
 		});
 		

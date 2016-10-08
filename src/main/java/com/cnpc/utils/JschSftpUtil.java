@@ -14,7 +14,7 @@ import com.jcraft.jsch.SftpException;
 public class JschSftpUtil {
 
 	private static final int PORT = 22;
-	private static String lastLine;
+	private static String lastLine = null;
 
 	public static void sftp(String ip, String username, String passwd, String remoteFile) {
 
@@ -35,10 +35,7 @@ public class JschSftpUtil {
 			BufferedReader br = new BufferedReader(new InputStreamReader(out));
 			String line;
 			while ((line = br.readLine()) != null) {
-//				System.out.println(line);
-				//判断备份是否成功
 				if (line.indexOf("ended successfully") >= 0 || line.indexOf("ended in error") >= 0) {
-					// 获取最后一行				
 					lastLine = line;
 				}
 			}
@@ -48,7 +45,9 @@ public class JschSftpUtil {
 		} catch (JSchException | SftpException | IOException e) {
 			System.out.println(e);
 		}
-
+		if (lastLine == null || "".equals(lastLine)) {
+			lastLine = "Unkown";
+		}
 	}
 
 	public static String getLastLine() {
