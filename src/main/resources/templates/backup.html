@@ -8,18 +8,30 @@
 <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
 
 <style type="text/css">
-#xo {
-    width: 30%;
-    max-width: 100%;
-    margin-top: 10px;
-    margin-left: 25px;
-}
-#zk {
-    width: 30%;
-    max-width: 100%;
-    margin-top: 10px;
-    margin-left: 20px;
-}
+	#xo {
+    	width: 30%;
+    	max-width: 100%;
+    	margin-top: 10px;
+    	margin-left: 25px;
+	}
+	#zk {
+    	width: 30%;
+    	max-width: 100%;
+    	margin-top: 10px;
+    	margin-left: 20px;
+	}
+	#erp {
+		width: 30%;
+		max-width: 100%;
+		margin-left: 25px;
+	}
+	body {
+		font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	}
+	th{
+		font-weight: normal;
+	}
+
 </style>
 </head>
 <body>
@@ -108,49 +120,170 @@
 		<h3>自开发平台</h3>
 		<table id = "t_zk" class="table">
 			<thead>
-				<tr>
-					<th>自主开发</th>
-					<th>前天</th>
-					<th>昨天</th>
-					<th>今天</th>
-				</tr>
+			<tr>
+				<th>自主开发</th>
+				<th>前天</th>
+				<th>昨天</th>
+				<th>今天</th>
+			</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">人力资源自主开发</th>
-					<td></td> <!-- 00 -->
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">软件开发管理平台</th>
-					<td></td> <!-- 03 -->
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">科研报表平台</th>
-					<td></td> <!-- 06 -->
-					<td></td>
-					<td></td>
-				</tr>
-<!-- 				<tr>
-					<th scope="row">合同管理平台</th>
-					<td>09</td>
-					<td>10</td>
-					<td>11</td>
-				</tr>
-				<tr>
-					<th scope="row">生产计划一体化</th>
-					<td>12</td>
-					<td>13</td>
-					<td>14</td>
-				</tr> -->
+			<tr>
+				<th scope="row">人力资源自主开发</th>
+				<td></td> <!-- 00 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">软件开发管理平台</th>
+				<td></td> <!-- 03 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">科研报表平台</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<!-- 			<tr>
+                                <th scope="row">合同管理平台</th>
+                                <td>09</td>
+                                <td>10</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">生产计划一体化</th>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                            </tr> -->
+			</tbody>
+		</table>
+		<h3>非结构化</h3>
+		<table id = "t_nosql" class="table">
+			<thead>
+			<tr>
+				<th>RAC</th>
+				<th>前天</th>
+				<th>昨天</th>
+				<th>今天</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th scope="row">非结构化RAC</th>
+				<td></td> <!-- 00 -->
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="bb" class="col-md-4">
+		<h3>决策支持平台</h3>
+		<table id = "t_bb" class="table">
+			<thead>
+			<tr>
+				<th>OBIEE</th>
+				<th>前天</th>
+				<th>昨天</th>
+				<th>今天</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th scope="row">勘探OBIEE</th>
+				<td></td> <!-- 00 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">装备OBIEE 2.0</th>
+				<td></td> <!-- 03 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">装备OBIEE 1.0</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">工技OBIEE 2.0</th>
+				<td></td> <!-- 09 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">工技OBIEE 1.0</th>
+				<td></td> <!-- 12 -->
+				<td></td>
+				<td></td>
+			</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
 
+<div class="row">
+	<div id="erp" class="col-md-4">
+		<h3>ERP平台</h3>
+		<table id = "t_erp" class="table">
+			<thead>
+			<tr>
+				<th>ERP</th>
+				<th>前天</th>
+				<th>昨天</th>
+				<th>今天</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th scope="row">人力资源HP1</th>
+				<td></td> <!-- 00 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">勘探生产EP6</th>
+				<td></td> <!-- 03 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">未上市FP1</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="aa" class="col-md-4">
+		<h3>权限平台</h3>
+		<table id = "t_aa" class="table">
+			<thead>
+			<tr>
+				<th>RAC</th>
+				<th>前天</th>
+				<th>昨天</th>
+				<th>今天</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th scope="row">GRC GP1</th>
+				<td></td> <!-- 00 -->
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 <script type="text/javascript" th:src="@{js/backup.js}"></script>
 </body>
 </html>

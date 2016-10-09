@@ -11,6 +11,12 @@
 			var zhdp5 = []
 			var zmdpt = []
 			var zkdp4 = []
+			var fhdps = []
+			var bodp6 = []
+			var bodpd_2 = []
+			var bodpd_1 = []
+			var bodp9_2 = []
+			var bodp9_1 = []
 			var j1 = 0
 	    	var j2 = 0
 	    	var j3 = 0
@@ -22,6 +28,12 @@
 	    	var j9 = 0
 	    	var j10 = 0
 	    	var j11 = 0
+			var j12 = 0
+			var j13 = 0
+			var j14 = 0
+			var j15 = 0
+			var j16 = 0
+			var j17 = 0
 	    	
 			for (i=0; i<data.length; i++) {
 				if(data[i].ipAddress == '10.30.37.11') {
@@ -64,7 +76,6 @@
 					var status = data[i].backupStatus
 					xsdpt[j8++] = [date, status]			
 				}
-				
 				//自主开发
 				if(data[i].ipAddress == '10.30.36.67') {
 					var date = data[i].recordDate
@@ -80,6 +91,38 @@
 					var date = data[i].recordDate
 					var status = data[i].backupStatus
 					zkdp4[j11++] = [date, status]			
+				}
+				//非结构化
+				if(data[i].ipAddress == '10.30.147.132') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					fhdps[j12++] = [date, status]
+				}
+				//决策平台
+				if(data[i].ipAddress == '10.30.147.122') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodp6[j13++] = [date, status]
+				}
+				if(data[i].ipAddress == '11.11.5.250') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodpd_2[j14++] = [date, status]
+				}
+				if(data[i].ipAddress == '10.30.37.251') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodpd_1[j15++] = [date, status]
+				}
+				if(data[i].ipAddress == '11.11.3.121') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodp9_2[j16++] = [date, status]
+				}
+				if(data[i].ipAddress == '10.30.35.123') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodp9_1[j17++] = [date, status]
 				}
 			}
 			
@@ -220,15 +263,89 @@
 					$('#t_zk td:eq(6)').html(zkdp4[i][1]);
 				}				
 			}
+			//非结构化
+			for (i = 0, l = fhdps.length; i < l; i++) {
+				var date = new Date(fhdps[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_nosql td:eq(2)').html(fhdps[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_nosql td:eq(1)').html(fhdps[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_nosql td:eq(0)').html(fhdps[i][1]);
+				}
+			}
+			//决策支持
+			for (i = 0, l = bodp6.length; i < l; i++) {
+				var date = new Date(bodp6[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(2)').html(bodp6[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(1)').html(bodp6[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(0)').html(bodp6[i][1]);
+				}
+			}
+			for (i = 0, l = bodpd_2.length; i < l; i++) {
+				var date = new Date(bodpd_2[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(5)').html(bodpd_2[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(4)').html(bodpd_2[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(3)').html(bodpd_2[i][1]);
+				}
+			}
+			for (i = 0, l = bodpd_1.length; i < l; i++) {
+				var date = new Date(bodpd_1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(8)').html(bodpd_1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(7)').html(bodpd_1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(6)').html(bodpd_1[i][1]);
+				}
+			}
+			for (i = 0, l = bodp9_2.length; i < l; i++) {
+				var date = new Date(bodp9_2[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(11)').html(bodp9_2[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(10)').html(bodp9_2[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(9)').html(bodp9_2[i][1]);
+				}
+			}
+			for (i = 0, l = bodp9_1.length; i < l; i++) {
+				var date = new Date(bodp9_1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(14)').html(bodp9_1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(13)').html(bodp9_1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(12)').html(bodp9_1[i][1]);
+				}
+			}
 			$('table').find('td').each(function() {
 				if ($(this).text() == 'failed') {
-					$(this).css('color', 'red');
+					$(this).text('Failed').css('color', 'red');
 				}
 				if ($(this).text() == 'succeed') {
-					$(this).css('color', 'green');
+					$(this).text('OK').css('color', 'green');
 				}
 				if ($(this).text() == 'unknown') {
-					$(this).css('color', 'yellow');
+					$(this).text('Error').css('color', 'yellow');
 				}
 			});
 		});
