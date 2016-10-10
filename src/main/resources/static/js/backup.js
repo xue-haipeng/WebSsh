@@ -17,6 +17,9 @@
 			var bodpd_1 = []
 			var bodp9_2 = []
 			var bodp9_1 = []
+			var bodpc_2 = []
+			var bodpc_1 = []
+			var bodpo = []
 			var j1 = 0
 	    	var j2 = 0
 	    	var j3 = 0
@@ -34,6 +37,9 @@
 			var j15 = 0
 			var j16 = 0
 			var j17 = 0
+			var j18 = 0
+			var j19 = 0
+			var j20 = 0
 	    	
 			for (i=0; i<data.length; i++) {
 				if(data[i].ipAddress == '10.30.37.11') {
@@ -124,6 +130,21 @@
 					var status = data[i].backupStatus
 					bodp9_1[j17++] = [date, status]
 				}
+				if(data[i].ipAddress == '11.11.3.186') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodpc_2[j18++] = [date, status]
+				}
+				if(data[i].ipAddress == '10.30.35.187') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodpc_1[j19++] = [date, status]
+				}
+				if(data[i].ipAddress == '10.30.35.251') {
+					var date = data[i].recordDate
+					var status = data[i].backupStatus
+					bodpo[j20++] = [date, status]
+				}
 			}
 			
 			var today = new Date();
@@ -175,55 +196,52 @@
 					$('#t_xo td:eq(9)').html(xodpo[i][1]);
 				}				
 			}
-			for (i = 0, l = xrdpt.length; i < l; i++) {
-				var date = new Date(xrdpt[i][0]);
-				if (date.getDate() == today.getDate()) {
-					$('#t_xo td:eq(14)').html(xrdpt[i][1]);
-				}
-				if (date.getDate() == today.getDate()-1) {
-					$('#t_xo td:eq(13)').html(xrdpt[i][1]);
-				}
-				if (date.getDate() == today.getDate()-2) {
-					$('#t_xo td:eq(12)').html(xrdpt[i][1]);
-				}				
-			}
 			for (i = 0, l = xmdpt.length; i < l; i++) {
 				var date = new Date(xmdpt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo td:eq(17)').html(xmdpt[i][1]);
+					$('#t_xo td:eq(14)').html(xmdpt[i][1]);
 				}
 				if (date.getDate() == today.getDate()-1) {
-					$('#t_xo td:eq(16)').html(xmdpt[i][1]);
+					$('#t_xo td:eq(13)').html(xmdpt[i][1]);
 				}
 				if (date.getDate() == today.getDate()-2) {
-					$('#t_xo td:eq(15)').html(xmdpt[i][1]);
+					$('#t_xo td:eq(12)').html(xmdpt[i][1]);
+				}
+			}
+			for (i = 0, l = xrdpt.length; i < l; i++) {
+				var date = new Date(xrdpt[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_xo td:eq(17)').html(xrdpt[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_xo td:eq(16)').html(xrdpt[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_xo td:eq(15)').html(xrdpt[i][1]);
 				}				
 			}
 			for (i = 0, l = xbdpt.length; i < l; i++) {
 				var date = new Date(xbdpt[i][0]);
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(20)').html(xbdpt[i][1]);
-					$('#t_xo td:eq(23)').html(xbdpt[i][1]);
 				}
 				if (date.getDate() == today.getDate()-1) {
 					$('#t_xo td:eq(19)').html(xbdpt[i][1]);
-					$('#t_xo td:eq(22)').html(xbdpt[i][1]);
 				}
 				if (date.getDate() == today.getDate()-2) {
 					$('#t_xo td:eq(18)').html(xbdpt[i][1]);
-					$('#t_xo td:eq(21)').html(xbdpt[i][1]);
-				}				
+				}
 			}
 			for (i = 0, l = xsdpt.length; i < l; i++) {
 				var date = new Date(xsdpt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo td:eq(26)').html(xsdpt[i][1]);
+					$('#t_xo td:eq(23)').html(xsdpt[i][1]);
 				}
 				if (date.getDate() == today.getDate()-1) {
-					$('#t_xo td:eq(25)').html(xsdpt[i][1]);
+					$('#t_xo td:eq(22)').html(xsdpt[i][1]);
 				}
 				if (date.getDate() == today.getDate()-2) {
-					$('#t_xo td:eq(24)').html(xsdpt[i][1]);
+					$('#t_xo td:eq(21)').html(xsdpt[i][1]);
 				}				
 			}
 			// 自主开发
@@ -335,6 +353,42 @@
 				}
 				if (date.getDate() == today.getDate()-2) {
 					$('#t_bb td:eq(12)').html(bodp9_1[i][1]);
+				}
+			}
+			for (i = 0, l = bodpc_2.length; i < l; i++) {
+				var date = new Date(bodpc_2[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(17)').html(bodpc_2[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(16)').html(bodpc_2[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(15)').html(bodpc_2[i][1]);
+				}
+			}
+			for (i = 0, l = bodpc_1.length; i < l; i++) {
+				var date = new Date(bodpc_1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(20)').html(bodpc_1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(19)').html(bodpc_1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(18)').html(bodpc_1[i][1]);
+				}
+			}
+			for (i = 0, l = bodpo.length; i < l; i++) {
+				var date = new Date(bodpo[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_bb td:eq(23)').html(bodpo[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_bb td:eq(22)').html(bodpo[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_bb td:eq(21)').html(bodpo[i][1]);
 				}
 			}
 			$('table').find('td').each(function() {

@@ -33,6 +33,9 @@ sftp:
         - 10.30.35.123
         - 11.11.3.121
         - 10.30.147.132
+        - 11.11.3.186
+        - 10.30.35.187
+        - 10.30.35.251
     username: itmuser
     passwd: itmuser
     remoteFile: /usr/openv/sap_oracle/hot_database_backup.sh.out
