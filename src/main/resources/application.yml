@@ -48,3 +48,13 @@ ssh:
     cmd:
         - df -h
         - ifconfig
+
+# NBU for SAP backup check
+sap:
+    hosts:
+        HP1: 11.11.4.88
+        CP6: 10.30.147.17
+        CPF: 11.11.3.18
+        CPO: 11.11.3.202
+    username: itmuser
+    passwd: itmuser

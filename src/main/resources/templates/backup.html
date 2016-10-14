@@ -24,10 +24,18 @@
 		max-width: 100%;
 		margin-top: 10px;
 	}
-	#erp {
+	#erp_1 {
 		width: 30%;
 		max-width: 100%;
 		margin-left: 25px;
+	}
+	#erp_2 {
+		width: 30%;
+		max-width: 100%;
+	}
+	#aa {
+		width: 30%;
+		max-width: 100%;
 	}
 	body {
 		font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
@@ -245,9 +253,60 @@
 </div>
 
 <div class="row">
-	<div id="erp" class="col-md-4">
-		<h3>ERP平台</h3>
-		<table id = "t_erp" class="table">
+	<div id="erp_1" class="col-md-4">
+		<h3>ERP 1.0平台</h3>
+		<table id = "t_erp_1" class="table">
+			<thead>
+			<tr>
+				<th>ERP</th>
+				<th>前天</th>
+				<th>昨天</th>
+				<th>今天</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<th scope="row">勘探生产EP6</th>
+				<td></td> <!-- 00 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">大庆油田EP7</th>
+				<td></td> <!-- 03 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">工程建设</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">工程技术</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">装备制造</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">化工销售</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="erp_2" class="col-md-4">
+		<h3>ERP 2.0平台</h3>
+		<table id = "t_erp_2" class="table">
 			<thead>
 			<tr>
 				<th>ERP</th>
@@ -264,13 +323,19 @@
 				<td></td>
 			</tr>
 			<tr>
-				<th scope="row">勘探生产EP6</th>
+				<th scope="row">勘探生产CP6</th>
 				<td></td> <!-- 03 -->
 				<td></td>
 				<td></td>
 			</tr>
 			<tr>
-				<th scope="row">未上市FP1</th>
+				<th scope="row">未上市CPF</th>
+				<td></td> <!-- 06 -->
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">海外CPO</th>
 				<td></td> <!-- 06 -->
 				<td></td>
 				<td></td>
@@ -278,6 +343,7 @@
 			</tbody>
 		</table>
 	</div>
+
 	<div id="aa" class="col-md-4">
 		<h3>权限平台</h3>
 		<table id = "t_aa" class="table">

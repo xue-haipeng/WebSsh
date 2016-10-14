@@ -399,7 +399,7 @@
 					$(this).text('OK').css('color', 'green');
 				}
 				if ($(this).text() == 'unknown') {
-					$(this).text('Error').css('color', 'yellow');
+					$(this).text('Error').css('color', 'orange');
 				}
 			});
 		});
