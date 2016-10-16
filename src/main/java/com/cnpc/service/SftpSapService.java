@@ -2,20 +2,15 @@ package com.cnpc.service;
 
 import com.cnpc.domain.BackupStatus;
 import com.cnpc.repository.BackupStatusRepo;
-import com.cnpc.utils.JschSftpUtil;
+import com.cnpc.utils.JschSftpSapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.nio.file.Files;
+import java.io.File;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
 
 @Component
 @ConfigurationProperties(prefix = "sap.hosts")
@@ -51,24 +46,23 @@ public class SftpSapService {
 	@Autowired
 	private BackupStatusRepo repo;
 	
-	public Map<String, String> getBakStatus() {
-		Map<String, String> statusMap = new HashMap<>();
-		Date today = new Date();
+	public void saveBakStatus() {
 		hosts.forEach((k, v) -> {
-			String logfile = "back" + k + "001.log";
-			String str = null;
-			try (Stream<String> stream = Files.lines(Paths.get("/oracle/" + k + "/sapbackup/" + logfile))) {
-				List<String> list = stream.collect(Collectors.toList());
-				str = list.get(list.size()-1);
-				System.out.println(str);
+			String logfile = null;
+			Path directory = Paths.get("/oracle/" + k + "/sapbackup");
+			Optional<File> newestFile = Arrays.stream(directory.toFile().listFiles()).filter(f -> f.isFile()).max((f1, f2) -> Long.compare(f1.lastModified(), f2.lastModified()));
+			if (newestFile.isPresent()) {
+				File newest = newestFile.get();
+				logfile = newest.getPath();
+				System.out.println(logfile);
 
-			} catch (IOException e) {
-				e.printStackTrace();
+				JschSftpSapUtil.sftp(v, username, passwd, logfile);
+				String status = JschSftpSapUtil.getLastLine();
+				repo.save(new BackupStatus(v, new Date(newest.lastModified()), status));
+			} else {
+				System.out.println("No Such Directory ....");
 			}
 
-			String dateStr = str.substring(35, 54);
-
 		});
-		return statusMap;
 	}
 }

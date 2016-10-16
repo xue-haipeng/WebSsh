@@ -44,9 +44,6 @@ public class JschSftpSapUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String dateStr = line.substring(35, 54);
-            System.out.println(dateStr);
-
             sftpChannel.disconnect();
             session.disconnect();
         } catch (JSchException e) {
