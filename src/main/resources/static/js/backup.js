@@ -1,149 +1,149 @@
 	$(document).ready(function() {
 		$.getJSON('/getBackupStatus', function (data) {
-			var xodps = []
-			var xodpf = []
-			var xodp4 = []
-			var xodpo = []
-			var xrdpt = []
-			var xmdpt = []
-			var xbdpt = []
-			var xsdpt = []
-			var zhdp5 = []
-			var zmdpt = []
-			var zkdp4 = []
-			var fhdps = []
-			var bodp6 = []
-			var bodpd_2 = []
-			var bodpd_1 = []
-			var bodp9_2 = []
-			var bodp9_1 = []
-			var bodpc_2 = []
-			var bodpc_1 = []
-			var bodpo = []
-			var j1 = 0
-	    	var j2 = 0
-	    	var j3 = 0
-	    	var j4 = 0
-	    	var j5 = 0
-	    	var j6 = 0
-	    	var j7 = 0
-	    	var j8 = 0
-	    	var j9 = 0
-	    	var j10 = 0
-	    	var j11 = 0
-			var j12 = 0
-			var j13 = 0
-			var j14 = 0
-			var j15 = 0
-			var j16 = 0
-			var j17 = 0
-			var j18 = 0
-			var j19 = 0
-			var j20 = 0
-	    	
+			var xodps = [];
+			var xodpf = [];
+			var xodp4 = [];
+			var xodpo = [];
+			var xrdpt = [];
+			var xmdpt = [];
+			var xbdpt = [];
+			var xsdpt = [];
+			var zhdp5 = [];
+			var zmdpt = [];
+			var zkdp4 = [];
+			var fhdps = [];
+			var bodp6 = [];
+			var bodpd_2 = [];
+			var bodpd_1 = [];
+			var bodp9_2 = [];
+			var bodp9_1 = [];
+			var bodpc_2 = [];
+			var bodpc_1 = [];
+			var bodpo = [];
+			var j1 = 0;
+	    	var j2 = 0;
+	    	var j3 = 0;
+	    	var j4 = 0;
+	    	var j5 = 0;
+	    	var j6 = 0;
+	    	var j7 = 0;
+	    	var j8 = 0;
+	    	var j9 = 0;
+	    	var j10 = 0;
+	    	var j11 = 0;
+			var j12 = 0;
+			var j13 = 0;
+			var j14 = 0;
+			var j15 = 0;
+			var j16 = 0;
+			var j17 = 0;
+			var j18 = 0;
+			var j19 = 0;
+			var j20 = 0;
+
 			for (i=0; i<data.length; i++) {
 				if(data[i].ipAddress == '10.30.37.11') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xodps[j1++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xodps[j1++] = [date, status];
 				}
 				if(data[i].ipAddress == '11.11.3.58') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xodpf[j2++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xodpf[j2++] = [date, status];
 				}
 				if(data[i].ipAddress == '11.11.4.58') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xodp4[j3++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xodp4[j3++] = [date, status];
 				}
 				if(data[i].ipAddress == '11.11.3.250') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xodpo[j4++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xodpo[j4++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.36.56') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xrdpt[j5++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xrdpt[j5++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.36.11') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xmdpt[j6++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xmdpt[j6++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.36.8') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xbdpt[j7++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xbdpt[j7++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.36.55') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					xsdpt[j8++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xsdpt[j8++] = [date, status];
 				}
 				//自主开发
 				if(data[i].ipAddress == '10.30.36.67') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					zhdp5[j9++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					zhdp5[j9++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.148.121') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					zmdpt[j10++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					zmdpt[j10++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.150.251') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					zkdp4[j11++] = [date, status]			
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					zkdp4[j11++] = [date, status];
 				}
 				//非结构化
 				if(data[i].ipAddress == '10.30.147.132') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					fhdps[j12++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					fhdps[j12++] = [date, status];
 				}
 				//决策平台
 				if(data[i].ipAddress == '10.30.147.122') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodp6[j13++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodp6[j13++] = [date, status];
 				}
 				if(data[i].ipAddress == '11.11.5.250') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodpd_2[j14++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodpd_2[j14++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.37.251') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodpd_1[j15++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodpd_1[j15++] = [date, status];
 				}
 				if(data[i].ipAddress == '11.11.3.121') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodp9_2[j16++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodp9_2[j16++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.35.123') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodp9_1[j17++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodp9_1[j17++] = [date, status];
 				}
 				if(data[i].ipAddress == '11.11.3.186') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodpc_2[j18++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodpc_2[j18++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.35.187') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodpc_1[j19++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodpc_1[j19++] = [date, status];
 				}
 				if(data[i].ipAddress == '10.30.35.251') {
-					var date = data[i].recordDate
-					var status = data[i].backupStatus
-					bodpo[j20++] = [date, status]
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bodpo[j20++] = [date, status];
 				}
 			}
 			
