@@ -1,12 +1,11 @@
 package com.cnpc.utils;
 
 import com.jcraft.jsch.*;
+
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class JschSftpSapUtil {
 
@@ -27,30 +26,25 @@ public class JschSftpSapUtil {
             ChannelSftp sftpChannel = (ChannelSftp) session.openChannel("sftp");
             sftpChannel.connect();
             System.out.println("SFTP Channel created.");
-
-            String line = null;
-            try (Stream<String> stream = Files.lines(Paths.get(remoteFile))) {
-                List<String> list = stream.collect(Collectors.toList());
-                line = list.get(list.size() - 1);
-                System.out.println(line);
-                if (line.indexOf("FULL") >= 0 || line.indexOf("ALL") >= 0) {
-                    System.out.println("OK");
-                    lastLine = "OK";
-                } else {
-                    System.out.println("Error");
-                    lastLine = "Failed";
+            InputStream out = null;
+            out = sftpChannel.get(remoteFile);
+            BufferedReader br = new BufferedReader(new InputStreamReader(out));
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.contains("FULL") || line.contains("ALL")) {
+                    lastLine = "succeed";
+                } else if (line.contains("............ ............... ................")) {
+                    lastLine = "failed";
                 }
-
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+            br.close();
             sftpChannel.disconnect();
             session.disconnect();
-        } catch (JSchException e) {
+        } catch (JSchException | SftpException | IOException e) {
             System.out.println(e);
         }
         if (lastLine == null || "".equals(lastLine)) {
-            lastLine = "Unkown";
+            lastLine = "unknown";
         }
     }
 

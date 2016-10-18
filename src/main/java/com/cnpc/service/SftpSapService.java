@@ -2,20 +2,19 @@ package com.cnpc.service;
 
 import com.cnpc.domain.BackupStatus;
 import com.cnpc.repository.BackupStatusRepo;
-import com.cnpc.utils.JschSftpSapUtil;
+import com.cnpc.utils.JschSftpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.Date;
+import java.util.Map;
 
 @Component
-@ConfigurationProperties(prefix = "sap.hosts")
+@ConfigurationProperties(prefix = "sap")
 public class SftpSapService {
 	private Map<String, String> hosts;
+	private Map<String, String> logfiles;
 	private String username;
 	private String passwd;
 
@@ -47,22 +46,13 @@ public class SftpSapService {
 	private BackupStatusRepo repo;
 	
 	public void saveBakStatus() {
-		hosts.forEach((k, v) -> {
-			String logfile = null;
-			Path directory = Paths.get("/oracle/" + k + "/sapbackup");
-			Optional<File> newestFile = Arrays.stream(directory.toFile().listFiles()).filter(f -> f.isFile()).max((f1, f2) -> Long.compare(f1.lastModified(), f2.lastModified()));
-			if (newestFile.isPresent()) {
-				File newest = newestFile.get();
-				logfile = newest.getPath();
-				System.out.println(logfile);
-
-				JschSftpSapUtil.sftp(v, username, passwd, logfile);
-				String status = JschSftpSapUtil.getLastLine();
-				repo.save(new BackupStatus(v, new Date(newest.lastModified()), status));
-			} else {
-				System.out.println("No Such Directory ....");
-			}
-
+        Date today = new Date();
+        System.out.println(logfiles);
+        logfiles.forEach((k, v) -> {
+            System.out.println("ip: " + k + " ........");
+            JschSftpUtil.sftp(k, username, passwd, v);
+            String bakStatus = JschSftpUtil.getLastLine();
+            repo.save(new BackupStatus(k, today, bakStatus));
 		});
 	}
 }

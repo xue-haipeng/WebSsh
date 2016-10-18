@@ -52,9 +52,15 @@ ssh:
 # NBU for SAP backup check
 sap:
     hosts:
-        HP1: 11.11.4.88
+#        HP1: 1.4.1.1188
         CP6: 10.30.147.17
         CPF: 11.11.3.18
         CPO: 11.11.3.202
+    logfiles:
+        10.30.148.8: /oracle/GP1/sapbackup/backGP1001.log
+        10.30.147.17: /oracle/CP6/sapbackup/backCP6002.log
+        11.11.3.18: /oracle/CPF/sapbackup/backCPF001.log
+        11.11.3.202: /oracle/CPO/sapbackup/backCPO001.log
+
     username: itmuser
     passwd: itmuser
