@@ -26,7 +26,15 @@ public class SftpSapService {
 		this.hosts = hosts;
 	}
 
-	public String getUsername() {
+    public Map<String, String> getLogfiles() {
+        return logfiles;
+    }
+
+    public void setLogfiles(Map<String, String> logfiles) {
+        this.logfiles = logfiles;
+    }
+
+    public String getUsername() {
 		return username;
 	}
 

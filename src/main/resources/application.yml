@@ -61,6 +61,14 @@ sap:
         10.30.147.17: /oracle/CP6/sapbackup/backCP6002.log
         11.11.3.18: /oracle/CPF/sapbackup/backCPF001.log
         11.11.3.202: /oracle/CPO/sapbackup/backCPO001.log
+        10.30.147.26: /oracle/EP6/sapbackup/backEP6001.log
+        10.30.147.33: /oracle/EP7/sapbackup/backEP7001.log
+        11.11.3.149: /oracle/COP/sapbackup/backCOP002.log
+        11.11.3.74: /oracle/EP9/sapbackup/backEP9001.log
+        11.11.5.213: /oracle/EMP/sapbackup/backEMP001.log
+        10.30.36.157: /oracle/EP1/sapbackup/backEP1001.log
+
+
 
     username: itmuser
     passwd: itmuser

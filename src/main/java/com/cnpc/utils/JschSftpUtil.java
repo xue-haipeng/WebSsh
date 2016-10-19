@@ -1,15 +1,11 @@
 package com.cnpc.utils;
 
+import com.jcraft.jsch.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
-import com.jcraft.jsch.SftpException;
 
 public class JschSftpUtil {
 
@@ -35,8 +31,10 @@ public class JschSftpUtil {
 			BufferedReader br = new BufferedReader(new InputStreamReader(out));
 			String line;
 			while ((line = br.readLine()) != null) {
-				if (line.indexOf("ended successfully") >= 0 || line.indexOf("ended in error") >= 0) {
-					lastLine = line;
+				if (line.contains("FULL") || line.contains("ALL")) {
+					lastLine = "succeed";
+				} else if (line.contains("............ ............... ................")) {
+					lastLine = "failed";
 				}
 			}
 			br.close();
@@ -46,7 +44,7 @@ public class JschSftpUtil {
 			System.out.println(e);
 		}
 		if (lastLine == null || "".equals(lastLine)) {
-			lastLine = "Unkown";
+			lastLine = "unkown";
 		}
 	}
 
