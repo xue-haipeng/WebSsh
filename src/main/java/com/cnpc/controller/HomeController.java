@@ -58,7 +58,7 @@ public class HomeController {
 	
 	@RequestMapping("/triggerBakCheck")
 	public String triggerBakCheck() {
-		sftpService.getBakStatus();
+		sftpService.saveBakStatus();
 		return "backup";
 	}
 
@@ -69,5 +69,10 @@ public class HomeController {
 	public String triggerSapBakCheck() {
 		sftpSapService.saveBakStatus();
 		return "backup";
+	}
+
+	@RequestMapping("/export")
+	public String export() {
+		return "excel_export";
 	}
 }

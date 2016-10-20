@@ -31,9 +31,9 @@ public class JschSftpUtil {
 			BufferedReader br = new BufferedReader(new InputStreamReader(out));
 			String line;
 			while ((line = br.readLine()) != null) {
-				if (line.contains("FULL") || line.contains("ALL")) {
+				if (line.contains("successfully")) {
 					lastLine = "succeed";
-				} else if (line.contains("............ ............... ................")) {
+				} else if (line.contains("ended in error")) {
 					lastLine = "failed";
 				}
 			}

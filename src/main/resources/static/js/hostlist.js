@@ -4,6 +4,10 @@ $(document).ready(function() {
 			"url": "/listAllHosts",
 			"dataSrc": ""
 		},
+		"dom": 'lBfrtip',
+		"buttons": [
+			'excelHtml5',
+		],
 		"columns" : [ {
 			"data" : "hostname",
 			render : function(data, type, full, meta) {

@@ -1,17 +1,16 @@
 package com.cnpc.service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.cnpc.domain.BackupStatus;
+import com.cnpc.repository.BackupStatusRepo;
+import com.cnpc.utils.JschSftpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import com.cnpc.domain.BackupStatus;
-import com.cnpc.repository.BackupStatusRepo;
-import com.cnpc.utils.JschSftpUtil;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Component
 @ConfigurationProperties(prefix = "sftp")
@@ -56,24 +55,14 @@ public class SftpService {
 	@Autowired
 	private BackupStatusRepo repo;
 	
-	public Map<String, String> getBakStatus() {
+	public void saveBakStatus() {
 		Map<String, String> statusMap = new HashMap<>();
 		Date today = new Date();
 		for (String ip : ips) {
 			System.out.println("ip: " + ip + " ........");
 			JschSftpUtil.sftp(ip, username, passwd, remoteFile);
 			String bakStatus = JschSftpUtil.getLastLine();
-			if (bakStatus.indexOf("successfully") >= 0) {
-				statusMap.put(ip, "succeed");
-				repo.save(new BackupStatus(ip, today, "succeed"));
-			} else if (bakStatus.indexOf("error") >= 0){
-				statusMap.put(ip, "failed");
-				repo.save(new BackupStatus(ip, today, "failed"));
-			} else {
-				statusMap.put(ip, "unknown");
-				repo.save(new BackupStatus(ip, today, "unknown"));
-			}
+			repo.save(new BackupStatus(ip, today, bakStatus));
 		}
-		return statusMap;
 	}
 }

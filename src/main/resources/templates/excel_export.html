@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ERP应用集成项目综合运维监控平台</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{css/jquery.dataTables.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{css/dataTables.semanticui.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{css/dataTables.bootstrap.min.css}" />
+    <script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+    <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+    <script th:src="@{js/jquery.dataTables.min.js}"></script>
+
+
+    <script th:src="@{js/dataTables.buttons.min.js}"></script>
+    <script th:src="@{js/buttons.flash.min.js}"></script>
+    <script th:src="@{js/jszip.min.js}"></script>
+    <script th:src="@{js/pdfmake.min.js}"></script>
+    <script th:src="@{js/vfs_fonts.js}"></script>
+    <script th:src="@{js/buttons.html5.min.js}"></script>
+    <script th:src="@{js/buttons.print.min.js}"></script>
+
+<script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            } );
+        } );
+
+    </script>
+</head>
+<body class="dt-example">
+<div class="container">
+    <section>
+        <table id="example" class="display nowrap" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Angelica Ramos</td>
+                <td>Chief Executive Officer (CEO)</td>
+                <td>London</td>
+                <td>47</td>
+                <td>2009/10/09</td>
+                <td>$1,200,000</td>
+            </tr>
+            <tr>
+                <td>Gavin Joyce</td>
+                <td>Developer</td>
+                <td>Edinburgh</td>
+                <td>42</td>
+                <td>2010/12/22</td>
+                <td>$92,575</td>
+            </tr>
+            <tr>
+                <td>Jennifer Chang</td>
+                <td>Regional Director</td>
+                <td>Singapore</td>
+                <td>28</td>
+                <td>2010/11/14</td>
+                <td>$357,650</td>
+            </tr>
+            <tr>
+                <td>Brenden Wagner</td>
+                <td>Software Engineer</td>
+                <td>San Francisco</td>
+                <td>28</td>
+                <td>2011/06/07</td>
+                <td>$206,850</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+</body>
+</html>
