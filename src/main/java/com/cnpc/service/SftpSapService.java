@@ -2,7 +2,7 @@ package com.cnpc.service;
 
 import com.cnpc.domain.BackupStatus;
 import com.cnpc.repository.BackupStatusRepo;
-import com.cnpc.utils.JschSftpUtil;
+import com.cnpc.utils.JschSftpSapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -58,8 +58,8 @@ public class SftpSapService {
         System.out.println(logfiles);
         logfiles.forEach((k, v) -> {
             System.out.println("ip: " + k + " ........");
-            JschSftpUtil.sftp(k, username, passwd, v);
-            String bakStatus = JschSftpUtil.getLastLine();
+            JschSftpSapUtil.sftp(k, username, passwd, v);
+            String bakStatus = JschSftpSapUtil.getLastLine();
             repo.save(new BackupStatus(k, today, bakStatus));
 		});
 	}

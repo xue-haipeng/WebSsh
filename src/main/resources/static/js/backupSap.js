@@ -11,6 +11,7 @@
 			var ep9 = [];
 			var emp = [];
 			var ep1 = [];
+			var jp1 = [];
 			var j1 = 0;
 	    	var j2 = 0;
 	    	var j3 = 0;
@@ -22,6 +23,7 @@
 			var j9 = 0;
 			var j10 = 0;
 			var j11 = 0;
+			var j12 = 0;
 	    	
 			for (i=0; i<data.length; i++) {
 				if(data[i].ipAddress == '11.11.4.88') {
@@ -79,6 +81,11 @@
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
 					ep1[j11++] = [date, status];
+				}
+				if(data[i].ipAddress == '11.11.49.105') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					jp1[j12++] = [date, status];
 				}
 			}
 			
@@ -214,6 +221,18 @@
 				}
 				if (date.getDate() == today.getDate()-2) {
 					$('#t_erp_1 td:eq(15)').html(ep1[i][1]);
+				}
+			}
+			for (i = 0, l = jp1.length; i < l; i++) {
+				var date = new Date(jp1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_jp1 td:eq(2)').html(jp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_jp1 td:eq(1)').html(jp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_jp1 td:eq(0)').html(jp1[i][1]);
 				}
 			}
 

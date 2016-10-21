@@ -31,6 +31,7 @@ public class JschSftpSapUtil {
             BufferedReader br = new BufferedReader(new InputStreamReader(out));
             String line;
             while ((line = br.readLine()) != null) {
+                System.out.println(line);
                 if (line.contains("FULL") || line.contains("ALL")) {
                     lastLine = "succeed";
                 } else if (line.contains("............ ............... ................")) {

@@ -11,6 +11,8 @@
 			var zhdp5 = [];
 			var zmdpt = [];
 			var zkdp4 = [];
+			var bmdpt = [];
+			var audpt = [];
 			var fhdps = [];
 			var bodp6 = [];
 			var bodpd_2 = [];
@@ -40,6 +42,8 @@
 			var j18 = 0;
 			var j19 = 0;
 			var j20 = 0;
+			var j21 = 0;
+			var j22 = 0;
 
 			for (i=0; i<data.length; i++) {
 				if(data[i].ipAddress == '10.30.37.11') {
@@ -97,6 +101,16 @@
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
 					zkdp4[j11++] = [date, status];
+				}
+				if(data[i].ipAddress == '10.30.148.119') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bmdpt[j21++] = [date, status];
+				}
+				if(data[i].ipAddress == '10.30.148.120') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					audpt[j22++] = [date, status];
 				}
 				//非结构化
 				if(data[i].ipAddress == '10.30.147.132') {
@@ -281,6 +295,18 @@
 					$('#t_zk td:eq(6)').html(zkdp4[i][1]);
 				}				
 			}
+			for (i = 0, l = bmdpt.length; i < l; i++) {
+				var date = new Date(bmdpt[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_zk td:eq(11)').html(bmdpt[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_zk td:eq(10)').html(bmdpt[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_zk td:eq(9)').html(bmdpt[i][1]);
+				}
+			}
 			//非结构化
 			for (i = 0, l = fhdps.length; i < l; i++) {
 				var date = new Date(fhdps[i][0]);
@@ -292,6 +318,19 @@
 				}
 				if (date.getDate() == today.getDate()-2) {
 					$('#t_nosql td:eq(0)').html(fhdps[i][1]);
+				}
+			}
+			//审计信息/报表
+			for (i = 0, l = audpt.length; i < l; i++) {
+				var date = new Date(audpt[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_au td:eq(2)').html(audpt[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_au td:eq(1)').html(audpt[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_au td:eq(0)').html(audpt[i][1]);
 				}
 			}
 			//决策支持
@@ -403,8 +442,6 @@
 				}
 			});
 		});
-		
-		
 
 		var today = new Date();
 		var yesterday = new Date(today.getTime() - 24*60*60*1000);

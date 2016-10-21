@@ -70,9 +70,4 @@ public class HomeController {
 		sftpSapService.saveBakStatus();
 		return "backup";
 	}
-
-	@RequestMapping("/export")
-	public String export() {
-		return "excel_export";
-	}
 }
