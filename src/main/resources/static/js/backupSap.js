@@ -12,6 +12,10 @@
 			var emp = [];
 			var ep1 = [];
 			var jp1 = [];
+			var wp1 = [];
+			var bp1 = [];
+			var pp1 = [];
+			var xp1 = [];
 			var j1 = 0;
 	    	var j2 = 0;
 	    	var j3 = 0;
@@ -24,6 +28,10 @@
 			var j10 = 0;
 			var j11 = 0;
 			var j12 = 0;
+			var j13 = 0;
+			var j14 = 0;
+			var j15 = 0;
+			var j16 = 0;
 	    	
 			for (i=0; i<data.length; i++) {
 				if(data[i].ipAddress == '11.11.4.88') {
@@ -86,6 +94,26 @@
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
 					jp1[j12++] = [date, status];
+				}
+				if(data[i].ipAddress == '11.11.47.44') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					wp1[j13++] = [date, status];
+				}
+				if(data[i].ipAddress == '11.11.47.65') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					bp1[j14++] = [date, status];
+				}
+				if(data[i].ipAddress == '11.11.47.62') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					pp1[j15++] = [date, status];
+				}
+				if(data[i].ipAddress == '11.11.47.25') {
+					var date = data[i].recordDate;
+					var status = data[i].backupStatus;
+					xp1[j16++] = [date, status];
 				}
 			}
 			
@@ -235,6 +263,54 @@
 					$('#t_jp1 td:eq(0)').html(jp1[i][1]);
 				}
 			}
+			for (i = 0, l = wp1.length; i < l; i++) {
+				var date = new Date(wp1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_erp_1 td:eq(20)').html(wp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_erp_1 td:eq(19)').html(wp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_erp_1 td:eq(18)').html(wp1[i][1]);
+				}
+			}
+			for (i = 0, l = bp1.length; i < l; i++) {
+				var date = new Date(bp1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_erp_1 td:eq(23)').html(bp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_erp_1 td:eq(22)').html(bp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_erp_1 td:eq(21)').html(bp1[i][1]);
+				}
+			}
+			for (i = 0, l = pp1.length; i < l; i++) {
+				var date = new Date(pp1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_erp_1 td:eq(26)').html(pp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_erp_1 td:eq(25)').html(pp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_erp_1 td:eq(24)').html(pp1[i][1]);
+				}
+			}
+			for (i = 0, l = xp1.length; i < l; i++) {
+				var date = new Date(xp1[i][0]);
+				if (date.getDate() == today.getDate()) {
+					$('#t_erp_1 td:eq(29)').html(xp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-1) {
+					$('#t_erp_1 td:eq(28)').html(xp1[i][1]);
+				}
+				if (date.getDate() == today.getDate()-2) {
+					$('#t_erp_1 td:eq(27)').html(xp1[i][1]);
+				}
+			}
 
 			$('table').find('td').each(function() {
 				if ($(this).text() == 'failed') {
@@ -244,7 +320,7 @@
 					$(this).text('OK').css('color', 'green');
 				}
 				if ($(this).text() == 'unknown') {
-					$(this).text('Error').css('color', 'orange');
+					$(this).text('Unkown').css('color', 'orange');
 				}
 			});
 		});

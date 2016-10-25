@@ -6,6 +6,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class JschSftpSapUtil {
 
@@ -30,11 +34,20 @@ public class JschSftpSapUtil {
             out = sftpChannel.get(remoteFile);
             BufferedReader br = new BufferedReader(new InputStreamReader(out));
             String line;
+            Date today = new Date();
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
             while ((line = br.readLine()) != null) {
 //              System.out.println(line);
-                if (line.contains("FULL") || line.contains("ALL")) {
+                String dateStr = line.substring(35, 54);
+                Date recDate = new Date();
+                try {
+                    recDate = format.parse(dateStr);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if (recDate.after(getPreviousDate(today)) && (line.contains("FULL") || line.contains("ALL"))) {
                     lastLine = "succeed";
-                } else if (line.contains("............ ............... ................")) {
+                } else if (recDate.after(getPreviousDate(today)) && line.contains("..... ..... .....  ........ ................ ")) {
                     lastLine = "failed";
                 }
             }
@@ -52,4 +65,13 @@ public class JschSftpSapUtil {
     public static String getLastLine() {
         return lastLine;
     }
+
+    public static Date getPreviousDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        date = calendar.getTime();
+        return date;
+    }
+
 }

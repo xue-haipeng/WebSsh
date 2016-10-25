@@ -438,7 +438,7 @@
 					$(this).text('OK').css('color', 'green');
 				}
 				if ($(this).text() == 'unknown') {
-					$(this).text('Error').css('color', 'orange');
+					$(this).text('Unkown').css('color', 'orange');
 				}
 			});
 		});

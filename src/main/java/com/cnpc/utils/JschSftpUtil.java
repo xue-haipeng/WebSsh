@@ -44,7 +44,7 @@ public class JschSftpUtil {
 			System.out.println(e);
 		}
 		if (lastLine == null || "".equals(lastLine)) {
-			lastLine = "unkown";
+			lastLine = "unknown";
 		}
 	}
 
