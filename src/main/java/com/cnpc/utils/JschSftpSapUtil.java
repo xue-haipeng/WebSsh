@@ -45,10 +45,15 @@ public class JschSftpSapUtil {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                if (recDate.after(getPreviousDate(today)) && (line.contains("FULL") || line.contains("ALL"))) {
-                    lastLine = "succeed";
-                } else if (recDate.after(getPreviousDate(today)) && line.contains("..... ..... .....  ........ ................ ")) {
-                    lastLine = "failed";
+                if (recDate.after(getPreviousDate(today))) {
+//                  System.out.println("Record Date is: " + recDate);
+                    if (line.contains("FULL") || line.contains("ALL")) {
+                        lastLine = "succeed";
+                    } else if (line.contains("..... ..... .....  ........ ................ ")) {
+                        lastLine = "failed";
+                    }
+                } else {
+                    lastLine = "unknown";
                 }
             }
             br.close();
