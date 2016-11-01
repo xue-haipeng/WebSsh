@@ -162,15 +162,19 @@
 			}
 			
 			var today = new Date();
+			var ms_ystd = today.getTime() - 1000*60*60*24;
+			var ms_dbyd = today.getTime() - 1000*60*60*48;
+			var ystd = new Date(ms_ystd);
+			var dbyd = new Date(ms_dbyd);
 			for (i = 0, l = xodps.length; i < l; i++) {
 				var date = new Date(xodps[i][0]);
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(2)').html(xodps[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(1)').html(xodps[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(0)').html(xodps[i][1]);
 				}				
 			}
@@ -179,10 +183,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(5)').html(xodpf[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(4)').html(xodpf[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(3)').html(xodpf[i][1]);
 				}				
 			}
@@ -191,10 +195,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(8)').html(xodp4[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(7)').html(xodp4[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(6)').html(xodp4[i][1]);
 				}				
 			}
@@ -203,10 +207,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(11)').html(xodpo[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(10)').html(xodpo[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(9)').html(xodpo[i][1]);
 				}				
 			}
@@ -215,10 +219,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(14)').html(xmdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(13)').html(xmdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(12)').html(xmdpt[i][1]);
 				}
 			}
@@ -227,10 +231,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(17)').html(xrdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(16)').html(xrdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(15)').html(xrdpt[i][1]);
 				}				
 			}
@@ -239,10 +243,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(20)').html(xbdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(19)').html(xbdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(18)').html(xbdpt[i][1]);
 				}
 			}
@@ -251,10 +255,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_xo td:eq(23)').html(xsdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_xo td:eq(22)').html(xsdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_xo td:eq(21)').html(xsdpt[i][1]);
 				}				
 			}
@@ -264,10 +268,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_zk td:eq(2)').html(zhdp5[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_zk td:eq(1)').html(zhdp5[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_zk td:eq(0)').html(zhdp5[i][1]);
 				}				
 			}
@@ -276,10 +280,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_zk td:eq(5)').html(zmdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_zk td:eq(4)').html(zmdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_zk td:eq(3)').html(zmdpt[i][1]);
 				}				
 			}
@@ -288,10 +292,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_zk td:eq(8)').html(zkdp4[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_zk td:eq(7)').html(zkdp4[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_zk td:eq(6)').html(zkdp4[i][1]);
 				}				
 			}
@@ -300,10 +304,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_zk td:eq(11)').html(bmdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_zk td:eq(10)').html(bmdpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_zk td:eq(9)').html(bmdpt[i][1]);
 				}
 			}
@@ -313,10 +317,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_nosql td:eq(2)').html(fhdps[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_nosql td:eq(1)').html(fhdps[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_nosql td:eq(0)').html(fhdps[i][1]);
 				}
 			}
@@ -326,10 +330,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_au td:eq(2)').html(audpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_au td:eq(1)').html(audpt[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_au td:eq(0)').html(audpt[i][1]);
 				}
 			}
@@ -339,10 +343,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(2)').html(bodp6[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(1)').html(bodp6[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(0)').html(bodp6[i][1]);
 				}
 			}
@@ -351,10 +355,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(5)').html(bodpd_2[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(4)').html(bodpd_2[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(3)').html(bodpd_2[i][1]);
 				}
 			}
@@ -363,10 +367,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(8)').html(bodpd_1[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(7)').html(bodpd_1[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(6)').html(bodpd_1[i][1]);
 				}
 			}
@@ -375,10 +379,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(11)').html(bodp9_2[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(10)').html(bodp9_2[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(9)').html(bodp9_2[i][1]);
 				}
 			}
@@ -387,10 +391,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(14)').html(bodp9_1[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(13)').html(bodp9_1[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(12)').html(bodp9_1[i][1]);
 				}
 			}
@@ -399,10 +403,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(17)').html(bodpc_2[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(16)').html(bodpc_2[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(15)').html(bodpc_2[i][1]);
 				}
 			}
@@ -411,10 +415,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(20)').html(bodpc_1[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(19)').html(bodpc_1[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(18)').html(bodpc_1[i][1]);
 				}
 			}
@@ -423,10 +427,10 @@
 				if (date.getDate() == today.getDate()) {
 					$('#t_bb td:eq(23)').html(bodpo[i][1]);
 				}
-				if (date.getDate() == today.getDate()-1) {
+				if (date.getDate() == ystd.getDate()) {
 					$('#t_bb td:eq(22)').html(bodpo[i][1]);
 				}
-				if (date.getDate() == today.getDate()-2) {
+				if (date.getDate() == dbyd.getDate()) {
 					$('#t_bb td:eq(21)').html(bodpo[i][1]);
 				}
 			}
