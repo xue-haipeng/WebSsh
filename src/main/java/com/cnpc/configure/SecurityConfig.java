@@ -1,13 +1,11 @@
 package com.cnpc.configure;
 
 import com.cnpc.service.UsersService;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
 /**
  * Created by Xue on 11/02/16.
@@ -19,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UsersService usersService() {
         return new UsersService();
     }
-
+/*
     @Bean
     public TokenBasedRememberMeServices rememberMeServices() {
         return new TokenBasedRememberMeServices("remember-me-key", usersService());
@@ -28,21 +26,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new StandardPasswordEncoder();
-    }
+    }*/
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .eraseCredentials(true)
-                .userDetailsService(userService())
-                .passwordEncoder(passwordEncoder());
+                .userDetailsService(usersService());
+//                .passwordEncoder(passwordEncoder());
     }
-/*
 
+/**
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("xuehaipeng").password("ramily").roles("ADMIN")
+                .withUser("admin").password("admin").roles("ADMIN")
                 .and()
                 .withUser("guest").password("guest").roles("USER");
     }
@@ -64,10 +62,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/logout")
                 .permitAll()
-                .logoutSuccessUrl("/login?logout")
-                .and()
+                .logoutSuccessUrl("/login?logout");
+     /*           .and()
                 .rememberMe()
                 .rememberMeServices(rememberMeServices())
-                .key("remember-me-key");
+                .key("remember-me-key");*/
     }
 }
