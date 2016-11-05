@@ -21,7 +21,7 @@ $(function () {
 	            type: 'bar'
 	        },
 	        title: {
-	            text: '云平台各主机CPU使用情况'
+	            text: '云平台ERP各主机CPU使用情况'
 	        },
 	        subtitle: {
 	            text: '数据来源于F5项目Tivoli系统数据库'
@@ -67,12 +67,15 @@ $(function () {
 	            enabled: false
 	        },
 	        series: [{
-	            name: '最近12小时平均CPU使用率',
-	            data: [h1.avgcpu12, h2.avgcpu12, h3.avgcpu12, h4.avgcpu12, h5.avgcpu12, h6.avgcpu12, h7.avgcpu12, h8.avgcpu12, h9.avgcpu12, h10.avgcpu12, h11.avgcpu12, h12.avgcpu12, h13.avgcpu12, h14.avgcpu12, h15.avgcpu12]
+	            name: '%Avg, 3h',
+	            data: [h1.avgcpu3, h2.avgcpu3, h3.avgcpu3, h4.avgcpu3, h5.avgcpu3, h6.avgcpu3, h7.avgcpu3, h8.avgcpu3, h9.avgcpu3, h10.avgcpu3, h11.avgcpu3, h12.avgcpu3, h13.avgcpu3, h14.avgcpu3, h15.avgcpu3]
 	        }, {
-	            name: '最近24小时平均CPU使用率',
-	            data: [h1.avgcpu24, h2.avgcpu24, h3.avgcpu24, h4.avgcpu24, h5.avgcpu24, h6.avgcpu24, h7.avgcpu24, h8.avgcpu24, h9.avgcpu24, h10.avgcpu24, h11.avgcpu24, h12.avgcpu24, h13.avgcpu24, h14.avgcpu24, h15.avgcpu24]
-	        }]
+	            name: '%Avg, 6h',
+	            data: [h1.avgcpu6, h2.avgcpu6, h3.avgcpu6, h4.avgcpu6, h5.avgcpu6, h6.avgcpu6, h7.avgcpu6, h8.avgcpu6, h9.avgcpu6, h10.avgcpu6, h11.avgcpu6, h12.avgcpu6, h13.avgcpu6, h14.avgcpu6, h15.avgcpu6]
+	        }, {
+				name: '%Avg, 12h',
+				data: [h1.avgcpu12, h2.avgcpu12, h3.avgcpu12, h4.avgcpu12, h5.avgcpu12, h6.avgcpu12, h7.avgcpu12, h8.avgcpu12, h9.avgcpu12, h10.avgcpu12, h11.avgcpu12, h12.avgcpu12, h13.avgcpu12, h14.avgcpu12, h15.avgcpu12]
+			}]
 	    });
 	});    
 });

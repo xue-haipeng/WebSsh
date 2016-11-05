@@ -11,10 +11,12 @@ public class TopCpuHost {
 	@Id
 	@Column(name = "hostname")
 	private String hostname;
+	@Column(name = "avgcpu3")
+	private Double avgcpu3;
+	@Column(name = "avgcpu6")
+	private Double avgcpu6;
 	@Column(name = "avgcpu12")
 	private Double avgcpu12;
-	@Column(name = "avgcpu24")
-	private Double avgcpu24;
 
 	public String getHostname() {
 		return hostname;
@@ -24,6 +26,22 @@ public class TopCpuHost {
 		this.hostname = hostname;
 	}
 
+	public Double getAvgcpu3() {
+		return avgcpu3;
+	}
+
+	public void setAvgcpu3(Double avgcpu3) {
+		this.avgcpu3 = avgcpu3;
+	}
+
+	public Double getAvgcpu6() {
+		return avgcpu6;
+	}
+
+	public void setAvgcpu6(Double avgcpu6) {
+		this.avgcpu6 = avgcpu6;
+	}
+
 	public Double getAvgcpu12() {
 		return avgcpu12;
 	}
@@ -31,13 +49,4 @@ public class TopCpuHost {
 	public void setAvgcpu12(Double avgcpu12) {
 		this.avgcpu12 = avgcpu12;
 	}
-
-	public Double getAvgcpu24() {
-		return avgcpu24;
-	}
-
-	public void setAvgcpu24(Double avgcpu24) {
-		this.avgcpu24 = avgcpu24;
-	}
-
 }

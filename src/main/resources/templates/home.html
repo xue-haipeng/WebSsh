@@ -32,6 +32,18 @@ img{margin:0 auto 0 auto;}
     text-align: center;
     width: 100%;
   }
+  #login {
+    padding-right: 6%;
+  }
+#logout {
+  padding-right: 14%;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  height:100%;
+}
 </style>
 
   </head>
@@ -58,6 +70,23 @@ img{margin:0 auto 0 auto;}
                 <li><a href="/hostlist">Hosts</a></li>
               </ul>
             </div>
+            <div id="login" th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/login">Login</a></li>
+              </ul>
+            </div>
+            <div id="logout" th:if="${#httpServletRequest.remoteUser != null}" class="navbar-right navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Welcome <span th:text="${#httpServletRequest.remoteUser}"></span><b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="logout"><a href="/logout">Logout <span th:text="${#httpServletRequest.remoteUser}"></span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>
@@ -78,8 +107,8 @@ img{margin:0 auto 0 auto;}
               <a class="app-ul1-a" href="/availability">
                 <img src="image/application-status.png" alt="Application Status" title="Application Status"/>
                 <h3>Application Status</h3>
-                <p>Application Running Status<br/>
-                  The Current Status of the Instances of Applications</p>
+                <p>Running Status of<br/>
+                  Every Instance of Applications of ERP</p>
               </a>
             </li>
             <li class="col-md-4 col-sm-4 col-xs-12">
@@ -87,7 +116,7 @@ img{margin:0 auto 0 auto;}
                 <img src="image/cpu-usage.png" alt="CPU Utilization" title="CPU Utilization"/>
                 <h3>CPU Utilization</h3>
                 <p>CPU Utilization of<br/>
-                  All ERP Hosts of the Recent 12/24 Hours</p>
+                  All Hosts of ERP of the Recent 3/6/12 Hours</p>
               </a>
             </li>
             <li class="col-md-4 col-sm-4 col-xs-12">
@@ -106,12 +135,20 @@ img{margin:0 auto 0 auto;}
                   For More Details, Please Query the Database</p>
               </a>
             </li>
+            <li class="col-md-4 col-sm-4 col-xs-12">
+              <a class="app-ul1-a" href="/maintain">
+                <img src="image/maintenance.gif" alt="Maintenance" title="Maintenance"/>
+                <h3>Info Maintenance</h3>
+                <p>Maintain Hosts List<br/>
+                  Adding, Editing or Deleting Hosts in the List</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </main>
 
-    <footer class="custom_footer">
+    <footer class="custom_footer navbar-static-bottom">
       <div class="container">
         <p class="text-muted">© 2016 ERP Basis</p>
       </div>

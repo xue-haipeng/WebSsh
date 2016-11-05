@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+
+<style>
+	body {
+		font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<ul class="nav nav-tabs">
+			<li><a href="/"><span class="icon-home"></span> 首页</a></li>
+			<li><a href="/backup"><span class="icon-copy"></span> 备份</a></li>
+			<li class="active"><a href="/availability"><span class="icon-cogs"></span>	应用状态</a></li>
+			<li><a href="/performance"><span class="icon-bar-chart"></span> 性能</a></li>
+			<li><a href="/logsearch"><span class="icon-search"></span> 日志查询</a></li>
+			<li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
+		</ul>
+	</div>
+
+<div class="row">
+	<div id="appdistr" class="col-md-6" style="min-width: 310px; height: 400px; margin: 15px auto"></div>
+	<div id="topcpu" class="col-md-6" style="min-width: 310px; height: 400px; margin: 15px auto"></div>
+</div>
+
+<div class="row">
+	<div id="xoaps" class="col-md-12" align="center" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+<!--	<div class="row">
+		<div id="xbapt" class="col-md-12" align="center" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+		<div id="xfapt" class="col-md-12" align="center" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	</div>-->
+
+
+	<script th:src="@{js/highcharts.js}"></script>
+	<script th:src="@{js/exporting.js}"></script>
+	<script th:src="@{js/drawlinecharts.js}"></script>
+	<script th:src="@{js/drawpiechart.js}"></script>
+	<script th:src="@{js/drawbarcharts.js}"></script>
+<!--	<script th:src="@{js/linechart_xbapt.js}"></script>
+	<script th:src="@{js/linechart_xfapt.js}"></script>-->
+</body>
+</html>
