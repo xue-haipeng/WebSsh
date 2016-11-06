@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{css/style.css}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{css/layout.css}" />
+	<link rel="shortcut icon" href="@{img/favicon.ico}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{css/animate.css}" />
+	<link rel="stylesheet" th:href="@{css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{css/build.css}" />
+
+</head>
+<body>
+<div th:replace="basis/common/header :: header"></div>
+<div th:replace="basis/common/left :: left"></div>
+<div th:replace="basis/host/host/hostList :: content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'"></div>
+<!--<script>
+	$(document).ready(function() {
+		var url = window.location.pathname;
+		if (url == '/basis/host/host/listHost') {
+			$("div:eq(1)").after('<div th:replace="basis/host/host/hostList :: content" style="margin-left:161px;margin-right:6px"></div>');
+		}
+	});
+</script>-->
+	<script type="text/javascript" th:src="@{js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/json.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{easyui/jquery.easyui.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{js/hostlist.js}"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{css/style.css}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{css/layout.css}" />
+	<link rel="shortcut icon" href="@{img/favicon.ico}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{css/animate.css}" />
+	<link rel="stylesheet" th:href="@{css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{css/build.css}" />
+
+</head>
+<body>
+
+<div class="leftsidebar_box" th:fragment="left">
+	<a href="/basis/index">
+		<dl class="system_log" style="margin-top:40px;">
+			<dt >Dashboard<img src="img/left/select_xl01.png" /></dt>
+		</dl>
+	</a>
+	<dl class="custom">
+		<dt >成员管理<img src="img/left/select_xl01.png" /></dt>
+		<dd class="first_dd"><a href="#">角色管理</a>
+		</dd>
+		<dd ><a href="#">用户管理</a>
+		</dd>
+		<dd><a href="#">角色分配</a>
+		</dd>
+	</dl>
+	<dl class="system_log">
+		<dt >主机管理<img src="img/left/select_xl01.png" /></dt>
+		<dd class="first_dd"><a href="/basis/host/application/listApplication">系统管理</a>
+		</dd>
+		<dd class="first_dd"><a href="/basis/host/host/listHost">主机管理</a>
+		</dd>
+	</dl>
+
+	<dl class="source">
+		<dt>系统查询<img src="img/left/select_xl01.png" /></dt>
+		<dd class="first_dd"><a href="#">ERP 2.0平台</a>
+		</dd>
+		<dd><a href="#">用户平台</a>
+		</dd>
+		<dd><a href="#">决策支持平台</a>
+		</dd>
+		<dd><a href="#">集成平台</a>
+		</dd>
+		<dd><a href="#">自开发平台</a>
+		</dd>
+		<dd><a href="#">权限平台</a>
+		</dd>
+		<dd><a href="#">非结构化平台</a>
+		</dd>
+		<dd><a href="#">其它系统</a>
+		</dd>
+	</dl>
+
+	<dl class="app">
+		<dt >应用管理<img src="img/left/select_xl01.png" /></dt>
+		<dd class="first_dd"><a href="#">已有应用管理</a>
+		</dd>
+		<dd><a href="#">新上应用管理</a>
+		</dd>
+		<dd><a href="#">POC应用管理</a>
+		</dd>
+	</dl>
+
+	<dl class="cloud">
+		<dt>知识分享</dt>
+		<dd class="first_dd"><a href="#">会议记录</a>
+		</dd>
+		<dd class="first_dd"><a href="#">培训资料</a>
+		</dd>
+		<dd class="first_dd"><a href="#">经验总结</a>
+		</dd>
+		<dd class="first_dd"><a href="#">实施文档</a>
+		</dd>
+		<dd class="first_dd"><a href="#">维护文档</a>
+		</dd>
+		<dd class="first_dd"><a href="#">常用链接</a>
+		</dd>
+	</dl>
+
+	<dl class="syetem_management">
+		<dt>问题处理<img src="img/left/select_xl01.png" /></dt>
+		<dd class="first_dd"><a href="#">日常维护</a>
+		</dd>
+		<dd><a href="#">突发事件</a>
+		</dd>
+		<dd><a href="#">故障排错</a>
+		</dd>
+	</dl>
+
+
+	<dl class="statistics">
+		<dt>统计报表<img src="img/left/select_xl01.png" /></dt>
+		<dd class="first_dd"><a href="#">分类统计汇总</a>
+		</dd>
+		<dd class="first_dd"><a href="#">系统巡检报告</a>
+		</dd>
+		<dd class="first_dd"><a href="#">系统巡检报告</a>
+		</dd>
+	</dl>
+
+</div>
+
+
+
+	<script type="text/javascript" th:src="@{js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/json.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{easyui/jquery.easyui.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{js/hostlist.js}"></script>
+</body>
+</html>

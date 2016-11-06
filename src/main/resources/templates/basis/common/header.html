@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{css/style.css}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{css/layout.css}" />
+	<link rel="shortcut icon" href="@{img/favicon.ico}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{css/animate.css}" />
+	<link rel="stylesheet" th:href="@{css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{css/build.css}" />
+
+
+<style>
+	body {
+		font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	}
+</style>
+</head>
+<body>
+
+<nav th:fragment="header" class="navbar box-shadow bg-gray " role="navigation" style="margin-bottom:1px;">
+	<div class="navbar-header" style="margin-left:20px;">
+		<img  src="img/logo.png" alt="..." />
+	</div>
+	<div style="margin-right:40px;float:left;line-height:50px;">
+        <span>
+           <i class="fa fa-dedent fa-fw"></i>
+        </span>
+		<span>
+           <i class="icon-user fa-fw"></i>
+        </span>
+	</div>
+	<div style="margin-right:40px;float:right;line-height:50px;">
+		<span>
+          <i class="fa fa-expand fa-fw text"></i>
+       </span>
+		<span>
+          <i class="icon-bell fa-fw"></i>
+       </span>
+		<span class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			    <span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+                <img  src="img/a0.jpg" alt="..." class="img-circle" />
+                <b class="caret"></b>
+             </a>
+			  <ul style="min-width:80px;" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="/logout"><i class="glyphicon glyphicon-off"></i>退出</a></li>
+			  </ul>
+			
+       </span>
+	</div>
+</nav>
+
+
+	<script type="text/javascript" th:src="@{js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{js/json.js}"></script>
+	<script type="text/javascript" th:src="@{js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{easyui/jquery.easyui.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{js/hostlist.js}"></script>
+</body>
+</html>

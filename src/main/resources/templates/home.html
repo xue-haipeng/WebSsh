@@ -72,7 +72,7 @@ body,html {
             </div>
             <div id="login" th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="/login">Login</a></li>
+                <li><a href="/login" th:href="@{/login}">Login</a></li>
               </ul>
             </div>
             <div id="logout" th:if="${#httpServletRequest.remoteUser != null}" class="navbar-right navbar-collapse collapse">
@@ -82,7 +82,7 @@ body,html {
                     Welcome <span th:text="${#httpServletRequest.remoteUser}"></span><b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li class="logout"><a href="/logout">Logout <span th:text="${#httpServletRequest.remoteUser}"></span></a></li>
+                    <li class="logout"><a href="/logout" th:href="@{/login}">Logout <span th:text="${#httpServletRequest.remoteUser}"></span></a></li>
                   </ul>
                 </li>
               </ul>
@@ -136,7 +136,7 @@ body,html {
               </a>
             </li>
             <li class="col-md-4 col-sm-4 col-xs-12">
-              <a class="app-ul1-a" href="/maintain">
+              <a class="app-ul1-a" href="/basis/index">
                 <img src="image/maintenance.gif" alt="Maintenance" title="Maintenance"/>
                 <h3>Info Maintenance</h3>
                 <p>Maintain Hosts List<br/>

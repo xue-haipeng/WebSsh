@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/style.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/layout.css}" />
+	<link rel="shortcut icon" href="@{/resources/static/basis/img/favicon.ico}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/animate.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/basis/css/build.css}" />
+
+</head>
+<body>
+
+<div th:fragment="content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'">
+	<ol class="breadcrumb" style="margin-bottom:2px;">
+		<li><a href="#">首页</a>
+		</li>
+		<li><a href="#">主机管理管理</a>
+		</li>
+		<li><a href="#">主机列表</a>
+		</li>
+
+
+	</ol>
+
+	<!-- Modal -->
+	<div class="modal fade text-center" id="addHostModal"></div>
+	<div class="modal fade text-center" id="updateHostModal"></div>
+	<div id="toolbar" class="btn-group">
+		<input class="form-" type="text" placeholder="主机名" style="float:left" id="searchBox" />
+		<button type="button" class="btn btn-default" id="search" style="margin-left:5px;">
+			<i class="glyphicon glyphicon-search"></i>
+		</button>
+		<button type="button" class="btn btn-default" id="save">
+			<i class="glyphicon glyphicon-floppy-save"></i>
+		</button>
+		<a class="btn btn-default" id="add" data-backdrop="false" data-url="host/host/addHostView" href="#addHostModal" data-toggle="modal" title="添加">
+			<i class="glyphicon glyphicon-plus"></i></a>
+		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="host/host/updateHostView" href="#updateHostModal" data-toggle="modal" title="编辑">
+			<i class="glyphicon glyphicon-edit"></i></a>
+		<a type="button" class="btn btn-default" id="delete" title='删除'>
+			<i class="glyphicon glyphicon-remove-circle"></i></a>
+	</div>
+	<table id="hostList" data-cache="false" data-toggle="table" data-url="host/host/getHostList?search" data-sort-name="system" data-sort-order="desc" data-show-header="true" data-show-refresh="true" data-show-columns="false" data-pagination="true" data-side-pagination="server" data-page-size="20" data-page-list="[10,20]" data-height="520" data-show-export="true" data-toolbar="#toolbar" data-show-paginationSwitch="true" data-pagination-detail-h-align="left" data-pagination-h-align="right" data-click-to-select="true">
+		<thead>
+		<tr>
+			<th data-field="state" data-checkbox="true"></th>
+			<th data-field="id" data-visible="false">id</th>
+			<!--        <th data-field="parentId" data-visible="false">parentId</th> -->
+			<th data-field="hostname" data-sortable="true" data-editable="false">主机名</th>
+			<th data-field="domain_Suffix" data-sortable="true">域名</th>
+			<th data-field="ip_Address" data-sortable="true">IP地址</th>
+			<th data-field="system" data-sortable="true">系统名称</th>
+			<th data-field="lifecycle_Status" data-sortable="true">系统类型</th>
+			<th data-field="product" data-sortable="true">产品名称</th>
+			<th data-field="node_Type" data-sortable="true">节点类型</th>
+			<th data-field="os_Release" data-sortable="true">操作系统</th>
+			<th data-field="is_Virtualized" data-sortable="true">虚拟化</th>
+			<th data-field="ha_Type" data-sortable="true">HA类型</th>
+			<th data-field="location" data-sortable="true">机房区域</th>
+			<th data-field="applicant" data-sortable="false" data-visible="false">申请人</th>
+			<th data-field="approved_By" data-sortable="false" data-visible="false">审批人</th>
+			<th data-field="delivery_Date" data-sortable="false" data-visible="false">交付日期</th>
+			<th data-field="expired_Date" data-sortable="false" data-visible="false">过期时间</th>
+			<th data-field="current_Status" data-sortable="false" data-visible="false">当前状态</th>
+			<th data-field="remarks" data-sortable="false" data-visible="false">备注</th>
+			<th data-field="creater" data-sortable="false" data-visible="false">创建人</th>
+			<th data-field="createTime" data-sortable="false" data-visible="false">创建日期</th>
+			<th data-field="updater" data-sortable="false" data-visible="false">更新人</th>
+			<th data-field="updateTime" data-sortable="false" data-visible="false">更新日期</th>
+		</tr>
+		</thead>
+	</table>
+
+</div>
+
+
+
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/json.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/easyui/jquery.easyui.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{/resources/static/basis/js/hostlist.js}"></script>
+</body>
+</html>
