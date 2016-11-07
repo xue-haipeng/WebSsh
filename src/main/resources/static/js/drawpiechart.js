@@ -47,13 +47,22 @@ $(function () {
 	            type: 'pie'
 	        },
 	        title: {
-	            text: 'ERP应用集成项目各平台系统数分布'
+	            text: 'ERP应用集成项目各平台系统数分布',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
 	        },
 	        subtitle: {
-	            text: '2016年9月权威发布'
+	            text: '2016年9月权威发布',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
 	        },
 	        tooltip: {
-	            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
 	        },
 	        plotOptions: {
 	            pie: {
@@ -63,7 +72,8 @@ $(function () {
 	                    enabled: true,
 	                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
 	                    style: {
-	                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+	                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+							'font-family': 'Microsoft YaHei'
 	                    }
 	                }
 	            }

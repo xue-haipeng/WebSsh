@@ -105,10 +105,16 @@ $(function () {
                 type: 'spline'
             },
             title: {
-                text: 'OSB上市生产系统CPU使用率'
+                text: 'OSB上市生产系统CPU使用率',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
             },
             subtitle: {
-                text: '最近24小时'
+                text: '最近24小时',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
             },
             xAxis: {
                 type: 'datetime',
@@ -124,7 +130,10 @@ $(function () {
             },
             yAxis: {
                 title: {
-                    text: 'CPU使用率(100%)'
+                    text: 'CPU使用率(100%)',
+					style: {
+						'font-family': 'Microsoft YaHei'
+					}
                 },
                 min: 0
             },

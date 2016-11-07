@@ -21,10 +21,16 @@ $(function () {
 	            type: 'bar'
 	        },
 	        title: {
-	            text: '云平台ERP各主机CPU使用情况'
+	            text: '云平台ERP各主机CPU使用情况',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
 	        },
 	        subtitle: {
-	            text: '数据来源于F5项目Tivoli系统数据库'
+	            text: '数据来源于F5项目Tivoli系统数据库',
+				style: {
+					'font-family': 'Microsoft YaHei'
+				}
 	        },
 	        xAxis: {
 	            categories: [h1.hostname, h2.hostname, h3.hostname, h4.hostname, h5.hostname, h6.hostname, h7.hostname, h8.hostname, h9.hostname, h10.hostname, h11.hostname, h12.hostname, h13.hostname, h14.hostname, h15.hostname],
@@ -36,7 +42,10 @@ $(function () {
 	            min: 0,
 	            title: {
 	                text: 'CPU使用率(%)',
-	                align: 'high'
+	                align: 'high',
+					style: {
+						'font-family': 'Microsoft YaHei'
+					}
 	            },
 	            labels: {
 	                overflow: 'justify'
@@ -48,7 +57,10 @@ $(function () {
 	        plotOptions: {
 	            bar: {
 	                dataLabels: {
-	                    enabled: true
+	                    enabled: true,
+						style: {
+							'font-family': 'Microsoft YaHei'
+						}
 	                }
 	            }
 	        },

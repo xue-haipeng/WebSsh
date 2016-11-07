@@ -7,7 +7,6 @@
 	<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
 	<link rel="stylesheet" th:href="@{css/simple-line-icons.css}" />
 	<link rel="stylesheet" th:href="@{css/layout.css}" />
-	<link rel="shortcut icon" href="@{img/favicon.ico}" />
 	<link rel="stylesheet" th:href="@{css/bootstrap-table.css}" />
 	<link rel="stylesheet" th:href="@{css/bootstrap-table-editable.css}" />
 	<link rel="stylesheet" th:href="@{css/animate.css}" />
@@ -28,7 +27,7 @@
 
 <nav th:fragment="header" class="navbar box-shadow bg-gray " role="navigation" style="margin-bottom:1px;">
 	<div class="navbar-header" style="margin-left:20px;">
-		<img  src="img/logo.png" alt="..." />
+		<img  src="/basis/img/logo.png" alt="..." />
 	</div>
 	<div style="margin-right:40px;float:left;line-height:50px;">
         <span>
@@ -48,7 +47,7 @@
 		<span class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 			    <span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
-                <img  src="img/a0.jpg" alt="..." class="img-circle" />
+                <img  src="/basis/img/a0.jpg" alt="..." class="img-circle" />
                 <b class="caret"></b>
              </a>
 			  <ul style="min-width:80px;" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">

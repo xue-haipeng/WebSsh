@@ -2,12 +2,12 @@
 spring:
     datasource:
         driver-class-name: oracle.jdbc.OracleDriver
-#        url: jdbc:oracle:thin:@10.30.49.77:1521/ORADB
-#        username: basis
-#        password: erpbasis0
-        url: jdbc:oracle:thin:@192.168.147.133:1521/xe
-        username: system
-        password: oracle
+        url: jdbc:oracle:thin:@10.30.49.77:1521/ORADB
+        username: basis
+        password: erpbasis0
+#        url: jdbc:oracle:thin:@192.168.147.133:1521/xe
+#        username: system
+#        password: oracle
     jpa:
         database-platform: org.hibernate.dialect.Oracle10gDialect
         show-sql: true

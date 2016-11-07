@@ -2,20 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>ERP应用集成项目综合运维监控平台</title>
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/style.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/font-awesome.min.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/simple-line-icons.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/layout.css}" />
-	<link rel="shortcut icon" href="@{/resources/static/basis/img/favicon.ico}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap-table.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap-table-editable.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/animate.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/flavr.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/jquery.datetimepicker.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/jcheckbox/css/jquery-labelauty.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/easyui/themes/metro/easyui.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/build.css}" />
+<!--
+
+	<link rel="stylesheet" th:href="@{basis/css/style.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/layout.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/animate.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{basis/jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{basis/easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{basis/css/build.css}" />
+-->
 
 </head>
 <body>
@@ -43,14 +45,14 @@
 		<button type="button" class="btn btn-default" id="save">
 			<i class="glyphicon glyphicon-floppy-save"></i>
 		</button>
-		<a class="btn btn-default" id="add" data-backdrop="false" data-url="host/host/addHostView" href="#addHostModal" data-toggle="modal" title="添加">
+		<a class="btn btn-default" id="add" data-backdrop="false" data-url="/basis/host/host/addHostView" href="#addHostModal" data-toggle="modal" title="添加">
 			<i class="glyphicon glyphicon-plus"></i></a>
-		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="host/host/updateHostView" href="#updateHostModal" data-toggle="modal" title="编辑">
+		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="/basis/host/host/updateHostView" href="#updateHostModal" data-toggle="modal" title="编辑">
 			<i class="glyphicon glyphicon-edit"></i></a>
 		<a type="button" class="btn btn-default" id="delete" title='删除'>
 			<i class="glyphicon glyphicon-remove-circle"></i></a>
 	</div>
-	<table id="hostList" data-cache="false" data-toggle="table" data-url="host/host/getHostList?search" data-sort-name="system" data-sort-order="desc" data-show-header="true" data-show-refresh="true" data-show-columns="false" data-pagination="true" data-side-pagination="server" data-page-size="20" data-page-list="[10,20]" data-height="520" data-show-export="true" data-toolbar="#toolbar" data-show-paginationSwitch="true" data-pagination-detail-h-align="left" data-pagination-h-align="right" data-click-to-select="true">
+	<table id="hostList" data-cache="false" data-toggle="table" data-url="/basis/host/host/getHostList?search" data-sort-name="system" data-sort-order="desc" data-show-header="true" data-show-refresh="true" data-show-columns="false" data-pagination="true" data-side-pagination="server" data-page-size="20" data-page-list="[10,20]" data-height="520" data-show-export="true" data-toolbar="#toolbar" data-show-paginationSwitch="true" data-pagination-detail-h-align="left" data-pagination-h-align="right" data-click-to-select="true">
 		<thead>
 		<tr>
 			<th data-field="state" data-checkbox="true"></th>
@@ -65,7 +67,7 @@
 			<th data-field="node_Type" data-sortable="true">节点类型</th>
 			<th data-field="os_Release" data-sortable="true" data-visible="false">操作系统</th>
 			<th data-field="is_Virtualized" data-sortable="true">虚拟化</th>
-			<th data-field="ha_Type" data-sortable="true">HA类型</th>
+			<th data-field="ha_Type" data-sortable="true" data-visible="false">HA类型</th>
 			<th data-field="location" data-sortable="true">机房区域</th>
 			<th data-field="applicant" data-sortable="false" data-visible="false">申请人</th>
 			<th data-field="approved_By" data-sortable="false" data-visible="false">审批人</th>
@@ -83,28 +85,30 @@
 
 </div>
 
+<!--
 
+	<script type="text/javascript" th:src="@{basis/js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{basis/jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/json.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{basis/easyui/jquery.easyui.min.js}"></script>
 
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-zh-CN.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/dateFormat.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-editable.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-editable.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-export.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/tableExport.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/flavr.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.datetimepicker.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.nicescroll.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/jcheckbox/js/jquery-labelauty.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bt-validate.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/md5.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/json.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-combobox.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/easyui/jquery.easyui.min.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{basis/js/hostlist.js}"></script>
+-->
 
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/leftsidebar.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/hostlist.js}"></script>
 </body>
 </html>

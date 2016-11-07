@@ -74,11 +74,11 @@ public class HostController extends ModelView {
 
     @RequestMapping("/basis/host/host/addHostView")
     public ModelAndView addHostView(HttpServletRequest request, HttpServletResponse response) {
-        return createSingleView("host/host/addHost", request, response);
+        return createSingleView("basis/host/host/addHost", request, response);
     }
 
     @RequestMapping("/basis/host/host/updateHostView")
     public ModelAndView updateHostView(HttpServletRequest request, HttpServletResponse response) {
-        return createSingleView("host/host/updateHost", request, response);
+        return createSingleView("basis/host/host/updateHost", request, response);
     }
 }
