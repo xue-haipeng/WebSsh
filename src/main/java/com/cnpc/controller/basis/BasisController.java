@@ -17,7 +17,7 @@ public class BasisController {
 
     @RequestMapping("/basis")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
-        ModelAndView mv = createLayoutView("basis/index", request, response);
+        ModelAndView mv = createLayoutView("basis/layout_dashboard", "basis/layout_dashboard", request, response);
 //        mv.addObject("request_url", "/basis/index :: content");
         return mv;
     }

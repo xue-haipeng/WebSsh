@@ -13,7 +13,7 @@ $(function() {
 
     function search() {
         var $table = $("#hostList");
-        $.post("host/host/getHostList", {
+        $.post("/basis/host/host/getHostList", {
             limit: 10,
             offset: 0,
             order: "desc",

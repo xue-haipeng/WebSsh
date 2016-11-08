@@ -26,7 +26,7 @@ $("#addHost").on("click", function() {
     obj.current_Status = $("#addCurrent_Status").val();
     obj.remarks = $("#addRemarks").val();
     $.ajax({
-        url: 'basis/host/host/addHost',
+        url: 'addHost',
         data: obj,
         method: 'post',
         dataType: 'json',
