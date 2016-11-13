@@ -64,10 +64,20 @@ public class ApplicationService {
 
     public void updateApplication(Application application) throws Exception {
 
+        Application a = repository.findOne(application.getId());
         String currUsername = SecurityContextHolder.getContext().getAuthentication().getName();
-        application.setUpdate_Time(new Date());
-        application.setUpdater(currUsername);
+        a.setUpdate_Time(new Date());
+        a.setUpdater(currUsername);
+        a.setSystem(application.getSystem());
+        a.setProject_Name(application.getProject_Name());
+        a.setPlatform_Name(application.getPlatform_Name());
+        a.setBusiness_Line(application.getBusiness_Line());
+        a.setLifecycle_Status(application.getLifecycle_Status());
+        a.setProduct(application.getProduct());
+        a.setMw_Type(application.getMw_Type());
+        a.setCompany(application.getCompany());
+        a.setAdministrator(application.getAdministrator());
 
-        repository.saveAndFlush(application);
+        repository.saveAndFlush(a);
     }
 }

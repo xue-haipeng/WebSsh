@@ -20,6 +20,7 @@ $("#addApplication").on("click", function() {
         dataType: 'json',
         complete: function(jqXHR, textStatus) {
             $("#addApplicationModal").modal("hide");
+            location.reload();
         }
     });
 });

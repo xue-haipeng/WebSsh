@@ -29,6 +29,10 @@
 			<div class="modal-body">
 				<form class="form-inline">
 					<div class="form-group">
+						<label for="updateId">ID</label>
+						<input type="hidden" class="form-control" id="updateId" />
+					</div>
+					<div class="form-group">
 						<label for="updateSystem">系统名称</label>
 						<input type="text" class="form-control" id="updateSystem" />
 					</div>
@@ -48,42 +52,51 @@
 						<label for="updateProduct">产品名称</label>
 						<input type="text" class="form-control" id="updateProduct" />
 					</div>
-					<select id="updateMw_Type" class="form-control">
-						<option value="" selected="selected">中间件类型...</option>
-						<option>NetWeaver</option>
-						<option>WebLogic</option>
-						<option>WebSphere</option>
-						<option>IIS</option>
-						<option>其它/无</option>
-					</select>
+					<div class="form-group">
+						<label for="updateMw_Type">中间件类型</label>
+						<select id="updateMw_Type" class="form-control">
+							<option value="" selected="selected">中间件类型...</option>
+							<option>NetWeaver</option>
+							<option>WebLogic</option>
+							<option>WebSphere</option>
+							<option>IIS</option>
+							<option>其它/无</option>
+						</select>
+					</div>
 
-					<select id="updateCompany" class="form-control">
-						<option value="" selected="selected">维护单位...</option>
-						<option>中油瑞飞</option>
-						<option>中油瑞飞/规划总院</option>
-						<option>中油瑞飞/大庆金桥</option>
-						<option>中油瑞飞/规划总院/大庆金桥</option>
-						<option>规划总院</option>
-						<option>大庆金桥</option>
-					</select>
+					<div class="form-group">
+						<label for="updateCompany">维护单位</label>
+						<select id="updateCompany" class="form-control">
+							<option value="" selected="selected">维护单位...</option>
+							<option>中油瑞飞</option>
+							<option>中油瑞飞/规划总院</option>
+							<option>中油瑞飞/大庆金桥</option>
+							<option>中油瑞飞/规划总院/大庆金桥</option>
+							<option>规划总院</option>
+							<option>大庆金桥</option>
+						</select>
+					</div>
 					<div class="form-group">
 						<label for="updateAdministrator">管理员</label>
 						<input type="text" class="form-control" id="updateAdministrator" />
 					</div>
-					<select id="updateLifecycle_Status" class="form-control">
-						<option value="" selected="selected">系统类型...</option>
-						<option>生产</option>
-						<option>生产支持</option>
-						<option>测试</option>
-						<option>开发</option>
-						<option>沙箱</option>
-						<option>容灾</option>
-					</select>
+					<div class="form-group">
+						<label for="updateLifecycle_Status">系统类型</label>
+						<select id="updateLifecycle_Status" class="form-control">
+							<option value="" selected="selected">系统类型...</option>
+							<option>生产</option>
+							<option>生产支持</option>
+							<option>测试</option>
+							<option>开发</option>
+							<option>沙箱</option>
+							<option>容灾</option>
+						</select>
+					</div>
 				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-				<button type="submit" class="btn btn-success" id="updateApplication">确定</button>
+				<button type="submit" class="btn btn-success" id="updateApplication" data-dismiss="modal">确定</button>
 			</div>
 		</div>
 	</div>

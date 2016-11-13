@@ -28,10 +28,7 @@ $(function () {
             is_Virtualized: is_Virtualized}
         $.post('/basis/host/host/updateHost', data, function (response, status, xhr) {
             $("#updateHostModal").modal("hide");
+            location.reload();
         });
-    });
-
-    $('#updateHostModal').on('hidden.bs.modal', function (e) {
-        search();
     });
 })

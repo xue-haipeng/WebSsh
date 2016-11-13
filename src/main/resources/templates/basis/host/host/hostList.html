@@ -18,8 +18,12 @@
 	</ol>
 
 	<!-- Modal -->
-	<div class="modal fade text-center" role="dialog" aria-labelledby="addHostModalLabel" id="addHostModal"></div>
-	<div class="modal fade text-center" role="dialog" aria-labelledby="updateHostModalLabel" id="updateHostModal"></div>
+	<div class="modal fade text-center" role="dialog" aria-labelledby="addHostModalLabel" aria-hidden="true" id="addHostModal">
+		<div th:replace="basis/host/host/addHost :: content"></div>
+	</div>
+	<div class="modal fade text-center" role="dialog" aria-labelledby="updateHostModalLabel" aria-hidden="true" id="updateHostModal">
+		<div th:replace="basis/host/host/updateHost :: content"></div>
+	</div>
 	<div id="toolbar" class="btn-group">
 		<input class="form-" type="text" placeholder="主机名" style="float:left" id="searchBox" />
 		<button type="button" class="btn btn-default" id="search" style="margin-left:5px;">
@@ -28,9 +32,9 @@
 		<button type="button" class="btn btn-default" id="save">
 			<i class="glyphicon glyphicon-floppy-save"></i>
 		</button>
-		<a class="btn btn-default" id="add" data-backdrop="false" data-url="/basis/host/host/addHostView" href="#addHostModal" data-toggle="modal" data-target="#addHostModal" title="添加">
+		<a class="btn btn-default" id="add" data-backdrop="false" data-url="/basis/host/host/addHostView" href="#addHostModal" data-toggle="modal" title="添加">
 			<i class="glyphicon glyphicon-plus"></i></a>
-		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="/basis/host/host/updateHostView" href="#updateHostModal" data-toggle="modal" data-target="#updateHostModal" title="编辑">
+		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="/basis/host/host/updateHostView" href="#updateHostModal" data-toggle="modal" title="编辑">
 			<i class="glyphicon glyphicon-edit"></i></a>
 		<a type="button" class="btn btn-default" id="delete" title='删除'>
 			<i class="glyphicon glyphicon-remove-circle"></i></a>

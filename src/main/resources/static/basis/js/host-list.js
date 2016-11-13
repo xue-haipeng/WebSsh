@@ -76,68 +76,12 @@ $(function() {
                 $("#updateNode_Type").val(data.node_Type);
                 $("#updateIs_Virtualized").val(data.is_Virtualized);
             });
-        }
-        /*$("#updateHost").on("click", function() {
-            data.hostname = $("#updateHostname").val();
-            data.domain_Suffix = $("#updateDomain_Suffix").val();
-            data.ip_Address = $("#updateIp_Address").val();
-            data.system = $("#updateSystem").val();
-            data.product = $("#updateProduct").val();
-            data.os_Release = $("#updateOs_Release").val();
-            data.ha_Type = $("#updateHa_Type").val();
-            data.location = $("#updateLocation").val();
-            data.applicant = $("#updateApplicant").val();
-            data.approver = $("#updateApprover").val();
-            data.delivery_Date = $("#updateDelivery_Date").val();
-            data.expired_Date = $("#updateExpired_Date").val();
-            data.current_Status = $("#updateCurrent_Status").val();
-            data.remarks = $("#updateRemarks").val();
-            data.lifecycle_Status = $("#updateLifecycle_Status").val();
-            data.node_Type = $("#updateNode_Type").val();
-            data.is_Virtualized = $("#updateIs_Virtualized").val();
-            $.post('/basis/host/host/updateHost', data, function (response, status, xhr) {
-                $("#updateHostModal").modal("hide");
-
-                /!*$.ajax({
-                 url: '/basis/host/host/updateHost',
-                 data: data,
-                 type: 'POST',
-                 success: function (response, status, xhr) {
-                 $("#updateHostModal").modal("hide");
-                 }*!/
-                /!* method: 'post',
-                 dataType: 'json',
-                 complete: function(jqXHR, textStatus) {
-                 $("#updateHostname").val("");
-                 $("#updateDomain_Suffix").val("");
-                 $("#updateIp_Address").val("");
-                 $("#updateSystem").val("");
-                 $("#updateProduct").val("");
-                 $("#updateOs_Release").val("");
-                 $("#updateHa_Type").val("");
-                 $("#updateLocation").val("");
-                 $("#updateBatch").val("")
-                 $("#updateSerial").val("");
-                 $("#updateApplicant").val("");
-                 $("#updateApproved_By").val("");
-                 $("#updateDelivery_Date").val("");
-                 $("#updateExpired_Date").val("");
-                 $("#updateCurrent_Status").val("");
-                 $("#updateRemarks").val("");
-                 $("#updateHostModal").modal("hide");
-                 }*!/
+            $('#updateHostModal').on('hidden.bs.modal', function (e) {
+                location.reload();
+                //search();
             });
-        });
-
-        $('#updateHostModal').on('hidden.bs.modal', function (e) {
-            search();
-        });*/
+        }
     });
-
-    $('#updateHostModal').on('hidden.bs.modal', function (e) {
-        search();
-    });
-
 
     //删除系统
     $("#delete").on("click", function() {

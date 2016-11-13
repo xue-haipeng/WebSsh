@@ -18,8 +18,12 @@
 	</ol>
 
 	<!-- Modal -->
-	<div class="modal fade text-center" id="addApplicationModal"></div>
-	<div class="modal fade text-center" id="updateApplicationModal"></div>
+	<div class="modal fade text-center" id="addApplicationModal">
+		<div th:replace="basis/host/application/addApplication :: content"></div>
+	</div>
+	<div class="modal fade text-center" id="updateApplicationModal">
+		<div th:replace="basis/host/application/updateApplication :: content"></div>
+	</div>
 	<div id="toolbar" class="btn-group">
 		<input class="form-" type="text" placeholder="系统名称" style="float:left" id="searchBox" />
 		<button type="button" class="btn btn-default" id="search" style="margin-left:5px;">
@@ -40,7 +44,6 @@
 		<tr>
 			<th data-field="state" data-checkbox="true"></th>
 			<th data-field="id" data-visible="false">id</th>
-			<!--        <th data-field="parentId" data-visible="false">parentId</th> -->
 			<th data-field="system" data-sortable="true" data-editable="false">系统名称</th>
 			<th data-field="project_Name" data-sortable="true">项目名称</th>
 			<th data-field="platform_Name" data-sortable="true">平台名称</th>

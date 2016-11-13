@@ -39,7 +39,7 @@ $(function() {
 
     //更新系统
     $("#edit").on("click", function() {
-        var data = $("#applicationList").bootstrapTable("getSelections");
+        var data = $("#applicationList").bootstrapTable("getSelections")[0];
         if (data.length > 1||data.length<1) {
             new $.flavr({
                 animateEntrance: "rollIn",
@@ -51,9 +51,21 @@ $(function() {
             $('#updateApplicationModal').modal({backdrop:false});//去掉蒙板
             return;
         }else{
-            $("#updateApplicationModal").load($(this).attr("data-url"));
+            $("#updateApplicationModal").load($(this).attr("data-url"),data, function() {
+                $("#updateId").val(data.id);
+                $("#updateSystem").val(data.system);
+                $("#updateProject_Name").val(data.project_Name);
+                $("#updatePlatform_Name").val(data.platform_Name);
+                $("#updateBusiness_Line").val(data.business_Line);
+                $("#updateLifecycle_Status").val(data.lifecycle_Status);
+                $("#updateProduct").val(data.product);
+                $("#updateMw_Type").val(data.mw_Type);
+                $("#updateCompany").val(data.company);
+                $("#updateAdministrator").val(data.administrator);
+            });
             $('#updateApplicationModal').on('hidden.bs.modal', function (e) {
-                search();
+                location.reload();
+                //search();
             });
         }
     });

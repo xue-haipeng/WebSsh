@@ -28,6 +28,7 @@ $("#addHost").on("click", function() {
         dataType: 'json',
         complete: function(jqXHR, textStatus) {
             $("#addHostModal").modal("hide");
+            location.reload();
         }
     });
 });
