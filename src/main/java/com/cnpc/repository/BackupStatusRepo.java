@@ -10,11 +10,11 @@ import com.cnpc.domain.BackupStatus;
 
 public interface BackupStatusRepo extends JpaRepository<BackupStatus, Long>{
 	
-	@Query("select b from BackupStatus b")
+	@Query("select b from BackupStatus b where b.recordDate > sysdate - 4")
 	List<BackupStatus> queryBackup();
 	
 	List<BackupStatus> findByRecordDate(Date date);
 	
-	List<BackupStatus> findByRecordDateBefore(Date date);
+	List<BackupStatus> findByRecordDateAfter(Date date);
 
 }

@@ -1,13 +1,14 @@
 package com.cnpc.controller;
 
-import java.util.Date;
-import java.util.List;
+import com.cnpc.domain.BackupStatus;
+import com.cnpc.repository.BackupStatusRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cnpc.domain.BackupStatus;
-import com.cnpc.repository.BackupStatusRepo;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 @RestController
 public class BackupStatusController {
@@ -17,30 +18,11 @@ public class BackupStatusController {
 	
 	@RequestMapping("/getBackupStatus")
 	public List<BackupStatus> listBackup() {
-		List<BackupStatus> bakStat = repo.findByRecordDateBefore(new Date());
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.add(Calendar.DATE, -4);
+		List<BackupStatus> bakStat = repo.findByRecordDateAfter(calendar.getTime());
 		return bakStat;
 	}
-	
-/*	@RequestMapping("/getTodayBackupStatus")
-	public List<BackupStatus> listTodayBackup() {
-		List<BackupStatus> todayBakStat = repo.findByRecordDate(new Date());
-		return todayBakStat;
-	}
-	@RequestMapping("/getYesterdayBackupStatus")
-	public List<BackupStatus> listYesterdayBackup() {
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DATE, -1);
-		Date yesterday = (Date)cal.getTime();
-		List<BackupStatus> yesterdayBakStat = repo.findByRecordDate(yesterday);
-		return yesterdayBakStat;
-	}
-	@RequestMapping("/getDbyBackupStatus")
-	public List<BackupStatus> listDbyBackup() {
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DATE, -2);
-		Date dBy = (Date)cal.getTime();
-		List<BackupStatus> dByBakStat = repo.findByRecordDate(dBy);
-		return dByBakStat;
-	}*/
 
 }

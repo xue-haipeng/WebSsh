@@ -3,17 +3,27 @@ package com.cnpc.domain.basis;
 /**
  * Created by Xue on 11/06/16.
  */
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "application")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Application extends Root{
+public class Application {
 
-
+    @SequenceGenerator(name="application_sequence", sequenceName="application_sequence")
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="application_sequence")
+    private Long id;
+    private String creater;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date create_Time;
+    private String updater;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date update_Time;
     private String system;
     private String project_Name;
     private String platform_Name;
@@ -24,22 +34,46 @@ public class Application extends Root{
     private String company;
     private String administrator;
 
-    public Application() {
+    public Application() {}
 
+    public Long getId() {
+        return id;
     }
 
-    public Application(String system, String project_Name, String platform_Name, String business_Line,
-                       String lifecycle_Status, String product, String mw_Type, String company, String administrator) {
-        super();
-        this.system = system;
-        this.project_Name = project_Name;
-        this.platform_Name = platform_Name;
-        this.business_Line = business_Line;
-        this.lifecycle_Status = lifecycle_Status;
-        this.product = product;
-        this.mw_Type = mw_Type;
-        this.company = company;
-        this.administrator = administrator;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCreater() {
+        return creater;
+    }
+
+    public void setCreater(String creater) {
+        this.creater = creater;
+    }
+
+    public Date getCreate_Time() {
+        return create_Time;
+    }
+
+    public void setCreate_Time(Date create_Time) {
+        this.create_Time = create_Time;
+    }
+
+    public String getUpdater() {
+        return updater;
+    }
+
+    public void setUpdater(String updater) {
+        this.updater = updater;
+    }
+
+    public Date getUpdate_Time() {
+        return update_Time;
+    }
+
+    public void setUpdate_Time(Date update_Time) {
+        this.update_Time = update_Time;
     }
 
     public String getSystem() {

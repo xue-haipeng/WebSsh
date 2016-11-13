@@ -2,31 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>ERP应用集成项目综合运维监控平台</title>
-<!--
-
-	<link rel="stylesheet" th:href="@{basis/css/style.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/bootstrap.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/font-awesome.min.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/simple-line-icons.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/layout.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/bootstrap-table.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/bootstrap-table-editable.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/animate.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/flavr.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/jquery.datetimepicker.css}" />
-	<link rel="stylesheet" th:href="@{basis/jcheckbox/css/jquery-labelauty.css}" />
-	<link rel="stylesheet" th:href="@{basis/easyui/themes/metro/easyui.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/build.css}" />
--->
 
 </head>
 <body>
 
 <div th:fragment="content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'">
 	<ol class="breadcrumb" style="margin-bottom:2px;">
-		<li><a href="#">首页</a>
+		<li><a href="/basis">首页</a>
 		</li>
-		<li><a href="#">主机管理管理</a>
+		<li><a href="#">主机管理</a>
 		</li>
 		<li><a href="#">主机列表</a>
 		</li>
@@ -34,8 +18,8 @@
 	</ol>
 
 	<!-- Modal -->
-	<div class="modal fade text-center" id="addHostModal"></div>
-	<div class="modal fade text-center" id="updateHostModal"></div>
+	<div class="modal fade text-center" role="dialog" aria-labelledby="addHostModalLabel" id="addHostModal"></div>
+	<div class="modal fade text-center" role="dialog" aria-labelledby="updateHostModalLabel" id="updateHostModal"></div>
 	<div id="toolbar" class="btn-group">
 		<input class="form-" type="text" placeholder="主机名" style="float:left" id="searchBox" />
 		<button type="button" class="btn btn-default" id="search" style="margin-left:5px;">
@@ -44,9 +28,9 @@
 		<button type="button" class="btn btn-default" id="save">
 			<i class="glyphicon glyphicon-floppy-save"></i>
 		</button>
-		<a class="btn btn-default" id="add" data-backdrop="false" data-url="/basis/host/host/addHostView" href="#addHostModal" data-toggle="modal" title="添加">
+		<a class="btn btn-default" id="add" data-backdrop="false" data-url="/basis/host/host/addHostView" href="#addHostModal" data-toggle="modal" data-target="#addHostModal" title="添加">
 			<i class="glyphicon glyphicon-plus"></i></a>
-		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="/basis/host/host/updateHostView" href="#updateHostModal" data-toggle="modal" title="编辑">
+		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="/basis/host/host/updateHostView" href="#updateHostModal" data-toggle="modal" data-target="#updateHostModal" title="编辑">
 			<i class="glyphicon glyphicon-edit"></i></a>
 		<a type="button" class="btn btn-default" id="delete" title='删除'>
 			<i class="glyphicon glyphicon-remove-circle"></i></a>
@@ -56,7 +40,6 @@
 		<tr>
 			<th data-field="state" data-checkbox="true"></th>
 			<th data-field="id" data-visible="false">id</th>
-			<!--        <th data-field="parentId" data-visible="false">parentId</th> -->
 			<th data-field="hostname" data-sortable="true" data-editable="false">主机名</th>
 			<th data-field="domain_Suffix" data-sortable="true" data-visible="false">域名</th>
 			<th data-field="ip_Address" data-sortable="true">IP地址</th>
@@ -83,31 +66,6 @@
 	</table>
 
 </div>
-
-<!--
-
-	<script type="text/javascript" th:src="@{basis/js/jquery.min.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap.min.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap-table.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap-table-zh-CN.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/dateFormat.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap-table-editable.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap-editable.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap-table-export.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/tableExport.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/flavr.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/jquery.datetimepicker.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/jquery.nicescroll.js}"></script>
-	<script type="text/javascript" th:src="@{basis/jcheckbox/js/jquery-labelauty.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bt-validate.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/md5.min.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/json.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/bootstrap-combobox.min.js}"></script>
-	<script type="text/javascript" th:src="@{basis/easyui/jquery.easyui.min.js}"></script>
-
-	<script type="text/javascript" th:src="@{basis/js/leftsidebar.js}"></script>
-	<script type="text/javascript" th:src="@{basis/js/hostlist.js}"></script>
--->
 
 </body>
 </html>

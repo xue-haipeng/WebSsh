@@ -28,19 +28,11 @@ public class BasisController {
 //        mv.addObject("request_url", "/basis/host/host/hostList :: content");
         return mv;
     }
-/*
 
-    @RequestMapping("/basis/host/host/addHostView")
-    public ModelAndView hostAdd(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mv = createLayoutView("basis/layout_hostAdd", "basis/layout_hostAdd", request, response);
+    @RequestMapping("/basis/host/application/listApplication")
+    public ModelAndView applicationList(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mv = createLayoutView("basis/layout_applicationList", "basis/layout_applicationList", request, response);
         return mv;
     }
-
-    @RequestMapping("/basis/host/host/updateHostView")
-    public ModelAndView hostUpdate(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mv = createLayoutView("basis/layout_hostUpdate", "basis/layout_hostUpdate", request, response);
-        return mv;
-    }
-*/
 
 }

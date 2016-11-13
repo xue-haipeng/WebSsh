@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>ERP应用集成项目综合运维监控平台</title>
+
 	<link rel="stylesheet" th:href="@{/basis/css/style.css}" />
 	<link rel="stylesheet" th:href="@{/basis/css/bootstrap.css}" />
 	<link rel="stylesheet" th:href="@{/basis/css/font-awesome.min.css}" />
@@ -18,7 +19,6 @@
 
 </head>
 <body>
-
 	<div th:fragment="content" class="modal-dialog" style="display: inline-block; width: auto;">
 		<div class="modal-content">
 			<div class="modal-header text-left">
@@ -48,61 +48,63 @@
 						<label for="addProduct">产品名称</label>
 						<input type="text" class="form-control" id="addProduct" />
 					</div>
-					<div class="form-group">
-						<label for="addNode_Type">节点类型</label>
-						<input type="text" class="form-control" id="addNode_Type" />
-					</div>
-					<div class="form-group">
-						<input type="radio" name="addLifecycle_Status" data-labelauty="生产" value="生产" />
-						<input type="radio" name="addLifecycle_Status" data-labelauty="生产支持" value="生产支持" />
-						<input type="radio" name="addLifecycle_Status" data-labelauty="测试" value="测试" checked="checked" />
-						<input type="radio" name="addLifecycle_Status" data-labelauty="开发" value="开发" />
-						<input type="radio" name="addLifecycle_Status" data-labelauty="沙箱" value="沙箱" />
-						<input type="radio" name="addLifecycle_Status" data-labelauty="容灾" value="容灾" />
-					</div>
-					<div class="form-group">
-						<input type="radio" name="addOs_Release" data-labelauty="RHEL 6.5" value="RHEL 6.5" checked="checked" />
-						<input type="radio" name="addOs_Release" data-labelauty="SUSE Linux Enterprise 11" value="SUSE Linux Enterprise 11" />
-						<input type="radio" name="addOs_Release" data-labelauty="Windows Server 2012 R2" value="Windows Server 2012 R2" />
-						<input type="radio" name="addOs_Release" data-labelauty="其它" value="其它" />
-					</div>
-					<!--   <div class="form-group">
-                               <label for="addOs_Release">操作系统</label>
-                                   <input type="text" class="form-control" id="addOs_Release">
-                           </div>  -->
-					<div class="form-group">
-						<input type="radio" name="addIs_Virtualized" data-labelauty="YES" value="YES" checked="checked" />
-						<input type="radio" name="addIs_Virtualized" data-labelauty="NO" value="NO" />
-					</div>
-					<div class="form-group">
-						<input type="radio" name="addHa_Type" data-labelauty="VMWare HA" value="VMWare HA" checked="checked" />
-						<input type="radio" name="addHa_Type" data-labelauty="RAC" value="RAC" />
-						<input type="radio" name="addHa_Type" data-labelauty="Always On" value="Always On" />
-						<input type="radio" name="addHa_Type" data-labelauty="VMWare FT" value="VMWare FT" />
-						<input type="radio" name="addHa_Type" data-labelauty="HANA" value="HANA" />
-						<input type="radio" name="addHa_Type" data-labelauty="其它" value="其它" />
-					</div>
-					<!--<div class="form-group">
-                        <label for="addHa_Type">HA类型</label>
-                            <input type="text" class="form-control" id="addHa_Type">
-                    </div> -->
-					<!-- <div class="form-group">
-							<label for="addHa_Type">机房位置</label>
-                            <input type="radio" name="addLocation" data-labelauty="北京1号机房非生产" value="北京1号机房非生产" checked="checked">
-                            <input type="radio" name="addLocation" data-labelauty="北京3号机房非生产" value="北京3号机房非生产">
-							<input type="radio" name="addLocation" data-labelauty="北京1号机房生产区" value="北京1号机房生产区">
-                            <input type="radio" name="addLocation" data-labelauty="北京3号机房生产区" value="北京3号机房生产区">
-                            <input type="radio" name="addLocation" data-labelauty="吉林8号机房非生产" value="吉林8号机房非生产">
-							<input type="radio" name="addLocation" data-labelauty="吉林10号机房非生产" value="吉林10号机房非生产">
-							<input type="radio" name="addLocation" data-labelauty="吉林8号机房非生产" value="吉林8号机房生产区">
-                            <input type="radio" name="addLocation" data-labelauty="吉林10号机房非生产" value="吉林10号机房生产区">
-							<input type="radio" name="addLocation" data-labelauty="北京/吉林管理区" value="北京/吉林管理区">
-							<input type="radio" name="addLocation" data-labelauty="其它机房" value="其它机房">
-						</div> -->
-					<div class="form-group">
-						<label for="addLocation">机房位置</label>
-						<input type="text" class="form-control" id="addLocation" />
-					</div>
+					<select id="addNode_Type" class="form-control">
+						<option value="" selected="selected">选择节点类型...</option>
+						<option>APP</option>
+						<option>DB</option>
+						<option>APP+DB</option>
+						<option>ASCS</option>
+						<option>SCS</option>
+						<option>HTTP Server</option>
+						<option>Git/SVN</option>
+						<option>其它</option>
+					</select>
+					<select id="addLifecycle_Status" class="form-control">
+						<option value="" selected="selected">选择系统类型...</option>
+						<option>生产</option>
+						<option>生产支持</option>
+						<option>测试</option>
+						<option>开发</option>
+						<option>容灾</option>
+						<option>沙箱</option>
+						<option>POC</option>
+					</select>
+					<select id="addOs_Release" class="form-control">
+						<option value="" selected="selected">选择OS类型...</option>
+						<option>RHEL 6.5</option>
+						<option>RHEL 7.X</option>
+						<option>Windows Server 2012 R2</option>
+						<option>SUSE Linux Enterprise 11</option>
+						<option>CentOS 7.X</option>
+						<option>其它</option>
+					</select>
+					<select id="addIs_Virtualized" class="form-control">
+						<option value="" selected="selected">是否虚拟化...</option>
+						<option>YES</option>
+						<option>NO</option>
+					</select>
+					<select id="addHa_Type" class="form-control">
+						<option value="" selected="selected">选择HA类型...</option>
+						<option>VMWare HA</option>
+						<option>Oracle RAC</option>
+						<option>Always On</option>
+						<option>VMWare FT</option>
+						<option>HANA HA</option>
+						<option>其它</option>
+					</select>
+					<select id="addLocation" class="form-control">
+						<option value="" selected="selected">选择机房位置...</option>
+						<option>北京1号机房非生产</option>
+						<option>北京3号机房非生产</option>
+						<option>北京1号机房生产区</option>
+						<option>北京3号机房生产区</option>
+						<option>吉林8号机房非生产</option>
+						<option>吉林10号机房非生产</option>
+						<option>吉林8号机房生产区</option>
+						<option>吉林10号机房生产区</option>
+						<option>北京/吉林管理区</option>
+						<option>其它机房</option>
+					</select>
 					<div class="form-group">
 						<label for="addApplicant">申请人</label>
 						<input type="text" class="form-control" id="addApplicant" />
@@ -113,16 +115,18 @@
 					</div>
 					<div class="form-group">
 						<label for="addDelivery_Date">交付日期</label>
-						<input type="text" class="form-control" id="addDelivery_Date" />
+						<input type="text" placeholder="如：1970-01-01" class="form-control" id="addDelivery_Date" />
 					</div>
 					<div class="form-group">
 						<label for="addExpired_Date">过期时间</label>
-						<input type="text" class="form-control" id="addExpired_Date" />
+						<input type="text" placeholder="如：1970-01-01" class="form-control" id="addExpired_Date" />
 					</div>
-					<div class="form-group">
-						<label for="addCurrent_Status">当前状态</label>
-						<input type="text" class="form-control" id="addCurrent_Status" />
-					</div>
+					<select id="addCurrent_Status" class="form-control">
+						<option value="" selected="selected">选择当前状态...</option>
+						<option>使用中</option>
+						<option>已过期</option>
+						<option>已回收</option>
+					</select>
 					<div class="form-group">
 						<label for="addRemarks">备注</label>
 						<input type="text" class="form-control" id="addRemarks" />
@@ -135,8 +139,8 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" th:src="@{/basis/js/add-host.js}"></script>
 
+	<script type="text/javascript" th:src="@{/basis/js/add-host.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/js/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/js/bootstrap.min.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table.js}"></script>
@@ -155,8 +159,8 @@
 	<script type="text/javascript" th:src="@{/basis/js/json.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/js/bootstrap-combobox.min.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/easyui/jquery.easyui.min.js}"></script>
-
 	<script type="text/javascript" th:src="@{/basis/js/leftsidebar.js}"></script>
-	<script type="text/javascript" th:src="@{/basis/js/hostlist.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/host-list.js}"></script>
+
 </body>
 </html>

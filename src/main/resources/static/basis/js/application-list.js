@@ -3,7 +3,7 @@
  */
 $(function() {
 
-    $("#hostList").bootstrapTable({
+    $("#applicationList").bootstrapTable({
         height:$(window).height()-130
     });
     //搜索事件
@@ -12,12 +12,12 @@ $(function() {
     });
 
     function search() {
-        var $table = $("#hostList");
-        $.post("/basis/host/host/getHostList", {
+        var $table = $("#applicationList");
+        $.post("/basis/host/application/getApplicationList", {
             limit: 10,
             offset: 0,
             order: "desc",
-            sort: 'hostname',
+            sort: 'system',
             search:$('#searchBox').val()
         }, function(res) {
             $table.bootstrapTable("getOptions").pageNumber = 1; //默认排序从第一页开始
@@ -25,21 +25,21 @@ $(function() {
         });
     }
     //排序事件
-    $("#hostList").on('sort.bs.table', function(name, order) {
+    $("#applicationList").on('sort.bs.table', function(name, order) {
         $(this).bootstrapTable("getOptions").pageNumber = 1; //默认排序从第一页开始
     });
 
     //添加系统
     $("#add").on("click",function(){
-        $("#addHostModal").load($(this).attr("data-url"));
-        $('#addHostModal').on('hidden.bs.modal', function (e) {
+        $("#addApplicationModal").load($(this).attr("data-url"));
+        $('#addApplicationModal').on('hidden.bs.modal', function (e) {
             search();
         })
     });
 
     //更新系统
     $("#edit").on("click", function() {
-        var data = $("#hostList").bootstrapTable("getSelections");
+        var data = $("#applicationList").bootstrapTable("getSelections");
         if (data.length > 1||data.length<1) {
             new $.flavr({
                 animateEntrance: "rollIn",
@@ -48,11 +48,11 @@ $(function() {
                 autoclose: true,
                 timeout: 3000
             });
-            $('#updateHostModal').modal({backdrop:false});//去掉蒙板
+            $('#updateApplicationModal').modal({backdrop:false});//去掉蒙板
             return;
         }else{
-            $("#updateHostModal").load($(this).attr("data-url"));
-            $('#updateHostModal').on('hidden.bs.modal', function (e) {
+            $("#updateApplicationModal").load($(this).attr("data-url"));
+            $('#updateApplicationModal').on('hidden.bs.modal', function (e) {
                 search();
             });
         }
@@ -61,7 +61,7 @@ $(function() {
 
     //删除系统
     $("#delete").on("click", function() {
-        var datas = $("#hostList").bootstrapTable("getSelections");
+        var datas = $("#applicationList").bootstrapTable("getSelections");
         var ids = "";
         var i = 0;
         if (datas.length < 1) {
@@ -78,7 +78,7 @@ $(function() {
             ids += datas[i].id + ",";
         }
         $.ajax({
-            url: 'host/host/deleteHost?ids=' + ids,
+            url: '/basis/host/application/deleteApplication?ids=' + ids,
             method: 'post',
             dataType: 'json',
             complete: function(jqXHR, textStatus) {

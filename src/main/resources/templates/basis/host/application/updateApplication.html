@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{/basis/css/style.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/layout.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/animate.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{/basis/jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{/basis/easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/build.css}" />
+
+</head>
+<body>
+
+	<div th:fragment="content" class="modal-dialog" style="display: inline-block; width: 80%;">
+		<div class="modal-content">
+			<div class="modal-header text-left">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="updateSystemModalLabel">更新系统</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-inline">
+					<div class="form-group">
+						<label for="updateSystem">系统名称</label>
+						<input type="text" class="form-control" id="updateSystem" />
+					</div>
+					<div class="form-group">
+						<label for="updateProject_Name">项目名称</label>
+						<input type="text" class="form-control" id="updateProject_Name" />
+					</div>
+					<div class="form-group">
+						<label for="updatePlatform_Name">平台名称</label>
+						<input type="text" class="form-control" id="updatePlatform_Name" />
+					</div>
+					<div class="form-group">
+						<label for="updateBusiness_Line">业务域</label>
+						<input type="text" class="form-control" id="updateBusiness_Line" />
+					</div>
+					<div class="form-group">
+						<label for="updateProduct">产品名称</label>
+						<input type="text" class="form-control" id="updateProduct" />
+					</div>
+					<select id="updateMw_Type" class="form-control">
+						<option value="" selected="selected">中间件类型...</option>
+						<option>NetWeaver</option>
+						<option>WebLogic</option>
+						<option>WebSphere</option>
+						<option>IIS</option>
+						<option>其它/无</option>
+					</select>
+
+					<select id="updateCompany" class="form-control">
+						<option value="" selected="selected">维护单位...</option>
+						<option>中油瑞飞</option>
+						<option>中油瑞飞/规划总院</option>
+						<option>中油瑞飞/大庆金桥</option>
+						<option>中油瑞飞/规划总院/大庆金桥</option>
+						<option>规划总院</option>
+						<option>大庆金桥</option>
+					</select>
+					<div class="form-group">
+						<label for="updateAdministrator">管理员</label>
+						<input type="text" class="form-control" id="updateAdministrator" />
+					</div>
+					<select id="updateLifecycle_Status" class="form-control">
+						<option value="" selected="selected">系统类型...</option>
+						<option>生产</option>
+						<option>生产支持</option>
+						<option>测试</option>
+						<option>开发</option>
+						<option>沙箱</option>
+						<option>容灾</option>
+					</select>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+				<button type="submit" class="btn btn-success" id="updateApplication">确定</button>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" th:src="@{/basis/js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/json.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/easyui/jquery.easyui.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{/basis/js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/host-list.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/update-application.js}"></script>
+</body>
+</html>

@@ -37,15 +37,14 @@ public class HostController extends ModelView {
     @RequestMapping("/basis/host/host/deleteHost")
     @ResponseBody
     public String deleteHost(HttpServletRequest request,
-                             HttpServletResponse response, @RequestParam String[] ids) throws Exception {
-        List<String> list = new ArrayList<String>();
-        for (String id : ids) {
+                             HttpServletResponse response, @RequestParam Long[] ids) throws Exception {
+        List<Long> list = new ArrayList<>();
+        for (Long id : ids) {
             list.add(id);
         }
         hostService.deleteHost(list);
         return "sucess";
     }
-
 
     @RequestMapping("/basis/host/host/getHostList")
     @ResponseBody
@@ -59,18 +58,12 @@ public class HostController extends ModelView {
         return map;
     }
 
-
     @RequestMapping("/basis/host/host/updateHost")
     @ResponseBody
     public String updateHost(HttpServletRequest request, HttpServletResponse response, Host host) throws Exception {
         hostService.updateHost(host);
         return "success";
     }
-
-//    @RequestMapping("/basis/host/host/listHost")
-//    public ModelAndView hostList(HttpServletRequest request, HttpServletResponse response) {
-//        return createLayoutView("host/host/hostList", request, response);
-//    }
 
     @RequestMapping("/basis/host/host/addHostView")
     public ModelAndView addHostView(HttpServletRequest request, HttpServletResponse response) {

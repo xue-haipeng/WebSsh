@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+
+</head>
+<body>
+
+<div th:fragment="content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'">
+	<ol class="breadcrumb" style="margin-bottom:2px;">
+		<li><a href="/basis">首页</a>
+		</li>
+		<li><a href="#">主机管理</a>
+		</li>
+		<li><a href="#">系统列表</a>
+		</li>
+
+	</ol>
+
+	<!-- Modal -->
+	<div class="modal fade text-center" id="addApplicationModal"></div>
+	<div class="modal fade text-center" id="updateApplicationModal"></div>
+	<div id="toolbar" class="btn-group">
+		<input class="form-" type="text" placeholder="系统名称" style="float:left" id="searchBox" />
+		<button type="button" class="btn btn-default" id="search" style="margin-left:5px;">
+			<i class="glyphicon glyphicon-search"></i>
+		</button>
+		<button type="button" class="btn btn-default" id="save">
+			<i class="glyphicon glyphicon-floppy-save"></i>
+		</button>
+		<a class="btn btn-default" id="add" data-backdrop="false" data-url="/basis/host/application/addApplicationView" href="#addApplicationModal" data-toggle="modal" title="添加">
+			<i class="glyphicon glyphicon-plus"></i></a>
+		<a class="btn btn-default" id="edit" data-backdrop="false" data-url="/basis/host/application/updateApplicationView" href="#updateApplicationModal" data-toggle="modal" title="编辑">
+			<i class="glyphicon glyphicon-edit"></i></a>
+		<a type="button" class="btn btn-default" id="delete" title='删除'>
+			<i class="glyphicon glyphicon-remove-circle"></i></a>
+	</div>
+	<table id="applicationList" data-cache="false" data-toggle="table" data-url="/basis/host/application/getApplicationList?search" data-sort-name="system" data-sort-order="desc" data-show-header="true" data-show-refresh="true" data-show-columns="false" data-pagination="true" data-side-pagination="server" data-page-size="20" data-page-list="[10,20]" data-height="520" data-show-export="true" data-toolbar="#toolbar" data-show-paginationSwitch="true" data-pagination-detail-h-align="left" data-pagination-h-align="right" data-click-to-select="true">
+		<thead>
+		<tr>
+			<th data-field="state" data-checkbox="true"></th>
+			<th data-field="id" data-visible="false">id</th>
+			<!--        <th data-field="parentId" data-visible="false">parentId</th> -->
+			<th data-field="system" data-sortable="true" data-editable="false">系统名称</th>
+			<th data-field="project_Name" data-sortable="true">项目名称</th>
+			<th data-field="platform_Name" data-sortable="true">平台名称</th>
+			<th data-field="business_Line" data-sortable="true">业务域</th>
+			<th data-field="lifecycle_Status" data-sortable="true">系统类型</th>
+			<th data-field="product" data-sortable="true">产品名称</th>
+			<th data-field="mw_Type" data-sortable="true">基础组件</th>
+			<th data-field="company" data-sortable="true">维护单位</th>
+			<th data-field="administrator" data-sortable="true">管理员</th>
+			<th data-field="creater" data-sortable="false" data-visible="false">创建人</th>
+			<th data-field="createTime" data-sortable="false" data-visible="false">创建日期</th>
+			<th data-field="updater" data-sortable="false" data-visible="false">更新人</th>
+			<th data-field="updateTime" data-sortable="false" data-visible="false">更新日期</th>
+		</tr>
+		</thead>
+	</table>
+</div>
+
+</body>
+</html>

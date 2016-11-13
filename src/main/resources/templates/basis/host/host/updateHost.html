@@ -2,24 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>ERP应用集成项目综合运维监控平台</title>
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/style.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/font-awesome.min.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/simple-line-icons.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/layout.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap-table.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/bootstrap-table-editable.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/animate.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/flavr.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/jquery.datetimepicker.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/jcheckbox/css/jquery-labelauty.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/easyui/themes/metro/easyui.css}" />
-	<link rel="stylesheet" th:href="@{/resources/static/basis/css/build.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/style.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/layout.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/animate.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{/basis/jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{/basis/easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/build.css}" />
 
 </head>
 <body>
 
-	<div th:fragment="content" class="modal-dialog" style="display: inline-block; width: auto;">
+	<div id="update_host" th:fragment="content" class="modal-dialog" style="display: inline-block; width: 80%;">
 		<div class="modal-content">
 			<div class="modal-header text-left">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
@@ -28,6 +28,10 @@
 			</div>
 			<div class="modal-body">
 				<form class="form-inline">
+					<div class="form-group">
+						<label for="updateId">ID</label>
+						<input type="hidden" class="form-control" id="updateId" />
+					</div>
 					<div class="form-group">
 						<label for="updateHostname">主机名</label>
 						<input type="text" class="form-control" id="updateHostname" />
@@ -44,68 +48,74 @@
 						<label for="updateSystem">系统名称</label>
 						<input type="text" class="form-control" id="updateSystem" />
 					</div>
-					<div class="form-group">
-						<input type="radio" name="updateLifecycle_Status" data-labelauty="生产" value="生产" />
-						<input type="radio" name="updateLifecycle_Status" data-labelauty="生产支持" value="生产支持" />
-						<input type="radio" name="updateLifecycle_Status" data-labelauty="测试" value="测试" checked="checked" />
-						<input type="radio" name="updateLifecycle_Status" data-labelauty="开发" value="开发" />
-						<input type="radio" name="updateLifecycle_Status" data-labelauty="沙箱" value="沙箱" />
-						<input type="radio" name="updateLifecycle_Status" data-labelauty="容灾" value="容灾" />
-					</div>
+					<select id="updateLifecycle_Status" class="form-control">
+						<option value="" selected="selected">选择系统类型...</option>
+						<option>生产</option>
+						<option>生产支持</option>
+						<option>测试</option>
+						<option>开发</option>
+						<option>容灾</option>
+						<option>沙箱</option>
+						<option>POC</option>
+					</select>
 					<div class="form-group">
 						<label for="updateProduct">产品名称</label>
 						<input type="text" class="form-control" id="updateProduct" />
 					</div>
-					<div class="form-group">
-						<input type="radio" name="updateNode_Type" data-labelauty="APP+DB" value="APP+DB" />
-						<input type="radio" name="updateNode_Type" data-labelauty="APP" value="APP" checked="checked" />
-						<input type="radio" name="updateNode_Type" data-labelauty="DB" value="DB" />
-						<input type="radio" name="updateNode_Type" data-labelauty="SCS/ASCS" value="SCS/ASCS" />
-						<input type="radio" name="updateNode_Type" data-labelauty="SVN" value="SVN" />
-						<input type="radio" name="updateNode_Type" data-labelauty="Miscellaneous" value="Miscellaneous" />
-					</div>
-					<!-- <div class="form-group">
-							<label for="updateOs_Release">操作系统</label>
-                            <input type="radio" name="updateOs_Release" data-labelauty="RHEL 6.5" value="RHEL 6.5" checked="checked">
-                            <input type="radio" name="updateOs_Release" data-labelauty="SUSE Linux Enterprise 11" value="SUSE Linux Enterprise 11">
-							<input type="radio" name="updateOs_Release" data-labelauty="Windows Server 2012 R2" value="Windows Server 2012 R2">
-							<input type="radio" name="updateOs_Release" data-labelauty="其它" value="其它">
-                        </div> -->
-					<div class="form-group">
-						<label for="updateOs_Release">操作系统</label>
-						<input type="text" class="form-control" id="updateOs_Release" />
-					</div>
-					<div class="form-group">
-						<input type="radio" name="updateIs_Virtualized" data-labelauty="YES" value="YES" checked="checked" />
-						<input type="radio" name="updateIs_Virtualized" data-labelauty="NO" value="NO" />
-					</div>
-					<!--	<div class="form-group">
-                                <label for="updateHa_Type">HA类型</label>
-                                <input type="radio" name="updateHa_Type" data-labelauty="VMWare HA" value="VMWare HA" checked="checked">
-                                <input type="radio" name="updateHa_Type" data-labelauty="RAC" value="RAC">
-                                <input type="radio" name="updateHa_Type" data-labelauty="Always On" value="Always On">
-                                <input type="radio" name="updateHa_Type" data-labelauty="VMWare FT" value="VMWare FT">
-                                <input type="radio" name="updateHa_Type" data-labelauty="HANA" value="HANA">
-                                <input type="radio" name="updateHa_Type" data-labelauty="其它" value="其它">
-                            </div> -->
-					<div class="form-group">
-						<label for="updateHa_Type">HA类型</label>
-						<input type="text" class="form-control" id="updateHa_Type" />
-					</div>
-
-
-
-					<div class="form-group">
-						<label for="updateLocation">机房位置</label>
-						<input type="text" class="form-control" id="updateLocation" />
-					</div>
+					<select id="updateNode_Type" class="form-control">
+						<option value="" selected="selected">选择节点类型...</option>
+						<option>APP</option>
+						<option>DB</option>
+						<option>APP+DB</option>
+						<option>ASCS</option>
+						<option>SCS</option>
+						<option>HTTP Server</option>
+						<option>Git/SVN</option>
+						<option>其它</option>
+					</select>
+					<select id="updateOs_Release" class="form-control">
+						<option value="" selected="selected">选择OS类型...</option>
+						<option>RHEL 6.5</option>
+						<option>RHEL 7.X</option>
+						<option>Windows Server 2012 R2</option>
+						<option>SUSE Linux Enterprise 11</option>
+						<option>CentOS 7.X</option>
+						<option>其它</option>
+					</select>
+					<select id="updateIs_Virtualized" class="form-control">
+						<option value="" selected="selected">是否虚拟化...</option>
+						<option>YES</option>
+						<option>NO</option>
+					</select>
+					<select id="updateHa_Type" class="form-control">
+						<option value="" selected="selected">选择HA类型...</option>
+						<option>vSphere HA</option>
+						<option>Oracle RAC</option>
+						<option>Always On</option>
+						<option>VMWare FT</option>
+						<option>HANA HA</option>
+						<option>其它</option>
+					</select>
+					<select id="updateLocation" class="form-control">
+						<option value="" selected="selected">选择机房位置...</option>
+						<option>北京1号机房非生产</option>
+						<option>北京3号机房非生产</option>
+						<option>北京1号机房生产区</option>
+						<option>北京3号机房生产区</option>
+						<option>吉林8号机房非生产</option>
+						<option>吉林10号机房非生产</option>
+						<option>吉林8号机房生产区</option>
+						<option>吉林10号机房生产区</option>
+						<option>北京/吉林管理区</option>
+						<option>其它机房</option>
+					</select>
 					<div class="form-group">
 						<label for="updateApplicant">申请人</label>
 						<input type="text" class="form-control" id="updateApplicant" />
 					</div>
 					<div class="form-group">
-						<label for="updateApproved_By">审批人</label>
-						<input type="text" class="form-control" id="updateApproved_By" />
+						<label for="updateApprover">审批人</label>
+						<input type="text" class="form-control" id="updateApprover" />
 					</div>
 					<div class="form-group">
 						<label for="updateDelivery_Date">交付日期</label>
@@ -115,10 +125,12 @@
 						<label for="updateExpired_Date">过期时间</label>
 						<input type="text" class="form-control" id="updateExpired_Date" />
 					</div>
-					<div class="form-group">
-						<label for="updateCurrent_Status">当前状态</label>
-						<input type="text" class="form-control" id="updateCurrent_Status" />
-					</div>
+					<select id="updateCurrent_Status" class="form-control">
+						<option value="" selected="selected">选择当前状态...</option>
+						<option>使用中</option>
+						<option>已过期</option>
+						<option>已回收</option>
+					</select>
 					<div class="form-group">
 						<label for="updateRemarks">备注</label>
 						<input type="text" class="form-control" id="updateRemarks" />
@@ -133,112 +145,27 @@
 		</div>
 	</div>
 
-	<script>
-		$(function() {
-			$(':input[name=updateLifecycle_Status]').labelauty();
-			$(':input[name=updateNode_Type]').labelauty();
-			//	$(':input[name=updateOs_Release]').labelauty();
-			$(':input[name=updateIs_Virtualized]').labelauty();
-			//	$(':input[name=updateHa_Type]').labelauty();
-			var data = $("#hostList").bootstrapTable("getSelections")[0];
-			$("#updateHostname").val(data.hostname);
-			$("#updateDomain_Suffix").val(data.domain_Suffix);
-			$("#updateIp_Address").val(data.ip_Address);
-			$("#updateSystem").val(data.system);
-			$("#updateProduct").val(data.product);
-			$("#updateOs_Release").val(data.os_Release);
-			$("#updateHa_Type").val(data.ha_Type);
-			$("#updateLocation").val(data.location);
-			$("#updateBatch").val(data.batch);
-			$("#updateSerial").val(data.serial);
-			$("#updateApplicant").val(data.applicant);
-			$("#updateApproved_By").val(data.approved_By);
-			$("#updateDelivery_Date").val(data.delivery_Date);
-			$("#updateExpired_Date").val(data.expired_Date);
-			$("#updateCurrent_Status").val(data.current_Status);
-			$("#updateRemarks").val(data.remarks);
-			var lifecycle_Status = data.lifecycle_Status;
-			var node_Type = data.node_Type;
-			//	var os_Release = data.os_Release;
-			var is_Virtualized = data.is_Virtualized;
-			//	var ha_Type = data.ha_Type;
-			//根据value值设置radio选中项
-			$("input:radio[value="+lifecycle_Status+"]").attr('checked','true');
-			$("input:radio[value="+node_Type+"]").attr('checked','true');
-			//	$("input:radio[value="+os_Release+"]").attr('checked','true');
-			$("input:radio[value="+is_Virtualized+"]").attr('checked','true');
-			//	$("input:radio[value="+ha_Type+"]").attr('checked','true');
-			$("#updateHost").on("click", function() {
-				data.hostname = $("#updateHostname").val();
-				data.domain_Suffix = $("#updateDomain_Suffix").val();
-				data.ip_Address = $("#updateIp_Address").val();
-				data.system = $("#updateSystem").val();
-				data.product = $("#updateProduct").val();
-				data.os_Release = $("#updateOs_Release").val();
-				data.ha_Type = $("#updateHa_Type").val();
-				data.location = $("#updateLocation").val();
-				data.batch = $("#updateBatch").val();
-				data.serial = $("#updateSerial").val();
-				data.applicant = $("#updateApplicant").val();
-				data.approved_By = $("#updateApproved_By").val();
-				data.delivery_Date = $("#updateDelivery_Date").val();
-				data.expired_Date = $("#updateExpired_Date").val();
-				data.current_Status = $("#updateCurrent_Status").val();
-				data.remarks = $("#updateRemarks").val();
-				data.lifecycle_Status = $("input[name='updateLifecycle_Status']:checked").val();
-				data.node_Type = $("input[name='updateNode_Type']:checked").val();
-				//		data.os_Release = $("input[name='updateOs_Release']:checked").val();
-				data.is_Virtualized = $("input[name='updateIs_Virtualized']:checked").val();
-				//		data.ha_Type = $("input[name='updateHa_Type']:checked").val();
-				$.ajax({
-					url: '/basis/host/host/updateHost',
-					data: data,
-					method: 'post',
-					dataType: 'json',
-					complete: function(jqXHR, textStatus) {
-						$("#updateHostname").val("");
-						$("#updateDomain_Suffix").val("");
-						$("#updateIp_Address").val("");
-						$("#updateSystem").val("");
-						$("#updateProduct").val("");
-						$("#updateOs_Release").val("");
-						$("#updateHa_Type").val("");
-						$("#updateLocation").val("");
-						$("#updateBatch").val("")
-						$("#updateSerial").val("");
-						$("#updateApplicant").val("");
-						$("#updateApproved_By").val("");
-						$("#updateDelivery_Date").val("");
-						$("#updateExpired_Date").val("");
-						$("#updateCurrent_Status").val("");
-						$("#updateRemarks").val("");
-						$("#updateHostModal").modal("hide");
-					}
-				});
-			});
-		});
-	</script>
+	<script type="text/javascript" th:src="@{/basis/js/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table-zh-CN.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/dateFormat.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table-editable.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-editable.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-table-export.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/tableExport.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/flavr.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/jquery.datetimepicker.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/jquery.nicescroll.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/jcheckbox/js/jquery-labelauty.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bt-validate.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/md5.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/json.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/bootstrap-combobox.min.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/easyui/jquery.easyui.min.js}"></script>
 
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-zh-CN.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/dateFormat.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-editable.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-editable.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-table-export.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/tableExport.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/flavr.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.datetimepicker.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/jquery.nicescroll.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/jcheckbox/js/jquery-labelauty.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bt-validate.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/md5.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/json.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/bootstrap-combobox.min.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/easyui/jquery.easyui.min.js}"></script>
-
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/leftsidebar.js}"></script>
-	<script type="text/javascript" th:src="@{/resources/static/basis/js/hostlist.js}"></script>
+	<script type="text/javascript" th:src="@{/basis/js/leftsidebar.js}"></script>
+	<!--&lt;!&ndash;<script type="text/javascript" th:src="@{/basis/js/host-list.js}"></script>&ndash;&gt;-->
+	<script type="text/javascript" th:src="@{/basis/js/update-host.js}"></script>
 </body>
 </html>

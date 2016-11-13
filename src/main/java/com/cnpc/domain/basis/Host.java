@@ -6,17 +6,23 @@ package com.cnpc.domain.basis;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "host")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Host extends Root {
+public class Host {
 
+    @SequenceGenerator(name="host_sequence", sequenceName="host_sequence")
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="host_sequence")
+    private Long id;
+    private String creater;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date create_Time;
+    private String updater;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date update_Time;
     private String hostname;
     private String domain_Suffix;
     private String ip_Address;
@@ -37,34 +43,46 @@ public class Host extends Root {
     private String current_Status;
     private String remarks;
 
-    // 无参构造器
-    public Host() {
+    public Host() {}
 
+    public Long getId() {
+        return id;
     }
 
-    // 含参构造器
-    public Host(String hostname, String domain_Suffix, String ip_Address, String system, String lifecycle_Status,
-                String product, String node_Type, String os_Release, String is_Virtualized, String ha_Type, String location,
-                String applicant, String approver, Date delivery_Date, Date expired_Date,
-                String current_Status, String remarks) {
-        super();
-        this.hostname = hostname;
-        this.domain_Suffix = domain_Suffix;
-        this.ip_Address = ip_Address;
-        this.system = system;
-        this.lifecycle_Status = lifecycle_Status;
-        this.product = product;
-        this.node_Type = node_Type;
-        this.os_Release = os_Release;
-        this.is_Virtualized = is_Virtualized;
-        this.ha_Type = ha_Type;
-        this.location = location;
-        this.applicant = applicant;
-        this.approver = approver;
-        this.delivery_Date = delivery_Date;
-        this.expired_Date = expired_Date;
-        this.current_Status = current_Status;
-        this.remarks = remarks;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCreater() {
+        return creater;
+    }
+
+    public void setCreater(String creater) {
+        this.creater = creater;
+    }
+
+    public Date getCreate_Time() {
+        return create_Time;
+    }
+
+    public void setCreate_Time(Date create_Time) {
+        this.create_Time = create_Time;
+    }
+
+    public String getUpdater() {
+        return updater;
+    }
+
+    public void setUpdater(String updater) {
+        this.updater = updater;
+    }
+
+    public Date getUpdate_Time() {
+        return update_Time;
+    }
+
+    public void setUpdate_Time(Date update_Time) {
+        this.update_Time = update_Time;
     }
 
     public String getHostname() {
