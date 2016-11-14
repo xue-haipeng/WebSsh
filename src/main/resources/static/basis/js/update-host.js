@@ -22,6 +22,10 @@ $(function () {
         var lifecycle_Status = $("#updateLifecycle_Status").val();
         var node_Type = $("#updateNode_Type").val();
         var is_Virtualized = $("#updateIs_Virtualized").val();
+
+        if (!isValidDate(delivery_Date)) {alert("交付日期格式非法，请检查输入")};
+        if (!isValidDate(expired_Date)) {alert("过期日期格式非法，请检查输入")};
+
         var data = {id: id, hostname: hostname, domain_Suffix: domain_Suffix, ip_Address: ip_Address, system: system, product: product,
             os_Release: os_Release, ha_Type: ha_Type, location: location, applicant: applicant, approver: approver, delivery_Date: delivery_Date,
             expired_Date: expired_Date, current_Status: current_Status, remarks: remarks, lifecycle_Status: lifecycle_Status, node_Type: node_Type,

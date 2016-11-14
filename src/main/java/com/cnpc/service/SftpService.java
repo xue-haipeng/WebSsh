@@ -58,11 +58,11 @@ public class SftpService {
 	public void saveBakStatus() {
 		Map<String, String> statusMap = new HashMap<>();
 		Date today = new Date();
-		for (String ip : ips) {
-			System.out.println("ip: " + ip + " ........");
+		ips.forEach(ip -> {
+			System.out.println(today + "  ip: " + ip + " ........");
 			JschSftpUtil.sftp(ip, username, passwd, remoteFile);
 			String bakStatus = JschSftpUtil.getLastLine();
 			repo.save(new BackupStatus(ip, today, bakStatus));
-		}
+		});
 	}
 }

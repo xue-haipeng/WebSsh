@@ -33,7 +33,7 @@ $(function() {
     $("#add").on("click",function(){
         $("#addHostModal").load($(this).attr("data-url"));
         $('#addHostModal').on('hidden.bs.modal', function (e) {
-            search();
+            location.reload();
         })
     });
 

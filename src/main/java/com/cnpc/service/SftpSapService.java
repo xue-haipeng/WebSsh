@@ -57,7 +57,7 @@ public class SftpSapService {
         Date today = new Date();
         System.out.println(logfiles);
         logfiles.forEach((k, v) -> {
-            System.out.println("ip: " + k + " ........");
+            System.out.println(today + "  ip: " + k + " ........");
             JschSftpSapUtil.sftp(k, username, passwd, v);
             String bakStatus = JschSftpSapUtil.getLastLine();
             repo.save(new BackupStatus(k, today, bakStatus));
