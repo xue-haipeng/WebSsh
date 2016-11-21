@@ -47,7 +47,7 @@ public class ApplicationService {
         }
 
         if (system != null && !"".equals(system.trim())) {
-            return repository.findBySystem(system);
+            return repository.findBySystemLike("%" + system + "%");
         }
         return repository.findAll();
     }

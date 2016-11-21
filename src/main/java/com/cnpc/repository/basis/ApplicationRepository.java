@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Long> {
 
-    List<Application> findBySystem(String system);
+    List<Application> findBySystemLike(String system);
 }

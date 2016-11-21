@@ -21,12 +21,23 @@ public class HostService {
     HostRepository repository;
 
     public void addHost (Host host) throws Exception {
+        String[] ip = null;
         if (host.getCreater() == null || "".equals(host.getCreater())) {
             host.setCreater(SecurityContextHolder.getContext().getAuthentication().getName());
         }
         if (host.getCreate_Time() == null || "".equals(host.getCreate_Time())) {
             host.setCreate_Time(new Date());
         }
+  /*      if (host.getIp_Address() != null && !"".equals(host.getIp_Address())) {
+            ip = host.getIp_Address().split("\\.");
+            if (Integer.parseInt(ip[0]) == 10 && Integer.parseInt(ip[1]) == 30) {
+                if ((Integer.parseInt(ip[2]) >= 32 && Integer.parseInt(ip[2]) <= 63) || (Integer.parseInt(ip[2]) >= 128 && Integer.parseInt(ip[2]) <= 143)) {
+                    host.setLocation("");
+                }
+            }
+        }
+*/
+
         repository.save(host);
     }
 
@@ -47,7 +58,7 @@ public class HostService {
         }
 
         if (hostname != null && !"".equals(hostname.trim())) {
-            return repository.findByHostname(hostname);
+            return repository.findByHostnameLike("%" + hostname + "%");
         }
         return repository.findAll();
     }

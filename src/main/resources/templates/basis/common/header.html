@@ -15,7 +15,8 @@
 	<link rel="stylesheet" th:href="@{jcheckbox/css/jquery-labelauty.css}" />
 	<link rel="stylesheet" th:href="@{easyui/themes/metro/easyui.css}" />
 	<link rel="stylesheet" th:href="@{css/build.css}" />
-
+	<link rel="stylesheet" th:href="@{css/font_maven_pro.css}" />
+	<link rel="stylesheet" th:href="@{css/booNavigation.css}" />
 
 <style>
 	body {
@@ -27,7 +28,7 @@
 
 <nav th:fragment="header" class="navbar box-shadow bg-gray " role="navigation" style="margin-bottom:1px;">
 	<div class="navbar-header" style="margin-left:20px;">
-		<img  src="/basis/img/logo.png" alt="..." />
+		<a href="/"><img  src="/basis/img/logo.png" alt="..." /></a>
 	</div>
 	<div style="margin-right:40px;float:left;line-height:50px;">
         <span>
@@ -39,21 +40,26 @@
 	</div>
 	<div style="margin-right:40px;float:right;line-height:50px;">
 		<span>
-          <i class="fa fa-expand fa-fw text"></i>
-       </span>
-		<span>
-          <i class="icon-bell fa-fw"></i>
+           <i class="icon-bell fa-fw"></i>
        </span>
 		<span class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			    <span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
-                <img  src="/basis/img/a0.jpg" alt="..." class="img-circle" />
-                <b class="caret"></b>
+			    <!--<span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;-->
+				 <div th:switch="${#httpServletRequest.remoteUser}">
+					 <div th:case="wangqian"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+						 <img src="/basis/img/wangqian.png" alt="..." class="img-circle" /><b class="caret"></b>
+					 </div>
+					 <div th:case="hanxinyi"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+						 <img src="/basis/img/hanxinyi.png" alt="..." class="img-circle" /><b class="caret"></b>
+					 </div>
+					 <div th:case="*"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+						 <img src="/basis/img/male.png" alt="..." class="img-circle" /><b class="caret"></b>
+					 </div>
+				 </div>
              </a>
 			  <ul style="min-width:80px;" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
 				<li role="presentation"><a role="menuitem" tabindex="-1" href="/logout"><i class="glyphicon glyphicon-off"></i>退出</a></li>
 			  </ul>
-			
        </span>
 	</div>
 </nav>
@@ -79,6 +85,8 @@
 	<script type="text/javascript" th:src="@{easyui/jquery.easyui.min.js}"></script>
 
 	<script type="text/javascript" th:src="@{js/leftsidebar.js}"></script>
+	<script type="text/javascript" th:src="@{js/booNavigation.js}"></script>
+	<script type="text/javascript" th:src="@{js/booNavi_Trigger.js}"></script>
 	<script type="text/javascript" th:src="@{js/host-list.js}"></script>
 </body>
 </html>

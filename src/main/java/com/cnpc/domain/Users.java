@@ -23,6 +23,7 @@ public class Users implements UserDetails{
     private Long id;
     private String username;
     private String password;
+
     @ManyToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(name="users_roles", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private List<Roles> roles;

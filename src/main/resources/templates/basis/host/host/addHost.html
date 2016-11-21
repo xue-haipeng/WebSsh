@@ -16,6 +16,7 @@
 	<link rel="stylesheet" th:href="@{/basis/jcheckbox/css/jquery-labelauty.css}" />
 	<link rel="stylesheet" th:href="@{/basis/easyui/themes/metro/easyui.css}" />
 	<link rel="stylesheet" th:href="@{/basis/css/build.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/datedropper.css}" />
 
 </head>
 <body>
@@ -29,7 +30,7 @@
 			<div class="modal-body text-left">
 				<form class="form-inline">
 					<div class="form-group">
-						<label for="addHostname">主机名</label>
+						<label for="addHostname">主机名<em>*</em></label>
 						<input type="text" class="form-control" id="addHostname" />
 					</div>
 					<div class="form-group">
@@ -37,15 +38,15 @@
 						<input type="text" class="form-control" id="addDomain_Suffix" />
 					</div>
 					<div class="form-group">
-						<label for="addIp_Address">IP地址</label>
+						<label for="addIp_Address">IP地址<em>*</em></label>
 						<input type="text" class="form-control" id="addIp_Address" />
 					</div>
 					<div class="form-group">
-						<label for="addSystem">系统名称</label>
+						<label for="addSystem">系统名称<em>*</em></label>
 						<input type="text" class="form-control" id="addSystem" />
 					</div>
 					<div class="form-group">
-						<label for="addProduct">产品名称</label>
+						<label for="addProduct">产品名称<em>*</em></label>
 						<input type="text" class="form-control" id="addProduct" />
 					</div>
 					<select id="addNode_Type" class="form-control">
@@ -60,7 +61,7 @@
 						<option>其它</option>
 					</select>
 					<select id="addLifecycle_Status" class="form-control">
-						<option value="" selected="selected">选择系统类型...</option>
+						<option value="" selected="selected">选择系统类型...<em>*</em></option>
 						<option>生产</option>
 						<option>生产支持</option>
 						<option>测试</option>
@@ -162,6 +163,8 @@
 	<script type="text/javascript" th:src="@{/basis/js/leftsidebar.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/js/date-validation.js}"></script>
 	<script type="text/javascript" th:src="@{/basis/js/host-list.js}"></script>
+	<!--<script type="text/javascript" th:src="@{/basis/js/datedropper.min.js}"></script>-->
+	<!--<script type="text/javascript" th:src="@{/basis/js/date_picker.js}"></script>-->
 
 </body>
 </html>

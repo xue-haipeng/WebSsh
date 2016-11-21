@@ -19,7 +19,7 @@
 
 </head>
 <body>
-	<div th:fragment="content" class="modal-dialog" style="display: inline-block; width: 80%;">
+	<div th:fragment="content" class="modal-dialog" style="display: inline-block; width: 80%; z-index: 0">
 		<div class="modal-content">
 			<div class="modal-header text-left">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
@@ -29,7 +29,7 @@
 			<div class="modal-body text-left">
 				<form class="form-inline">
 					<div class="form-group">
-						<label for="addSystem">系统名称</label>
+						<label for="addSystem">系统名称<em>*</em></label>
 						<input type="text" class="form-control" id="addSystem" />
 					</div>
 					<div class="form-group">
@@ -45,9 +45,18 @@
 						<input type="text" class="form-control" id="addBusiness_Line" />
 					</div>
 					<div class="form-group">
-						<label for="addProduct">产品名称</label>
+						<label for="addProduct">产品名称<em>*</em></label>
 						<input type="text" class="form-control" id="addProduct" />
 					</div>
+					<select id="addLifecycle_Status" class="form-control">
+						<option value="" selected="selected">选择系统类型...<em>*</em></option>
+						<option>生产</option>
+						<option>生产支持</option>
+						<option>测试</option>
+						<option>开发</option>
+						<option>沙箱</option>
+						<option>容灾</option>
+					</select>
 					<select id="addMw_Type" class="form-control">
 						<option value="" selected="selected">中间件类型...</option>
 						<option>NetWeaver</option>
@@ -69,20 +78,11 @@
 						<label for="addAdministrator">管理员</label>
 						<input type="text" class="form-control" id="addAdministrator" />
 					</div>
-					<select id="addLifecycle_Status" class="form-control">
-						<option value="" selected="selected">系统类型...</option>
-						<option>生产</option>
-						<option>生产支持</option>
-						<option>测试</option>
-						<option>开发</option>
-						<option>沙箱</option>
-						<option>容灾</option>
-					</select>
 				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-success" id="addApplication" data-dismiss="modal">添加</button>
+				<button type="button" class="btn btn-success" id="addApplication">添加</button>
 			</div>
 		</div>
 	</div>
