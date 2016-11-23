@@ -15,28 +15,19 @@ import java.util.List;
 /**
  * Created by Xue on 11/06/16.
  */
+
 @Service("hostService")
 public class HostService {
     @Autowired
     HostRepository repository;
 
     public void addHost (Host host) throws Exception {
-        String[] ip = null;
         if (host.getCreater() == null || "".equals(host.getCreater())) {
             host.setCreater(SecurityContextHolder.getContext().getAuthentication().getName());
         }
         if (host.getCreate_Time() == null || "".equals(host.getCreate_Time())) {
             host.setCreate_Time(new Date());
         }
-  /*      if (host.getIp_Address() != null && !"".equals(host.getIp_Address())) {
-            ip = host.getIp_Address().split("\\.");
-            if (Integer.parseInt(ip[0]) == 10 && Integer.parseInt(ip[1]) == 30) {
-                if ((Integer.parseInt(ip[2]) >= 32 && Integer.parseInt(ip[2]) <= 63) || (Integer.parseInt(ip[2]) >= 128 && Integer.parseInt(ip[2]) <= 143)) {
-                    host.setLocation("");
-                }
-            }
-        }
-*/
 
         repository.save(host);
     }
@@ -99,5 +90,23 @@ public class HostService {
         h.setRemarks(host.getRemarks());
 
         repository.saveAndFlush(h);
+    }
+
+    public static String judgeLocation(String ip) {
+        String[] ipStr = ip.split("\\.");
+        if (Integer.parseInt(ipStr[0]) == 10 && Integer.parseInt(ipStr[1]) == 30) {
+            if ((Integer.parseInt(ipStr[2]) >= 32 && Integer.parseInt(ipStr[2]) <= 63) || (Integer.parseInt(ipStr[2]) >= 128 && Integer.parseInt(ipStr[2]) <= 143)) {
+                return "M08";
+            } else if (Integer.parseInt(ipStr[2]) >= 144 && Integer.parseInt(ipStr[2]) <= 191) {
+                return "M10";
+            }
+        } else if (Integer.parseInt(ipStr[0]) == 11 && Integer.parseInt(ipStr[1]) == 11) {
+            if (Integer.parseInt(ipStr[2]) >= 0 && Integer.parseInt(ipStr[2]) <= 63) {
+                return "M01";
+            } else if (Integer.parseInt(ipStr[2]) >= 64 && Integer.parseInt(ipStr[2]) <= 127) {
+                return "M03";
+            }
+        }
+        return null;
     }
 }
