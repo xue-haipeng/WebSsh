@@ -76,10 +76,6 @@ sap:
         11.11.5.213: /oracle/EMP/sapbackup/backEMP001.log
         10.30.36.157: /oracle/EP1/sapbackup/backEP1001.log
         11.11.49.105: /oracle/JP1/sapbackup/backJP1.log
-#        11.11.47.44: /oracle/WP1/sapbackup/backWP1.log
-#        11.11.47.65: /oracle/BP1/sapbackup/backBP1.log
-#        11.11.47.62: /oracle/PP1/sapbackup/backPP1.log
-#        11.11.47.25: /oracle/XP1/sapbackup/backXP1.log
         10.30.35.68: /oracle/BP9/sapbackup/backBP9001.log
         10.30.37.195: /oracle/BPD/sapbackup/backBPD001.log
         10.30.35.132: /oracle/BPC/sapbackup/backBPC001.log

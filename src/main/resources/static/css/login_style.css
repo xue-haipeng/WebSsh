@@ -27,6 +27,7 @@ h1, h2 {
 h3 {
 	font-size: 22px;
     font-weight: 300;
+	font-family: 'Microsoft Yahei';
     color: #555;
     line-height: 30px;
 }
@@ -123,7 +124,7 @@ img { max-width: 100%; }
 }
 
 .form-top-left h3 { margin-top: 0; color: #fff; }
-.form-top-left p { opacity: 0.8; color: #fff; }
+.form-top-left p { opacity: 0.8; font-family: 'Microsoft Yahei'; color: #fff; }
 
 .form-top-right {
 	float: left;

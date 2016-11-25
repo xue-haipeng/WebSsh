@@ -6,6 +6,9 @@
   <link rel="stylesheet" th:href="@{css/animate.min.css}" />
   <link rel="stylesheet" th:href="@{css/montserrat_questrial_roboto.css}" />
   <link rel="stylesheet" th:href="@{css/style.css}" />
+  <link rel="stylesheet" th:href="@{css/style.css}" />
+  <link rel="stylesheet" th:href="@{flavr/css/animate.css}" />
+  <link rel="stylesheet" th:href="@{flavr/css/flavr.css}" />
     
 <style type="text/css">
 #container1{text-align:center;}
@@ -70,7 +73,7 @@ body,html {
                 <li><a href="/hostlist">Hosts</a></li>
               </ul>
             </div>
-            <div id="login" th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse">
+            <div th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="/login">Login</a></li>
               </ul>
@@ -154,9 +157,11 @@ body,html {
       </div>
     </footer>
 
-<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/jquery.min.1.10.js}"></script>
 <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{js/jquery.touchSwipe.min.js}"></script>
 <script type="text/javascript" th:src="@{js/jquery_config.js}"></script>
+<script type="text/javascript" th:src="@{flavr/js/flavr.js}"></script>
+<script type="text/javascript" th:src="@{js/login_flavr.js}"></script>
 
 </body></html>
