@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+
+<style type="text/css">
+	.xo {
+    	width: 30%;
+    	max-width: 100%;
+    	margin-left: 25px;
+	}
+	.zk {
+    	max-width: 100%;
+    	margin-top: 10px;
+	}
+	.bb {
+		max-width: 100%;
+		margin-top: 10px;
+	}
+	.erp_1 {
+		width: 30%;
+		max-width: 100%;
+		margin-left: 25px;
+	}
+	.erp_2 {
+		max-width: 100%;
+	}
+	.aa {
+		max-width: 100%;
+	}
+	body {
+		font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	}
+	th{
+		font-weight: normal;
+	}
+
+</style>
+</head>
+<body>
+<div th:fragment="content">
+	<div class="row">
+		<div id="xo_p" class="col-md-4 col-sm-4 col-xs-12 xo">
+			<h3>集成平台</h3>
+			<table id="t_xo_p" class="table">
+				<thead>
+				<tr>
+					<th>OSB/BPM</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">上市OSB</th>
+					<td></td> <!-- 000 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">未上市OSB</th>
+					<td></td> <!-- 003 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">总部OSB</th>
+					<td></td> <!-- 006 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">海外OSB</th>
+					<td></td> <!-- 009 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">OSB监控</th>
+					<td></td> <!-- 012 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">OER</th>
+					<td></td> <!-- 015 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">BPM</th>
+					<td></td> <!-- 018 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">OAM</th>
+					<td></td> <!-- 021 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="zk_p" class="col-md-4 col-sm-4 col-xs-12 zk">
+			<h3>自开发平台</h3>
+			<table id = "t_zk_p" class="table">
+				<thead>
+				<tr>
+					<th>自主开发</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">人力资源自主开发</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">软件开发管理平台</th>
+					<td></td> <!-- 03 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">科研板块报表平台</th>
+					<td></td> <!-- 06 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">指标报表管理平台</th>
+					<td></td> <!-- 09 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<!--        		<tr>
+                                    <th scope="row">审计信息/报表系统</th>
+                                    <td>12</td> &lt;!&ndash; 12 &ndash;&gt;
+                                    <td>13</td>
+                                    <td>14</td>
+                                </tr>-->
+				</tbody>
+			</table>
+			<h3>非结构化</h3>
+			<table id="t_nosql_p" class="table">
+				<thead>
+				<tr>
+					<th>FileNet</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">非结构化RAC</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="bb_p" class="col-md-4 col-sm-4 col-xs-12 bb">
+			<h3>决策支持平台</h3>
+			<table id = "t_bb_p" class="table">
+				<thead>
+				<tr>
+					<th>OBIEE</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">勘探OBIEE</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">装备OBIEE 2.0</th>
+					<td></td> <!-- 03 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">装备OBIEE 1.0</th>
+					<td></td> <!-- 06 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工技OBIEE 2.0</th>
+					<td></td> <!-- 09 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工技OBIEE 1.0</th>
+					<td></td> <!-- 12 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工建OBIEE 2.0</th>
+					<td></td> <!-- 15 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工建OBIEE 1.0</th>
+					<td></td> <!-- 18 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">海外OBIEE</th>
+					<td></td> <!-- 21 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="erp_1_p" class="col-md-4 col-sm-4 col-xs-12 erp_1">
+			<h3>ERP 1.0平台</h3>
+			<table id = "t_erp_1_p" class="table">
+				<thead>
+				<tr>
+					<th>ERP</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">勘探生产EP6</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">大庆油田EP7</th>
+					<td></td> <!-- 03 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工程建设COP</th>
+					<td></td> <!-- 06 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工程技术CP9</th>
+					<td></td> <!-- 09 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">装备制造EMP</th>
+					<td></td> <!-- 12 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">化工销售EP1</th>
+					<td></td> <!-- 15 -->
+					<td></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<th scope="row">工技BW BP9</th>
+					<td></td> <!-- 18 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">工建BW BPC</th>
+					<td></td> <!-- 21 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">装备BW BPD</th>
+					<td></td> <!-- 24 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="erp_2_p" class="col-md-4 col-sm-4 col-xs-12 erp_2">
+			<h3>ERP 2.0平台</h3>
+			<table id = "t_erp_2_p" class="table">
+				<thead>
+				<tr>
+					<th>ERP</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">人力资源HP1</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">勘探生产CP6</th>
+					<td></td> <!-- 03 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">未上市CPF</th>
+					<td></td> <!-- 06 -->
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">海外CPO</th>
+					<td></td> <!-- 06 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+			<h3>联合监督</h3>
+			<table id = "t_jp1_p" class="table">
+				<thead>
+				<tr>
+					<th>ERP</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">纪检监察JP1</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="aa_p" class="col-md-4 col-sm-4 col-xs-12 aa">
+			<h3>权限平台</h3>
+			<table id = "t_aa_p" class="table">
+				<thead>
+				<tr>
+					<th>RAC</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">GRC GP1</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+			<h3>审计信息/报表</h3>
+			<table id = "t_au_p" class="table">
+				<thead>
+				<tr>
+					<th>数据库</th>
+					<th>前天</th>
+					<th>昨天</th>
+					<th>今天</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<th scope="row">审计数据库</th>
+					<td></td> <!-- 00 -->
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" th:src="@{js/backup.js}"></script>
+<script type="text/javascript" th:src="@{js/backupSap.js}"></script>
+</body>
+</html>

@@ -14,8 +14,43 @@
 		</li>
 
 	</ol>
-<!--	<div style="background: url("/basis/img/poetry_distance.png")"></div>-->
-	<img id="poetry" src="basis/img/poetry_distance.png" align="middle" />
+	<div id="poetry">
+		<div class="readme">
+			<h3>后台维护模块使用说明：</h3>
+			<p>后台维护模块是维护系统后台数据的WEB UI界面，目前提供“ERP应用集成项目”瑞飞维护的所有系统和主机信息的维护功能。</p>
+			<h4>系统/主机信息录入说明：</h4>
+			<ul>
+				<li>要使添加的条目可以在主机列表中正常显示，须同时添加系统信息和主机信息
+					<ul>
+						<li>首先查找要添加的主机所属的系统信息是否已录入，如未被录入须先添加系统信息；</li>
+						<li>每条系统信息由“系统名称”、“系统类型”和“产品名称”3个字段唯一确定，3个字段有任一字段不相同则被认为是不同的系统；</li>
+						<li>填写主机信息时请务必使“系统名称”、“系统类型”和“产品名称”3个字段与所填写的系统信息表条目保持一致，否则两张表无法正确连接</li>
+					</ul>
+				</li>
+				<li class="readme_li">为便于录入信息的聚合统计，建议在录入相关字段时，名称与系统已存在的信息保存一致
+					<ul>
+						<li>如：“决策支持平台”、“决策平台”、“决策支持”3种表述方式可能导致聚合操作统计为3个平台</li>
+					</ul>
+				</li>
+				<li class="readme_li">批量数据录入建议使用SQL脚本或将Excel表导入数据库以提高数据录入效率
+					<ul>
+						<li>数据库Schema：pt_admin</li>
+						<li>系统表：application</li>
+						<li>主机表：host</li>
+						<li>视图：erp_hosts</li>
+					</ul>
+				</li>
+			</ul>
+<!--
+			<h4>Release Note</h4>
+			<em>2016-11-18</em>
+			<ul>
+				<li>添加系统名称/主机名称字段的模糊搜索功能；</li>
+				<li>添加系统表/主机表必填字段标识已经JS提示；</li>
+				<li>添加根据IP地址提示主机所在机房功能</li>
+			</ul>-->
+		</div>
+	</div>
 </div>
 
 </body>
