@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <title>ERP应用集成项目综合运维监控平台</title>
 	<link rel="stylesheet" th:href="@{css/style.css}" />
@@ -44,8 +44,18 @@
        </span>
 		<span class="dropdown">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			    <!--<span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;-->
-				 <div th:switch="${#httpServletRequest.remoteUser}">
+			    <div><!--
+					 <div th:case="wangqian"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+						 <img src="/basis/img/wangqian.png" alt="..." class="img-circle" /><b class="caret"></b>
+					 </div>-->
+					 <div sec:authorize="hasRole('ROLE_FEMALE')"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+						 <img src="/basis/img/hanxinyi.png" alt="..." class="img-circle" /><b class="caret"></b>
+					 </div>
+					 <div sec:authorize="hasRole('ROLE_MALE')"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
+						 <img src="/basis/img/male.png" alt="..." class="img-circle" /><b class="caret"></b>
+					 </div>
+				 </div>
+		<!--		 <div th:switch="${#httpServletRequest.remoteUser}">
 					 <div th:case="wangqian"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
 						 <img src="/basis/img/wangqian.png" alt="..." class="img-circle" /><b class="caret"></b>
 					 </div>
@@ -55,7 +65,7 @@
 					 <div th:case="*"><span th:text="${#httpServletRequest.remoteUser}"></span>&nbsp;
 						 <img src="/basis/img/male.png" alt="..." class="img-circle" /><b class="caret"></b>
 					 </div>
-				 </div>
+				 </div>-->
              </a>
 			  <ul style="min-width:80px;" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
 				<li role="presentation"><a role="menuitem" tabindex="-1" href="/logout"><i class="glyphicon glyphicon-off"></i>退出</a></li>

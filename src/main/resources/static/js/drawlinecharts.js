@@ -151,7 +151,8 @@ $(function () {
                 }
             },
 
-            series: [{name: 'exoaps002', data: exoaps002}, 
+            series: [{name: 'exoaps001', data: exoaps001},
+					 {name: 'exoaps002', data: exoaps002},
                      {name: 'exoaps003', data: exoaps003}, 
                      {name: 'exoaps004', data: exoaps004}, 
                      {name: 'exoaps005', data: exoaps005}, 
