@@ -36,6 +36,21 @@ public class Application {
 
     public Application() {}
 
+    public Application(Application application, String lifecycle_Status) {
+        this.creater = application.getCreater();
+        this.create_Time = application.getCreate_Time();
+        this.updater = application.getUpdater();
+        this.update_Time = application.getUpdate_Time();
+        this.system = application.getSystem();
+        this.project_Name = application.getProject_Name();
+        this.platform_Name = application.getPlatform_Name();
+        this.business_Line = application.getBusiness_Line();
+        this.lifecycle_Status = lifecycle_Status;
+        this.product = application.getProduct();
+        this.mw_Type = application.getMw_Type();
+        this.company = application.getCompany();
+        this.administrator = application.getAdministrator();
+    }
     public Long getId() {
         return id;
     }

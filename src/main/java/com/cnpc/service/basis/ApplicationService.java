@@ -27,7 +27,18 @@ public class ApplicationService {
         if (application.getCreate_Time() == null || "".equals(application.getCreate_Time())) {
             application.setCreate_Time(new Date());
         }
+        application.setLifecycle_Status("生产");
         repository.save(application);
+
+        repository.save(new Application(application, "测试"));
+
+        repository.save(new Application(application, "开发"));
+
+        repository.save(new Application(application, "生产支持"));
+
+        repository.save(new Application(application, "沙箱"));
+
+        repository.save(new Application(application, "容灾"));
     }
 
     public List<Application> getApplicationList(int offset, int limit, String sort, String order, String system) {

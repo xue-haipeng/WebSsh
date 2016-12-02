@@ -21,7 +21,7 @@ $(function () {
 	            type: 'bar'
 	        },
 	        title: {
-	            text: '云平台ERP各主机CPU使用情况',
+	            text: 'ERP项目各主机CPU使用情况',
 				style: {
 					'font-family': 'Microsoft YaHei'
 				}
@@ -64,6 +64,11 @@ $(function () {
 	                }
 	            }
 	        },
+            colors: [
+                '#d08080',
+                '#8cbeed',
+                '#bfa0ee'
+            ],
 	        legend: {
 	            layout: 'vertical',
 	            align: 'right',
