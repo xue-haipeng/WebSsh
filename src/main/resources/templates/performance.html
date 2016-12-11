@@ -10,6 +10,7 @@
 <style>
 	body {
 		font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+		overflow-x: hidden;
 	}
 </style>
 </head>
@@ -33,6 +34,8 @@
 
 <div class="row">
 	<div id="xoaps" class="col-md-12" align="center" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div id="bpm" class="row col-sm-12 col-md-12 col-lg-12"></div>
+	<div id="zhap5" class="row col-sm-12 col-md-12 col-lg-12"></div>
 </div>
 <!--	<div class="row">
 		<div id="xbapt" class="col-md-12" align="center" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -49,5 +52,7 @@
 	<script th:src="@{js/heat-tree-map.js}"></script>
 	<script th:src="@{js/linechart_xbapt.js}"></script>
 	<script th:src="@{js/linechart_xfapt.js}"></script>
+	<script th:src="@{js/cpuinfo_line_bpm.js.js}"></script>
+	<script th:src="@{js/cpuinfo_line_zhap5.js}"></script>
 </body>
 </html>

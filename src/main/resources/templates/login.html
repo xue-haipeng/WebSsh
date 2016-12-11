@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <title>中国石油容器容器云平台</title>
+    <title>综合运行监控维护平台</title>
 
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{css/fonts.Roboto.css}" />
@@ -16,24 +16,93 @@
             font-weight: 700;
             font-family: "Microsoft YaHei";
         }
+        .row {
+            padding-top: 3%;
+        }
+        img{margin:0 auto 0 auto;}
+        .container1 {
+            width: 100%;
+            height: 10px;
+        }
+        .navbar-inverse {
+            background-color: rgba(0, 0, 0, 0.07);
+            border: rgba(0, 0, 0, 0.4);
+        }
+        .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .container {
+            padding-right: 15px;
+            padding-left: 3%;
+            margin-right: auto;
+            /* margin-left: auto; */
+        }
+        .col-sm-offset-3 {
+            margin-left: 28%;
+        }
+        .col-sm-6 {
+            width: 40%;
+        }
+        .nav>li>a {
+            position: relative;
+            display: block;
+        }
+        .container2 {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .custom_footer {
+            background: #efefef;
+            padding-top: 12px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+        body,html {
+            margin: 0;
+            padding: 0;
+            height:100%;
+        }
     </style>
     </head>
     <body>
-
+    <div class="navbar-wrapper">
+        <div class="container1">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/login">综合运行监控维护平台</a></li>
+                        </ul>
+                    </div><!--
+                    <div class="navbar-right navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/login">关于</a></li>
+                        </ul>
+                    </div>-->
+                </div>
+            </nav>
+        </div>
+    </div>
         <!-- Top content -->
         <div class="top-content">
             <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>中国石油容器云平台</strong></h1>
-                        </div>
-                    </div>
+                <div class="container2">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3>登陆</h3>
+                        			<h3>登陆后台</h3>
                             		<p>Enter your username and password to log on:</p>
                         		</div>
                         		<div class="form-top-right">

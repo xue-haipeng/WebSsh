@@ -6,7 +6,32 @@
 <link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
 <script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
 <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/highcharts.js}"></script>
+<script type="text/javascript" th:src="@{js/wls_stat_pie_jcpt.js}"></script>
 
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        #top {
+            padding-top: 18px;
+            font-family: "Microsoft YaHei UI", Arial;
+        }
+        #jcpt {
+            padding-top: 1%;
+            padding-left: 3%;
+        }
+        a {
+            font-family: "Microsoft YaHei UI", Arial;
+        }
+        #top > div > div > ul > li { padding-bottom: 8px; }
+        .col-md-2, .col-lg-2 { padding-right: 0; }
+        .col-md-3, .col-lg-3 {
+            width: 20%;
+        }
+        #top > div > div + div { padding-left: 0; padding-right: 0; }
+
+    </style>
 </head>
 <body>
 <div>
@@ -19,9 +44,46 @@
     <li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
 </ul>
 </div>
+<div id="top">
+    <div class="row">
+        <div class="col-md-2 col-lg-2">
+            <ul style="list-style: none">
+                <li>当前已监控主机数 / 实例数：</li>
+                <ul style="list-style: none">
+                    <li>SAP : &nbsp;<span style="color: rgba(128,133,233,0.93); font-size: larger" th:text="${sap_hosts}"></span> / <span style="color: rgba(208,131,141,0.87); font-size: larger" th:text="${sap_servers}"></span></li>
+                    <li>WLS : &nbsp;<span style="color: rgba(128,133,233,0.93); font-size: larger" th:text="${wls_hosts}"></span> / <span style="color: rgba(208,131,141,0.87); font-size: larger" th:text="${wls_servers}"></span></li>
+                    <li>WAS : &nbsp;<span style="color: rgba(128,133,233,0.93); font-size: larger" th:text="${was_hosts}"></span> / <span style="color: rgba(208,131,141,0.87); font-size: larger" th:text="${was_servers}"></span></li>
+                    <li>Oracle : &nbsp;<span style="color: rgba(168,168,168,0.83); font-size: larger">N/A</span></li>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <ul style="list-style: none">
+                <li>当前各类应用状态与可用率汇总：</li>
+                <ul style="list-style: none">
+                    <li>SAP : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${sapRunning}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${sapIllness}"></span> / <span style="color: #f7a35c; font-size: larger" th:text="${sapShutdown}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger" th:text="${sapPercentP}"></span></li>
+                    <li>WLS : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${wlsRunning}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${wlsIllness}"></span> / <span style="color: #f7a35c; font-size: larger" th:text="${wlsShutdown}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger" th:text="${wlsPercentP}"></span></li>
+                    <li>WAS : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${wasRunning}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${wasIllness}"></span> / <span style="color: #f7a35c; font-size: larger" th:text="${wasShutdown}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger" th:text="${wasPercentP}"></span></li>
+                    <li>Oracle : &nbsp;<span style="color: rgba(168,168,168,0.83); font-size: larger">N/A</span></li>
+                </ul>
+            </ul>
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <ul style="list-style: none">
+                <li>集成平台当前WLS状态与可用率：</li>
+                <ul style="list-style: none">
+                    <li>P : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptRunningP}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${jcptIllnessP}"></span> / <span style="color: #f7a35c; font-size: larger" th:text="${jcptShutdownP}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger"  th:text="${jcptPercentP}"></span></li>
+                    <li>Q : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptRunningQ}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${jcptIllnessQ}"></span> / <span style="color: #f7a35c; font-size: larger" th:text="${jcptShutdownQ}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptPercentQ}"></span></li>
+                    <li>D : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptRunningD}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${jcptIllnessD}"></span> / <span style="color: #f7a35c; font-size: larger"  th:text="${jcptShutdownD}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptPercentD}"></span></li>
+                    <li>T : &nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptRunningT}"></span> / <span style="color: #7CB5EC; font-size: larger" th:text="${jcptIllnessT}"></span> / <span style="color: #f7a35c; font-size: larger"  th:text="${jcptShutdownT}"></span>&nbsp;&nbsp;<span style="color: #4fd443; font-size: larger" th:text="${jcptPercentT}"></span></li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
 
-<h2>页面建设中 ........</h2>
-
-
+<div id="jcpt" class="row col-md-6 col-lg-6"></div>
+<div id="biee" class="row col-md-6 col-lg-6"></div>
+<div id="zzkf" class="row col-md-6 col-lg-6"></div>
 </body>
 </html>

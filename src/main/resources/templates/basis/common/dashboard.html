@@ -40,6 +40,14 @@
 						<li>视图：erp_hosts</li>
 					</ul>
 				</li>
+				<li class="readme_li">手工方式向数据库插入记录时，请先确定当前表可用ID起始值
+					<ul>
+						<li>两张表中ID值2000以上的记录为均是通过WEB UI方式插入，2000以下专为手工插入方式预留</li>
+						<li>系统表ID起始值查询：select max(id) from application where id &lt; 2000;</li>
+						<li>主机表ID起始值查询：select max(id) from host where id &lt; 2000;</li>
+						<li>如：假设host表查询结果是900，新纪录ID请从901开始，以此类推</li>
+					</ul>
+				</li>
 			</ul>
 <!--
 			<h4>Release Note</h4>
