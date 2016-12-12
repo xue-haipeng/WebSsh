@@ -21,7 +21,7 @@ $(function () {
                 }
             },
             xAxis: {
-                categories: ['OER', 'OSB海外', 'OSB监控', 'OSB上市', 'OSB未上市', 'OSB总部', 'BPM流程', 'BPM表单'],
+                categories: ['OSB监控', 'OER', 'OSB海外', 'OSB上市', 'OSB未上市', 'OSB总部', 'BPM流程', 'BPM表单', 'OAM'],
                 labels: {
                     style: {
                         'font-family': 'Microsoft YaHei, Arial'

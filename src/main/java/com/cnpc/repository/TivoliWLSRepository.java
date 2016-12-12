@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Xue on 12/01/16.
  */
 @Repository
-@CacheConfig(cacheNames = {"wls_findByHostnameLike","countWlsHosts","countWlsInstances","countWlsRunning"})
+@CacheConfig(cacheNames = {"wls_findByHostnameLike", "countWlsHosts", "countWlsInstances", "countWlsRunning", "countWlsIllness", "countWlsShutdown", "countJcptRunningP", "countJcptRunningQ", "countJcptRunningD", "countJcptRunningT", "countJcptIllnessP", "countJcptIllnessQ", "countJcptIllnessD", "countJcptIllnessT", "countJcptShutdownP", "countJcptShutdownQ", "countJcptShutdownD", "countJcptShutdownT"})
 public interface TivoliWLSRepository extends JpaRepository<TivoliWLStatus, Timestamp> {
 
     @Cacheable(value = "wls_findByHostnameLike")

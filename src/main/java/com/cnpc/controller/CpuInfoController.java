@@ -29,7 +29,7 @@ public class CpuInfoController {
 	@Autowired
 	private BpmCpuInfoRepository bpmCpuInfoRepository;
 
-	@RequestMapping("/cpuInfo")
+	@RequestMapping("/xoapsCpuInfo")
 	public List<CpuInfo> cpuInfo() {
 		return cpuInfoRepo.cpuBySystem();
 	}

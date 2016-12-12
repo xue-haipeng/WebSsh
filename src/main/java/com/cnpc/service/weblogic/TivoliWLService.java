@@ -114,6 +114,20 @@ public class TivoliWLService {
             }
         }
 
+        int xsaptRunningCount = 0;
+        int xsaptIllCount = 0;
+        int xsaptShutCount = 0;
+        List<TivoliWLStatus> xsapt = repository.findByHostnameLike("EXSAPT0%");
+        for (TivoliWLStatus server : xbapt) {
+            if (server.getStatus().equals("1")) {
+                xsaptRunningCount += 1;
+            } else if (server.getStatus().equals("3")) {
+                xsaptIllCount +=1;
+            } else if (server.getStatus().equals("100")) {
+                xsaptShutCount += 1;
+            }
+        }
+
         int xfaptRunningCount = 0;
         int xfaptIllCount = 0;
         int xfaptShutCount = 0;
@@ -128,13 +142,13 @@ public class TivoliWLService {
             }
         }
 
-        int runningTotal = xoapsRunningCount + xoapfRunningCount + xoap4RunningCount + xoapoRunningCount + xraptRunningCount + xmaptRunningCount + xbaptRunningCount + xfaptRunningCount;
-        int illnessTotal = xoapsIllCount + xoapfIllCount + xoap4IllCount + xoapoIllCount + xraptIllCount + xmaptIllCount + xbaptIllCount + xfaptIllCount;
-        int shutdownTotal = xoapsShutCount + xoapfShutCount + xoap4ShutCount + xoapoShutCount + xraptShutCount + xmaptShutCount + xbaptShutCount + xfaptShutCount;
+        int runningTotal = xoapsRunningCount + xoapfRunningCount + xoap4RunningCount + xoapoRunningCount + xraptRunningCount + xmaptRunningCount + xbaptRunningCount + xfaptRunningCount + xsaptRunningCount;
+        int illnessTotal = xoapsIllCount + xoapfIllCount + xoap4IllCount + xoapoIllCount + xraptIllCount + xmaptIllCount + xbaptIllCount + xfaptIllCount + xsaptIllCount;
+        int shutdownTotal = xoapsShutCount + xoapfShutCount + xoap4ShutCount + xoapoShutCount + xraptShutCount + xmaptShutCount + xbaptShutCount + xfaptShutCount + xsaptShutCount;
 
-        Integer[] runingBar = {xraptRunningCount, xoapoRunningCount, xmaptRunningCount, xoapsRunningCount, xoapfRunningCount, xoap4RunningCount, xbaptRunningCount, xfaptRunningCount};
-        Integer[] illnessBar = {xraptIllCount, xoapoIllCount, xmaptIllCount, xoapsIllCount, xoapfIllCount, xoap4IllCount, xbaptIllCount, xfaptIllCount};
-        Integer[] shutdownBar = {xraptShutCount, xoapoShutCount, xmaptShutCount, xoapsShutCount, xoapfShutCount, xoap4ShutCount, xbaptShutCount, xfaptShutCount};
+        Integer[] runingBar = {xmaptRunningCount, xraptRunningCount, xoapoRunningCount, xoapsRunningCount, xoapfRunningCount, xoap4RunningCount, xbaptRunningCount, xfaptRunningCount, xsaptRunningCount};
+        Integer[] illnessBar = {xmaptIllCount, xraptIllCount, xoapoIllCount, xoapsIllCount, xoapfIllCount, xoap4IllCount, xbaptIllCount, xfaptIllCount, xsaptIllCount};
+        Integer[] shutdownBar = {xmaptShutCount, xraptShutCount, xoapoShutCount, xoapsShutCount, xoapfShutCount, xoap4ShutCount, xbaptShutCount, xfaptShutCount, xsaptShutCount};
 
         PieBarData pieBarData = new PieBarData();
         Map<String, Integer> pie = new HashMap<>();
