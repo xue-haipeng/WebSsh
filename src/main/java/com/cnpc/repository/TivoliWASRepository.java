@@ -32,7 +32,7 @@ public interface TivoliWASRepository extends JpaRepository<TivoliWAStatus, Times
     @Cacheable(value = "countWasRunning")
     Long countWasRunning();
 
-    @Query("select count(t) from TivoliWAStatus t where t.status='3'")
+    @Query("select count(t) from TivoliWAStatus t where t.status='0'")
     @Cacheable(value = "countWasIllness")
     Long countWasIllness();
 

@@ -1,5 +1,6 @@
 package com.cnpc.controller;
 
+import com.cnpc.repository.TivoliDBRepository;
 import com.cnpc.repository.TivoliSAPRepository;
 import com.cnpc.repository.TivoliWASRepository;
 import com.cnpc.repository.TivoliWLSRepository;
@@ -7,7 +8,6 @@ import com.cnpc.service.SftpSapService;
 import com.cnpc.service.SftpService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -44,7 +44,7 @@ public class HomeController {
 	TivoliSAPRepository sapRepository;
 
 	@Autowired
-	private CacheManager cacheManager;
+	TivoliDBRepository dbRepository;
 
 	@RequestMapping("/availability")
 	public String availability(Model model) {
@@ -69,11 +69,20 @@ public class HomeController {
 		model.addAttribute("sap_hosts", sapRepository.countSapHosts());
 		model.addAttribute("sap_servers", sapRepository.countSapInstances());
 		model.addAttribute("sapRunning", sapRepository.countSapRunning());
-		model.addAttribute("sapIllness", sapRepository.countSapIllness());
+		model.addAttribute("sapIllness", 0);
 		model.addAttribute("sapShutdown", sapRepository.countSapShutdown());
-		float sapP = (float) sapRepository.countSapRunning()/(sapRepository.countSapRunning()+ sapRepository.countSapIllness()+ sapRepository.countSapShutdown());
+		float sapP = (float) sapRepository.countSapRunning()/(sapRepository.countSapRunning()+ 0 + sapRepository.countSapShutdown());
 		String sapPercentP = String.format("%.2f", sapP * 100) + "%";
 		model.addAttribute("sapPercentP", sapPercentP);
+
+		model.addAttribute("oracle_hosts", dbRepository.countDbHosts());
+		model.addAttribute("oracle_instances", dbRepository.countDbInstances());
+		model.addAttribute("oracleRunning", dbRepository.countDbRunning());
+		model.addAttribute("oracleIllness", 0);
+		model.addAttribute("oracleShutdown", dbRepository.countDbShutdown());
+		float oracleP = (float) dbRepository.countDbRunning()/(dbRepository.countDbRunning()+ 0 + dbRepository.countDbShutdown());
+		String oraclePercentP = String.format("%.2f", oracleP * 100) + "%";
+		model.addAttribute("oraclePercentP", oraclePercentP);
 
 		model.addAttribute("jcptRunningP", wlsRepository.countJcptRunningP());
 		model.addAttribute("jcptRunningQ", wlsRepository.countJcptRunningQ());

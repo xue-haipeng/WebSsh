@@ -32,11 +32,7 @@ public interface TivoliSAPRepository extends JpaRepository<TivoliSAPStatus, Time
     @Cacheable(value = "countSapRunning")
     Long countSapRunning();
 
-    @Query("select count(t) from TivoliSAPStatus t where t.status='3'")
-    @Cacheable(value = "countSapIllness")
-    Long countSapIllness();
-
-    @Query("select count(t) from TivoliSAPStatus t where t.status='100'")
+    @Query("select count(t) from TivoliSAPStatus t where t.status='0'")
     @Cacheable(value = "countSapShutdown")
     Long countSapShutdown();
 

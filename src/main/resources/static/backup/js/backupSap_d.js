@@ -95,12 +95,12 @@
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
 					ed1[j11++] = [date, status];
-				}/*
-				if(data[i].ipAddress == '11.11.49.105') {
+				}
+				if(data[i].ipAddress == '11.11.49.106') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
 					jd1[j12++] = [date, status];
-				}
+				}/*
 				if(data[i].ipAddress == '11.11.47.44') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;

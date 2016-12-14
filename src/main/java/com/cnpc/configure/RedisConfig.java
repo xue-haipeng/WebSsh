@@ -17,7 +17,7 @@ public class RedisConfig {
         return new ConcurrentMapCacheManager("wls_findByHostnameLike", "countWlsHosts", "countWlsInstances", "countWlsRunning",
                 "countWlsIllness", "countWlsShutdown", "countJcptRunningP", "countJcptRunningQ", "countJcptRunningD", "countJcptRunningT",
                 "countJcptIllnessP", "countJcptIllnessQ", "countJcptIllnessD", "countJcptIllnessT", "countJcptShutdownP", "countJcptShutdownQ",
-                "countJcptShutdownD", "countJcptShutdownT", "countSapHosts", "countSapInstances", "countSapRunning", "countSapIllness", "countSapShutdown",
-                "countWasHosts", "countWasInstances", "countWasRunning", "countWasIllness", "countWasShutdown", "xoapsCpuBySystem", "topCpuHostFindAll");
+                "countJcptShutdownD", "countJcptShutdownT", "countSapHosts", "countSapInstances", "countSapRunning", "countSapShutdown",
+                "countWasHosts", "countWasInstances", "countWasRunning", "countWasIllness", "countWasShutdown", "countDbHosts", "countDbInstances", "countDbRunning", "countDbShutdown", "xoapsCpuBySystem", "topCpuHostFindAll");
     }
 }

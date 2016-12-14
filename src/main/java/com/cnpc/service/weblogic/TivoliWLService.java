@@ -118,7 +118,7 @@ public class TivoliWLService {
         int xsaptIllCount = 0;
         int xsaptShutCount = 0;
         List<TivoliWLStatus> xsapt = repository.findByHostnameLike("EXSAPT0%");
-        for (TivoliWLStatus server : xbapt) {
+        for (TivoliWLStatus server : xsapt) {
             if (server.getStatus().equals("1")) {
                 xsaptRunningCount += 1;
             } else if (server.getStatus().equals("3")) {
