@@ -1,27 +1,27 @@
-	$(document).ready(function() {
-		$.getJSON('/getBackupStatus', function (data) {
-			var xodps = [];
-			var xodpf = [];
-			var xodp4 = [];
-			var xodpo = [];
-			var xrdpt = [];
-			var xmdpt = [];
-			var xbdpt = [];
-			var xsdpt = [];
-			var zhdp5 = [];
-			var zmdpt = [];
-			var zkdp4 = [];
-			var bmdpt = [];
-			var audpt = [];
-			var fhdps = [];
-			var bodp6 = [];
-			var bodpd_2 = [];
-			var bodpd_1 = [];
-			var bodp9_2 = [];
-			var bodp9_1 = [];
-			var bodpc_2 = [];
-			var bodpc_1 = [];
-			var bodpo = [];
+$(document).ready(function() {
+    $.getJSON('/getBackupStatus', function (data) {
+			var xodqs = [];
+			var xodqf = [];
+			var xodq4 = [];
+			var xodqo = [];
+			var xrdqt = [];
+			var xmdqt = [];
+			var xbdqt = [];
+			var xsdqt = [];
+			var zhdq5 = [];
+			var zmdqt = [];
+			var zkdq4 = [];
+			var bmdqt = [];
+			var audqt = [];
+			var fhdqs = [];
+			var bodq6 = [];
+			var bodqd_2 = [];
+			var bodqd_1 = [];
+			var bodq9_2 = [];
+			var bodq9_1 = [];
+			var bodqc_2 = [];
+			var bodqc_1 = [];
+			var bodqo = [];
 			var j1 = 0;
 	    	var j2 = 0;
 	    	var j3 = 0;
@@ -46,118 +46,102 @@
 			var j22 = 0;
 
 			for (i=0; i<data.length; i++) {
-				if(data[i].ipAddress == '10.30.37.11') {
+				if(data[i].ipAddress == '10.30.47.96') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					xodps[j1++] = [date, status];
+					xodqs[j1++] = [date, status];
+                    xodqf[j2++] = [date, status];
+                    xodq4[j3++] = [date, status];
+                    xodqo[j4++] = [date, status];
+                    xrdqt[j5++] = [date, status];
 				}
-				if(data[i].ipAddress == '11.11.3.58') {
+				if(data[i].ipAddress == '10.30.47.97') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					xodpf[j2++] = [date, status];
+					xmdqt[j6++] = [date, status];
 				}
-				if(data[i].ipAddress == '11.11.4.58') {
+				if(data[i].ipAddress == '10.30.47.100') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					xodp4[j3++] = [date, status];
-				}
-				if(data[i].ipAddress == '11.11.3.250') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					xodpo[j4++] = [date, status];
-				}
-				if(data[i].ipAddress == '10.30.36.56') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					xrdpt[j5++] = [date, status];
-				}
-				if(data[i].ipAddress == '10.30.36.11') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					xmdpt[j6++] = [date, status];
-				}
-				if(data[i].ipAddress == '10.30.36.8') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					xbdpt[j7++] = [date, status];
-				}
+					xbdqt[j7++] = [date, status];
+				}/*
 				if(data[i].ipAddress == '10.30.36.55') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					xsdpt[j8++] = [date, status];
-				}
+					xsdqt[j8++] = [date, status];
+				}*/
 				//自主开发
-				if(data[i].ipAddress == '10.30.36.67') {
+				if(data[i].ipAddress == '11.11.49.43') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					zhdp5[j9++] = [date, status];
+					zhdq5[j9++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.148.121') {
+				if(data[i].ipAddress == '10.30.49.70') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					zmdpt[j10++] = [date, status];
+					zmdqt[j10++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.150.251') {
+				if(data[i].ipAddress == '10.30.47.17') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					zkdp4[j11++] = [date, status];
+					zkdq4[j11++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.148.119') {
+				if(data[i].ipAddress == '10.30.49.72') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bmdpt[j21++] = [date, status];
+					bmdqt[j21++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.148.120') {
+				if(data[i].ipAddress == '10.30.49.92') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					audpt[j22++] = [date, status];
+					audqt[j22++] = [date, status];
 				}
 				//非结构化
-				if(data[i].ipAddress == '10.30.147.132') {
+				if(data[i].ipAddress == '10.30.47.182') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					fhdps[j12++] = [date, status];
+					fhdqs[j12++] = [date, status];
 				}
 				//决策平台
-				if(data[i].ipAddress == '10.30.147.122') {
+				if(data[i].ipAddress == '10.30.47.52') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodp6[j13++] = [date, status];
+					bodq6[j13++] = [date, status];
 				}
-				if(data[i].ipAddress == '11.11.5.250') {
+				if(data[i].ipAddress == '11.11.49.71') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodpd_2[j14++] = [date, status];
+					bodqd_2[j14++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.37.251') {
+				if(data[i].ipAddress == '10.30.47.70') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodpd_1[j15++] = [date, status];
+					bodqd_1[j15++] = [date, status];
 				}
-				if(data[i].ipAddress == '11.11.3.121') {
+				if(data[i].ipAddress == '11.11.49.69') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodp9_2[j16++] = [date, status];
+					bodq9_2[j16++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.35.123') {
+				if(data[i].ipAddress == '10.30.47.74') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodp9_1[j17++] = [date, status];
+					bodq9_1[j17++] = [date, status];
 				}
-				if(data[i].ipAddress == '11.11.3.186') {
+				if(data[i].ipAddress == '11.11.49.70') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodpc_2[j18++] = [date, status];
+					bodqc_2[j18++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.35.187') {
+				if(data[i].ipAddress == '10.30.47.76') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodpc_1[j19++] = [date, status];
+					bodqc_1[j19++] = [date, status];
 				}
-				if(data[i].ipAddress == '10.30.35.251') {
+				if(data[i].ipAddress == '10.30.47.71') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
-					bodpo[j20++] = [date, status];
+					bodqo[j20++] = [date, status];
 				}
 			}
 			
@@ -166,272 +150,272 @@
 			var ms_dbyd = today.getTime() - 1000*60*60*48;
 			var ystd = new Date(ms_ystd);
 			var dbyd = new Date(ms_dbyd);
-			for (i = 0, l = xodps.length; i < l; i++) {
-				var date = new Date(xodps[i][0]);
+			for (i = 0, l = xodqs.length; i < l; i++) {
+				var date = new Date(xodqs[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(2)').html(xodps[i][1]);
+					$('#t_xo_q td:eq(2)').html(xodqs[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(1)').html(xodps[i][1]);
+					$('#t_xo_q td:eq(1)').html(xodqs[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(0)').html(xodps[i][1]);
+					$('#t_xo_q td:eq(0)').html(xodqs[i][1]);
 				}				
 			}
-			for (i = 0, l = xodpf.length; i < l; i++) {
-				var date = new Date(xodpf[i][0]);
+			for (i = 0, l = xodqf.length; i < l; i++) {
+				var date = new Date(xodqf[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(5)').html(xodpf[i][1]);
+					$('#t_xo_q td:eq(5)').html(xodqf[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(4)').html(xodpf[i][1]);
+					$('#t_xo_q td:eq(4)').html(xodqf[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(3)').html(xodpf[i][1]);
+					$('#t_xo_q td:eq(3)').html(xodqf[i][1]);
 				}				
 			}
-			for (i = 0, l = xodp4.length; i < l; i++) {
-				var date = new Date(xodp4[i][0]);
+			for (i = 0, l = xodq4.length; i < l; i++) {
+				var date = new Date(xodq4[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(8)').html(xodp4[i][1]);
+					$('#t_xo_q td:eq(8)').html(xodq4[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(7)').html(xodp4[i][1]);
+					$('#t_xo_q td:eq(7)').html(xodq4[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(6)').html(xodp4[i][1]);
+					$('#t_xo_q td:eq(6)').html(xodq4[i][1]);
 				}				
 			}
-			for (i = 0, l = xodpo.length; i < l; i++) {
-				var date = new Date(xodpo[i][0]);
+			for (i = 0, l = xodqo.length; i < l; i++) {
+				var date = new Date(xodqo[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(11)').html(xodpo[i][1]);
+					$('#t_xo_q td:eq(11)').html(xodqo[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(10)').html(xodpo[i][1]);
+					$('#t_xo_q td:eq(10)').html(xodqo[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(9)').html(xodpo[i][1]);
+					$('#t_xo_q td:eq(9)').html(xodqo[i][1]);
 				}				
 			}
-			for (i = 0, l = xmdpt.length; i < l; i++) {
-				var date = new Date(xmdpt[i][0]);
+			for (i = 0, l = xmdqt.length; i < l; i++) {
+				var date = new Date(xmdqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(14)').html(xmdpt[i][1]);
+					$('#t_xo_q td:eq(14)').html(xmdqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(13)').html(xmdpt[i][1]);
+					$('#t_xo_q td:eq(13)').html(xmdqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(12)').html(xmdpt[i][1]);
+					$('#t_xo_q td:eq(12)').html(xmdqt[i][1]);
 				}
 			}
-			for (i = 0, l = xrdpt.length; i < l; i++) {
-				var date = new Date(xrdpt[i][0]);
+			for (i = 0, l = xrdqt.length; i < l; i++) {
+				var date = new Date(xrdqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(17)').html(xrdpt[i][1]);
+					$('#t_xo_q td:eq(17)').html(xrdqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(16)').html(xrdpt[i][1]);
+					$('#t_xo_q td:eq(16)').html(xrdqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(15)').html(xrdpt[i][1]);
+					$('#t_xo_q td:eq(15)').html(xrdqt[i][1]);
 				}				
 			}
-			for (i = 0, l = xbdpt.length; i < l; i++) {
-				var date = new Date(xbdpt[i][0]);
+			for (i = 0, l = xbdqt.length; i < l; i++) {
+				var date = new Date(xbdqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(20)').html(xbdpt[i][1]);
+					$('#t_xo_q td:eq(20)').html(xbdqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(19)').html(xbdpt[i][1]);
+					$('#t_xo_q td:eq(19)').html(xbdqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(18)').html(xbdpt[i][1]);
+					$('#t_xo_q td:eq(18)').html(xbdqt[i][1]);
 				}
 			}
-			for (i = 0, l = xsdpt.length; i < l; i++) {
-				var date = new Date(xsdpt[i][0]);
+			for (i = 0, l = xsdqt.length; i < l; i++) {
+				var date = new Date(xsdqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_xo_q td:eq(23)').html(xsdpt[i][1]);
+					$('#t_xo_q td:eq(23)').html(xsdqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_xo_q td:eq(22)').html(xsdpt[i][1]);
+					$('#t_xo_q td:eq(22)').html(xsdqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_xo_q td:eq(21)').html(xsdpt[i][1]);
+					$('#t_xo_q td:eq(21)').html(xsdqt[i][1]);
 				}				
 			}
 			// 自主开发
-			for (i = 0, l = zhdp5.length; i < l; i++) {
-				var date = new Date(zhdp5[i][0]);
+			for (i = 0, l = zhdq5.length; i < l; i++) {
+				var date = new Date(zhdq5[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_zk_q td:eq(2)').html(zhdp5[i][1]);
+					$('#t_zk_q td:eq(2)').html(zhdq5[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_zk_q td:eq(1)').html(zhdp5[i][1]);
+					$('#t_zk_q td:eq(1)').html(zhdq5[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_zk_q td:eq(0)').html(zhdp5[i][1]);
+					$('#t_zk_q td:eq(0)').html(zhdq5[i][1]);
 				}				
 			}
-			for (i = 0, l = zmdpt.length; i < l; i++) {
-				var date = new Date(zmdpt[i][0]);
+			for (i = 0, l = zmdqt.length; i < l; i++) {
+				var date = new Date(zmdqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_zk_q td:eq(5)').html(zmdpt[i][1]);
+					$('#t_zk_q td:eq(5)').html(zmdqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_zk_q td:eq(4)').html(zmdpt[i][1]);
+					$('#t_zk_q td:eq(4)').html(zmdqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_zk_q td:eq(3)').html(zmdpt[i][1]);
+					$('#t_zk_q td:eq(3)').html(zmdqt[i][1]);
 				}				
 			}
-			for (i = 0, l = zkdp4.length; i < l; i++) {
-				var date = new Date(zkdp4[i][0]);
+			for (i = 0, l = zkdq4.length; i < l; i++) {
+				var date = new Date(zkdq4[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_zk_q td:eq(8)').html(zkdp4[i][1]);
+					$('#t_zk_q td:eq(8)').html(zkdq4[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_zk_q td:eq(7)').html(zkdp4[i][1]);
+					$('#t_zk_q td:eq(7)').html(zkdq4[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_zk_q td:eq(6)').html(zkdp4[i][1]);
+					$('#t_zk_q td:eq(6)').html(zkdq4[i][1]);
 				}				
 			}
-			for (i = 0, l = bmdpt.length; i < l; i++) {
-				var date = new Date(bmdpt[i][0]);
+			for (i = 0, l = bmdqt.length; i < l; i++) {
+				var date = new Date(bmdqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_zk_q td:eq(11)').html(bmdpt[i][1]);
+					$('#t_zk_q td:eq(11)').html(bmdqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_zk_q td:eq(10)').html(bmdpt[i][1]);
+					$('#t_zk_q td:eq(10)').html(bmdqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_zk_q td:eq(9)').html(bmdpt[i][1]);
+					$('#t_zk_q td:eq(9)').html(bmdqt[i][1]);
 				}
 			}
 			//非结构化
-			for (i = 0, l = fhdps.length; i < l; i++) {
-				var date = new Date(fhdps[i][0]);
+			for (i = 0, l = fhdqs.length; i < l; i++) {
+				var date = new Date(fhdqs[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_nosql_q td:eq(2)').html(fhdps[i][1]);
+					$('#t_nosql_q td:eq(2)').html(fhdqs[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_nosql_q td:eq(1)').html(fhdps[i][1]);
+					$('#t_nosql_q td:eq(1)').html(fhdqs[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_nosql_q td:eq(0)').html(fhdps[i][1]);
+					$('#t_nosql_q td:eq(0)').html(fhdqs[i][1]);
 				}
 			}
 			//审计信息/报表
-			for (i = 0, l = audpt.length; i < l; i++) {
-				var date = new Date(audpt[i][0]);
+			for (i = 0, l = audqt.length; i < l; i++) {
+				var date = new Date(audqt[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_au_q td:eq(2)').html(audpt[i][1]);
+					$('#t_au_q td:eq(2)').html(audqt[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_au_q td:eq(1)').html(audpt[i][1]);
+					$('#t_au_q td:eq(1)').html(audqt[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_au_q td:eq(0)').html(audpt[i][1]);
+					$('#t_au_q td:eq(0)').html(audqt[i][1]);
 				}
 			}
 			//决策支持
-			for (i = 0, l = bodp6.length; i < l; i++) {
-				var date = new Date(bodp6[i][0]);
+			for (i = 0, l = bodq6.length; i < l; i++) {
+				var date = new Date(bodq6[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(2)').html(bodp6[i][1]);
+					$('#t_bb_q td:eq(2)').html(bodq6[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(1)').html(bodp6[i][1]);
+					$('#t_bb_q td:eq(1)').html(bodq6[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(0)').html(bodp6[i][1]);
+					$('#t_bb_q td:eq(0)').html(bodq6[i][1]);
 				}
 			}
-			for (i = 0, l = bodpd_2.length; i < l; i++) {
-				var date = new Date(bodpd_2[i][0]);
+			for (i = 0, l = bodqd_2.length; i < l; i++) {
+				var date = new Date(bodqd_2[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(5)').html(bodpd_2[i][1]);
+					$('#t_bb_q td:eq(5)').html(bodqd_2[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(4)').html(bodpd_2[i][1]);
+					$('#t_bb_q td:eq(4)').html(bodqd_2[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(3)').html(bodpd_2[i][1]);
+					$('#t_bb_q td:eq(3)').html(bodqd_2[i][1]);
 				}
 			}
-			for (i = 0, l = bodpd_1.length; i < l; i++) {
-				var date = new Date(bodpd_1[i][0]);
+			for (i = 0, l = bodqd_1.length; i < l; i++) {
+				var date = new Date(bodqd_1[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(8)').html(bodpd_1[i][1]);
+					$('#t_bb_q td:eq(8)').html(bodqd_1[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(7)').html(bodpd_1[i][1]);
+					$('#t_bb_q td:eq(7)').html(bodqd_1[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(6)').html(bodpd_1[i][1]);
+					$('#t_bb_q td:eq(6)').html(bodqd_1[i][1]);
 				}
 			}
-			for (i = 0, l = bodp9_2.length; i < l; i++) {
-				var date = new Date(bodp9_2[i][0]);
+			for (i = 0, l = bodq9_2.length; i < l; i++) {
+				var date = new Date(bodq9_2[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(11)').html(bodp9_2[i][1]);
+					$('#t_bb_q td:eq(11)').html(bodq9_2[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(10)').html(bodp9_2[i][1]);
+					$('#t_bb_q td:eq(10)').html(bodq9_2[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(9)').html(bodp9_2[i][1]);
+					$('#t_bb_q td:eq(9)').html(bodq9_2[i][1]);
 				}
 			}
-			for (i = 0, l = bodp9_1.length; i < l; i++) {
-				var date = new Date(bodp9_1[i][0]);
+			for (i = 0, l = bodq9_1.length; i < l; i++) {
+				var date = new Date(bodq9_1[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(14)').html(bodp9_1[i][1]);
+					$('#t_bb_q td:eq(14)').html(bodq9_1[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(13)').html(bodp9_1[i][1]);
+					$('#t_bb_q td:eq(13)').html(bodq9_1[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(12)').html(bodp9_1[i][1]);
+					$('#t_bb_q td:eq(12)').html(bodq9_1[i][1]);
 				}
 			}
-			for (i = 0, l = bodpc_2.length; i < l; i++) {
-				var date = new Date(bodpc_2[i][0]);
+			for (i = 0, l = bodqc_2.length; i < l; i++) {
+				var date = new Date(bodqc_2[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(17)').html(bodpc_2[i][1]);
+					$('#t_bb_q td:eq(17)').html(bodqc_2[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(16)').html(bodpc_2[i][1]);
+					$('#t_bb_q td:eq(16)').html(bodqc_2[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(15)').html(bodpc_2[i][1]);
+					$('#t_bb_q td:eq(15)').html(bodqc_2[i][1]);
 				}
 			}
-			for (i = 0, l = bodpc_1.length; i < l; i++) {
-				var date = new Date(bodpc_1[i][0]);
+			for (i = 0, l = bodqc_1.length; i < l; i++) {
+				var date = new Date(bodqc_1[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(20)').html(bodpc_1[i][1]);
+					$('#t_bb_q td:eq(20)').html(bodqc_1[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(19)').html(bodpc_1[i][1]);
+					$('#t_bb_q td:eq(19)').html(bodqc_1[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(18)').html(bodpc_1[i][1]);
+					$('#t_bb_q td:eq(18)').html(bodqc_1[i][1]);
 				}
 			}
-			for (i = 0, l = bodpo.length; i < l; i++) {
-				var date = new Date(bodpo[i][0]);
+			for (i = 0, l = bodqo.length; i < l; i++) {
+				var date = new Date(bodqo[i][0]);
 				if (date.getDate() == today.getDate()) {
-					$('#t_bb_q td:eq(23)').html(bodpo[i][1]);
+					$('#t_bb_q td:eq(23)').html(bodqo[i][1]);
 				}
 				if (date.getDate() == ystd.getDate()) {
-					$('#t_bb_q td:eq(22)').html(bodpo[i][1]);
+					$('#t_bb_q td:eq(22)').html(bodqo[i][1]);
 				}
 				if (date.getDate() == dbyd.getDate()) {
-					$('#t_bb_q td:eq(21)').html(bodpo[i][1]);
+					$('#t_bb_q td:eq(21)').html(bodqo[i][1]);
 				}
 			}
 			$('table').find('td').each(function() {

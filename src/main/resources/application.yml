@@ -23,8 +23,10 @@ spring:
             maxWait: 30000 # time limit to get a connection - only applies if maxActive is finite
 
 # Sftp Configuration
+# Non-SAP DB backup polling
 sftp:
     ips:
+    # PRD
         - 10.30.37.11
         - 11.11.3.58
         - 11.11.4.58
@@ -32,8 +34,6 @@ sftp:
         - 10.30.36.56
         - 10.30.36.11
         - 10.30.36.8
-        - 10.30.47.97
-        - 10.30.47.96
         - 10.30.49.48
         - 10.30.36.55
         - 10.30.36.56
@@ -53,6 +53,45 @@ sftp:
         - 11.11.70.75
         - 10.30.148.120
         - 10.30.148.119
+    # QAS
+        - 10.30.47.96
+        - 10.30.47.97
+        - 11.11.49.134
+        - 10.30.47.100
+        - 11.11.49.43
+        - 10.30.49.70
+        - 10.30.47.17
+        - 10.30.49.72
+        - 10.30.47.182
+        - 10.30.47.52
+        - 11.11.49.71
+        - 10.30.47.70
+        - 11.11.49.69
+        - 10.30.47.74
+        - 11.11.49.70
+        - 10.30.47.76
+        - 10.30.47.71
+        - 10.30.49.92
+    # DEV
+        - 10.30.47.138
+        - 10.30.47.139
+        - 11.11.49.132
+        - 10.30.47.142
+        - 10.30.47.187
+        - 10.30.47.152
+        - 10.30.49.69
+        - 10.30.47.16
+        - 10.30.49.64
+        - 10.30.47.165
+        - 10.30.47.103
+        - 11.11.49.68
+        - 10.30.47.118
+        - 11.11.49.66
+        - 10.30.47.122
+        - 11.11.49.67
+        - 10.30.47.124
+        - 10.30.47.120
+        - 10.30.49.94
 
     username: itmuser
     passwd: itmuser
@@ -75,6 +114,8 @@ sap:
         CPF: 11.11.3.18
         CPO: 11.11.3.202
     logfiles:
+    # SAP DB backup polling
+    # PRD
         10.30.148.8: /oracle/GP1/sapbackup/backGP1001.log
         10.30.147.17: /oracle/CP6/sapbackup/backCP6002.log
         11.11.3.18: /oracle/CPF/sapbackup/backCPF001.log
@@ -89,6 +130,36 @@ sap:
         10.30.35.68: /oracle/BP9/sapbackup/backBP9001.log
         10.30.37.195: /oracle/BPD/sapbackup/backBPD001.log
         10.30.35.132: /oracle/BPC/sapbackup/backBPC001.log
-
+    # QAS
+        10.30.47.223: /oracle/EQ6/sapbackup/backEQ6.log
+        10.30.47.226: /oracle/EQ7/sapbackup/backEQ7.log
+        11.11.49.84: /oracle/COQ/sapbackup/backCOQ.log
+        11.11.49.86: /oracle/EQ9/sapbackup/backEQ9.log
+        11.11.49.80: /oracle/EMQ/sapbackup/backEMQ.log
+        10.30.47.208: /oracle/EQ1/sapbackup/backEQ1.log
+        10.30.47.73: /oracle/BQ9/sapbackup/backBQ9.log
+        10.30.47.75: /oracle/BQC/sapbackup/backBQC.log
+        10.30.47.69: /oracle/BQD/sapbackup/backBQD.log
+        11.11.49.55: /oracle/HQ1/sapbackup/backHQ1.log
+        10.30.47.201: /oracle/CQ6/sapbackup/backCQ6.log
+        11.11.49.120: /oracle/CQF/sapbackup/backCQF.log
+        11.11.49.238: /oracle/CQO/sapbackup/backCQO.log
+        10.30.47.176: /oracle/GQ1/sapbackup/backGQ1.log
+    #DEV
+        10.30.47.222: /oracle/ED6/sapbackup/backED6.log
+        10.30.47.225: /oracle/ED7/sapbackup/backED7.log
+        11.11.49.83: /oracle/COD/sapbackup/backCOD.log
+        11.11.49.85: /oracle/ED9/sapbackup/backED9.log
+        11.11.49.79: /oracle/EMD/sapbackup/backEMD.log
+        10.30.47.207: /oracle/ED1/sapbackup/backED1.log
+        10.30.47.121: /oracle/BD9/sapbackup/backBD9.log
+        10.30.47.123: /oracle/BDC/sapbackup/backBDC.log
+        10.30.47.117: /oracle/BDD/sapbackup/backBDD.log
+        11.11.49.54: /oracle/HD1/sapbackup/backHD1.log
+        10.30.47.12: /oracle/CD6/sapbackup/backCD6.log
+        10.30.47.22: /oracle/CDF/sapbackup/backCDF.log
+        11.11.49.237: /oracle/CDO/sapbackup/backCDO.log
+        11.11.49.106: /oracle/JD1/sapbackup/backJD1.log
+        10.30.47.159: /oracle/GD1/sapbackup/backGD1.log
     username: itmuser
     passwd: itmuser

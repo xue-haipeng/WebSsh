@@ -21,4 +21,5 @@ public class WLSController {
     public PieBarData tivoliPolling(@PathVariable("type") String type) {
         return TivoliWLService.computeStatus(repository);
     }
+
 }

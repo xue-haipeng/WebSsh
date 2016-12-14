@@ -13,6 +13,7 @@ $(function () {
         Highcharts.setOptions({
             colors: ['#90ed7d', '#7CB5EC', '#f7a35c']
         });
+
         Highcharts.chart('jcpt', {
             title: {
                 text: '集成平台生产系统当前Server状态',
@@ -25,6 +26,16 @@ $(function () {
                 labels: {
                     style: {
                         'font-family': 'Microsoft YaHei, Arial'
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            'font-family': 'Microsoft YaHei'
+                        }
                     }
                 }
             },
