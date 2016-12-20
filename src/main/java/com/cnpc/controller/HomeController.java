@@ -116,7 +116,12 @@ public class HomeController {
 	public String performance() {
 		return "performance";
 	}
-	
+
+	@RequestMapping("/sap")
+	public String sap() {
+		return "sap";
+	}
+
 	@RequestMapping("/logsearch")
 	public String logsearch() {
 		return "logsearch";

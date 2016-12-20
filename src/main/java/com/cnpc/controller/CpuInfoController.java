@@ -1,13 +1,7 @@
 package com.cnpc.controller;
 
-import com.cnpc.domain.BpmCpuInfo;
-import com.cnpc.domain.CpuInfo;
-import com.cnpc.domain.TopCpuHost;
-import com.cnpc.domain.Zhap5CpuInfo;
-import com.cnpc.repository.BpmCpuInfoRepository;
-import com.cnpc.repository.CpuInfoRepo;
-import com.cnpc.repository.TopCpuHostRepo;
-import com.cnpc.repository.Zhap5CpuInfoRepository;
+import com.cnpc.domain.*;
+import com.cnpc.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +23,9 @@ public class CpuInfoController {
 	@Autowired
 	private BpmCpuInfoRepository bpmCpuInfoRepository;
 
+	@Autowired
+	private AscsCpuInfoRepository ascsCpuInfoRepository;
+
 	@RequestMapping("/xoapsCpuInfo")
 	public List<CpuInfo> cpuInfo() {
 		return cpuInfoRepo.cpuBySystem();
@@ -39,6 +36,9 @@ public class CpuInfoController {
 
 	@RequestMapping("/bpm_cpuInfo")
 	public List<BpmCpuInfo> bpmCpuInfo() { return bpmCpuInfoRepository.findAll(); }
+
+	@RequestMapping("/ascs_cpu_line")
+	public List<ASCSCpuInfo> ascsCpuInfo() { return ascsCpuInfoRepository.findAll(); }
 	
 	@RequestMapping("/topCpuHosts")
 	public List<TopCpuHost> topCpuHosts() {

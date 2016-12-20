@@ -9,6 +9,7 @@
 <script type="text/javascript" th:src="@{js/highcharts.js}"></script>
 <script type="text/javascript" th:src="@{js/wls_stat_pie_jcpt.js}"></script>
 
+
     <style>
         body {
             overflow-x: hidden;
@@ -40,6 +41,7 @@
     <li><a href="/backup"><span class="icon-copy"></span> 备份</a></li>
     <li class="active"><a href="#"><span class="icon-cogs"></span> 应用状态</a></li>
     <li><a href="/performance"><span class="icon-bar-chart"></span> 性能</a></li>
+    <li><a href="/sap"><span class="icon-bar-chart"></span> SAP</a></li>
     <li><a href="/logsearch"><span class="icon-search"></span> 日志查询</a></li>
     <li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
 </ul>
@@ -85,5 +87,12 @@
 <div id="jcpt" class="row col-md-6 col-lg-6"></div>
 <div id="biee" class="row col-md-6 col-lg-6"></div>
 <div id="zzkf" class="row col-md-6 col-lg-6"></div>
+
+<div id="jcpt_ng" style="width: 600px;height:400px;"></div>
+
+
+<script type="text/javascript" th:src="@{js/echarts.min.3.3.2.js}"></script>
+<script type="text/javascript" th:src="@{js/echarts.theme.macarons.js}"></script>
+<!--<script type="text/javascript" th:src="@{js/wls_stat_jcpt_ng.js}"></script>?-->
 </body>
 </html>

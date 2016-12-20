@@ -100,28 +100,7 @@
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
 					jd1[j12++] = [date, status];
-				}/*
-				if(data[i].ipAddress == '11.11.47.44') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					wd1[j13++] = [date, status];
 				}
-				if(data[i].ipAddress == '11.11.47.65') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					bd1[j14++] = [date, status];
-				}
-				if(data[i].ipAddress == '11.11.47.62') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					pd1[j15++] = [date, status];
-				}
-				if(data[i].ipAddress == '11.11.47.25') {
-					var date = data[i].recordDate;
-					var status = data[i].backupStatus;
-					xd1[j16++] = [date, status];
-				}*/
-
 				if(data[i].ipAddress == '10.30.47.121') {
 					var date = data[i].recordDate;
 					var status = data[i].backupStatus;
