@@ -21,6 +21,10 @@ public class RefreshCacheController {
     TivoliWLSRepositoryEvict tivoliWLSRepositoryEvict;
     @Autowired
     TopCpuHostRepoEvict topCpuHostRepoEvict;
+    @Autowired
+    AscsCpuInfoRepoEvict ascsCpuInfoRepoEvict;
+    @Autowired
+    AscsCpuCurrRepoEvict ascsCpuCurrRepoEvict;
 
     @RequestMapping("/refreshF5Cache")
     public String refreshCache() {
@@ -29,7 +33,6 @@ public class RefreshCacheController {
         tivoliSAPRepositoryEvict.countSapHosts();
         tivoliSAPRepositoryEvict.countSapInstances();
         tivoliSAPRepositoryEvict.countSapRunning();
-        tivoliSAPRepositoryEvict.countSapIllness();
         tivoliSAPRepositoryEvict.countSapShutdown();
 
         tivoliWASRepositoryEvict.countWasHosts();
@@ -67,6 +70,34 @@ public class RefreshCacheController {
 
         topCpuHostRepoEvict.findAll();
 
+        ascsCpuInfoRepoEvict.findAll();
+        ascsCpuInfoRepoEvict.average6_emp();
+        ascsCpuInfoRepoEvict.average6_osp();
+        ascsCpuInfoRepoEvict.average6_cop();
+        ascsCpuInfoRepoEvict.average6_ep9();
+        ascsCpuInfoRepoEvict.average6_zyp();
+        ascsCpuInfoRepoEvict.average6_ep1();
+        ascsCpuInfoRepoEvict.average6_ep4();
+        ascsCpuInfoRepoEvict.average6_tkm();
+        ascsCpuInfoRepoEvict.average6_ep6();
+        ascsCpuInfoRepoEvict.average6_ep7();
+        ascsCpuInfoRepoEvict.average6_cp6();
+        ascsCpuInfoRepoEvict.average6_cpf();
+        ascsCpuInfoRepoEvict.average6_cpo();
+        ascsCpuInfoRepoEvict.max6_emp();
+        ascsCpuInfoRepoEvict.max6_osp();
+        ascsCpuInfoRepoEvict.max6_cop();
+        ascsCpuInfoRepoEvict.max6_ep9();
+        ascsCpuInfoRepoEvict.max6_zyp();
+        ascsCpuInfoRepoEvict.max6_ep1();
+        ascsCpuInfoRepoEvict.max6_ep4();
+        ascsCpuInfoRepoEvict.max6_tkm();
+        ascsCpuInfoRepoEvict.max6_ep6();
+        ascsCpuInfoRepoEvict.max6_ep7();
+        ascsCpuInfoRepoEvict.max6_cp6();
+        ascsCpuInfoRepoEvict.max6_cpf();
+        ascsCpuInfoRepoEvict.max6_cpo();
+        ascsCpuCurrRepoEvict.findAll();
         return "OK";
     }
 }

@@ -13,8 +13,8 @@ import java.sql.Timestamp;
  * Created by Xue on 12/01/16.
  */
 @Entity
-@Table(name = "SAP_CPU_ASCS")
-public class ASCSCpuInfo {
+@Table(name = "sap_cpu_ascs_curr")
+public class ASCSCpuCurr {
 
     @Column(nullable = false)
     private String hostname;

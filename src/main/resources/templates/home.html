@@ -46,6 +46,7 @@ body,html {
   margin: 0;
   padding: 0;
   height:100%;
+  overflow: hidden;
 }
 </style>
 
@@ -72,6 +73,7 @@ body,html {
                 <li><a href="/sap">SAP</a></li>
                 <li><a href="/logsearch">Kibana</a></li>
                 <li><a href="/hostlist">Hosts</a></li>
+                <li><a href="/basis">Maintenance</a></li>
               </ul>
             </div>
             <div th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse">
@@ -147,14 +149,14 @@ body,html {
                   For More Details, Please Query the Database</p>
               </a>
             </li>
-            <li class="col-md-4 col-sm-4 col-xs-12">
+            <!--<li class="col-md-4 col-sm-4 col-xs-12">
               <a class="app-ul1-a" href="/basis">
                 <img src="image/maintenance.gif" alt="Maintenance" title="Maintenance"/>
                 <h3>Info Maintenance</h3>
                 <p>Maintain Hosts List<br/>
                   Adding, Editing or Deleting Hosts in the List</p>
               </a>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>

@@ -31,10 +31,6 @@ public interface TivoliSAPRepositoryEvict extends JpaRepository<TivoliSAPStatus,
     @CachePut(value = "countSapRunning")
     Long countSapRunning();
 
-    @Query("select count(t) from TivoliSAPStatus t where t.status='3'")
-    @CachePut(value = "countSapIllness")
-    Long countSapIllness();
-
     @Query("select count(t) from TivoliSAPStatus t where t.status='100'")
     @CachePut(value = "countSapShutdown")
     Long countSapShutdown();

@@ -109,17 +109,17 @@ $(function () {
                 type: 'spline'
             },
             title: {
-                text: '',
-                style: {
-                    'font-family': 'Microsoft YaHei'
-                }
-            },
-            subtitle: {
                 text: 'ASCS最近6小时CPU使用率',
                 style: {
                     'font-family': 'Microsoft YaHei'
                 }
             },
+/*            subtitle: {
+                text: 'ASCS最近6小时CPU使用率',
+                style: {
+                    'font-family': 'Microsoft YaHei'
+                }
+            },*/
             xAxis: {
                 type: 'datetime',
                 tickPixelInterval: 50,
