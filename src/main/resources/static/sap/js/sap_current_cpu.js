@@ -1,6 +1,6 @@
 $(function () {
     $.getJSON('/sapascs_bar', function (data) {
-        Highcharts.chart('current_emp', {
+        Highcharts.chart('current_ascs', {
             chart: {
                 type: 'column'
             },
@@ -11,7 +11,7 @@ $(function () {
                 }
             },
             subtitle: {
-                text: '最近6小时 (数据取自Tivoli History Database)',
+                text: '最近6小时 (Source: Tivoli History Database)',
                 style: {
                     'font-family': 'Microsoft YaHei'
                 }
@@ -26,11 +26,18 @@ $(function () {
                     'EP1',
                     'EP4',
                     'TKM',
+                    'HP1',
                     'EP6',
                     'EP7',
                     'CP6',
                     'CPF',
-                    'CPO'
+                    'CPO',
+                    'EP8',
+                    'CP8',
+                    'EP3',
+                    'CP3',
+                    'EP2',
+                    'CP2'
                 ],
                 style: {
                     'font-family': 'Microsoft YaHei'
@@ -47,9 +54,9 @@ $(function () {
                 }
             },
             tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                headerFormat: '<span style="font-size:10px"><b>{point.key}</b></span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true

@@ -58,6 +58,28 @@ public interface AscsCpuInfoRepository extends JpaRepository<ASCSCpuInfo, Timest
     @Cacheable(value = "average6_cpo")
     Double average6_cpo();
 
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPEP08'")
+    @Cacheable(value = "average6_ep8")
+    Double average6_ep8();
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAP8001'")
+    @Cacheable(value = "average6_cp8")
+    Double average6_cp8();
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPEP03'")
+    @Cacheable(value = "average6_ep3")
+    Double average6_ep3();
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAP3001'")
+    @Cacheable(value = "average6_cp3")
+    Double average6_cp3();
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPEP02'")
+    @Cacheable(value = "average6_ep2")
+    Double average6_ep2();
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAP2001'")
+    @Cacheable(value = "average6_cp2")
+    Double average6_cp2();
+    @Query("select avg(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPHP01'")
+    @Cacheable(value = "average6_hp1")
+    Double average6_hp1();
+
     @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='EMPSCS'")
     @Cacheable(value = "max6_emp")
     Double max6_emp();
@@ -97,5 +119,26 @@ public interface AscsCpuInfoRepository extends JpaRepository<ASCSCpuInfo, Timest
     @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAPO001'")
     @Cacheable(value = "max6_cpo")
     Double max6_cpo();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPEP08'")
+    @Cacheable(value = "max6_ep8")
+    Double max6_ep8();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAP8001'")
+    @Cacheable(value = "max6_cp8")
+    Double max6_cp8();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPEP03'")
+    @Cacheable(value = "max6_ep3")
+    Double max6_ep3();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAP3001'")
+    @Cacheable(value = "max6_cp3")
+    Double max6_cp3();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPEP02'")
+    @Cacheable(value = "max6_ep2")
+    Double max6_ep2();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='EESAP2001'")
+    @Cacheable(value = "max6_cp2")
+    Double max6_cp2();
+    @Query("select max(a.cpuusage) from ASCSCpuInfo a where a.hostname='VSCSERPHP01'")
+    @Cacheable(value = "max6_hp1")
+    Double max6_hp1();
 
 }

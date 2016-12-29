@@ -67,7 +67,6 @@ public class RefreshCacheController {
         tivoliWLSRepositoryEvict.countJcptRunningT();
         tivoliWLSRepositoryEvict.countJcptIllnessT();
         tivoliWLSRepositoryEvict.countJcptShutdownT();
-
         topCpuHostRepoEvict.findAll();
 
         ascsCpuInfoRepoEvict.findAll();
@@ -84,6 +83,14 @@ public class RefreshCacheController {
         ascsCpuInfoRepoEvict.average6_cp6();
         ascsCpuInfoRepoEvict.average6_cpf();
         ascsCpuInfoRepoEvict.average6_cpo();
+        ascsCpuInfoRepoEvict.average6_ep8();
+        ascsCpuInfoRepoEvict.average6_cp8();
+        ascsCpuInfoRepoEvict.average6_ep3();
+        ascsCpuInfoRepoEvict.average6_cp3();
+        ascsCpuInfoRepoEvict.average6_ep2();
+        ascsCpuInfoRepoEvict.average6_cp2();
+        ascsCpuInfoRepoEvict.average6_hp1();
+
         ascsCpuInfoRepoEvict.max6_emp();
         ascsCpuInfoRepoEvict.max6_osp();
         ascsCpuInfoRepoEvict.max6_cop();
@@ -97,6 +104,13 @@ public class RefreshCacheController {
         ascsCpuInfoRepoEvict.max6_cp6();
         ascsCpuInfoRepoEvict.max6_cpf();
         ascsCpuInfoRepoEvict.max6_cpo();
+        ascsCpuInfoRepoEvict.max6_ep8();
+        ascsCpuInfoRepoEvict.max6_cp8();
+        ascsCpuInfoRepoEvict.max6_ep3();
+        ascsCpuInfoRepoEvict.max6_cp3();
+        ascsCpuInfoRepoEvict.max6_ep2();
+        ascsCpuInfoRepoEvict.max6_cp2();
+        ascsCpuInfoRepoEvict.max6_hp1();
         ascsCpuCurrRepoEvict.findAll();
         return "OK";
     }

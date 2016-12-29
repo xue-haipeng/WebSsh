@@ -66,8 +66,8 @@ $(function () {
 	        },
             colors: [
                 '#F08080',
-                '#00BFFF',
-                '#7CFC00'
+                '#0091c8',
+                '#5dab00'
             ],
 	        legend: {
 	            layout: 'vertical',

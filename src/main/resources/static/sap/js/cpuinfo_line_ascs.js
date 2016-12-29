@@ -11,11 +11,19 @@ $(function () {
         var ep1 = [];
         var ep4 = [];
         var tkm = [];
+        var hp1 = [];
         var ep6 = [];
         var ep7 = [];
         var cp6 = [];
         var cpf = [];
         var cpo = [];
+        var ep8 = [];
+        var cp8 = [];
+        var ep3 = [];
+        var cp3 = [];
+        var ep2 = [];
+        var cp2 = [];
+
         var j1 = 0;
         var j2 = 0;
         var j3 = 0;
@@ -29,6 +37,13 @@ $(function () {
         var j11 = 0;
         var j12 = 0;
         var j13 = 0;
+        var j14 = 0;
+        var j15 = 0;
+        var j16 = 0;
+        var j17 = 0;
+        var j18 = 0;
+        var j19 = 0;
+        var j20 = 0;
 
         for (i=0; i<data.length; i++) {
             if(data[i].hostname == 'EMPSCS') {
@@ -71,30 +86,65 @@ $(function () {
                 var cpuusage = data[i].cpuusage;
                 tkm[j8++] = [timepoint, cpuusage];
             }
+            if(data[i].hostname == 'VSCSERPHP01') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                hp1[j9++] = [timepoint, cpuusage];
+            }
             if(data[i].hostname == 'VSCSERPEP06') {
                 var timepoint = data[i].datetime;
                 var cpuusage = data[i].cpuusage;
-                ep6[j9++] = [timepoint, cpuusage];
+                ep6[j10++] = [timepoint, cpuusage];
             }
             if(data[i].hostname == 'VSCSERPEP07') {
                 var timepoint = data[i].datetime;
                 var cpuusage = data[i].cpuusage;
-                ep7[j10++] = [timepoint, cpuusage];
+                ep7[j11++] = [timepoint, cpuusage];
             }
             if(data[i].hostname == 'EESAP6001') {
                 var timepoint = data[i].datetime;
                 var cpuusage = data[i].cpuusage;
-                cp6[j11++] = [timepoint, cpuusage];
+                cp6[j12++] = [timepoint, cpuusage];
             }
             if(data[i].hostname == 'EESAPF001') {
                 var timepoint = data[i].datetime;
                 var cpuusage = data[i].cpuusage;
-                cpf[j12++] = [timepoint, cpuusage];
+                cpf[j13++] = [timepoint, cpuusage];
             }
             if(data[i].hostname == 'EESAPO001') {
                 var timepoint = data[i].datetime;
                 var cpuusage = data[i].cpuusage;
-                cpo[j13++] = [timepoint, cpuusage];
+                cpo[j14++] = [timepoint, cpuusage];
+            }
+            if(data[i].hostname == 'VSCSERPEP08') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                ep8[j15++] = [timepoint, cpuusage];
+            }
+            if(data[i].hostname == 'EESAP8001') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                cp8[j16++] = [timepoint, cpuusage];
+            }
+            if(data[i].hostname == 'VSCSERPEP03') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                ep3[j17++] = [timepoint, cpuusage];
+            }
+            if(data[i].hostname == 'EESAP3001') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                cp3[j18++] = [timepoint, cpuusage];
+            }
+            if(data[i].hostname == 'VSCSERPEP02') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                ep2[j19++] = [timepoint, cpuusage];
+            }
+            if(data[i].hostname == 'EESAP2001') {
+                var timepoint = data[i].datetime;
+                var cpuusage = data[i].cpuusage;
+                cp2[j20++] = [timepoint, cpuusage];
             }
         }
 
@@ -163,11 +213,18 @@ $(function () {
                 {name: 'EP1', data: ep1},
                 {name: 'EP4', data: ep4},
                 {name: 'TKM', data: tkm},
+                {name: 'HP1', data: hp1},
                 {name: 'EP6', data: ep6},
                 {name: 'EP7', data: ep7},
                 {name: 'CP6', data: cp6},
                 {name: 'CPF', data: cpf},
-                {name: 'CPO', data: cpo}]
+                {name: 'CPO', data: cpo},
+                {name: 'EP8', data: ep8},
+                {name: 'CP8', data: cp8},
+                {name: 'EP3', data: ep3},
+                {name: 'CP3', data: cp3},
+                {name: 'EP2', data: ep2},
+                {name: 'CP2', data: cp2}]
         });
     });
 });

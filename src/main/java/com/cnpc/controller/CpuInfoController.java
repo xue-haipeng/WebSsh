@@ -54,11 +54,18 @@ public class CpuInfoController {
 		avg.add(ascsCpuInfoRepository.average6_ep1());
 		avg.add(ascsCpuInfoRepository.average6_ep4());
 		avg.add(ascsCpuInfoRepository.average6_tkm());
+		avg.add(ascsCpuInfoRepository.average6_hp1());
 		avg.add(ascsCpuInfoRepository.average6_ep6());
 		avg.add(ascsCpuInfoRepository.average6_ep7());
 		avg.add(ascsCpuInfoRepository.average6_cp6());
 		avg.add(ascsCpuInfoRepository.average6_cpf());
 		avg.add(ascsCpuInfoRepository.average6_cpo());
+		avg.add(ascsCpuInfoRepository.average6_ep8());
+		avg.add(ascsCpuInfoRepository.average6_cp8());
+		avg.add(ascsCpuInfoRepository.average6_ep3());
+		avg.add(ascsCpuInfoRepository.average6_cp3());
+		avg.add(ascsCpuInfoRepository.average6_ep2());
+		avg.add(ascsCpuInfoRepository.average6_cp2());
 		List<Double> max = new ArrayList<>();
 		max.add(ascsCpuInfoRepository.max6_emp());
 		max.add(ascsCpuInfoRepository.max6_osp());
@@ -68,11 +75,18 @@ public class CpuInfoController {
 		max.add(ascsCpuInfoRepository.max6_ep1());
 		max.add(ascsCpuInfoRepository.max6_ep4());
 		max.add(ascsCpuInfoRepository.max6_tkm());
+		max.add(ascsCpuInfoRepository.max6_hp1());
 		max.add(ascsCpuInfoRepository.max6_ep6());
 		max.add(ascsCpuInfoRepository.max6_ep7());
 		max.add(ascsCpuInfoRepository.max6_cp6());
 		max.add(ascsCpuInfoRepository.max6_cpf());
 		max.add(ascsCpuInfoRepository.max6_cpo());
+		max.add(ascsCpuInfoRepository.max6_ep8());
+		max.add(ascsCpuInfoRepository.max6_cp8());
+		max.add(ascsCpuInfoRepository.max6_ep3());
+		max.add(ascsCpuInfoRepository.max6_cp3());
+		max.add(ascsCpuInfoRepository.max6_ep2());
+		max.add(ascsCpuInfoRepository.max6_cp2());
 		Map<String, List<Double>> map = new HashMap<>();
 		List<Double> curr = new ArrayList<>();
 		List<ASCSCpuCurr> list = ascsCpuCurrRepository.findAll();
@@ -84,11 +98,18 @@ public class CpuInfoController {
 		Double ep1 = 0.0;
 		Double ep4 = 0.0;
 		Double tkm = 0.0;
+		Double hp1 = 0.0;
 		Double ep6 = 0.0;
 		Double ep7 = 0.0;
 		Double cp6 = 0.0;
 		Double cpf = 0.0;
 		Double cpo = 0.0;
+		Double ep8 = 0.0;
+		Double cp8 = 0.0;
+		Double ep3 = 0.0;
+		Double cp3 = 0.0;
+		Double ep2 = 0.0;
+		Double cp2 = 0.0;
 
 		for (ASCSCpuCurr i : list) {
 			if ("EMPSCS".equals(i.getHostname())) {
@@ -115,6 +136,9 @@ public class CpuInfoController {
 			if ("ERPTKM01".equals(i.getHostname())) {
 				tkm = i.getCpuusage();
 			}
+			if ("VSCSERPHP01".equals(i.getHostname())) {
+				hp1 = i.getCpuusage();
+			}
 			if ("VSCSERPEP06".equals(i.getHostname())) {
 				ep6 = i.getCpuusage();
 			}
@@ -130,6 +154,24 @@ public class CpuInfoController {
 			if ("EESAPO001".equals(i.getHostname())) {
 				cpo = i.getCpuusage();
 			}
+			if ("VSCSERPEP08".equals(i.getHostname())) {
+				ep8 = i.getCpuusage();
+			}
+			if ("EESAP8001".equals(i.getHostname())) {
+				cp8 = i.getCpuusage();
+			}
+			if ("VSCSERPEP03".equals(i.getHostname())) {
+				ep3 = i.getCpuusage();
+			}
+			if ("EESAP3001".equals(i.getHostname())) {
+				cp3 = i.getCpuusage();
+			}
+			if ("VSCSERPEP02".equals(i.getHostname())) {
+				ep2 = i.getCpuusage();
+			}
+			if ("EESAP2001".equals(i.getHostname())) {
+				cp2 = i.getCpuusage();
+			}
 		}
 
 		curr.add(0, emp);
@@ -140,11 +182,18 @@ public class CpuInfoController {
 		curr.add(5, ep1);
 		curr.add(6, ep4);
 		curr.add(7, tkm);
-		curr.add(8, ep6);
-		curr.add(9, ep7);
-		curr.add(10, cp6);
-		curr.add(11, cpf);
-		curr.add(12, cpo);
+		curr.add(8, hp1);
+		curr.add(9, ep6);
+		curr.add(10, ep7);
+		curr.add(11, cp6);
+		curr.add(12, cpf);
+		curr.add(13, cpo);
+		curr.add(14, ep8);
+		curr.add(15, cp8);
+		curr.add(16, ep3);
+		curr.add(17, cp3);
+		curr.add(18, ep2);
+		curr.add(19, cp2);
 
 		map.put("avg", avg);
 		map.put("max", max);
