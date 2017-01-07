@@ -2,6 +2,7 @@ package com.cnpc.controller;
 
 import com.cnpc.repository.CacheEvictRepo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,7 @@ public class RefreshCacheController {
     AscsCpuCurrRepoEvict ascsCpuCurrRepoEvict;
 
     @RequestMapping("/refreshF5Cache")
+    @Scheduled(fixedDelay = 420000)
     public String refreshCache() {
         cpuInfoRepoEvict.cpuBySystem();
 

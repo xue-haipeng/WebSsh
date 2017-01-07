@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/openshift-lb-test.js}"></script>
+<script type="text/javascript" th:src="@{js/openshift-load-test.js}"></script>
+
+    <style>
+         div {
+             font-family: "Microsoft YaHei UI", Arial;
+             padding: 8px;
+             text-align: center;
+         }
+
+    </style>
+</head>
+<body>
+<div>
+<ul class="nav nav-tabs">
+    <li><a href="/"><span class="icon-home"></span> 首页</a></li>
+    <li><a href="/backup"><span class="icon-copy"></span> 备份</a></li>
+    <li><a href="availability"><span class="icon-cogs"></span> 应用状态</a></li>
+    <li><a href="/performance"><span class="icon-bar-chart"></span> 性能</a></li>
+    <li><a href="/sap"><span class="icon-bar-chart"></span> SAP</a></li>
+    <li><a href="/logsearch"><span class="icon-search"></span> 日志查询</a></li>
+    <li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
+    <li class="active"><a href="/poc"><span class="icon-beaker"></span> POC</a></li>
+</ul>
+</div>
+
+<div>
+    <h3 class="col-sm-11 col-md-11 col-lg-11" style="color: lightcoral; padding-bottom: 1%">OpenShift Container Platform 3.3 PoC</h3>
+    <div class="row">
+        <div id="lbTest" class="row col-md-6 col-lg-6" style="text-align: left; padding-left: 25%">
+            <h4 style="color: #4682B4; font-size: larger"><b>LoadBalancing Test：</b></h4>
+            <h4>Username : &nbsp;<b><span style="color: #4fd443;" th:text="${#httpServletRequest.remoteUser}"></span></b></h4>
+            <h4>Hostname : &nbsp;<b><span id="hostname" style="color: #4fd443;"></span></b></h4>
+            <h4>NetWork Interface : &nbsp;<b><span id="nic" style="color: #4fd443;"></span></b></h4>
+            <h4>IP Address : &nbsp;<b><span id="ip" style="color: #4fd443;"></span></b></h4>
+            <h4>MAC Address : &nbsp;<b><span id="mac" style="color: #4fd443;"></span></b></h4>
+            <h4>JVM PID : &nbsp;<b><span id="pid" style="color: #4fd443;"></span></b></h4>
+
+            <h4 style="color: #4682B4; font-size: larger; padding-top: 7px"><b>Resource Quota &amp; LimitRange：</b></h4>
+            <h4>Processors : &nbsp;<b><span id="processor" style="color: #4fd443;"></span></b></h4>
+            <h4>Physical Memory : &nbsp;<b><span id="totalPhysicalMemory" style="color: #4fd443;"></span></b></h4>
+        </div>
+
+        <div id="loadTest" class="row col-md-6 col-lg-6" style="text-align: left; padding-left: 7%">
+            <h4 style="color: #4682B4; font-size: larger"><b>Performance Test：</b></h4>
+            <h4>Load Average : &nbsp;<b><span id="loadAverage" style="color: #EE82EE;"></span></b></h4>
+            <h4>Used Memory : &nbsp;<b><span id="usedPhysicalMemory" style="color: #EE82EE;"></span></b></h4>
+            <h4>Free Memory : &nbsp;<b><span id="freePhysicalMemory" style="color: #EE82EE;"></span></b></h4>
+            <h4>JVM Max Memory : &nbsp;<b><span id="maxMemory" style="color: #EE82EE;"></span></b></h4>
+            <h4>JVM Total Memory : &nbsp;<b><span id="totalMemory" style="color: #EE82EE;"></span></b></h4>
+            <h4>JVM Free Memory : &nbsp;<b><span id="freeMemory" style="color: #EE82EE;"></span></b></h4>
+            <h4>Current Thread Count : &nbsp;<b><span id="currentThreadCount" style="color: #EE82EE;"></span></b></h4>
+            <h4>Peak Thread Count : &nbsp;<b><span id="peakThreadCount" style="color: #EE82EE;"></span></b></h4>
+            <h4>Daemon Thread Count : &nbsp;<b><span id="daemonThread" style="color: #EE82EE;"></span></b></h4>
+        </div>
+    </div>
+
+</div>
+
+<div id="jcpt_ng" style="width: 600px;height:400px;"></div>
+
+
+</body>
+</html>

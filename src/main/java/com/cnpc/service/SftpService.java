@@ -3,6 +3,8 @@ package com.cnpc.service;
 import com.cnpc.domain.BackupStatus;
 import com.cnpc.repository.BackupStatusRepo;
 import com.cnpc.utils.JschSftpUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,7 @@ import java.util.Map;
 @Component
 @ConfigurationProperties(prefix = "sftp")
 public class SftpService {
+	private final Logger logger = LoggerFactory.getLogger(SftpService.class);
 	List<String> ips;
 	String username;
 	String passwd;
@@ -59,7 +62,7 @@ public class SftpService {
 		Map<String, String> statusMap = new HashMap<>();
 		Date today = new Date();
 		ips.forEach(ip -> {
-			System.out.println(today + "  ip: " + ip + " ........");
+			logger.debug("IP: " + ip);
 			JschSftpUtil.sftp(ip, username, passwd, remoteFile);
 			String bakStatus = JschSftpUtil.getLastLine();
 			repo.save(new BackupStatus(ip, today, bakStatus));

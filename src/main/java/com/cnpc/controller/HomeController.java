@@ -8,6 +8,7 @@ import com.cnpc.service.SftpSapService;
 import com.cnpc.service.SftpService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -137,6 +138,11 @@ public class HomeController {
 		return "backup";
 	}
 
+	@RequestMapping("/poc")
+	public String poc() {
+		return "poc";
+	}
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -150,6 +156,7 @@ public class HomeController {
 	SftpService sftpService;
 	
 	@RequestMapping("/triggerBakCheck")
+	@Scheduled(cron = "00 50 08 * * *")
 	public String triggerBakCheck() {
 		sftpService.saveBakStatus();
 		return "backup";
@@ -159,6 +166,7 @@ public class HomeController {
 	SftpSapService sftpSapService;
 
 	@RequestMapping("/triggerSapBakCheck")
+	@Scheduled(cron = "00 00 10 * * *")
 	public String triggerSapBakCheck() {
 		sftpSapService.saveBakStatus();
 		return "backup";
