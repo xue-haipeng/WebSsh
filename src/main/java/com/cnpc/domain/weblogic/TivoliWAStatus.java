@@ -3,6 +3,7 @@ package com.cnpc.domain.weblogic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -10,7 +11,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "was_status")
-public class TivoliWAStatus {
+public class TivoliWAStatus implements Serializable {
     private static final long serialVersionUID = -1L;
     private String hostname;
     private String serverName;

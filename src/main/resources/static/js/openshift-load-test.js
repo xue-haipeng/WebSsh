@@ -15,7 +15,9 @@ $(function () {
         var currentThreadCount = data.currentThreadCount;
         var peakThreadCount = data.peakThreadCount;
         var daemonThread = data.daemonThread;
+        var sessions = data.sessions;
 
+        $('#sessions').text(sessions);
         $('#processor').text(processor);
         $('#totalPhysicalMemory').text(totalPhysicalMemory);
         $('#loadAverage').text(loadAverage);

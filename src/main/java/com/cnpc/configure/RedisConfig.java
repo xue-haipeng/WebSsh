@@ -1,9 +1,7 @@
 package com.cnpc.configure;
 
-import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -11,10 +9,28 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableCaching
-public class RedisConfig {
+public class RedisConfig extends CachingConfigurerSupport {
+   /*
     @Bean
-    public CacheManager cacheManager() {
-        return new ConcurrentMapCacheManager("wls_findByHostnameLike", "countWlsHosts", "countWlsInstances", "countWlsRunning",
+    public KeyGenerator keyGenerator(){
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(target.getClass().getName());
+                sb.append(method.getName());
+                for (Object obj : params) {
+                    sb.append(obj.toString());
+                }
+                return sb.toString();
+            }
+        };
+
+    }
+
+    @Bean
+    public CacheManager cacheManager(@SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {
+        *//*return new ConcurrentMapCacheManager("wls_findByHostnameLike", "countWlsHosts", "countWlsInstances", "countWlsRunning",
                 "countWlsIllness", "countWlsShutdown", "countJcptRunningP", "countJcptRunningQ", "countJcptRunningD", "countJcptRunningT",
                 "countJcptIllnessP", "countJcptIllnessQ", "countJcptIllnessD", "countJcptIllnessT", "countJcptShutdownP", "countJcptShutdownQ",
                 "countJcptShutdownD", "countJcptShutdownT", "countSapHosts", "countSapInstances", "countSapRunning", "countSapShutdown",
@@ -25,5 +41,21 @@ public class RedisConfig {
                 "average6_cp2", "average6_hp1", "max6_emp", "max6_osp", "max6_cop", "max6_ep9", "max6_zyp", "max6_ep1", "max6_ep4", "max6_tkm",
                 "max6_ep6", "max6_ep7", "max6_cp6", "max6_cpf", "max6_cpo", "ascsCpuCurrFindAll", "max6_ep8", "max6_cp8", "max6_ep3", "max6_cp3",
                 "max6_ep2", "max6_cp2", "max6_hp1");
+    }*//*
+        return new RedisCacheManager(redisTemplate);
     }
+
+    @Bean
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
+        StringRedisTemplate template = new StringRedisTemplate(factory);
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.afterPropertiesSet();
+        return template;
+    }
+    */
 }

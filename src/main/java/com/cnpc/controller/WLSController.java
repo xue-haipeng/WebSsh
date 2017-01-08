@@ -6,6 +6,7 @@ import com.cnpc.service.weblogic.TivoliWLService;
 import com.cnpc.utils.NetWorkUtil;
 import com.cnpc.utils.SystemUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +31,12 @@ public class WLSController {
         return TivoliWLService.computeStatus(repository);
     }
 
+    /***
+     * For Openshift Container Platform v3.3 PoC Test Use Only
+     */
+    @Autowired
+    private SessionRegistry sessionRegistry;
+
     @RequestMapping("/loadbalanceTest")
     public List<Map<String, String>> lbTest() {
         List<Map<String, String>> list = NetWorkUtil.getAllNics();
@@ -42,7 +49,9 @@ public class WLSController {
 
     @RequestMapping("/resourceQuotaTest")
     public Map<String, String> rqTest() {
-        return SystemUtil.getSysInfo();
+        Map<String, String> map = SystemUtil.getSysInfo();
+        map.put("sessions", Integer.toString(sessionRegistry.getAllPrincipals().size()));
+        return map;
     }
 
 }

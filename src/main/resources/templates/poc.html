@@ -15,6 +15,9 @@
              padding: 8px;
              text-align: center;
          }
+        body {
+            overflow: hidden;
+        }
 
     </style>
 </head>
@@ -44,13 +47,14 @@
             <h4>MAC Address : &nbsp;<b><span id="mac" style="color: #4fd443;"></span></b></h4>
             <h4>JVM PID : &nbsp;<b><span id="pid" style="color: #4fd443;"></span></b></h4>
 
-            <h4 style="color: #4682B4; font-size: larger; padding-top: 7px"><b>Resource Quota &amp; LimitRange：</b></h4>
+            <h4 style="color: #4682B4; font-size: larger; padding-top: 10px"><b>Resource Quota &amp; LimitRange：</b></h4>
             <h4>Processors : &nbsp;<b><span id="processor" style="color: #4fd443;"></span></b></h4>
             <h4>Physical Memory : &nbsp;<b><span id="totalPhysicalMemory" style="color: #4fd443;"></span></b></h4>
         </div>
 
         <div id="loadTest" class="row col-md-6 col-lg-6" style="text-align: left; padding-left: 7%">
             <h4 style="color: #4682B4; font-size: larger"><b>Performance Test：</b></h4>
+            <h4>Current Sessions : &nbsp;<b><span id="sessions" style="color: #EE82EE;"></span></b></h4>
             <h4>Load Average : &nbsp;<b><span id="loadAverage" style="color: #EE82EE;"></span></b></h4>
             <h4>Used Memory : &nbsp;<b><span id="usedPhysicalMemory" style="color: #EE82EE;"></span></b></h4>
             <h4>Free Memory : &nbsp;<b><span id="freePhysicalMemory" style="color: #EE82EE;"></span></b></h4>

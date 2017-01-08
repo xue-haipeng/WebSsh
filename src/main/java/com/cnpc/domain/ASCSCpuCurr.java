@@ -3,10 +3,12 @@ package com.cnpc.domain;
 /**
  * Created by Xue on 12/20/16.
  */
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -14,7 +16,8 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "sap_cpu_ascs_curr")
-public class ASCSCpuCurr {
+public class ASCSCpuCurr implements Serializable {
+    private static final long serialVersionUID = -1L;
 
     @Column(nullable = false)
     private String hostname;
