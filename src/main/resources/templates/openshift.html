@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{css/AdminLTE.css}" />
+<script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script><!--
+<script type="text/javascript" th:src="@{js/openshift-lb-test.js}"></script>
+<script type="text/javascript" th:src="@{js/openshift-load-test.js}"></script>-->
+<script type="text/javascript" th:src="@{js/openshift-object-count.js}"></script>
+
+    <style>
+         div {
+             font-family: "Microsoft YaHei UI", Arial;
+             padding: 8px;
+             text-align: center;
+         }
+        body {
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+<ul class="nav nav-tabs">
+    <li><a href="/"><span class="icon-home"></span> 首页</a></li>
+    <li><a href="/backup"><span class="icon-copy"></span> 备份</a></li>
+    <li><a href="availability"><span class="icon-cogs"></span> 应用状态</a></li>
+    <li><a href="/performance"><span class="icon-bar-chart"></span> 性能</a></li>
+    <li><a href="/sap"><span class="icon-bar-chart"></span> SAP</a></li>
+    <li><a href="/logsearch"><span class="icon-search"></span> 日志查询</a></li>
+    <li><a href="/hostlist"><span class="icon-table"></span> 主机列表</a></li>
+    <li class="active"><a href="/openshift"><span class="icon-cloud"></span> OpenShift</a></li>
+</ul>
+</div>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            OpenShift Container Platform
+            <small>Mornitoring Panel</small>
+        </h1>
+    </section>
+
+
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3 id="projectcount"></h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3 id="nodecount"></h3>
+                        <p>Nodes</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3 id="routecount"></h3>
+                        <p>Routes</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3 id="servicecount"></h3>
+                        <p>Services</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3 id="cdcount"></h3>
+                        <p>DeploymentConfigs</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3 id="iscount"></h3>
+                        <p>ImageStreams</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3 id="bccount"></h3>
+                        <p>BuildConfigs</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3 id="podcount"></h3>
+                        <p>Pods</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+</body>
+</html>

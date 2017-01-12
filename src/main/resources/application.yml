@@ -2,21 +2,22 @@
 spring:
     datasource:
         driver-class-name: oracle.jdbc.OracleDriver
-#        url: jdbc:oracle:thin:@10.30.49.76:1521/ORADB
-#        username: basis
-#        password: erpbasis0
-        url: jdbc:oracle:thin:@192.168.147.133:1521/xe
-        username: system
-        password: oracle
+        url: jdbc:oracle:thin:@10.30.49.76:1521/ORADB
+        username: basis
+        password: erpbasis0
+#        url: jdbc:oracle:thin:@192.168.147.133:1521/xe
+#        username: system
+#        password: oracle
     jpa:
         database-platform: org.hibernate.dialect.Oracle10gDialect
-        show-sql: true
+        show-sql: false
 
 # Redis properties
     redis:
         port: 6379
-#        host: 11.11.47.72
-        host: 192.168.147.133
+        host: 11.11.47.72
+#        host: 192.168.147.133
+#        host: ${REDIS_HOST}
         pool:
             maxIdle: 8 # max idle connections in the pool
             minIdle: 0 # min idle connections in the pool
@@ -94,8 +95,8 @@ sftp:
         - 10.30.47.120
         - 10.30.49.94
 
-    username: itmuser
-    passwd: itmuser
+    username: ${SSH_USERNAME}
+    passwd: ${SSH_PASSWD}
     remoteFile: /usr/openv/sap_oracle/hot_database_backup.sh.out
     
 # Ssh Configuration
@@ -162,5 +163,5 @@ sap:
         11.11.49.237: /oracle/CDO/sapbackup/backCDO.log
         11.11.49.106: /oracle/JD1/sapbackup/backJD1.log
         10.30.47.159: /oracle/GD1/sapbackup/backGD1.log
-    username: itmuser
-    passwd: itmuser
+    username: ${SSH_USERNAME}
+    passwd: ${SSH_PASSWD}

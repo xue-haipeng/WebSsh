@@ -143,6 +143,11 @@ public class HomeController {
 		return "poc";
 	}
 
+	@RequestMapping("/openshift")
+	public String openshift() {
+		return "openshift";
+	}
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
