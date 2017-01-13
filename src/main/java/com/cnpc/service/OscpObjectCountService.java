@@ -1,6 +1,9 @@
 package com.cnpc.service;
 
-import io.fabric8.kubernetes.api.model.*;
+import io.fabric8.kubernetes.api.model.Namespace;
+import io.fabric8.kubernetes.api.model.NodeList;
+import io.fabric8.kubernetes.api.model.PodList;
+import io.fabric8.kubernetes.api.model.ServiceList;
 import io.fabric8.kubernetes.client.Config;
 import io.fabric8.kubernetes.client.ConfigBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
@@ -36,6 +39,7 @@ public class OscpObjectCountService {
 
         List<Namespace> namespaceList = client.namespaces().list().getItems();
         NodeList nodeList = client.nodes().list();
+        ImageStreamList imageStreamList = client.imageStreams().inAnyNamespace().list();
 
         int namespaces = namespaceList.size();
         int nodes = nodeList.getItems().size();
@@ -43,7 +47,8 @@ public class OscpObjectCountService {
         int services = 0;
         int dcs = 0;
         int bcs = 0;
-        int iss = 0;
+        int iss = imageStreamList.getItems().size();
+        logger.info("ImageStreams: " + iss);
         int pods = 0;
 
         for (Namespace ns : namespaceList) {
@@ -54,9 +59,9 @@ public class OscpObjectCountService {
             DeploymentConfigList dcList = client.deploymentConfigs().inNamespace(ns.getMetadata().getName()).list();
             dcs += dcList.getItems().size();
             BuildConfigList bcList = client.buildConfigs().inNamespace(ns.getMetadata().getName()).list();
-            bcs += bcList.getItems().size();
+            bcs += bcList.getItems().size();/*
             ImageStreamList imageStreamList = client.imageStreams().inNamespace(ns.getMetadata().getName()).list();
-            iss += imageStreamList.getItems().size();
+            iss += imageStreamList.getItems().size();*/
             PodList podList = client.pods().inNamespace(ns.getMetadata().getName()).list();
             pods += podList.getItems().size();
         }

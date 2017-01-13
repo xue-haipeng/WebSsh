@@ -17,9 +17,9 @@ $(function () {
         $('#nodecount').text(nodes);
         $('#routecount').text(routes);
         $('#servicecount').text(services);
-        $('#cdcount').text(dcs);
-        $('#iscount').text(bcs);
-        $('#bccount').text(iss);
+        $('#dccount').text(dcs);
+        $('#bccount').text(bcs);
+        $('#iscount').text(iss);
         $('#podcount').text(pods);
     });
 });
