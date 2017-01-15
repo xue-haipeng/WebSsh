@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<script type="text/javascript" th:src="@{/js/openshift-show-projects.js}"></script>-->
+</head>
+<body>
+<div th:fragment="project_fragment" id="project_ul" style="text-align: left; color: #3e8e54;">
+    <table id="project_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Labels</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="node_fragment" id="node_ul" style="text-align: left; color: #3e8e54;">
+    <table id="node_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Labels</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="route_fragment" id="route_ul" style="text-align: left; color: #3e8e54;">
+    <table id="route_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Name</th>
+                <th>Route</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="svc_fragment" id="svc_ul" style="text-align: left; color: #3e8e54;">
+    <table id="svc_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Name</th>
+                <th>Selector</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="dc_fragment" id="dc_ul" style="text-align: left; color: #3e8e54;">
+    <table id="dc_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Name</th>
+                <th>Replicas</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="bc_fragment" id="bc_ul" style="text-align: left; color: #3e8e54;">
+    <table id="bc_table" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Name</th>
+                <th>Output Image</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="is_fragment" id="is_ul" style="text-align: left; color: #3e8e54;">
+    <table id="is_table" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Project</th>
+            <th>Name</th>
+            <th>Image Repository</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<div th:fragment="pod_fragment" id="pod_ul" style="text-align: left; color: #3e8e54;">
+    <table id="pod_table" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Project</th>
+            <th>Name</th>
+            <th>Phase</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+</body>
+</html>

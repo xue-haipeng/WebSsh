@@ -95,8 +95,8 @@ sftp:
         - 10.30.47.120
         - 10.30.49.94
 
-    username: ${SSH_USERNAME}
-    passwd: ${SSH_PASSWD}
+    username: itmuser
+    passwd: itmuser
     remoteFile: /usr/openv/sap_oracle/hot_database_backup.sh.out
     
 # Ssh Configuration
@@ -163,5 +163,5 @@ sap:
         11.11.49.237: /oracle/CDO/sapbackup/backCDO.log
         11.11.49.106: /oracle/JD1/sapbackup/backJD1.log
         10.30.47.159: /oracle/GD1/sapbackup/backGD1.log
-    username: ${SSH_USERNAME}
-    passwd: ${SSH_PASSWD}
+    username: itmuser
+    passwd: itmuser

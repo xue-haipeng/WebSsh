@@ -4,13 +4,15 @@
 <title>ERP应用集成项目综合运维监控平台</title>
 <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{css/font-awesome.min.css}" />
+<link rel="stylesheet" th:href="@{css/jquery.dataTables.min.css}" />
 <link rel="stylesheet" th:href="@{css/AdminLTE.css}" />
 <script type="text/javascript" th:src="@{js/jquery-3.1.0.js}"></script>
-<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script><!--
-<script type="text/javascript" th:src="@{js/openshift-lb-test.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{js/jquery.dataTables.min.js}"></script><!--
 <script type="text/javascript" th:src="@{js/openshift-load-test.js}"></script>-->
 <script type="text/javascript" th:src="@{js/openshift-object-count.js}"></script>
-
+<script type="text/javascript" th:src="@{js/openshift-show-details.js}"></script>
+    <style type="text/javascript" th:src="@{js/openshift-show-projects.js}"></style>
     <style>
          div {
              font-family: "Microsoft YaHei UI", Arial;
@@ -20,10 +22,30 @@
         body {
             overflow: hidden;
         }
+         .row {
+             margin-right: -15px;
+             margin-bottom: -15px;
+             margin-left: -15px;
+         }
+        .bg-project { background-color: rgb(241, 141, 141); color: #fff; }
+        .bg-node { background-color: #20B2AA; color: #fff; }
+        .bg-route { background-color: rgb(222, 124, 189); color: #fff; }
+        .bg-service { background-color: #6495ED; color: #fff;}
+
+        .bg-dc { background-color: rgba(60, 141, 188, 0.84); color: #fff; }
+        .bg-bc { background-color: #FFA07A; color: #fff; }
+        .bg-is { background-color: #57c757; color: #fff; }
+        .bg-pod { background-color: #BA55D3; color: #fff; }
+
+         table.dataTable tbody tr {
+             background-color: #ffffff;
+             text-align: left;
+         }
 
     </style>
 </head>
 <body>
+
 <div>
 <ul class="nav nav-tabs">
     <li><a href="/"><span class="icon-home"></span> 首页</a></li>
@@ -37,19 +59,163 @@
 </ul>
 </div>
 
+<!-- Project Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">Projects</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: project_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Node Modal -->
+<div class="modal fade" id="nodeModal" tabindex="-1" role="dialog" aria-labelledby="nodeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">Nodes</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: node_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Route Modal -->
+<div class="modal fade" id="routeModal" tabindex="-1" role="dialog" aria-labelledby="routeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">Routes</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: route_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service Modal -->
+<div class="modal fade" id="svcModal" tabindex="-1" role="dialog" aria-labelledby="svcModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">Services</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: svc_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DeploymentConfig Modal -->
+<div class="modal fade" id="dcModal" tabindex="-1" role="dialog" aria-labelledby="dcModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">DeploymentConfigs</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: dc_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BuildConfigs Modal -->
+<div class="modal fade" id="bcModal" tabindex="-1" role="dialog" aria-labelledby="bcModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">BuildConfigs</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: bc_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ImageStreams Modal -->
+<div class="modal fade" id="isModal" tabindex="-1" role="dialog" aria-labelledby="isModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">ImageStreams</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: is_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Pods Modal -->
+<div class="modal fade" id="podModal" tabindex="-1" role="dialog" aria-labelledby="podModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ecebeb;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h3 class="modal-title" style="text-align: left">Pods</h3>
+            </div>
+            <div class="modal-body">
+                <div th:replace="openshift/modalPage :: pod_fragment" style="text-align: left;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #ecebeb;">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            OpenShift Container Platform
-            <small>Mornitoring Panel</small>
+            <sup><span class="badge" style="background-color: #ec7abb;">Alpha</span></sup> OpenShift Container Platform
+            <small style="color: #b75702">Mornitoring Panel</small>
         </h1>
     </section>
-
 
     <section class="content">
         <div class="row">
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-project">
                     <div class="inner">
                         <h3 id="projectcount"></h3>
                         <p>Projects</p>
@@ -57,11 +223,12 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="project_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#projectModal">More info</a>
                 </div>
             </div>
+
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-green">
+                <div class="small-box bg-node">
                     <div class="inner">
                         <h3 id="nodecount"></h3>
                         <p>Nodes</p>
@@ -69,11 +236,11 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="node_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#nodeModal">More info</a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-route">
                     <div class="inner">
                         <h3 id="routecount"></h3>
                         <p>Routes</p>
@@ -81,11 +248,11 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="route_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#routeModal">More info</a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-red">
+                <div class="small-box bg-service">
                     <div class="inner">
                         <h3 id="servicecount"></h3>
                         <p>Services</p>
@@ -93,13 +260,13 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="svc_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#svcModal">More info</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-dc">
                     <div class="inner">
                         <h3 id="dccount"></h3>
                         <p>DeploymentConfigs</p>
@@ -107,11 +274,11 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="dc_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#dcModal">More info</a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-bc">
                     <div class="inner">
                         <h3 id="bccount"></h3>
                         <p>BuildConfigs</p>
@@ -119,11 +286,11 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="bc_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#bcModal">More info</a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-green">
+                <div class="small-box bg-is">
                     <div class="inner">
                         <h3 id="iscount"></h3>
                         <p>ImageStreams</p>
@@ -131,11 +298,11 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="is_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#isModal">More info</a>
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-red">
+                <div class="small-box bg-pod">
                     <div class="inner">
                         <h3 id="podcount"></h3>
                         <p>Pods</p>
@@ -143,13 +310,12 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a id="pod_href" href="#" class="small-box-footer" data-toggle="modal" data-target="#podModal">More info</a>
                 </div>
             </div>
         </div>
     </section>
 </div>
-
 
 </body>
 </html>

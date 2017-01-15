@@ -1,18 +1,14 @@
 package com.cnpc.service;
 
+import com.cnpc.utils.OpenShiftConnUtil;
 import io.fabric8.kubernetes.api.model.Namespace;
 import io.fabric8.kubernetes.api.model.NodeList;
 import io.fabric8.kubernetes.api.model.PodList;
 import io.fabric8.kubernetes.api.model.ServiceList;
-import io.fabric8.kubernetes.client.Config;
-import io.fabric8.kubernetes.client.ConfigBuilder;
-import io.fabric8.kubernetes.client.DefaultKubernetesClient;
-import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.openshift.api.model.BuildConfigList;
 import io.fabric8.openshift.api.model.DeploymentConfigList;
 import io.fabric8.openshift.api.model.ImageStreamList;
 import io.fabric8.openshift.api.model.RouteList;
-import io.fabric8.openshift.client.DefaultOpenShiftClient;
 import io.fabric8.openshift.client.OpenShiftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,10 +28,7 @@ public class OscpObjectCountService {
     public static Map<String, Integer> objectCount() throws InterruptedException {
         Map<String, Integer> map = new HashMap<>();
 
-        Config config = new ConfigBuilder().withMasterUrl("https://lb.cloud.cnpc:8443")
-                .withUsername("xuehaipeng").withPassword("ramily").build();
-        KubernetesClient kubernetesClient = new DefaultKubernetesClient(config);   //设计成连接池
-        OpenShiftClient client = new DefaultOpenShiftClient(config);
+        OpenShiftClient client = OpenShiftConnUtil.getOpenShiftClient();
 
         List<Namespace> namespaceList = client.namespaces().list().getItems();
         NodeList nodeList = client.nodes().list();
@@ -48,7 +41,6 @@ public class OscpObjectCountService {
         int dcs = 0;
         int bcs = 0;
         int iss = imageStreamList.getItems().size();
-        logger.info("ImageStreams: " + iss);
         int pods = 0;
 
         for (Namespace ns : namespaceList) {
@@ -59,9 +51,7 @@ public class OscpObjectCountService {
             DeploymentConfigList dcList = client.deploymentConfigs().inNamespace(ns.getMetadata().getName()).list();
             dcs += dcList.getItems().size();
             BuildConfigList bcList = client.buildConfigs().inNamespace(ns.getMetadata().getName()).list();
-            bcs += bcList.getItems().size();/*
-            ImageStreamList imageStreamList = client.imageStreams().inNamespace(ns.getMetadata().getName()).list();
-            iss += imageStreamList.getItems().size();*/
+            bcs += bcList.getItems().size();
             PodList podList = client.pods().inNamespace(ns.getMetadata().getName()).list();
             pods += podList.getItems().size();
         }

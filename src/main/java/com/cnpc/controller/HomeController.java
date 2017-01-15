@@ -176,4 +176,9 @@ public class HomeController {
 		sftpSapService.saveBakStatus();
 		return "backup";
 	}
+
+	@RequestMapping("/openshift/projectModal")
+	public String projectModal() {
+		return "openshift/projectModal";
+	}
 }
