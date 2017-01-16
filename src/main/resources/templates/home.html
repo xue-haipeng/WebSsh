@@ -77,7 +77,7 @@ body,html {
                 <li><a href="/openshift">OpenShift</a></li>
               </ul>
             </div>
-            <div th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse">
+            <div th:if="${#httpServletRequest.remoteUser == null}" class="navbar-right navbar-collapse collapse" style="padding-right: 7%;">
               <ul class="nav navbar-nav">
                 <li><a href="/login">Login</a></li>
               </ul>
@@ -148,6 +148,14 @@ body,html {
                 <h3>Hosts List</h3>
                 <p>List of All Hosts of ERP<br/>
                   For More Details, Please Query the Database</p>
+              </a>
+            </li>
+            <li class="col-md-4 col-sm-4 col-xs-12">
+              <a class="app-ul1-a" href="/openshift">
+                <img src="image/osc_logo.jpg" alt="OpenShift" title="OpenShift Mornitoring"/>
+                <h3>OpenShift Mornitoring</h3>
+                <p>Clustered Objects Mornitoring<br/>
+                  You can think it a pool man's CloudForms</p>
               </a>
             </li>
             <!--<li class="col-md-4 col-sm-4 col-xs-12">
