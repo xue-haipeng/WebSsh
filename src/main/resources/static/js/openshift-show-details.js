@@ -6,7 +6,7 @@ $(function() {
         $('#project_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getProjectResources",
+                "url": "http://11.11.47.72:10000/openshift/getProjectResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -31,7 +31,7 @@ $(function() {
         $('#node_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getNodeResources",
+                "url": "http://11.11.47.72:10000/openshift/getNodeResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -55,7 +55,7 @@ $(function() {
         $('#route_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getRouteResources",
+                "url": "http://11.11.47.72:10000/openshift/getRouteResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -69,7 +69,7 @@ $(function() {
         $('#svc_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getSvcResources",
+                "url": "http://11.11.47.72:10000/openshift/getSvcResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -83,7 +83,7 @@ $(function() {
         $('#dc_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getDcResources",
+                "url": "http://11.11.47.72:10000/openshift/getDcResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -97,7 +97,7 @@ $(function() {
         $('#bc_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getBcResources",
+                "url": "http://11.11.47.72:10000/openshift/getBcResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -111,7 +111,7 @@ $(function() {
         $('#is_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getIsResources",
+                "url": "http://11.11.47.72:10000/openshift/getIsResources",
                 "dataSrc": ""
             },
             "columns": [
@@ -125,7 +125,7 @@ $(function() {
         $('#pod_table').DataTable({
             retrieve: true,
             "ajax": {
-                "url": "/openshift/getPodResources",
+                "url": "http://11.11.47.72:10000/openshift/getPodResources",
                 "dataSrc": ""
             },
             "columns": [

@@ -2,7 +2,7 @@
  * Created by Xue on 12/04/16.
  */
 $(function () {
-    $.getJSON('/openshift/objectCount', function (data) {
+    $.getJSON('http://11.11.47.72:10000/openshift/objectCount', function (data) {
 
         var namespaces = data.namespaces;
         var nodes = data.nodes;

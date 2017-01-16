@@ -28,10 +28,10 @@ public class OpenShiftConnUtil {
 
     public static OpenShiftClient getOpenShiftClient() {
         if (client != null) {
-            logger.info("OpenShiftClient doesn't exist, creating ....");
+            logger.info("OpenShiftClient exists, returning to the invoker ....");
             return client;
         } else {
-            logger.info("OpenShiftClient is available, returning to the invoker ....");
+            logger.info("No available OpenShiftClient exists, creating ....");
             return newConnection();
         }
     }
