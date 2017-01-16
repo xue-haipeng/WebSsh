@@ -4,6 +4,7 @@
 $(function() {
     $("#project_href").click(function() {
         $('#project_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getProjectResources",
                 "dataSrc": ""
@@ -16,9 +17,9 @@ $(function() {
                     render: function (data, type, row) {
                         if (data.length != 0) {
                             var str = data.substring(1, data.length-1).split(", ");
-                            return '<span class="badge">' + str.length + '</span>';
+                            return '<span class="badge" style="background-color: #6bd2a3;">' + str.length + '</span>';
                         } else {
-                            return '<span class="badge">0</span>';
+                            return '<span class="badge" style="background-color: #6bd2a3;">0</span>';
                         }
                     }
                 }
@@ -28,6 +29,7 @@ $(function() {
 
     $("#node_href").click(function() {
         $('#node_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getNodeResources",
                 "dataSrc": ""
@@ -51,6 +53,7 @@ $(function() {
     });
     $("#route_href").click(function() {
         $('#route_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getRouteResources",
                 "dataSrc": ""
@@ -64,6 +67,7 @@ $(function() {
     });
     $("#svc_href").click(function() {
         $('#svc_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getSvcResources",
                 "dataSrc": ""
@@ -77,6 +81,7 @@ $(function() {
     });
     $("#dc_href").click(function() {
         $('#dc_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getDcResources",
                 "dataSrc": ""
@@ -90,6 +95,7 @@ $(function() {
     });
     $("#bc_href").click(function() {
         $('#bc_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getBcResources",
                 "dataSrc": ""
@@ -103,6 +109,7 @@ $(function() {
     });
     $("#is_href").click(function() {
         $('#is_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getIsResources",
                 "dataSrc": ""
@@ -116,6 +123,7 @@ $(function() {
     });
     $("#pod_href").click(function() {
         $('#pod_table').DataTable({
+            retrieve: true,
             "ajax": {
                 "url": "/openshift/getPodResources",
                 "dataSrc": ""

@@ -28,8 +28,8 @@ public class RefreshCacheController {
     AscsCpuCurrRepoEvict ascsCpuCurrRepoEvict;
 
     @RequestMapping("/refreshF5Cache")
-//    @Scheduled(fixedDelay = 420000)
-    @Scheduled(fixedDelay = 1680000)
+    @Scheduled(fixedDelay = 420000)
+//    @Scheduled(fixedDelay = 1680000)
     public String refreshCache() {
         cpuInfoRepoEvict.cpuBySystem();
 
