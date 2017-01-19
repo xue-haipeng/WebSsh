@@ -65,9 +65,9 @@ $(function () {
 	            }
 	        },
             colors: [
-                '#F08080',
-                '#0091c8',
-                '#4fd443'
+                '#d08080',
+                '#6f9bc6',
+                '#3CB371'
             ],
 	        legend: {
 	            layout: 'vertical',

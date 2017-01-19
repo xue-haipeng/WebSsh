@@ -10,7 +10,7 @@ spring:
 #        password: oracle
     jpa:
         database-platform: org.hibernate.dialect.Oracle10gDialect
-        show-sql: false
+        show-sql: true
 
 # Redis properties
     redis:

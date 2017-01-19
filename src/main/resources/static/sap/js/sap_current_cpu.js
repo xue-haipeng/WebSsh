@@ -36,7 +36,7 @@ $(function () {
                     'CP8',
                     'EP3',
                     'CP3',
-                    'EP2',
+                    // 'EP2',
                     'CP2'
                 ],
                 style: {

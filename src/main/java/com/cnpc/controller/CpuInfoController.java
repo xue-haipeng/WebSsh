@@ -64,7 +64,7 @@ public class CpuInfoController {
 		avg.add(ascsCpuInfoRepository.average6_cp8());
 		avg.add(ascsCpuInfoRepository.average6_ep3());
 		avg.add(ascsCpuInfoRepository.average6_cp3());
-		avg.add(ascsCpuInfoRepository.average6_ep2());
+//		avg.add(ascsCpuInfoRepository.average6_ep2());
 		avg.add(ascsCpuInfoRepository.average6_cp2());
 		List<Double> max = new ArrayList<>();
 		max.add(ascsCpuInfoRepository.max6_emp());
@@ -85,7 +85,7 @@ public class CpuInfoController {
 		max.add(ascsCpuInfoRepository.max6_cp8());
 		max.add(ascsCpuInfoRepository.max6_ep3());
 		max.add(ascsCpuInfoRepository.max6_cp3());
-		max.add(ascsCpuInfoRepository.max6_ep2());
+//		max.add(ascsCpuInfoRepository.max6_ep2()); // No Such Host Exist In Tivoli Database
 		max.add(ascsCpuInfoRepository.max6_cp2());
 		Map<String, List<Double>> map = new HashMap<>();
 		List<Double> curr = new ArrayList<>();
@@ -108,7 +108,7 @@ public class CpuInfoController {
 		Double cp8 = 0.0;
 		Double ep3 = 0.0;
 		Double cp3 = 0.0;
-		Double ep2 = 0.0;
+//		Double ep2 = 0.0;
 		Double cp2 = 0.0;
 
 		for (ASCSCpuCurr i : list) {
@@ -165,10 +165,10 @@ public class CpuInfoController {
 			}
 			if ("EESAP3001".equals(i.getHostname())) {
 				cp3 = i.getCpuusage();
-			}
+			}/*
 			if ("VSCSERPEP02".equals(i.getHostname())) {
 				ep2 = i.getCpuusage();
-			}
+			}*/
 			if ("EESAP2001".equals(i.getHostname())) {
 				cp2 = i.getCpuusage();
 			}
@@ -192,8 +192,8 @@ public class CpuInfoController {
 		curr.add(15, cp8);
 		curr.add(16, ep3);
 		curr.add(17, cp3);
-		curr.add(18, ep2);
-		curr.add(19, cp2);
+//		curr.add(18, ep2);
+		curr.add(18, cp2);
 
 		map.put("avg", avg);
 		map.put("max", max);

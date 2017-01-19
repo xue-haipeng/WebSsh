@@ -26,7 +26,7 @@ public class JschSftpSapUtil {
             System.out.println("Establishing Connection...");
             session.connect();
             System.out.println("Connection established.");
-            System.out.println("Crating SFTP Channel.");
+            System.out.println("Creating SFTP Channel.");
             ChannelSftp sftpChannel = (ChannelSftp) session.openChannel("sftp");
             sftpChannel.connect();
             System.out.println("SFTP Channel created.");
@@ -47,9 +47,9 @@ public class JschSftpSapUtil {
                 }
                 if (recDate.after(getPreviousDate(today))) {
 //                  System.out.println("Record Date is: " + recDate);
-                    if (line.contains("FULL") || line.contains("ALL")) {
+                    if ("0".equals(line.substring(56, 57)) && (line.contains("FULL") || line.contains("ALL"))) {
                         lastLine = "succeed";
-                    } else if (line.contains("..... ..... .....  ........ ................ ")) {
+                    } else if (!"0".equals(line.substring(56, 57)) || line.contains("..... ..... .....  ........ ................ ")) {
                         lastLine = "failed";
                     }
                 } else {
