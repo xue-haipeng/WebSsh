@@ -101,6 +101,16 @@
 			<artifactId>openshift-client</artifactId>
 			<version>1.4.27</version>
 		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>wljmxclient</artifactId>
+			<version>10.3.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>wlthint3client</artifactId>
+			<version>10.3.6</version>
+		</dependency>
 
 	</dependencies>
 

@@ -132,10 +132,24 @@ public class HomeController {
 	public String hostlist() {
 		return "hostlist";
 	}
-	
+
+	@RequestMapping("/vmlist")
+	public String vmlist() {
+		return "vmlist";
+	}
+
 	@RequestMapping("/backup")
 	public String backup() throws Exception {
 		return "backup";
+	}
+
+	@RequestMapping("/weeklyreport")
+	public String weeklyreport() {
+		return "sre/weeklyreport";
+	}
+	@RequestMapping("/links")
+	public String links() {
+		return "links";
 	}
 
 	@RequestMapping("/poc")

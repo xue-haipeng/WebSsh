@@ -126,5 +126,7 @@
     <orderEntry type="library" name="Maven: io.fabric8:zjsonpatch:0.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.github.mifmif:generex:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: dk.brics.automaton:automaton:1.11-8" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:wljmxclient:10.3.6" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:wlthint3client:10.3.6" level="project" />
   </component>
 </module>
