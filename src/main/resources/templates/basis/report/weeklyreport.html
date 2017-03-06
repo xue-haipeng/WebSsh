@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{/css/jquery.dataTables.min.css}" />
+</head>
+<body>
+
+<div th:fragment="content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'">
+	<ol class="breadcrumb" style="margin-bottom:2px;">
+		<li><a href="/basis">首页</a>
+		</li>
+		<li><a href="#">周报填报</a>
+		</li>
+		<li><a href="#">工作周报</a>
+		</li>
+
+	</ol>
+
+	<!-- weeklyreport Modal -->
+	<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="background-color: #ecebeb;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+					</button>
+					<h3 class="modal-title" style="text-align: left">添加事项</h3>
+				</div>
+				<div class="modal-body">
+					<div th:replace="/basis/report/addReport :: content" style="text-align: left;"></div>
+				</div>
+				<div class="modal-footer" style="background-color: #ecebeb;">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div> <!-- Modal End -->
+
+	<div class="row col-md-12 col-lg-12" style="font-family: 'Microsoft YaHei UI', Arial;">
+		<!--<div id="chartdemo" style="width:28%; height:234px; margin-left: 2%;"></div>-->
+		<div id="gaugechart" class="col-md-3 col-lg-3" style="height:200px; margin-left: 1%;"></div>
+		<div id="chartdemo" class="col-md-3 col-lg-3" style="height:220px;"></div>
+
+	</div>
+
+	<div style="width: 96%; margin-left: 2%; margin-top: 2%; font-family: 'Microsoft YaHei UI', Arial;">
+		<div class="btn-group" style="margin-bottom: 1%;">
+			<button id="create" class="glyphicon glyphicon-plus btn btn-primary" data-toggle="modal" data-target="#reportModal"></button>
+			<button id="update" class="glyphicon glyphicon-edit btn btn-info"></button>
+			<button id="delete" class="glyphicon glyphicon-remove btn btn-danger"></button>
+		</div>
+		<table id="example" class="display" cellspacing="0">
+			<thead>
+			<tr>
+				<th>填报时间</th>
+				<th>填报人</th>
+				<th>涉及系统</th>
+				<th>涉及问题</th>
+				<th>工作类型</th>
+				<th>工作事项</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Tiger Nixon</td>
+				<td>System Architect</td>
+				<td>Edinburgh</td>
+				<td>61</td>
+				<td>2011/04/25</td>
+				<td>$320,800</td>
+			</tr>
+			<tr>
+				<td>Garrett Winters</td>
+				<td>Accountant</td>
+				<td>Tokyo</td>
+				<td>63</td>
+				<td>2011/07/25</td>
+				<td>$170,750</td>
+			</tr>
+			<tr>
+				<td>Ashton Cox</td>
+				<td>Junior Technical Author</td>
+				<td>San Francisco</td>
+				<td>66</td>
+				<td>2009/01/12</td>
+				<td>$86,000</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery.min.1.11.1.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.dataTables.min.js}"></script>
+
+
+</body>
+</html>

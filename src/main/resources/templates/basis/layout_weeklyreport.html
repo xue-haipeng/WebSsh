@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ERP应用集成项目综合运维监控平台</title>
+	<link rel="stylesheet" th:href="@{/basis/css/style.css}" />
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/bootstrap-theme.css}" />
+	<link rel="stylesheet" th:href="@{/css/jquery.dataTables.min.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/layout.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/animate.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{/basis/jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{/basis/easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/build.css}" />
+
+</head>
+<body>
+<div th:replace="basis/common/header :: header"></div>
+<div th:replace="basis/common/left :: left"></div>
+<div th:replace="basis/report/weeklyreport :: content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'"></div>
+
+<script type="text/javascript" th:src="@{/js/jquery.min.1.11.1.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/highcharts.5.0.7.js}"></script>
+<script type="text/javascript" th:src="@{/js/highcharts-more.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.dataTables.min.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/dateFormat.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/flavr.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/jquery.datetimepicker.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/jquery.nicescroll.js}"></script>
+<script type="text/javascript" th:src="@{/basis/jcheckbox/js/jquery-labelauty.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/bt-validate.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/md5.min.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/json.js}"></script>
+<script type="text/javascript" th:src="@{/basis/js/bootstrap-combobox.min.js}"></script>
+<script type="text/javascript" th:src="@{/basis/easyui/jquery.easyui.min.js}"></script>
+
+<script type="text/javascript" th:src="@{/basis/js/leftsidebar.js}"></script>
+<script type="text/javascript" th:src="@{/js/report/draw_ringchart.js}"></script>
+<script type="text/javascript" th:src="@{/js/report/solid-gauge.js}"></script>
+<script type="text/javascript" th:src="@{/js/report/draw_gaugechart.js}"></script>
+<script>
+    $(document).ready(function() {
+        var table = $('#example').DataTable({
+            "order": [[ 0, "desc" ]]
+		});
+
+        $('#example tbody').on( 'click', 'tr', function () {
+            $(this).toggleClass('selected');
+        } );
+
+        $('#button').click( function () {
+            alert( table.rows('.selected').data().length +' row(s) selected' );
+        } );
+    } );
+</script>
+
+
+</body>
+</html>

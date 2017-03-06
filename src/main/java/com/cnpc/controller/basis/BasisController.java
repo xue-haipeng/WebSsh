@@ -35,4 +35,10 @@ public class BasisController {
         return mv;
     }
 
+    @RequestMapping("/basis/report/weeklyreport")
+    public ModelAndView weeklyReport(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mv = createLayoutView("basis/layout_weeklyreport", "basis/layout_weeklyreport", request, response);
+        return mv;
+    }
+
 }

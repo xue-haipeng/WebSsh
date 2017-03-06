@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="content" style="text-align: left; color: #000000;">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label" style="text-align: left;">涉及系统</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail3" placeholder="请选择..." />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label" style="text-align: left;">工作事项</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="请简述工作事项" />
+            </div>
+        </div>
+    </form>
+    <form style="margin-top: 3%;">
+        <label>涉及问题：</label><br />
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option1" /> ERP
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" value="option2" /> 中间件
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3" /> 数据库
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox4" value="option4" /> 操作系统
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox5" value="option5" /> HANA
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox6" value="option6" /> PaaS/大数据/SRE
+        </label>
+    </form>
+    <form style="margin-top: 2%; margin-bottom: 1%;">
+        <label style="margin-top: 1%;">工作类型：</label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" /> 日常运维
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> 排错
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> 安装/实施
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" /> 新技术/开发
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5" /> 培训/布道
+        </label>
+    </form>
+    <form>
+        <div style="margin-top: 2%;">
+            <label for="workcontent">问题描述：</label>
+            <textarea id="workcontent" class="form-control" rows="3"></textarea>
+        </div>
+        <div style="margin-top: 3%;">
+            <label for="solve">处理过程：</label>
+            <textarea id="solve" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group" style="margin-top: 3%;">
+            <label for="exampleInputFile">相关附件</label>
+            <input type="file" id="exampleInputFile" />
+        </div>
+    </form>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="reference" class="col-sm-2 control-label" style="text-align: left;">参考文献</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="reference" placeholder="相关Note/SR/Message号、URL等" />
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

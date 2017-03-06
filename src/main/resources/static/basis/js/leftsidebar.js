@@ -12,7 +12,7 @@ $(function() {
             "background-color": "#fff"
         })
         $(this).css({
-            "background-color": "#42b4f0"
+            "background-color": "#d2e8e0"
         });
         $(this).parent().find('dd').removeClass("menu_chioce");
         $(".leftsidebar_box dt img").attr("src", "/basis/img/left/select_xl01.png");
