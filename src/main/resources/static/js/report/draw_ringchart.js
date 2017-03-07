@@ -83,6 +83,9 @@ $(function () {
                     //return this.y > 1 ? '<b>'+ this.point.name +':</b> '+ this.y +'%'  : null;    //这串代码设置了加粗
                     return this.y > 1 ? ''+ this.point.name +': '+ this.y +'%'  : null;
                 }
+            },
+            style: {
+                fontFamily: 'Microsoft Yahei UI'
             }
         }],
         credits: {

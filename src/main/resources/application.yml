@@ -5,7 +5,7 @@ spring:
 #        url: jdbc:oracle:thin:@10.30.49.76:1521/ORADB
 #        username: basis
 #        password: erpbasis0
-        url: jdbc:oracle:thin:@192.168.147.142:1521/xe
+        url: jdbc:oracle:thin:@192.168.147.143:1521/xe
         username: system
         password: oracle
     jpa:
@@ -16,7 +16,7 @@ spring:
     redis:
         port: 6379
 #        host: 11.11.47.72
-        host: 192.168.147.142
+        host: 192.168.147.143
 #        host: ${REDIS_HOST}
         pool:
             maxIdle: 8 # max idle connections in the pool

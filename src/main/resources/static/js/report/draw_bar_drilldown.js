@@ -56,7 +56,10 @@ $(function () {
             pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
         },
         series: [{
-            name: 'Brands',
+            name: 'Categories',
+            style: {
+              fontFamily: 'Microsoft Yahei UI'
+            },
             colorByPoint: true,
             data: [{
                 name: 'ERP',
@@ -64,6 +67,9 @@ $(function () {
                 drilldown: 'ERP'
             }, {
                 name: '中间件/UEP',
+                style: {
+                    fontFamily: 'Microsoft Yahei UI'
+                },
                 y: 24.03,
                 drilldown: '中间件/UEP'
             }, {
@@ -80,6 +86,9 @@ $(function () {
                 drilldown: 'HANA'
             }, {
                 name: 'PaaS/大数据/SRE',
+                style: {
+                    fontFamily: 'Microsoft Yahei UI'
+                },
                 y: 0.2,
                 drilldown: null
             }]
@@ -119,6 +128,9 @@ $(function () {
                 ]
             }, {
                 name: '中间件/UEP',
+                style: {
+                    fontFamily: 'Microsoft Yahei UI'
+                },
                 id: '中间件/UEP',
                 data: [
                     [
