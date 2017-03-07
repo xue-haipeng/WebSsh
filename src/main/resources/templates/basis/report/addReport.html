@@ -6,55 +6,55 @@
 <div th:fragment="content" style="text-align: left; color: #000000;">
     <form class="form-horizontal">
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label" style="text-align: left;">涉及系统</label>
+            <label for="system_name" class="col-sm-2 control-label" style="text-align: left;">涉及系统</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputEmail3" placeholder="请选择..." />
+                <input type="text" class="form-control" id="system_name" placeholder="请选择..." />
             </div>
         </div>
         <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label" style="text-align: left;">工作事项</label>
+            <label for="item_brief" class="col-sm-2 control-label" style="text-align: left;">工作事项</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="请简述工作事项" />
+                <input type="text" class="form-control" id="item_brief" placeholder="请简述工作事项" />
             </div>
         </div>
     </form>
     <form style="margin-top: 3%;">
         <label>涉及问题：</label><br />
         <label class="checkbox-inline">
-            <input type="checkbox" id="inlineCheckbox1" value="option1" /> ERP
+            <input type="checkbox" id="checkbox1" value="1" /> ERP
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="inlineCheckbox2" value="option2" /> 中间件/UEP
+            <input type="checkbox" id="checkbox2" value="2" /> 中间件/UEP
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="inlineCheckbox3" value="option3" /> DB
+            <input type="checkbox" id="checkbox3" value="3" /> DB
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="inlineCheckbox4" value="option4" /> OS
+            <input type="checkbox" id="checkbox4" value="4" /> OS
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="inlineCheckbox5" value="option5" /> HANA
+            <input type="checkbox" id="checkbox5" value="5" /> HANA
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="inlineCheckbox6" value="option6" /> PaaS/大数据/SRE
+            <input type="checkbox" id="checkbox6" value="6" /> PaaS/大数据/SRE
         </label>
     </form>
     <form style="margin-top: 2%; margin-bottom: 1%;">
         <label style="margin-top: 1%;">工作类型：</label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" /> 日常运维
+            <input type="radio" name="inlineRadioOptions" id="radio1" value="A" /> 日常运维
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> 排错
+            <input type="radio" name="inlineRadioOptions" id="radio2" value="B" /> 排错
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> 安装/实施
+            <input type="radio" name="inlineRadioOptions" id="radio3" value="C" /> 安装/实施
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" /> 新技术/开发
+            <input type="radio" name="inlineRadioOptions" id="radio4" value="D" /> 新技术/开发
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5" /> 培训/布道
+            <input type="radio" name="inlineRadioOptions" id="radio5" value="E" /> 培训/布道
         </label>
     </form>
     <form>
@@ -67,8 +67,8 @@
             <textarea id="solve" class="form-control" rows="3"></textarea>
         </div>
         <div class="form-group" style="margin-top: 3%;">
-            <label for="exampleInputFile">相关附件</label>
-            <input type="file" id="exampleInputFile" />
+            <label for="attachment">相关附件</label>
+            <input type="file" id="attachment" />
         </div>
     </form>
     <form class="form-horizontal">
