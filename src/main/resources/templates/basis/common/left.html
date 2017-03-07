@@ -20,12 +20,22 @@
 <body>
 
 <div class="leftsidebar_box" th:fragment="left">
+	<div style="margin-top: 12px; margin-left: 23px;">
+		<!--<a href="/"><img  src="/basis/img/bgp_logo.png" alt="..." /> -->
+		<a href="/">
+			<strong style="font-size: 28px; color: #e1e1e1">
+				<span class="icon-cloud"></span> SRE
+			</strong>
+		</a>
+	</div>
+
 	<a href="/basis">
-		<dl class="system_log" style="margin-top:30px;">
-			<dt >Dashboard<img src="/basis/img/left/select_xl01.png" /></dt>
+		<!--<dl class="system_log" style="margin-top:30px;">-->
+		<dl style="margin-top:30px;">
+			<dt ><span class="icon-desktop icon-large"></span>  Dashboard<img src="/basis/img/left/select_xl01.png" /></dt>
 		</dl>
 	</a>
-	<dl class="custom">
+<!--	<dl class="custom">
 		<dt >成员管理<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="#">角色管理</a>
 		</dd>
@@ -33,17 +43,19 @@
 		</dd>
 		<dd><a href="#">角色分配</a>
 		</dd>
-	</dl>
-	<dl class="system_log">
-		<dt >主机管理<img src="/basis/img/left/select_xl01.png" /></dt>
+	</dl>-->
+	<!--<dl class="system_log">-->
+	<dl>
+		<dt ><span class="icon-cog icon-large"></span>  主机管理<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="/basis/host/application/listApplication">系统管理</a>
 		</dd>
 		<dd class="first_dd"><a href="/basis/host/host/listHost">主机管理</a>
 		</dd>
 	</dl>
 
-	<dl class="source">
-		<dt>系统查询<img src="/basis/img/left/select_xl01.png" /></dt>
+	<!--<dl class="source">-->
+	<dl>
+		<dt><span class="icon-search icon-large"></span>  系统查询<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="#">ERP 2.0平台</a>
 		</dd>
 		<dd><a href="#">用户平台</a>
@@ -61,7 +73,7 @@
 		<dd><a href="#">其它系统</a>
 		</dd>
 	</dl>
-
+<!--
 	<dl class="app">
 		<dt >应用管理<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="#">已有应用管理</a>
@@ -70,10 +82,11 @@
 		</dd>
 		<dd><a href="#">POC应用管理</a>
 		</dd>
-	</dl>
+	</dl>-->
 
-	<dl class="cloud">
-		<dt>知识分享</dt>
+	<!--<dl class="cloud">-->
+	<dl>
+		<dt><span class="icon-share icon-large"></span>  知识分享<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="#">会议记录</a>
 		</dd>
 		<dd class="first_dd"><a href="#">培训资料</a>
@@ -88,8 +101,9 @@
 		</dd>
 	</dl>
 
-	<dl class="syetem_management">
-		<dt>周报填报<img src="/basis/img/left/select_xl01.png" /></dt>
+	<!--<dl class="syetem_management">-->
+	<dl>
+		<dt><span class="icon-edit icon-large"></span>  周报填报<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="/basis/report/weeklyreport">工作周报</a>
 		</dd><!--
 		<dd><a href="#">突发事件</a>
@@ -99,8 +113,9 @@
 	</dl>
 
 
-	<dl class="statistics">
-		<dt>统计报表<img src="/basis/img/left/select_xl01.png" /></dt>
+	<!--<dl class="statistics">-->
+	<dl>
+		<dt><span class="icon-bar-chart icon-large"></span>  统计报表<img src="/basis/img/left/select_xl01.png" /></dt>
 		<dd class="first_dd"><a href="#">分类统计汇总</a>
 		</dd>
 		<dd class="first_dd"><a href="#">系统巡检报告</a>

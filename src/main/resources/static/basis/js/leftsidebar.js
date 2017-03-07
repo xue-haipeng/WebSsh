@@ -2,17 +2,18 @@
  * Created by Xue on 11/06/16.
  */
 $(".leftsidebar_box dt").css({
-    "background-color": "#fff"
+    // "background-color": "#fff"
 });
 $(".leftsidebar_box dt img").attr("src", "/basis/img/left/select_xl01.png");
 $(function() {
     $(".leftsidebar_box dd").hide();
     $(".leftsidebar_box dt").click(function() {
         $(".leftsidebar_box dt").css({
-            "background-color": "#fff"
+            // "background-color": "#fff"
         })
         $(this).css({
-            "background-color": "#d2e8e0"
+            // "background-color": "#d2e8e0"
+            // "background-color": "#aaaaaa"
         });
         $(this).parent().find('dd').removeClass("menu_chioce");
         $(".leftsidebar_box dt img").attr("src", "/basis/img/left/select_xl01.png");

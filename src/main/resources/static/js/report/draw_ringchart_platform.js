@@ -3,12 +3,12 @@
  */
 $(function () {
     // highchart demo
-    var categories = ['日常运维', '排错', '安装/实施', '新技术/开发', '培训/布道'],
+    var categories = ['ERP', '中间件/UEP', 'DB', 'OS', 'HANA', 'PaaS/大数据/SRE'],
         data = [{
             drilldown: {
                 name: '',
-                categories: ['日常运维', '排错', '安装/实施', '新技术/开发', '培训/布道'],
-                data: [10, 20, 30, 40, 20],   //数据，即this.y
+                categories: ['ERP', '中间件/UEP', 'DB', 'OS', 'HANA', 'PaaS/大数据/SRE'],
+                data: [10, 20, 30, 40, 20, 30],   //数据，即this.y
             }
         }];
 
@@ -33,7 +33,7 @@ $(function () {
     }
 
     // 创建图表
-    $('#chartdemo').highcharts({
+    $('#platformtype').highcharts({
         chart: {
             type: 'pie'   //图表的类型
         },
@@ -57,7 +57,8 @@ $(function () {
                     '#9e6df0',  //第二个颜色
                     '#f9823a',  //第三个颜色
                     '#77aaee',  //第四个颜色
-                    '#68b28b'
+                    '#68b28b',
+                    '##ADFF2F'
                 ],
                 dataLabels: {
                     //connectorColor: '#f00',  //设置连接线的颜色

@@ -2,24 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>ERP应用集成项目综合运维监控平台</title>
-	<link rel="stylesheet" th:href="@{basis/css/style.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/bootstrap.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/font-awesome.min.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/simple-line-icons.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/layout.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/bootstrap-table.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/bootstrap-table-editable.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/animate.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/flavr.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/jquery.datetimepicker.css}" />
-	<link rel="stylesheet" th:href="@{basis/jcheckbox/css/jquery-labelauty.css}" />
-	<link rel="stylesheet" th:href="@{basis/easyui/themes/metro/easyui.css}" />
-	<link rel="stylesheet" th:href="@{basis/css/build.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/style.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/simple-line-icons.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/layout.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap-table.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/bootstrap-table-editable.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/animate.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/flavr.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/jquery.datetimepicker.css}" />
+	<link rel="stylesheet" th:href="@{/basis/jcheckbox/css/jquery-labelauty.css}" />
+	<link rel="stylesheet" th:href="@{/basis/easyui/themes/metro/easyui.css}" />
+	<link rel="stylesheet" th:href="@{/basis/css/build.css}" />
 
+	<style>
+		.bootstrap-table {
+			margin-left: 2%;
+		}
+	</style>
 </head>
 <body>
-<div th:replace="basis/common/header :: header"></div>
-<div th:replace="basis/common/left :: left"></div>
+<div th:replace="basis/common/left :: left" class="col-lg-2"></div>
+<div th:replace="basis/common/header :: header" class="col-lg-10"></div>
 <div th:replace="basis/index :: content" style="margin-left:161px;margin-right:6px;font-family:'微软雅黑'"></div>
 
 	<script type="text/javascript" th:src="@{basis/js/jquery.min.js}"></script>

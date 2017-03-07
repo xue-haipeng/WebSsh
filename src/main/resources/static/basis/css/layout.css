@@ -32,22 +32,23 @@ a {
 /*left*/
 .leftsidebar_box {
 	font-family: '微软雅黑';
-	width: 160px;
-	height:90%;
+	width: 12%;
+	height:100%;
     overflow: visible !important;
     position: absolute;
-    width: 160px;
     border: solid 1px #ddd;
 	border-top-width: 0px;
 	border-bottom-width:0px;
+	background-color: rgb(43, 51, 61); /* 2017-03-06 21:53:57 */
 }
 
 .leftsidebar_box dt {
-	padding-left: 40px;
+	padding-left: 20px;
 	padding-right: 10px;
 	background-repeat: no-repeat;
 	background-position: 10px center;
-	color: #000;
+	/*color: #000;*/
+	color: #c8c8c8;;
 	font-size: 14px;
 	position: relative;
 	line-height: 48px;
@@ -55,17 +56,17 @@ a {
 }
 
 .leftsidebar_box dd {
-	background-color: #fff;
+	background-color: #333c47;
 	padding-left: 40px;
 	margin-top: 2px;
 }
 
 .leftsidebar_box dd:hover {
-	background-color: #42b4f0;
+	background-color: #737980;
 }
 
 .leftsidebar_box dd a {
-	color: #000;
+	color: #c8c8c8;
 	line-height: 30px;
 }
 .leftsidebar_box dd a:hover {

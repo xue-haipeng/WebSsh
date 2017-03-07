@@ -6,6 +6,9 @@ $(function() {
     $("#applicationList").bootstrapTable({
         height:$(window).height()-130
     });
+
+    $(".bootstrap-table").css("margin-left", "2%");
+
     //搜索事件
     $("#search").on("click", function() {
         search();

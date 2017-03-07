@@ -56,7 +56,8 @@ $(function() {
             title: {
                 text: '填报完成率',
                 style: {
-                    fontFamily: 'Microsoft YaHei UI'
+                    fontFamily: 'Microsoft YaHei UI',
+                    fontSize: '14px'
                 }
             }
         },
