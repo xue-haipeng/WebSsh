@@ -6,15 +6,17 @@
 <div th:fragment="content" style="text-align: left; color: #000000;">
     <form class="form-horizontal">
         <div class="form-group">
-            <label for="system_name" class="col-sm-2 control-label" style="text-align: left;">涉及系统</label>
-            <div class="col-sm-10">
+            <input type="hidden" id="report_id" />
+
+            <label for="system_name" class="col-md-2 col-lg-2 control-label" style="text-align: left;">涉及系统</label>
+            <div class="col-md-10 col-lg-10">
                 <input type="text" class="form-control" id="system_name" placeholder="请选择..." />
             </div>
         </div>
         <div class="form-group">
-            <label for="item_brief" class="col-sm-2 control-label" style="text-align: left;">工作事项</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="item_brief" placeholder="请简述工作事项" />
+            <label for="issue_brief" class="col-md-2 col-lg-2 control-label" style="text-align: left;">工作事项</label>
+            <div class="col-md-10 col-lg-10">
+                <input type="text" class="form-control" id="issue_brief" placeholder="请简述工作事项" />
             </div>
         </div>
     </form>
@@ -42,40 +44,40 @@
     <form style="margin-top: 2%; margin-bottom: 1%;">
         <label style="margin-top: 1%;">工作类型：</label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="radio1" value="A" /> 日常运维
+            <input type="radio" name="radio1" id="radio1" value="A" /> 日常运维
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="radio2" value="B" /> 排错
+            <input type="radio" name="radio2" id="radio2" value="B" /> 排错
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="radio3" value="C" /> 安装/实施
+            <input type="radio" name="radio3" id="radio3" value="C" /> 安装/实施
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="radio4" value="D" /> 新技术/开发
+            <input type="radio" name="radio4" id="radio4" value="D" /> 新技术/开发
         </label>
         <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="radio5" value="E" /> 培训/布道
+            <input type="radio" name="radio5" id="radio5" value="E" /> 培训/布道
         </label>
     </form>
     <form>
         <div style="margin-top: 2%;">
-            <label for="workcontent">问题描述：</label>
-            <textarea id="workcontent" class="form-control" rows="3"></textarea>
+            <label for="issue_detail">问题描述：</label>
+            <textarea id="issue_detail" class="form-control" rows="3"></textarea>
         </div>
         <div style="margin-top: 3%;">
-            <label for="solve">处理过程：</label>
-            <textarea id="solve" class="form-control" rows="3"></textarea>
+            <label for="solve_procedure">处理过程：</label>
+            <textarea id="solve_procedure" class="form-control" rows="3"></textarea>
         </div>
         <div class="form-group" style="margin-top: 3%;">
-            <label for="attachment">相关附件</label>
-            <input type="file" id="attachment" />
+            <label for="file_name">相关附件</label>
+            <input type="file" id="file_name" />
         </div>
     </form>
     <form class="form-horizontal">
         <div class="form-group">
-            <label for="reference" class="col-sm-2 control-label" style="text-align: left;">参考文献</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="reference" placeholder="相关Note/SR/Message号、URL等" />
+            <label for="reference_doc" class="col-md-2 col-lg-10 control-label" style="text-align: left;">参考文献</label>
+            <div class="col-md-10 col-lg-10">
+                <input type="text" class="form-control" id="reference_doc" placeholder="相关Note/SR/Message号、URL等" />
             </div>
         </div>
     </form>

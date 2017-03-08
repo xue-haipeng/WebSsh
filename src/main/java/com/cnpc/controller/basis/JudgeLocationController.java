@@ -1,4 +1,4 @@
-package com.cnpc.repository.basis;
+package com.cnpc.controller.basis;
 
 import com.cnpc.service.basis.HostService;
 import org.springframework.web.bind.annotation.RequestMapping;

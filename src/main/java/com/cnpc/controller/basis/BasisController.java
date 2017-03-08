@@ -22,6 +22,12 @@ public class BasisController {
         return mv;
     }
 
+    @RequestMapping("/basis/host/instruction")
+    public ModelAndView reference(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mv = createLayoutView("basis/layout_instruction", "basis/layout_instruction", request, response);
+        return mv;
+    }
+
     @RequestMapping("/basis/host/host/listHost")
     public ModelAndView hostList(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mv = createLayoutView("basis/layout_hostList", "basis/layout_hostList", request, response);
