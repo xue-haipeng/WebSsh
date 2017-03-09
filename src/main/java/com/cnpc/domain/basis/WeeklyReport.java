@@ -30,6 +30,23 @@ public class WeeklyReport {
     private String fileName;
     private String referenceDoc;
 
+    public WeeklyReport(){}
+
+    public WeeklyReport(String createUser, Date createDate, String updateUser, Date updateDate, String systemName, String issueBrief, String appType, String workType, String issueDetail, String solveProcedure, String fileName, String referenceDoc) {
+        this.createUser = createUser;
+        this.createDate = createDate;
+        this.updateUser = updateUser;
+        this.updateDate = updateDate;
+        this.systemName = systemName;
+        this.issueBrief = issueBrief;
+        this.appType = appType;
+        this.workType = workType;
+        this.issueDetail = issueDetail;
+        this.solveProcedure = solveProcedure;
+        this.fileName = fileName;
+        this.referenceDoc = referenceDoc;
+    }
+
     public Long getId() {
         return id;
     }

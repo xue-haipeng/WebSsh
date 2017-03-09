@@ -16,6 +16,17 @@ $(function() {
         }
     } );
 
+    $('#reportModal').on('shown.bs.modal', function () {
+
+        $("input[type='radio']").click(function(){
+            $("input[type='radio']").each(function () {
+                this.checked = false;
+            });
+            this.checked = true;
+
+        });
+    });
+
     $('#detail').click( function () {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
             $.alert({
@@ -64,14 +75,14 @@ $(function() {
         $('input:checkbox[value="2"]').attr('checked', true);
 
         $('input:checkbox').eq(4).attr('checked', true);
-
+/*
         $("input[type='radio']").click(function(){
             $("input[type='radio']").each(function () {
                 this.checked = false;
             });
             this.checked = true;
 
-        });
+        });*/
         $('input:radio[value="D"]').attr('checked', true);
 
         $('#issue_detail').removeAttr('readonly').val('Server无法启动，日志无具体原因');
@@ -86,6 +97,7 @@ $(function() {
         $('input[type="checkbox"]:checked').each(function() {
             checkbox.push($(this).val());
         });
+        var app_type = checkbox.join(",");
         var radio = '';
         $('input[type="radio"]:checked').each(function() {
             radio += $(this).val();
@@ -93,9 +105,16 @@ $(function() {
         var issue_detail = $('#issue_detail').val();
         var solve_procedure = $('#solve_procedure').val();
         var reference_doc = $('#reference_doc').val();
+        var file_path = $('#file_name').val().split("\\");
+        var file_name = file_path == undefined || null ? '': file_path[file_path.length - 1];
 
-        alert(system_name + ', ' + issue_brief + ', ' + checkbox + ', ' + radio + ', ' + issue_detail + ', '
-        + solve_procedure + ', ' + reference_doc);
+        var data = {"systemName": system_name, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
+            "issueDetail": issue_detail, "solveProcedure": solve_procedure, "referenceDoc": reference_doc, "fileName": file_name};
+
+        $.get("/basis/report/save_report", data, function (response, status, xhr) {
+            $('#reportModal').modal('hide');
+        });
+
     } );
 
 } );

@@ -74,7 +74,7 @@ function showTable(url) {
         },
         "dom": 'lBfrtip',
         "buttons": [
-            'excelHtml5',
+            'excelHtml5'
         ],
         "columns" : [ {
             "data" : "vmName",
