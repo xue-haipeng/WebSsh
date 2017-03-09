@@ -7,6 +7,8 @@ $(function () {
     }*/
     $('#report_table').DataTable({
         "retrieve": true,
+        "pageLength": 7,
+            "order": [[ 0, "desc" ]],
         "ajax": {
             "url": "/basis/report/retrieve_reports",
             "dataSrc": ""

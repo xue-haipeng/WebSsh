@@ -2,9 +2,10 @@
  * Created by Xue on 03/07/17.
  */
 $(function() {
-    var table = $('#report_table').DataTable({
+/*    var table = $('#report_table').DataTable({
+        "destroy": true,
         "order": [[ 0, "desc" ]]
-    });
+    });*/
 
     $('#report_table tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('selected') ) {
@@ -113,6 +114,7 @@ $(function() {
 
         $.get("/basis/report/save_report", data, function (response, status, xhr) {
             $('#reportModal').modal('hide');
+            location.reload();
         });
 
     } );
