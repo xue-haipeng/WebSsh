@@ -2,10 +2,11 @@ package com.cnpc.controller.basis;
 
 import com.cnpc.domain.basis.WeeklyReport;
 import com.cnpc.service.basis.WeeklyReportService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Controller
 public class ReportController {
-
+    private static final Logger logger = LoggerFactory.getLogger(ReportController.class);
     @Autowired
     WeeklyReportService reportService;
 
@@ -28,6 +29,20 @@ public class ReportController {
     @ResponseBody
     public List<WeeklyReport> listAllReports() {
         return reportService.retrieveAllReports();
+    }
+
+    @RequestMapping(value = "/basis/report/specific_report", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public WeeklyReport singleWeeklyReport(@RequestParam(value = "id") String id) {
+        return reportService.getSingleReport(Long.parseLong(id));
+    }
+
+    @RequestMapping(value = "/basis/report/update_report", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateReport(@RequestBody WeeklyReport report) {
+        logger.info(report.toString());
+        String status = reportService.updateReport(report);
+        return "{}";  // 此处异常诡异，ResponseBody注解不起作用
     }
 
 }

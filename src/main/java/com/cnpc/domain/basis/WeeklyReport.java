@@ -150,4 +150,23 @@ public class WeeklyReport {
     public void setReferenceDoc(String referenceDoc) {
         this.referenceDoc = referenceDoc;
     }
+
+    @Override
+    public String toString() {
+        return "WeeklyReport{" +
+                "id=" + id +
+                ", createUser='" + createUser + '\'' +
+                ", createDate=" + createDate +
+                ", updateUser='" + updateUser + '\'' +
+                ", updateDate=" + updateDate +
+                ", systemName='" + systemName + '\'' +
+                ", issueBrief='" + issueBrief + '\'' +
+                ", appType='" + appType + '\'' +
+                ", workType='" + workType + '\'' +
+                ", issueDetail='" + issueDetail + '\'' +
+                ", solveProcedure='" + solveProcedure + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", referenceDoc='" + referenceDoc + '\'' +
+                '}';
+    }
 }

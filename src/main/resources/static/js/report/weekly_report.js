@@ -7,17 +7,9 @@ $(function() {
         "order": [[ 0, "desc" ]]
     });*/
 
-    $('#report_table tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    } );
 
-    $('#reportModal').on('shown.bs.modal', function () {
+
+    /*$('#reportModal').on('shown.bs.modal', function () {
 
         $("input[type='radio']").click(function(){
             $("input[type='radio']").each(function () {
@@ -64,31 +56,62 @@ $(function() {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
             $.alert({
                 title: '警告：',
-                content: '您尚未选择任何条目，请选择一行！'
+                content: '您尚未选择任何条目，请先选中一行！'
             });
             return;
         }
+        var id = table.row('.selected').data()[id];
+        var createDate;
+        var createUser;
+        var updateDate;
+        var updateUser;
+        var systemName;
+        var appType;
+        var workType;
+        var issueBrief;
+        var issueDetail;
+        var solveProcedure;
+        var fileName;
+        var referenceDoc;
+        $.get("/basis/report/specific_report", {"id": id}, function (result) {
+            createDate = result["createDate"];
+            createUser = result["createUser"];
+            updateDate = result["updateDate"];
+            updateUser = result["updateUser"];
+            systemName = result["systemName"];
+            appType = result["appType"];
+            workType = result["workType"];
+            issueBrief = result["issueBrief"];
+            issueDetail = result["issueDetail"];
+            solveProcedure = result["solveProcedure"];
+            fileName = result["fileName"];
+            referenceDoc = result["referenceDoc"];
+        });
+
         $('#reportModal').modal('show');
         $('#title').text('更新事项');
-        $('#system_name').removeAttr('readonly').val('OSB上市生产');
-        $('#issue_brief').removeAttr('readonly').val('处理Server无法启动问题');
+        $('#system_name').removeAttr('readonly').val(systemName);
+        $('#issue_brief').removeAttr('readonly').val(issueBrief);
+        if ( appType != undefined && appType != null && appType != "" ) {
+            var apps = appType.split(",");
+            for (var i = 0; i < apps.length; i++) {
+                var app = apps[i];
+                $('input:checkbox[value=app]').attr('checked', true);
+            }
+        }
 
-        $('input:checkbox[value="2"]').attr('checked', true);
+        // $('input:checkbox[value="2"]').attr('checked', true);
 
-        $('input:checkbox').eq(4).attr('checked', true);
-/*
-        $("input[type='radio']").click(function(){
-            $("input[type='radio']").each(function () {
-                this.checked = false;
-            });
-            this.checked = true;
+        // $('input:checkbox').eq(4).attr('checked', true);
+        if ( workType != undefined && workType != null && workType != "" ) {
+            $('input:radio[value=workType]').attr('checked', true);
+        }
 
-        });*/
-        $('input:radio[value="D"]').attr('checked', true);
+        // $('input:radio[value="D"]').attr('checked', true);
 
-        $('#issue_detail').removeAttr('readonly').val('Server无法启动，日志无具体原因');
-        $('#solve_procedure').removeAttr('readonly').val('删除tmp、data、stage目录，重新启动，问题解决');
-        $('#reference_doc').removeAttr('readonly').val('SR 3-1071405234');
+        $('#issue_detail').removeAttr('readonly').val(issueDetail);
+        $('#solve_procedure').removeAttr('readonly').val(solveProcedure);
+        $('#reference_doc').removeAttr('readonly').val(referenceDoc);
     } );
 
     $('#save').click( function () {
@@ -117,6 +140,6 @@ $(function() {
             location.reload();
         });
 
-    } );
+    } );*/
 
 } );

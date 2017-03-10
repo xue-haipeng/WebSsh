@@ -2,6 +2,8 @@ package com.cnpc.service.basis;
 
 import com.cnpc.domain.basis.WeeklyReport;
 import com.cnpc.repository.basis.WeeklyReportRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class WeeklyReportService {
 
+    private static final Logger logger = LoggerFactory.getLogger(WeeklyReportService.class);
     @Autowired
     WeeklyReportRepo weeklyReportRepo;
 
@@ -63,4 +66,19 @@ public class WeeklyReportService {
         return list;
     }
 
+    public WeeklyReport getSingleReport(Long id) {
+        return weeklyReportRepo.findOne(id);
+    }
+
+    public String updateReport(WeeklyReport report) {
+        if (report.getUpdateDate() == null || "".equals(report.getUpdateDate())) {
+            report.setUpdateDate(new Date());
+        }
+        if (report.getUpdateUser() == null || "".equals(report.getUpdateUser())) {
+            report.setUpdateUser(SecurityContextHolder.getContext().getAuthentication().getName());
+        }
+        logger.info(report.toString());
+        weeklyReportRepo.saveAndFlush(report);
+        return "OK";
+    }
 }
