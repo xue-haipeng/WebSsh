@@ -64,7 +64,13 @@ public class EmailService {
         ctx.setVariable("count", 20);
         ctx.setVariable("date", new Date());
         ctx.setVariable("hobbies", Arrays.asList("Cinema", "Sports", "Music"));
-        String htmlContent = this.templateEngine.process("emailTemplate", ctx);
+        ctx.setVariable("erp", 20);
+        ctx.setVariable("mw_uep", 10);
+        ctx.setVariable("db", 2);
+        ctx.setVariable("os", 0);
+        ctx.setVariable("hana", 3);
+        ctx.setVariable("paas", 5);
+        String htmlContent = this.templateEngine.process("mails/emailTemplate", ctx);
         message.setText(htmlContent, true);
         mailSender.send(mimeMessage);
     }

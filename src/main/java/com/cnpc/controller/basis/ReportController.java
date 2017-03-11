@@ -60,7 +60,7 @@ public class ReportController {
     @ResponseBody
     public void sendSimpleMail() throws MessagingException {
 
-        emailService.sendThymeleafMail("hpxue13@163.com","1071405234@qq.com","周报填报提醒","");
+        emailService.sendThymeleafMail("hpxue13@163.com","xuehaipeng@cnpc.com.cn","周报填报提醒","");
 
     }
 
