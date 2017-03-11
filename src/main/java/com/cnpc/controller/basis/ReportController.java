@@ -5,6 +5,8 @@ import com.cnpc.service.basis.WeeklyReportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +45,26 @@ public class ReportController {
         logger.info(report.toString());
         String status = reportService.updateReport(report);
         return "{}";  // 此处异常诡异，ResponseBody注解不起作用
+    }
+
+    @RequestMapping("/basis/report/delete_report")
+    @ResponseBody
+    public void deleteReport(@RequestParam(value = "id") String id) {
+        reportService.deleteReport(Long.parseLong(id));
+    }
+
+    @Autowired
+    private JavaMailSender mailSender;
+
+    @RequestMapping("/sendmail")
+    @ResponseBody
+    public void sendSimpleMail() {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom("hpxue13@163.com");
+        msg.setTo("1071405234@qq.com");
+        msg.setSubject("周报填报提醒");
+        msg.setText("您尚未提交本周周报，请尽快前往填写！");
+        mailSender.send(msg);
     }
 
 }

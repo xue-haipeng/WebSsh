@@ -24,6 +24,16 @@ spring:
             maxActive: -1 # no limit to the number of active connections
             maxWait: 30000 # time limit to get a connection - only applies if maxActive is finite
 
+    mail:
+        host: smtp.163.com
+        username: hpxue13@163.com
+        password: 8121812
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    timeout: 25000
+
 # Sftp Configuration
 # Non-SAP DB backup polling
 sftp:

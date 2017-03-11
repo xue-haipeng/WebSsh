@@ -65,10 +65,7 @@ $(function () {
 
     $('#detail').click( function () {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
-            $.alert({
-                title: '警告：',
-                content: '您尚未选择任何条目，请选择一行！'
-            });
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
         $('#reportModal').modal('show');
@@ -97,10 +94,7 @@ $(function () {
 
     $('#edit').click( function () {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
-            $.alert({
-                title: '警告：',
-                content: '您尚未选择任何条目，请先选中一行！'
-            });
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
         console.log("data: " + table.row('.selected').data());
@@ -222,7 +216,6 @@ $(function () {
 
         var data = {"id": report_id, "systemName": system_name, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
             "createDate": create_date, "createUser": create_user, "issueDetail": issue_detail, "solveProcedure": solve_procedure, "referenceDoc": reference_doc, "fileName": file_name};
-
         $.ajax({
             method: "POST",
             url: "/basis/report/update_report",
@@ -236,6 +229,36 @@ $(function () {
                 location.reload();
             }
         });
-    })
+    });
 
+    $('#delete').click(function () {
+        if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI';'>您还未选择任何条目，请先选中一行记录！</span>");
+            return;
+        } else {
+            console.log("data: " + table.row('.selected').data());
+            var id = table.row('.selected').data().id;
+
+            bootbox.confirm({
+                title: "<span style='font-family: 'Microsoft Yahei UI'; color: chocolate;'>确认删除</span>",
+                message: "<span style='font-family: 'Microsoft Yahei UI'; color: forestgreen;'>您确定要删除该条目吗？此操作将不可恢复！</span>",
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancel'
+                    },
+                    confirm: {
+                        label: '<i class="fa fa-check"></i> Confirm'
+                    }
+                },
+                callback: function (result) {
+                    if (result == true) {
+                        $.get("/basis/report/delete_report", {id: id}, function (response, status, xhr) {
+                            location.reload();
+                            console.log('已成功删除')
+                        });
+                    }
+                }
+            });
+        }
+    });
 });

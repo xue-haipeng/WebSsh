@@ -81,4 +81,8 @@ public class WeeklyReportService {
         weeklyReportRepo.saveAndFlush(report);
         return "OK";
     }
+
+    public void deleteReport(Long id) {
+        weeklyReportRepo.delete(id);
+    }
 }

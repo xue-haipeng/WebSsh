@@ -111,6 +111,10 @@
 			<artifactId>wlthint3client</artifactId>
 			<version>10.3.6</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
 
 	</dependencies>
 
