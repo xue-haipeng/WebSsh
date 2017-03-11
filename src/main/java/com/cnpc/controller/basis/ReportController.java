@@ -1,15 +1,15 @@
 package com.cnpc.controller.basis;
 
 import com.cnpc.domain.basis.WeeklyReport;
+import com.cnpc.service.basis.EmailService;
 import com.cnpc.service.basis.WeeklyReportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 /**
@@ -54,17 +54,14 @@ public class ReportController {
     }
 
     @Autowired
-    private JavaMailSender mailSender;
+    private EmailService emailService;
 
     @RequestMapping("/sendmail")
     @ResponseBody
-    public void sendSimpleMail() {
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setFrom("hpxue13@163.com");
-        msg.setTo("1071405234@qq.com");
-        msg.setSubject("周报填报提醒");
-        msg.setText("您尚未提交本周周报，请尽快前往填写！");
-        mailSender.send(msg);
+    public void sendSimpleMail() throws MessagingException {
+
+        emailService.sendThymeleafMail("hpxue13@163.com","1071405234@qq.com","周报填报提醒","");
+
     }
 
 }
