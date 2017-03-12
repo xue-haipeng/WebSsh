@@ -246,29 +246,27 @@
                 border-bottom: 0;
             }
         }
+        body {
+            font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", Arial, sans-serif;
+        }
     </style>
 
 </head>
 <body>
 <p>
-    亲爱的系统用户 <em th:text="${username}" ></em>
+    尊敬的<em th:text="${username}" style="font-size: larger; color: #F08080"></em> 先生/女士：
 </p>
 <p th:if="${count > 10}">
-    Wow! You've got many reports filled this week (more than 10 chars)!
+    &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，其中：
 </p>
-<p>
-    You have been successfully subscribed to the <b>Fake newsletter</b> on
-    <span th:text="${date}"></span> with <span th:text="${count}"></span>
-</p>
-<p>Your hobbies are:</p>
+<!--
 <ul th:remove="all-but-first">
     <li th:each="hobby : ${hobbies}" th:text="${hobby}"></li>
 </ul>
-<p>
-    You can find <b>your inlined image</b> just below this text.
-</p>
+-->
+
 <div style="text-align: center;">
-    <table class="table table-bordered">
+    <table class="table table-condensed table-bordered">
         <thead>
         <tr>
             <th>ERP运维</th>
@@ -291,10 +289,14 @@
         </tbody>
     </table>
 </div>
-<a class="btn btn-default" href="http://localhost:8080/basis">登陆SRE</a>
+&nbsp;&nbsp;<a href="http://10.30.49.76:8080/basis/report/weeklyreport">查看详情</a>
+<br/>
 <p>
-    Best Regards! <br />
-    <em style="font-size: 12px; color: #919191; font-family: 'Microsoft Yahei', 微软雅黑">本邮件由系统自动发出，请勿直接回复</em>
+    <br />
+    <em style="font-size: 12px; color: #919191; font-family: 'Microsoft Yahei', 微软雅黑">
+        &nbsp;&nbsp;Send from <b>S</b>ite <b>R</b>eliability <b>E</b>ngineering Platform<br/>
+        &nbsp;&nbsp;Please DO NOT Reply
+    </em>
 </p>
 <!--<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>-->
 </body>

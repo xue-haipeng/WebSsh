@@ -143,10 +143,11 @@ public class HomeController {
 		return "backup";
 	}
 
-	@RequestMapping("/weeklyreport")
+/*	@RequestMapping("/weeklyreport")
 	public String weeklyreport() {
 		return "sre/weeklyreport";
-	}
+	}*/
+
 	@RequestMapping("/links")
 	public String links() {
 		return "links";

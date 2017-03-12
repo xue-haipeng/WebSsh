@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class MailSenderTest {
     MailRemainderService remainderService;
 
     @Test
-    public void sendRemainderMail() {
+    public void sendRemainderMail() throws MessagingException {
         remainderService.sendMimeMail();
     }
 
@@ -35,8 +36,8 @@ public class MailSenderTest {
     }
 
     @Test
-    public void testInjection() {
-
+    public void testSendMail() throws MessagingException {
+        remainderService.testSendMail();
     }
 
 }

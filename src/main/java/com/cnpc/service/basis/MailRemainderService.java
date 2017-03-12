@@ -2,6 +2,8 @@ package com.cnpc.service.basis;
 
 import com.cnpc.repository.basis.WeeklyReportRepo;
 import com.cnpc.utils.EmailUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.MessagingException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -20,8 +23,9 @@ import java.util.stream.Collectors;
 @Service
 @ConfigurationProperties(prefix = "spring.mail.users")
 public class MailRemainderService {
-    private final String SEND_FROM = "hpxue13@163.com";
-    private final String SEND_TO = "1071405234@qq.com";
+    private static final Logger logger = LoggerFactory.getLogger(MailRemainderService.class);
+    private final String SEND_FROM = "erpyyjcadmin@cnpc.com.cn";
+    private final String SEND_TO = "xuehaipeng@cnpc.com.cn";
     private final String FILLING_REMAINDER_SUBJECT = "周报填报提醒";
     private final String REPORT_FILLING_SUMMARY = "周报填报汇总";
 
@@ -53,15 +57,31 @@ public class MailRemainderService {
     @Autowired
     WeeklyReportRepo reportRepo;
 
-    @Scheduled(cron = "00 00 11 * * 6")
+    /**
+     * Weekly Report Filling Remainder
+     * @throws MessagingException
+     */
+    @Scheduled(cron = "00 30 10 * * 6")
     public void sendMimeMail() throws MessagingException {
 
-        List<String> allstaff = this.getStaff().stream().map(item -> item.get("username")).collect(Collectors.toList());
         List<String> completed = reportRepo.findFilledUsers();
-        List<String> unfinished = allstaff.stream().filter(item -> !completed.contains(item)).collect(Collectors.toList());
-        unfinished.forEach(System.out :: println);
+        List<String> unfinished = this.getStaff().stream().filter(item -> !completed.contains(item.get("username"))).map(item -> item.get("mail")).collect(Collectors.toList());
+        logger.info(unfinished.toString());
 
         EmailUtils.sendMimeMail(SEND_FROM, unfinished, FILLING_REMAINDER_SUBJECT, null, mailSender);
     }
 
+    @Scheduled(cron = "00 00 11 * * 6")
+    public void sendTemplateMail() throws MessagingException {
+        EmailUtils.sendThymeleafMail(SEND_FROM, this.getLeader().get("mail"), REPORT_FILLING_SUMMARY,null, mailSender, templateEngine);
+    }
+
+    /**
+     * For Testing Purporse Only
+     * @throws MessagingException
+     */
+    public void testSendMail() throws MessagingException {
+
+        EmailUtils.sendThymeleafMail("hpxue13@163.com", "1071405234@qq.com", REPORT_FILLING_SUMMARY, null, mailSender, templateEngine);
+    }
 }
