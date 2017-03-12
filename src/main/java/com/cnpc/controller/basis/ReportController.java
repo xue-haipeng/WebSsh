@@ -1,7 +1,6 @@
 package com.cnpc.controller.basis;
 
 import com.cnpc.domain.basis.WeeklyReport;
-import com.cnpc.service.basis.EmailService;
 import com.cnpc.service.basis.WeeklyReportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,14 +52,11 @@ public class ReportController {
         reportService.deleteReport(Long.parseLong(id));
     }
 
-    @Autowired
-    private EmailService emailService;
-
     @RequestMapping("/sendmail")
     @ResponseBody
     public void sendSimpleMail() throws MessagingException {
 
-        emailService.sendThymeleafMail("hpxue13@163.com","xuehaipeng@cnpc.com.cn","周报填报提醒","");
+//        EmailUtils.sendThymeleafMail("hpxue13@163.com","xuehaipeng@cnpc.com.cn","周报填报提醒","");
 
     }
 

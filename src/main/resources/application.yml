@@ -33,6 +33,40 @@ spring:
                 smtp:
                     auth: true
                     timeout: 25000
+        default-encoding: UTF-8
+        users:
+            leader:
+                username: wangqian
+                name: 王茜
+                mail: wangqian91@cnpc.com.cn
+            staff:
+                - username: hushuai
+                  name: 胡帅
+                  mail: hushuai@cnpc.com.cn
+                - username: hanxinyi
+                  name: 韩心怡
+                  mail: hanxinyi3@cnpc.com.cn
+                - username: zhouwei
+                  name: 周惟
+                  mail: zhouwei04@cnpc.com.cn
+                - username: jiangyongrui
+                  name: 姜永锐
+                  mail: jiangyongrui@cnpc.com.cn
+                - username: zhaoxin
+                  name: 赵鑫
+                  mail: zhaoxin01@cnpc.com.cn
+                - username: jiaolong
+                  name: 焦龙
+                  mail: jiaolong@cnpc.com.cn
+                - username: wangyubo
+                  name: 王禹博
+                  mail: wangyubo02@cnpc.com.cn
+                - username: xuehaipeng
+                  name: 薛海鹏
+                  mail: xuehaipeng@cnpc.com.cn
+                - username: hesiyang
+                  name: 何思洋
+                  mail: hesiyang3@cnpc.com.cn
 
 # Sftp Configuration
 # Non-SAP DB backup polling
