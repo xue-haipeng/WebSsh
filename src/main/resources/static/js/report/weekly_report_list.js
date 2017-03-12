@@ -65,11 +65,16 @@ $(function () {
 
     $('#detail').click( function () {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
-            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI';'>您还未选择任何条目，请先选中一行记录！</span>");
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
         $('#reportModal').modal('show');
-        $('#title').text('查看事项');
+        $('#reportModal').on('shown.bs.modal', function () {
+            $('#title').text('查看事项');
+            $('#ok').show();
+            $('#save').hide();
+            $('#update').hide();
+        });
         $('#system_name').val('OSB上市生产').attr('readonly', 'readonly');
         $('#issue_brief').val('处理Server无法启动问题').attr('readonly', 'readonly');
         $('input:checkbox[value="2"]').attr('checked', true);
@@ -92,9 +97,18 @@ $(function () {
 
     } );
 
+    $('#create').click( function () {
+        $('#reportModal').on('shown.bs.modal', function () {
+            $('#title').text('添加事项');
+            $('#ok').hide();
+            $('#save').show();
+            $('#update').hide();
+        });
+    });
+
     $('#edit').click( function () {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
-            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI';'>您还未选择任何条目，请先选中一行记录！</span>");
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
         console.log("data: " + table.row('.selected').data());
@@ -133,7 +147,13 @@ $(function () {
         });
 
         $('#reportModal').modal('show');
-        $('#title').text('更新事项');
+        $('#reportModal').on('shown.bs.modal', function () {
+            $('#title').text('更新事项');
+            $('#ok').hide();
+            $('#save').hide();
+            $('#update').show();
+        });
+
         $('#report_id').val(id);
         $('#create_date').val(createDate);
         $('#create_user').val(createUser);
@@ -147,6 +167,8 @@ $(function () {
                 $('input[type="checkbox"]').each(function () {
                     if (this.value == app) {
                         this.checked = true;
+                    } else {
+                        this.checked = false;
                     }
                 });
             }

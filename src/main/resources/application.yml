@@ -25,12 +25,12 @@ spring:
             maxWait: 30000 # time limit to get a connection - only applies if maxActive is finite
 
     mail:
-#        host: mail.cnpc.com.cn
-#        username: erpyyjcadmin@cnpc.com.cn
-#        password: bgp123
-        host: smtp.163.com
-        username: hpxue13@163.com
-        password: 8121812
+        host: mail.cnpc.com.cn
+        username: erpyyjcadmin@cnpc.com.cn
+        password: bgp123
+#        host: smtp.163.com
+#        username: hpxue13@163.com
+#        password: 8121812
         properties:
             mail:
                 smtp:
