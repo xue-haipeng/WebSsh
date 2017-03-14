@@ -2,7 +2,8 @@
  * Created by Xue on 03/06/17.
  */
 $(function () {
-    // highchart demo
+
+
     var categories = ['ERP', '中间件/UEP', 'DB', 'OS', 'HANA', 'PaaS/大数据/SRE'],
         data = [{
             drilldown: {
@@ -38,7 +39,7 @@ $(function () {
             type: 'pie'   //图表的类型
         },
         title: {  //设置标题并将标题置于环形图表中间
-            text: '<span style="font-size:20px; font-family: Arial; color:#606060;">100%</span>',
+            text: '<span style="font-size:16px; font-family: Arial; color:#606060;">工作分布</span>',
             verticalAlign: 'middle'
         },
         yAxis: {
@@ -76,7 +77,7 @@ $(function () {
             valueSuffix: '%'
         },
         series: [{
-            name: '百分比',  //数据列名
+            name: '占比',  //数据列名
             data: percentData,
             dataLabels: {
                 formatter: function() {
@@ -87,7 +88,7 @@ $(function () {
             }
         }],
         credits: {
-            enabled:false              // 默认值，如果想去掉版权信息Highcharts.com，设置为false即可
+            enabled:false
         }
     });
 

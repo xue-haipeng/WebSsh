@@ -68,32 +68,85 @@ $(function () {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
+        var id = table.row('.selected').data().id;
+        var createDate;
+        var createUser;
+        var updateDate;
+        var updateUser;
+        var systemName;
+        var appType;
+        var workType;
+        var issueBrief;
+        var issueDetail;
+        var solveProcedure;
+        var fileName;
+        var referenceDoc;
+        $.ajax( {
+            method: "GET",
+            url: "/basis/report/specific_report?id=" + id,
+            async: false,
+            success: function (result) {
+                console.log("response: " + result);
+                createDate = result["createDate"];
+                createUser = result["createUser"];
+                updateDate = result["updateDate"];
+                updateUser = result["updateUser"];
+                systemName = result["systemName"];
+                appType = result["appType"];
+                workType = result["workType"];
+                issueBrief = result["issueBrief"];
+                issueDetail = result["issueDetail"];
+                solveProcedure = result["solveProcedure"];
+                fileName = result["fileName"];
+                referenceDoc = result["referenceDoc"];
+            }
+        });
         $('#reportModal').modal('show');
         $('#reportModal').on('shown.bs.modal', function () {
             $('#title').text('查看事项');
             $('#ok').show();
             $('#save').hide();
             $('#update').hide();
+            $('#file_name').hide();
         });
-        $('#system_name').val('OSB上市生产').attr('readonly', 'readonly');
-        $('#issue_brief').val('处理Server无法启动问题').attr('readonly', 'readonly');
-        $('input:checkbox[value="2"]').attr('checked', true);
-        $('input:checkbox').eq(4).attr('checked', true);
+        $('#system_name').val(systemName).attr('readonly', 'readonly');
+        $('#issue_brief').val(issueBrief).attr('readonly', 'readonly');
 
+        if ( appType != undefined && appType != null && appType != "" ) {
+            var apps = appType.split(",");
+            for (var i = 0; i < apps.length; i++) {
+                var app = apps[i];
+                // $('input:checkbox[value=app]').attr('checked', true);
+                $('input[type="checkbox"]').each(function () {
+                    if (this.value == app) {
+                        this.checked = true;
+                    } else {
+                        this.checked = false;
+                    }
+                });
+            }
+        }
         $("input[type='checkbox']").click(function(){
             this.checked = !this.checked;
         });
 
-        $('input:radio[value="D"]').attr('checked', true);
-
-        $('input[type="radio"]').not('input:radio[value="D"]').click(function () {
+        if ( workType != undefined && workType != null && workType != "" ) {
+            $("input[type='radio']").each(function () {
+                if (this.value == workType) {
+                    this.checked = true;
+                } else {
+                    this.checked = false;
+                }
+            });
+        }
+        $('input[type="radio"]').click(function () {
             this.checked = !this.checked;
         });
 
-        $('#issue_detail').val('Server无法启动，日志无具体原因').attr('readonly', 'readonly');
-        $('#solve_procedure').val('删除tmp、data、stage目录，重新启动，问题解决').attr('readonly', 'readonly');
-        $('#reference_doc').val('SR 3-1071405234').attr('readonly', 'readonly');
-        $('#file_name').attr('unselectable', 'on');
+        $('#issue_detail').val(issueDetail).attr('readonly', 'readonly');
+        $('#solve_procedure').val(solveProcedure).attr('readonly', 'readonly');
+        $('#reference_doc').val(referenceDoc).attr('readonly', 'readonly');
+        $('#download_file').removeAttr('hidden').text(fileName).attr('href', '/basis/report/files/' + fileName);
 
     } );
 
@@ -103,6 +156,28 @@ $(function () {
             $('#ok').hide();
             $('#save').show();
             $('#update').hide();
+            $('#file_name').show();
+            $('#download_file').hide();
+            $('#system_name').removeAttr('readonly').val('');
+            $('#issue_brief').removeAttr('readonly').val('');
+            $("input[type='checkbox']").each(function () {
+                this.checked = false;
+            });
+            $("input[type='checkbox']").click(function(){
+                this.checked = true;
+            });
+            $("input[type='radio']").each(function () {
+                this.checked = false;
+            });
+            $("input[type='radio']").click(function(){
+                $("input[type='radio']").each(function () {
+                    this.checked = false;
+                });
+                this.checked = true;
+            });
+            $('#issue_detail').removeAttr('readonly').val('');
+            $('#solve_procedure').removeAttr('readonly').val('');
+            $('#reference_doc').removeAttr('readonly').val('');
         });
     });
 
@@ -152,6 +227,8 @@ $(function () {
             $('#ok').hide();
             $('#save').hide();
             $('#update').show();
+            $('#file_name').show();
+            $('#download_file').hide();
         });
 
         $('#report_id').val(id);
@@ -186,6 +263,7 @@ $(function () {
         $('#issue_detail').removeAttr('readonly').val(issueDetail);
         $('#solve_procedure').removeAttr('readonly').val(solveProcedure);
         $('#reference_doc').removeAttr('readonly').val(referenceDoc);
+
     } );
 
     $('#save').click( function () {
@@ -204,11 +282,23 @@ $(function () {
         var solve_procedure = $('#solve_procedure').val();
         var reference_doc = $('#reference_doc').val();
         var file_path = $('#file_name').val().split("\\");
-        var file_name = file_path == undefined || null ? '': file_path[file_path.length - 1];
+        var file_name = file_path == undefined || null || '' ? '': file_path[file_path.length - 1];
 
         var data = {"systemName": system_name, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
             "issueDetail": issue_detail, "solveProcedure": solve_procedure, "referenceDoc": reference_doc, "fileName": file_name};
 
+        if (file_path != undefined && file_path != null && file_path != '') {
+            var formData = new FormData();
+            formData.append('file', $('#file_name')[0].files[0]);
+            $.ajax({
+                url: '/basis/report/upload',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+        }
         $.get("/basis/report/save_report", data, function (response, status, xhr) {
             $('#reportModal').modal('hide');
             location.reload();

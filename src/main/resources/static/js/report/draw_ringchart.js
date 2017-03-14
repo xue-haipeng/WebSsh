@@ -2,6 +2,8 @@
  * Created by Xue on 03/06/17.
  */
 $(function () {
+    var source_data = [];
+    $.get('');
     // highchart demo
     var categories = ['日常运维', '排错', '安装/实施', '新技术/开发', '培训/布道'],
         data = [{
@@ -38,7 +40,7 @@ $(function () {
             type: 'pie'   //图表的类型
         },
         title: {  //设置标题并将标题置于环形图表中间
-            text: '<span style="font-size:20px; font-family: Arial; color:#606060;">100%</span>',
+            text: '<span style="font-size:16px; font-family: Arial; color:#606060;">工作分布</span>',
             verticalAlign: 'middle'
         },
         yAxis: {

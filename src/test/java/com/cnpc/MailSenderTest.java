@@ -40,4 +40,11 @@ public class MailSenderTest {
         remainderService.testSendMail();
     }
 
+    @Test
+    public void testQuery() {
+        List<Object[]> list = reportRepo.workTypeDistribution();
+        System.out.println(list.size());
+        System.out.println(list.get(0)[0]);
+        System.out.println(list.get(0)[1]);
+    }
 }

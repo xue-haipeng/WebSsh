@@ -82,6 +82,6 @@ public class MailRemainderService {
      */
     public void testSendMail() throws MessagingException {
 
-        EmailUtils.sendThymeleafMail("hpxue13@163.com", "1071405234@qq.com", REPORT_FILLING_SUMMARY, null, mailSender, templateEngine);
+        EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", "xuehaipeng@cnpc.com.cn", REPORT_FILLING_SUMMARY, null, mailSender, templateEngine);
     }
 }

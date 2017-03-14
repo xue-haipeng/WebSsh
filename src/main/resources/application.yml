@@ -2,12 +2,12 @@
 spring:
     datasource:
         driver-class-name: oracle.jdbc.OracleDriver
-#        url: jdbc:oracle:thin:@10.30.49.76:1521/ORADB
-#        username: basis
-#        password: erpbasis0
-        url: jdbc:oracle:thin:@192.168.147.143:1521/xe
-        username: system
-        password: oracle
+        url: jdbc:oracle:thin:@10.30.49.76:1521/ORADB
+        username: basis
+        password: erpbasis0
+#        url: jdbc:oracle:thin:@192.168.147.143:1521/xe
+#        username: system
+#        password: oracle
     jpa:
         database-platform: org.hibernate.dialect.Oracle10gDialect
         show-sql: true
@@ -15,8 +15,8 @@ spring:
 # Redis properties
     redis:
         port: 6379
-#        host: 11.11.47.72
-        host: 192.168.147.143
+        host: 11.11.47.72
+#        host: 192.168.147.143
 #        host: ${REDIS_HOST}
         pool:
             maxIdle: 8 # max idle connections in the pool
@@ -64,6 +64,9 @@ spring:
                 - username: wangyubo
                   name: 王禹博
                   mail: wangyubo02@cnpc.com.cn
+                - username: wenduzi
+                  name: 文都子
+                  mail: wenduzi@cnpc.com.cn
                 - username: xuehaipeng
                   name: 薛海鹏
                   mail: xuehaipeng@cnpc.com.cn
@@ -73,6 +76,10 @@ spring:
 
 # Sftp Configuration
 # Non-SAP DB backup polling
+storage:
+    multipart:
+        upload-dir: D:\Work\upload
+
 sftp:
     ips:
     # PRD
