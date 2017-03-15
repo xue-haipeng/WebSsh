@@ -13,6 +13,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.MessagingException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -73,7 +74,8 @@ public class MailRemainderService {
 
     @Scheduled(cron = "00 00 11 * * 6")
     public void sendTemplateMail() throws MessagingException {
-        EmailUtils.sendThymeleafMail(SEND_FROM, this.getLeader().get("mail"), REPORT_FILLING_SUMMARY,null, mailSender, templateEngine);
+        Map<String, Long> map = this.calWorkDistribute();
+        EmailUtils.sendThymeleafMail(SEND_FROM, this.getLeader().get("mail"), REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
     }
 
     /**
@@ -82,6 +84,25 @@ public class MailRemainderService {
      */
     public void testSendMail() throws MessagingException {
 
-        EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", "xuehaipeng@cnpc.com.cn", REPORT_FILLING_SUMMARY, null, mailSender, templateEngine);
+        EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", "xuehaipeng@cnpc.com.cn", REPORT_FILLING_SUMMARY,
+                null, mailSender, templateEngine);
+    }
+
+    public Map<String, Long> calWorkDistribute() {
+        Map<String, Long> map = new HashMap<>();
+        reportRepo.workTypeDistribution().forEach(e -> map.put((String)e[0], (Long)e[1]));
+        Arrays.asList("A", "B", "C", "D", "E").forEach(e -> {
+            if (!map.containsKey(e)) {
+                map.put(e, 0L);
+            }
+        });
+
+        reportRepo.issueFieldDistribution().forEach(e -> map.put("issue" + (String)e[0], (Long)e[1]));
+        Arrays.asList("issue1", "issue2", "issue3", "issue4", "issue5", "issue6").forEach(e -> {
+            if (!map.containsKey(e)) {
+                map.put(e, 0L);
+            }
+        });
+        return map;
     }
 }

@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Xue on 03/11/17.
@@ -50,7 +51,7 @@ public class EmailUtils {
 
     }
 
-    public static void sendThymeleafMail(String sendFrom, String sendTo, String subject, String content,
+    public static void sendThymeleafMail(String sendFrom, String sendTo, String subject, Map<String, Long> content,
                                   JavaMailSender mailSender, SpringTemplateEngine templateEngine) throws MessagingException {
         final MimeMessage mimeMessage = mailSender.createMimeMessage();
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
@@ -64,6 +65,12 @@ public class EmailUtils {
         ctx.setVariable("date", LocalDate.now());
         ctx.setVariable("time", LocalTime.now());
         ctx.setVariable("hobbies", Arrays.asList("Cinema", "Sports", "Music"));
+        ctx.setVariable("A", content.get("A"));
+        ctx.setVariable("B", content.get("B"));
+        ctx.setVariable("C", content.get("C"));
+        ctx.setVariable("D", content.get("D"));
+        ctx.setVariable("E", content.get("E"));
+
         ctx.setVariable("erp", 20);
         ctx.setVariable("mw_uep", 10);
         ctx.setVariable("db", 2);

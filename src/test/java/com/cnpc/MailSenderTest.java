@@ -45,7 +45,8 @@ public class MailSenderTest {
 
     @Test
     public void testQuery() {
-        List<Object[]> list = reportRepo.workTypeDistribution();
+//        List<Object[]> list = reportRepo.workTypeDistribution();
+        List<Object[]> list = reportRepo.issueFieldDistribution();
 
         Map<String, Long> map = new HashMap<>();
         list.forEach(e -> map.put((String)e[0], (Long)e[1]));
@@ -59,5 +60,10 @@ public class MailSenderTest {
     @Test
     public void testRate() {
         System.out.println(reportService.completeRatio());
+    }
+
+    @Test
+    public void testCalWorkDist() {
+        remainderService.calWorkDistribute().forEach((k, v) -> System.out.println(k + " : " + v));
     }
 }
