@@ -10,16 +10,29 @@
             <input type="hidden" id="create_date" />
             <input type="hidden" id="create_user" />
 
-            <label for="system_name" class="col-md-2 col-lg-2 control-label" style="text-align: left;">涉及系统</label>
-            <div class="col-md-10 col-lg-10">
-                <input type="text" class="form-control" id="system_name" placeholder="请选择..." />
-            </div>
-        </div>
-        <div class="form-group">
             <label for="issue_brief" class="col-md-2 col-lg-2 control-label" style="text-align: left;">工作事项</label>
             <div class="col-md-10 col-lg-10">
                 <input type="text" class="form-control" id="issue_brief" placeholder="请简述工作事项" />
             </div>
+        </div>
+        <div class="form-group">
+            <label for="project" class="col-md-2 col-lg-2 control-label" style="text-align: left;">涉及项目</label>
+            <div class="col-md-10 col-lg-10">
+                <select id="project" class="form-control">
+                    <option value="zbky">总部/科研</option>
+                    <option value="ktsc">勘探生产</option>
+                    <option value="hgxs">化工销售</option>
+                    <option value="gcju">工程技术</option>
+                    <option value="gcje">工程建设</option>
+                    <option value="zbzz">装备制造</option>
+                    <option value="rlzy">人力资源</option>
+                    <option value="hw">海外</option>
+                </select>
+            </div>
+
+            <!--        <div class="col-md-10 col-lg-10">
+                            <input type="text" class="form-control" id="system_name" placeholder="请选择..." />
+                        </div>-->
         </div>
     </form>
     <form style="margin-top: 3%;">
@@ -84,6 +97,7 @@
             </div>
         </div>
     </form>
+
 </div>
 
 </body>

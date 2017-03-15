@@ -1,4 +1,15 @@
 $(function() {
+    var complete_ratio = [];
+    $.ajax({
+        type: 'GET',
+        url: '/basis/report/complete_ratio',
+        async: false,
+        success: function (data) {
+            console.log(data)
+            complete_ratio.push(data);
+        }
+    });
+
     var gaugeOptions = {
         chart: {
             type: 'solidgauge'
@@ -66,7 +77,7 @@ $(function() {
         },
         series: [{
             name: 'rate',
-            data: [80],
+            data: complete_ratio,
             dataLabels: {
                 format: '<div style="text-align:center"><span style="font-size:25px;color:' +
                 ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span>%</div>'

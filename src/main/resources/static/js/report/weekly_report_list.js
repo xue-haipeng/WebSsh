@@ -11,13 +11,13 @@ $(function () {
             "dataSrc": ""
         },
         "columnDefs": [
-            { "targets": [ 0 ], "visible": false },
-            { "targets": [ 3 ], "visible": false },
+            { "targets": [ 0 ], "visible": false }
+/*            { "targets": [ 3 ], "visible": false },
             { "targets": [ 4 ], "visible": false },
             { "targets": [ 9 ], "visible": false },
             { "targets": [ 10 ], "visible": false },
             { "targets": [ 11 ], "visible": false },
-            { "targets": [ 12 ], "visible": false }
+            { "targets": [ 12 ], "visible": false }*/
         ],
         "columns": [
             { "data": "id" }, //0
@@ -32,16 +32,17 @@ $(function () {
                     }
                 } }, //1
             { "data": "createUser" },  //2
-            { "data": "updateDate" },  //3
-            { "data": "updateUser" },  //4
-            { "data": "systemName" },  //5
+/*            { "data": "updateDate" },  //3
+            { "data": "updateUser" },  //4*/
+            // { "data": "systemName" },  //5
+            { "data": "project" },  //5
             { "data": "appType" },  //6
             { "data": "workType" },  //7
-            { "data": "issueBrief" },  //8
-            { "data": "issueDetail" },  //9
+            { "data": "issueBrief" }  //8
+/*            { "data": "issueDetail" },  //9
             { "data": "solveProcedure" },  //10
             { "data": "fileName" },  //11
-            { "data": "referenceDoc" }  //12
+            { "data": "referenceDoc" }  //12*/
         ]
     });
     $('#report_table tbody').on( 'click', 'tr', function () {
@@ -55,6 +56,7 @@ $(function () {
     } );
 
     $('#reportModal').on('shown.bs.modal', function () {
+
         $("input[type='radio']").click(function(){
             $("input[type='radio']").each(function () {
                 this.checked = false;
@@ -73,7 +75,8 @@ $(function () {
         var createUser;
         var updateDate;
         var updateUser;
-        var systemName;
+        // var systemName;
+        var project;
         var appType;
         var workType;
         var issueBrief;
@@ -91,7 +94,8 @@ $(function () {
                 createUser = result["createUser"];
                 updateDate = result["updateDate"];
                 updateUser = result["updateUser"];
-                systemName = result["systemName"];
+                // systemName = result["systemName"];
+                project = result["project"];
                 appType = result["appType"];
                 workType = result["workType"];
                 issueBrief = result["issueBrief"];
@@ -109,8 +113,9 @@ $(function () {
             $('#update').hide();
             $('#file_name').hide();
         });
-        $('#system_name').val(systemName).attr('readonly', 'readonly');
+/*        $('#system_name').val(systemName).attr('readonly', 'readonly');*/
         $('#issue_brief').val(issueBrief).attr('readonly', 'readonly');
+        $('#project').val(project).attr("disabled", 'disabled');
 
         if ( appType != undefined && appType != null && appType != "" ) {
             var apps = appType.split(",");
@@ -146,7 +151,10 @@ $(function () {
         $('#issue_detail').val(issueDetail).attr('readonly', 'readonly');
         $('#solve_procedure').val(solveProcedure).attr('readonly', 'readonly');
         $('#reference_doc').val(referenceDoc).attr('readonly', 'readonly');
-        $('#download_file').removeAttr('hidden').text(fileName).attr('href', '/basis/report/files/' + fileName);
+        $('#download_file').removeAttr('hidden');
+        if (fileName != null) {
+            $('#download_file').text(fileName).attr('href', '/basis/report/files/' + fileName);
+        }
 
     } );
 
@@ -158,7 +166,8 @@ $(function () {
             $('#update').hide();
             $('#file_name').show();
             $('#download_file').hide();
-            $('#system_name').removeAttr('readonly').val('');
+            // $('#system_name').removeAttr('readonly').val('');
+            $('#project').removeAttr('disabled').val('');
             $('#issue_brief').removeAttr('readonly').val('');
             $("input[type='checkbox']").each(function () {
                 this.checked = false;
@@ -192,7 +201,8 @@ $(function () {
         var createUser;
         var updateDate;
         var updateUser;
-        var systemName;
+        // var systemName;
+        var project;
         var appType;
         var workType;
         var issueBrief;
@@ -210,7 +220,8 @@ $(function () {
                 createUser = result["createUser"];
                 updateDate = result["updateDate"];
                 updateUser = result["updateUser"];
-                systemName = result["systemName"];
+                // systemName = result["systemName"];
+                project = result["project"];
                 appType = result["appType"];
                 workType = result["workType"];
                 issueBrief = result["issueBrief"];
@@ -234,7 +245,8 @@ $(function () {
         $('#report_id').val(id);
         $('#create_date').val(createDate);
         $('#create_user').val(createUser);
-        $('#system_name').removeAttr('readonly').val(systemName);
+        // $('#system_name').removeAttr('readonly').val(systemName);
+        $('#project').removeAttr('disabled').val(project);
         $('#issue_brief').removeAttr('readonly').val(issueBrief);
         if ( appType != undefined && appType != null && appType != "" ) {
             var apps = appType.split(",");
@@ -267,7 +279,8 @@ $(function () {
     } );
 
     $('#save').click( function () {
-        var system_name = $('#system_name').val();
+        // var system_name = $('#system_name').val();
+        var project = $('#project').val();
         var issue_brief = $('#issue_brief').val();
         var checkbox = [];
         $('input[type="checkbox"]:checked').each(function() {
@@ -284,7 +297,7 @@ $(function () {
         var file_path = $('#file_name').val().split("\\");
         var file_name = file_path == undefined || null || '' ? '': file_path[file_path.length - 1];
 
-        var data = {"systemName": system_name, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
+        var data = {"project": project, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
             "issueDetail": issue_detail, "solveProcedure": solve_procedure, "referenceDoc": reference_doc, "fileName": file_name};
 
         if (file_path != undefined && file_path != null && file_path != '') {
@@ -309,7 +322,8 @@ $(function () {
         var report_id = $('#report_id').val();
         var create_date = $('#create_date').val();
         var create_user = $('#create_user').val();
-        var system_name = $('#system_name').val();
+        // var system_name = $('#system_name').val();
+        var project = $('#project').val();
         var issue_brief = $('#issue_brief').val();
         var checkbox = [];
         $('input[type="checkbox"]:checked').each(function() {
@@ -326,7 +340,7 @@ $(function () {
         var file_path = $('#file_name').val().split("\\");
         var file_name = file_path == undefined || null ? '': file_path[file_path.length - 1];
 
-        var data = {"id": report_id, "systemName": system_name, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
+        var data = {"id": report_id, "project": project, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
             "createDate": create_date, "createUser": create_user, "issueDetail": issue_detail, "solveProcedure": solve_procedure, "referenceDoc": reference_doc, "fileName": file_name};
         $.ajax({
             method: "POST",

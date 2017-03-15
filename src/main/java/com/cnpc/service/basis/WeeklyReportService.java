@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +34,21 @@ public class WeeklyReportService {
     public List<WeeklyReport> retrieveAllReports() {
         List<WeeklyReport> list = weeklyReportRepo.findAll();
         list.forEach(rep -> {
+            if (rep.getProject() != null && !"".equals(rep.getProject())) {
+                String projectName = null;
+                switch (rep.getProject()) {
+                    case "zbky": projectName = "总部/科研"; break;
+                    case "ktsc": projectName = "勘探生产"; break;
+                    case "hgxs": projectName = "化工销售"; break;
+                    case "gcju": projectName = "工程技术"; break;
+                    case "gcje": projectName = "工程建设"; break;
+                    case "zbzz": projectName = "装备制造"; break;
+                    case "rlzy": projectName = "人力资源"; break;
+                    case "hw": projectName = "海外"; break;
+                    default: projectName = "";
+                }
+                rep.setProject(projectName);
+            }
             if (rep.getAppType() != null && !"".equals(rep.getAppType())) {
                 String appTypeString = Arrays.stream(rep.getAppType().split(",")).map(type -> {
                     switch (type) {
@@ -84,5 +97,18 @@ public class WeeklyReportService {
 
     public void deleteReport(Long id) {
         weeklyReportRepo.delete(id);
+    }
+
+    public Map<String, Long> workTypeStatistics() {
+        List<Object[]> list = weeklyReportRepo.workTypeDistribution();
+        Map<String, Long> map = new HashMap<>();
+        list.forEach(e -> map.put((String)e[0], (Long)e[1]));
+        return map;
+    }
+
+    @Autowired
+    MailRemainderService mailRemainderService;
+    public int completeRatio() {
+        return (int) 100 * weeklyReportRepo.findFilledUsers().size() / mailRemainderService.getStaff().size();
     }
 }

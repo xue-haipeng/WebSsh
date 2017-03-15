@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Xue on 03/08/17.
@@ -58,6 +59,18 @@ public class ReportController {
 
 //        EmailUtils.sendThymeleafMail("hpxue13@163.com","xuehaipeng@cnpc.com.cn","周报填报提醒","");
 
+    }
+
+    @RequestMapping("/basis/report/worktype_count")
+    @ResponseBody
+    public Map<String, Long> workTypeCount() {
+        return reportService.workTypeStatistics();
+    }
+
+    @RequestMapping("/basis/report/complete_ratio")
+    @ResponseBody
+    public int complateRatio() {
+        return reportService.completeRatio();
     }
 
 }

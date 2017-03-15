@@ -2,15 +2,69 @@
  * Created by Xue on 03/06/17.
  */
 $(function () {
+    var source_type = [];
     var source_data = [];
-    $.get('');
+    $.ajax({
+        type: 'GET',
+        url: '/basis/report/worktype_count',
+        async: false,
+        success: function (data) {
+            if (data['A'] != null) {
+                source_type.push('日常运维');
+                source_data.push(data['A'])
+            }
+            if (data['B'] != null) {
+                source_type.push('排错');
+                source_data.push(data['B'])
+            }
+            if (data['C'] != null) {
+                source_type.push('安装/实施');
+                source_data.push(data['C'])
+            }
+            if (data['D'] != null) {
+                source_type.push('新技术/开发');
+                source_data.push(data['D'])
+            }
+            if (data['E'] != null) {
+                source_type.push('培训/布道');
+                source_data.push(data['E'])
+            }
+        }
+    });
+/*    $.getJSON('/basis/report/worktype_count', function (data) {
+        if (data['A'] != null) {
+            source_data.push(data['A'])
+        } else {
+            source_data.push(0)
+        }
+        if (data['B'] != null) {
+            source_data.push(data['B'])
+        } else {
+            source_data.push(0)
+        }
+        if (data['C'] != null) {
+            source_data.push(data['C'])
+        } else {
+            source_data.push(0)
+        }if (data['D'] != null) {
+            source_data.push(data['D'])
+        } else {
+            source_data.push(0)
+        }
+        if (data['E'] != null) {
+            source_data.push(data['E'])
+        } else {
+            source_data.push(0)
+        }
+
+    });*/
     // highchart demo
-    var categories = ['日常运维', '排错', '安装/实施', '新技术/开发', '培训/布道'],
+    var categories = source_type,
         data = [{
             drilldown: {
                 name: '',
-                categories: ['日常运维', '排错', '安装/实施', '新技术/开发', '培训/布道'],
-                data: [10, 20, 30, 40, 20],   //数据，即this.y
+                categories: source_type,
+                data: source_data   //数据，即this.y
             }
         }];
 

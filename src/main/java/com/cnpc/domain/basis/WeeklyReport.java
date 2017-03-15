@@ -21,7 +21,8 @@ public class WeeklyReport {
     private String updateUser;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updateDate;
-    private String systemName;
+//    private String systemName;
+    private String project;
     private String issueBrief;
     private String appType;
     private String workType;
@@ -32,12 +33,12 @@ public class WeeklyReport {
 
     public WeeklyReport(){}
 
-    public WeeklyReport(String createUser, Date createDate, String updateUser, Date updateDate, String systemName, String issueBrief, String appType, String workType, String issueDetail, String solveProcedure, String fileName, String referenceDoc) {
+    public WeeklyReport(String createUser, Date createDate, String updateUser, Date updateDate, String project, String issueBrief, String appType, String workType, String issueDetail, String solveProcedure, String fileName, String referenceDoc) {
         this.createUser = createUser;
         this.createDate = createDate;
         this.updateUser = updateUser;
         this.updateDate = updateDate;
-        this.systemName = systemName;
+        this.project = project;
         this.issueBrief = issueBrief;
         this.appType = appType;
         this.workType = workType;
@@ -87,12 +88,12 @@ public class WeeklyReport {
         this.updateDate = updateDate;
     }
 
-    public String getSystemName() {
-        return systemName;
+    public String getProject() {
+        return project;
     }
 
-    public void setSystemName(String systemName) {
-        this.systemName = systemName;
+    public void setProject(String project) {
+        this.project = project;
     }
 
     public String getIssueBrief() {
@@ -159,7 +160,7 @@ public class WeeklyReport {
                 ", createDate=" + createDate +
                 ", updateUser='" + updateUser + '\'' +
                 ", updateDate=" + updateDate +
-                ", systemName='" + systemName + '\'' +
+                ", project='" + project + '\'' +
                 ", issueBrief='" + issueBrief + '\'' +
                 ", appType='" + appType + '\'' +
                 ", workType='" + workType + '\'' +
