@@ -75,6 +75,29 @@ public class WeeklyReportService {
                 }
                 rep.setWorkType(workTypeString);
             }
+            if (rep.getCreateUser() != null && !"".equals(rep.getCreateUser())) {
+                String userString = null;
+                switch (rep.getCreateUser()) {
+                    case "admin": userString = "管理员"; break;
+                    case "xuehaipeng": userString = "薛海鹏"; break;
+                    case "zhouwei": userString = "周惟"; break;
+                    case "xiongxiaojun": userString = "熊晓军"; break;
+                    case "hesiyang": userString = "何思洋"; break;
+                    case "jiangyongrui": userString = "姜永锐"; break;
+                    case "wenduzi": userString = "文都子"; break;
+                    case "jiaolong": userString = "焦龙"; break;
+                    case "wangyubo": userString = "王禹博"; break;
+                    case "hushuai": userString = "胡帅"; break;
+                    case "zhaoxin": userString = "赵鑫"; break;
+                    case "hanxinyi": userString = "韩心怡"; break;
+                    case "wangqian": userString = "王茜"; break;
+                    case "xuguanxiong": userString = "徐冠雄"; break;
+                    case "baijie": userString = "白洁"; break;
+                    case "lvshuhua": userString = "吕淑华"; break;
+                    default: userString = "";
+                }
+                rep.setCreateUser(userString);
+            }
         });
         return list;
     }

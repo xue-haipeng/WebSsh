@@ -30,14 +30,14 @@ public class MailRemainderService {
     private final String FILLING_REMAINDER_SUBJECT = "周报填报提醒";
     private final String REPORT_FILLING_SUMMARY = "周报填报汇总";
 
-    private Map<String, String> leader;
+    private List<Map<String, String>> leader;
     private List<Map<String, String>> staff;
 
-    public Map<String, String> getLeader() {
+    public List<Map<String, String>> getLeader() {
         return leader;
     }
 
-    public void setLeader(Map<String, String> leader) {
+    public void setLeader(List<Map<String, String>> leader) {
         this.leader = leader;
     }
 
@@ -74,8 +74,9 @@ public class MailRemainderService {
 
     @Scheduled(cron = "00 00 11 * * 6")
     public void sendTemplateMail() throws MessagingException {
-        Map<String, Long> map = this.calWorkDistribute();
-        EmailUtils.sendThymeleafMail(SEND_FROM, this.getLeader().get("mail"), REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
+        Map<String, Long> map = this.mailContent();
+        String[] leaders = (String[]) this.getLeader().stream().map(e -> e.get("mail")).collect(Collectors.toList()).toArray();
+        EmailUtils.sendThymeleafMail(SEND_FROM, leaders, REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
     }
 
     /**
@@ -84,11 +85,11 @@ public class MailRemainderService {
      */
     public void testSendMail() throws MessagingException {
 
-        EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", "xuehaipeng@cnpc.com.cn", REPORT_FILLING_SUMMARY,
-                null, mailSender, templateEngine);
+        EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", new String[] {"xuehaipeng@cnpc.com.cn", "1071405234@qq.com"}, REPORT_FILLING_SUMMARY,
+                this.mailContent(), mailSender, templateEngine);
     }
 
-    public Map<String, Long> calWorkDistribute() {
+    public Map<String, Long> mailContent() {
         Map<String, Long> map = new HashMap<>();
         reportRepo.workTypeDistribution().forEach(e -> map.put((String)e[0], (Long)e[1]));
         Arrays.asList("A", "B", "C", "D", "E").forEach(e -> {
@@ -103,6 +104,26 @@ public class MailRemainderService {
                 map.put(e, 0L);
             }
         });
+
+        reportRepo.projectDistribution().stream().map(e -> {
+            if (e[0] == null) {
+                e[0] = "blank_proj";
+            }
+            return e;
+        }).forEach(e -> map.put((String)e[0], (Long)e[1]));
+        Arrays.asList("zbky", "ktsc", "hgxs", "gcju", "gcje", "zbzz", "rlzy", "hw", "blank_proj").forEach(e -> {
+            if (!map.containsKey(e)) {
+                map.put(e, 0L);
+            }
+        });
+
+        reportRepo.userDistribution().forEach(e -> map.put((String)e[0], (Long)e[1]));
+        Arrays.asList("hushuai", "hanxinyi", "zhouwei", "jiangyongrui", "wangyubo", "jiaolong", "wenduzi", "xuehaipeng", "zhaoxin", "hesiyang").forEach(e -> {
+            if (!map.containsKey(e)) {
+                map.put(e, 0L);
+            }
+        });
+
         return map;
     }
 }

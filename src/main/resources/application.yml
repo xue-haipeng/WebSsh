@@ -39,9 +39,12 @@ spring:
         default-encoding: UTF-8
         users:
             leader:
-                username: wangqian
-                name: 王茜
-                mail: wangqian91@cnpc.com.cn
+                - username: wangqian
+                  name: 王茜
+                  mail: wangqian91@cnpc.com.cn
+                - username: xuguanxiong
+                  name: 徐冠雄
+                  mail: xuguanxiong@cnpc.com.cn
             staff:
                 - username: hushuai
                   name: 胡帅

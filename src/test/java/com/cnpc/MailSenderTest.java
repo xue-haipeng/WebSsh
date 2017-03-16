@@ -46,7 +46,8 @@ public class MailSenderTest {
     @Test
     public void testQuery() {
 //        List<Object[]> list = reportRepo.workTypeDistribution();
-        List<Object[]> list = reportRepo.issueFieldDistribution();
+//        List<Object[]> list = reportRepo.issueFieldDistribution();
+        List<Object[]> list = reportRepo.userDistribution();
 
         Map<String, Long> map = new HashMap<>();
         list.forEach(e -> map.put((String)e[0], (Long)e[1]));
@@ -64,6 +65,16 @@ public class MailSenderTest {
 
     @Test
     public void testCalWorkDist() {
-        remainderService.calWorkDistribute().forEach((k, v) -> System.out.println(k + " : " + v));
+        remainderService.mailContent().forEach((k, v) -> System.out.println(k + " : " + v));
+    }
+
+    @Test
+    public void testProjDist() {
+        List<Object[]> list = reportRepo.projectDistribution();
+
+        Map<String, Long> map = new HashMap<>();
+        list.forEach(e -> map.put((String)e[0], (Long)e[1]));
+
+        map.forEach((k, v) -> System.out.println(k + " : " + v));
     }
 }

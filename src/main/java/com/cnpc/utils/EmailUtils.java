@@ -48,19 +48,19 @@ public class EmailUtils {
             }
             mailSender.send(mimeMessage);
         });
-
     }
 
-    public static void sendThymeleafMail(String sendFrom, String sendTo, String subject, Map<String, Long> content,
+    public static void sendThymeleafMail(String sendFrom, String[] sendTo, String subject, Map<String, Long> content,
                                   JavaMailSender mailSender, SpringTemplateEngine templateEngine) throws MessagingException {
         final MimeMessage mimeMessage = mailSender.createMimeMessage();
-        final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+        final MimeMessageHelper message = new MimeMessageHelper(mimeMessage,true,"UTF-8");
         message.setFrom(sendFrom);
         message.setTo(sendTo);
         message.setCc("xuehaipeng@cnpc.com.cn");
         message.setSubject(subject);
         Context ctx = new Context();
-        ctx.setVariable("username", "王茜");
+        ctx.setVariable("username1", "王茜");
+        ctx.setVariable("username2", "徐冠雄");
         ctx.setVariable("count", 30);
         ctx.setVariable("date", LocalDate.now());
         ctx.setVariable("time", LocalTime.now());
@@ -71,12 +71,33 @@ public class EmailUtils {
         ctx.setVariable("D", content.get("D"));
         ctx.setVariable("E", content.get("E"));
 
-        ctx.setVariable("erp", 20);
-        ctx.setVariable("mw_uep", 10);
-        ctx.setVariable("db", 2);
-        ctx.setVariable("os", 0);
-        ctx.setVariable("hana", 3);
-        ctx.setVariable("paas", 5);
+        ctx.setVariable("erp", content.get("issue1"));
+        ctx.setVariable("mw_uep", content.get("issue2"));
+        ctx.setVariable("db", content.get("issue3"));
+        ctx.setVariable("os", content.get("issue4"));
+        ctx.setVariable("hana", content.get("issue5"));
+        ctx.setVariable("paas", content.get("issue6"));
+
+        ctx.setVariable("zbky", content.get("zbky"));
+        ctx.setVariable("ktsc", content.get("ktsc"));
+        ctx.setVariable("hgxs", content.get("hgxs"));
+        ctx.setVariable("gcju", content.get("gcju"));
+        ctx.setVariable("gcje", content.get("gcje"));
+        ctx.setVariable("zbzz", content.get("zbzz"));
+        ctx.setVariable("rlzy", content.get("rlzy"));
+        ctx.setVariable("hw", content.get("hw"));
+        ctx.setVariable("blank_proj", content.get("blank_proj"));
+
+        ctx.setVariable("hushuai", content.get("hushuai"));
+        ctx.setVariable("hanxinyi", content.get("hanxinyi"));
+        ctx.setVariable("zhouwei", content.get("zhouwei"));
+        ctx.setVariable("jiangyongrui", content.get("jiangyongrui"));
+        ctx.setVariable("jiaolong", content.get("jiaolong"));
+        ctx.setVariable("zhaoxin", content.get("zhaoxin"));
+        ctx.setVariable("wangyubo", content.get("wangyubo"));
+        ctx.setVariable("wenduzi", content.get("wenduzi"));
+        ctx.setVariable("xuehaipeng", content.get("xuehaipeng"));
+        ctx.setVariable("hesiyang", content.get("hesiyang"));
         String htmlContent = templateEngine.process("mails/emailTemplate", ctx);
         message.setText(htmlContent, true);
         mailSender.send(mimeMessage);

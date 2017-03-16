@@ -21,7 +21,7 @@
 </head>
 <body>
 <p>
-    尊敬的<em th:text="${username}" style="font-size: larger; color: #F08080"></em> 先生/女士：
+    尊敬的<em th:text="${username1}" style="font-size: larger; color: #F08080"></em> 、<em th:text="${username2}" style="font-size: larger; color: #F08080"></em> 女士/先生：
 </p>
 <p th:if="${count > 10}">
     &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，其中：
@@ -91,18 +91,20 @@
             <th>装备</th>
             <th>人力</th>
             <th>海外</th>
+            <th>其它</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td th:text="${erp}"></td>
-            <td th:text="${mw_uep}"></td>
-            <td th:text="${db}"></td>
-            <td th:text="${os}"></td>
-            <td th:text="${hana}"></td>
-            <td th:text="${paas}"></td>
-            <td th:text="${hana}"></td>
-            <td th:text="${paas}"></td>
+            <td th:text="${zbky}"></td>
+            <td th:text="${ktsc}"></td>
+            <td th:text="${hgxs}"></td>
+            <td th:text="${gcju}"></td>
+            <td th:text="${gcje}"></td>
+            <td th:text="${zbzz}"></td>
+            <td th:text="${rlzy}"></td>
+            <td th:text="${hw}"></td>
+            <td th:text="${blank_proj}"></td>
         </tr>
         </tbody>
     </table>
@@ -125,16 +127,16 @@
         </thead>
         <tbody>
         <tr>
-            <td th:text="${erp}"></td>
-            <td th:text="${mw_uep}"></td>
-            <td th:text="${db}"></td>
-            <td th:text="${os}"></td>
-            <td th:text="${hana}"></td>
-            <td th:text="${paas}"></td>
-            <td th:text="${db}"></td>
-            <td th:text="${os}"></td>
-            <td th:text="${hana}"></td>
-            <td th:text="${paas}"></td>
+            <td th:text="${hushuai}"></td>
+            <td th:text="${hanxinyi}"></td>
+            <td th:text="${zhouwei}"></td>
+            <td th:text="${jiangyongrui}"></td>
+            <td th:text="${zhaoxin}"></td>
+            <td th:text="${jiaolong}"></td>
+            <td th:text="${wangyubo}"></td>
+            <td th:text="${wenduzi}"></td>
+            <td th:text="${xuehaipeng}"></td>
+            <td th:text="${hesiyang}"></td>
         </tr>
         </tbody>
     </table>
@@ -145,7 +147,7 @@
     <br />
     <p style="font-size: 12px; color: #adadad; font-family: 'Microsoft Yahei', 微软雅黑">
         <hr style="width: 35%; align: left; text-align: left; margin-right: 65%;"/>
-        &nbsp;&nbsp;Send from <b>S</b>ite <b>R</b>eliability <b>E</b>ngineering Platform<br/>
+        &nbsp;&nbsp;Send from <b style="color: #0d62b8">S</b>ite <b style="color: #a94442">R</b>eliability <b style="color: #00c000">E</b>ngineering Platform<br/>
         &nbsp;&nbsp;Please DO NOT Reply
     </p>
 </p>
