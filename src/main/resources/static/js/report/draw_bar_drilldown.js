@@ -2,6 +2,16 @@
  * Created by Xue on 03/06/17.
  */
 $(function () {
+    var source_data = {};
+    $.ajax({
+        type: 'GET',
+        url: '/basis/report/issuetype_count',
+        async: false,
+        success: function (data) {
+            console.log(data);
+            source_data = data;
+        }
+    });
     // Create the chart
     Highcharts.setOptions({
         colors: [
@@ -47,13 +57,13 @@ $(function () {
                 borderWidth: 0,
                 dataLabels: {
                     enabled: true,
-                    format: '{point.y:.1f}%'
+                    format: '{point.y}'
                 }
             }
         },
         tooltip: {
             headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> of total<br/>'
         },
         series: [{
             name: 'Categories',
@@ -63,34 +73,34 @@ $(function () {
             colorByPoint: true,
             data: [{
                 name: 'ERP',
-                y: 56.33,
-                drilldown: 'ERP'
+                y: source_data.issue1
+                // drilldown: 'ERP'
             }, {
-                name: '中间件/UEP',
+                name: '中间件',
                 style: {
                     fontFamily: 'Microsoft Yahei UI'
                 },
-                y: 24.03,
-                drilldown: '中间件/UEP'
+                y: source_data.issue2
+                // drilldown: '中间件'
             }, {
                 name: 'DB',
-                y: 10.38,
-                drilldown: 'DB'
+                y: source_data.issue3
+                // drilldown: 'DB'
             }, {
                 name: 'OS',
-                y: 4.77,
-                drilldown: 'OS'
+                y: source_data.issue4
+                // drilldown: 'OS'
             }, {
                 name: 'HANA',
-                y: 0.91,
-                drilldown: 'HANA'
+                y: source_data.issue5
+                // drilldown: 'HANA'
             }, {
-                name: 'PaaS/大数据/SRE',
+                name: 'PaaS',
                 style: {
                     fontFamily: 'Microsoft Yahei UI'
                 },
-                y: 0.2,
-                drilldown: null
+                y: source_data.issue6
+                // drilldown: 'PaaS'
             }]
         }],
         credits: {
@@ -127,11 +137,11 @@ $(function () {
                     ]
                 ]
             }, {
-                name: '中间件/UEP',
+                name: '中间件',
                 style: {
                     fontFamily: 'Microsoft Yahei UI'
                 },
-                id: '中间件/UEP',
+                id: '中间件',
                 data: [
                     [
                         'v40.0',

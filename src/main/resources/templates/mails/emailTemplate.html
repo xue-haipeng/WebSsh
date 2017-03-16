@@ -33,113 +33,118 @@
 -->
 
 <div style="text-align: center;">
-    <p style="padding-top: 1px; text-align: left;">工作类型：</p>
-    <table class="table table-condensed table-bordered col-lg-8" style="width: 65%; color: #20B2AA">
-        <thead>
-        <tr>
-            <th>日常运维</th>
-            <th>排错</th>
-            <th>安装/实施</th>
-            <th>新技术/开发</th>
-            <th>培训/布道</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td th:text="${A}"></td>
-            <td th:text="${B}"></td>
-            <td th:text="${C}"></td>
-            <td th:text="${D}"></td>
-            <td th:text="${E}"></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <p style="padding-top: 1px; text-align: left;">涉及问题：</p>
-    <table class="table table-condensed table-bordered col-lg-8" style="width: 70%; color: #DA70D6">
-        <thead>
-        <tr>
-            <th>ERP</th>
-            <th>中间件/UEP</th>
-            <th>数据库</th>
-            <th>OS/存储/网络</th>
-            <th>HANA</th>
-            <th>PaaS/大数据/开发</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td th:text="${erp}"></td>
-            <td th:text="${mw_uep}"></td>
-            <td th:text="${db}"></td>
-            <td th:text="${os}"></td>
-            <td th:text="${hana}"></td>
-            <td th:text="${paas}"></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <p style="padding-top: 1px; text-align: left;">项目分布：</p>
-    <table class="table table-condensed table-bordered col-lg-8" style="width: 76%; color: #9370DB">
-        <thead>
-        <tr>
-            <th>总部/科研</th>
-            <th>勘探</th>
-            <th>化销</th>
-            <th>工技</th>
-            <th>工建</th>
-            <th>装备</th>
-            <th>人力</th>
-            <th>海外</th>
-            <th>其它</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td th:text="${zbky}"></td>
-            <td th:text="${ktsc}"></td>
-            <td th:text="${hgxs}"></td>
-            <td th:text="${gcju}"></td>
-            <td th:text="${gcje}"></td>
-            <td th:text="${zbzz}"></td>
-            <td th:text="${rlzy}"></td>
-            <td th:text="${hw}"></td>
-            <td th:text="${blank_proj}"></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <p style="padding-top: 1px; text-align: left;">填报统计：</p>
-    <table class="table table-condensed table-bordered col-lg-8" style="width: 90%; color: #F08080">
-        <thead>
-        <tr>
-            <th>胡帅</th>
-            <th>韩心怡</th>
-            <th>周惟</th>
-            <th>姜永锐</th>
-            <th>赵鑫</th>
-            <th>焦龙</th>
-            <th>王禹博</th>
-            <th>文都子</th>
-            <th>薛海鹏</th>
-            <th>何思洋</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td th:text="${hushuai}"></td>
-            <td th:text="${hanxinyi}"></td>
-            <td th:text="${zhouwei}"></td>
-            <td th:text="${jiangyongrui}"></td>
-            <td th:text="${zhaoxin}"></td>
-            <td th:text="${jiaolong}"></td>
-            <td th:text="${wangyubo}"></td>
-            <td th:text="${wenduzi}"></td>
-            <td th:text="${xuehaipeng}"></td>
-            <td th:text="${hesiyang}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <p style="padding-top: 1px; text-align: left; width: 100%;">工作类型：</p>
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 65%; color: #20B2AA">
+            <thead>
+            <tr>
+                <th>日常运维</th>
+                <th>排错</th>
+                <th>安装/实施</th>
+                <th>新技术/开发</th>
+                <th>培训/布道</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${A}"></td>
+                <td th:text="${B}"></td>
+                <td th:text="${C}"></td>
+                <td th:text="${D}"></td>
+                <td th:text="${E}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <p style="padding-top: 1px; text-align: left; width: 100%;">涉及问题：</p>
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 70%; color: #DA70D6">
+            <thead>
+            <tr>
+                <th>ERP</th>
+                <th>中间件/UEP</th>
+                <th>数据库</th>
+                <th>OS/存储/网络</th>
+                <th>HANA</th>
+                <th>PaaS/大数据/开发</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${erp}"></td>
+                <td th:text="${mw_uep}"></td>
+                <td th:text="${db}"></td>
+                <td th:text="${os}"></td>
+                <td th:text="${hana}"></td>
+                <td th:text="${paas}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <p style="padding-top: 1px; text-align: left; width: 100%;">项目分布：</p>
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 76%; color: #9370DB">
+            <thead>
+            <tr>
+                <th>总部/科研</th>
+                <th>勘探</th>
+                <th>化销</th>
+                <th>工技</th>
+                <th>工建</th>
+                <th>装备</th>
+                <th>人力</th>
+                <th>海外</th>
+                <th>其它</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${zbky}"></td>
+                <td th:text="${ktsc}"></td>
+                <td th:text="${hgxs}"></td>
+                <td th:text="${gcju}"></td>
+                <td th:text="${gcje}"></td>
+                <td th:text="${zbzz}"></td>
+                <td th:text="${rlzy}"></td>
+                <td th:text="${hw}"></td>
+                <td th:text="${blank_proj}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <p style="padding-top: 1px; text-align: left; width: 100%;">填报统计：</p>
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 90%; color: #F08080">
+            <thead>
+            <tr>
+                <th>胡帅</th>
+                <th>韩心怡</th>
+                <th>周惟</th>
+                <th>姜永锐</th>
+                <th>赵鑫</th>
+                <th>焦龙</th>
+                <th>王禹博</th>
+                <th>文都子</th>
+                <th>薛海鹏</th>
+                <th>何思洋</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${hushuai}"></td>
+                <td th:text="${hanxinyi}"></td>
+                <td th:text="${zhouwei}"></td>
+                <td th:text="${jiangyongrui}"></td>
+                <td th:text="${zhaoxin}"></td>
+                <td th:text="${jiaolong}"></td>
+                <td th:text="${wangyubo}"></td>
+                <td th:text="${wenduzi}"></td>
+                <td th:text="${xuehaipeng}"></td>
+                <td th:text="${hesiyang}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 &nbsp;&nbsp;<a href="http://10.30.49.76:8080/basis/report/weeklyreport">查看详情</a>
 <br/>
@@ -147,7 +152,7 @@
     <br />
     <p style="font-size: 12px; color: #adadad; font-family: 'Microsoft Yahei', 微软雅黑">
         <hr style="width: 35%; align: left; text-align: left; margin-right: 65%;"/>
-        &nbsp;&nbsp;Send from <b style="color: #0d62b8">S</b>ite <b style="color: #a94442">R</b>eliability <b style="color: #00c000">E</b>ngineering Platform<br/>
+        &nbsp;&nbsp;Send from <b style="color: #137dcb">S</b>ite <b style="color: #d75a59">R</b>eliability <b style="color: #00c000">E</b>ngineering Platform<br/>
         &nbsp;&nbsp;Please DO NOT Reply
     </p>
 </p>

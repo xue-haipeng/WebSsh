@@ -46,13 +46,14 @@ public class MailSenderTest {
     @Test
     public void testQuery() {
 //        List<Object[]> list = reportRepo.workTypeDistribution();
-//        List<Object[]> list = reportRepo.issueFieldDistribution();
-        List<Object[]> list = reportRepo.userDistribution();
+        List<Object[]> list = reportRepo.issueFieldDistribution();
+//        List<Object[]> list = reportRepo.userDistribution();
 
         Map<String, Long> map = new HashMap<>();
         list.forEach(e -> map.put((String)e[0], (Long)e[1]));
 
         map.forEach((k, v) -> System.out.println(k + " : " + v));
+//        list.forEach(e -> System.out.println((String)e[0] + " : " + (String)e[1] + " : " + (Long)e[2]));
     }
 
     @Autowired
@@ -60,7 +61,9 @@ public class MailSenderTest {
 
     @Test
     public void testRate() {
-        System.out.println(reportService.completeRatio());
+//        System.out.println(reportService.completeRatio());
+        Map<String, Long> map = reportService.issueTypeCount();
+        map.forEach((k, v) -> System.out.println(k + " : " + v));
     }
 
     @Test

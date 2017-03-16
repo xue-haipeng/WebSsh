@@ -67,6 +67,12 @@ public class ReportController {
         return reportService.workTypeStatistics();
     }
 
+    @RequestMapping("/basis/report/issuetype_count")
+    @ResponseBody
+    public Map<String, Long> issueTypeCount() {
+        return reportService.issueTypeCount();
+    }
+
     @RequestMapping("/basis/report/complete_ratio")
     @ResponseBody
     public int complateRatio() {

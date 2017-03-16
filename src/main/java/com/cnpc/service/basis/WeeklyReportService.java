@@ -134,4 +134,18 @@ public class WeeklyReportService {
     public int completeRatio() {
         return (int) 100 * weeklyReportRepo.findFilledUsers().size() / mailRemainderService.getStaff().size();
     }
+
+    public Map<String, Long> issueTypeCount() {
+        Map<String, Long> map = new HashMap<>();
+        weeklyReportRepo.issueFieldDistribution().stream().map(e -> {
+            e[0] = "issue" + e[0];
+            return e;
+        }).forEach(e -> map.put((String)e[0], (Long)e[1]));
+        Arrays.asList("issue1", "issue2", "issue3", "issue4", "issue5", "issue6").forEach(e -> {
+            if (!map.containsKey(e)) {
+                map.put(e, 0L);
+            }
+        });
+        return map;
+    }
 }

@@ -29,4 +29,7 @@ public interface WeeklyReportRepo extends JpaRepository<WeeklyReport, Long> {
     @Query("select w.createUser, count(*) from WeeklyReport w group by w.createUser")
     public List<Object[]> userDistribution();
 
+    @Query("select w.appType, w.project, count(*) from WeeklyReport w group by w.appType, w.project")
+    public List<Object[]> appWorkDistribution();
+
 }
