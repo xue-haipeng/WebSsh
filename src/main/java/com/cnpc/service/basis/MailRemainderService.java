@@ -62,7 +62,7 @@ public class MailRemainderService {
      * Weekly Report Filling Remainder
      * @throws MessagingException
      */
-    @Scheduled(cron = "00 30 10 * * 6")
+    @Scheduled(cron = "00 00 10 * * 6")
     public void sendMimeMail() throws MessagingException {
 
         List<String> completed = reportRepo.findFilledUsers();

@@ -81,7 +81,7 @@ spring:
 # Non-SAP DB backup polling
 storage:
     multipart:
-        upload-dir: D:\Work\upload
+        upload-dir: /oracle/data/attachment
 
 sftp:
     ips:

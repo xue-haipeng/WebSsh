@@ -2,6 +2,44 @@
  * Created by Xue on 03/08/17.
  */
 $(function () {
+    var current_user = $('#authority').text();
+    function translateUser() {
+        switch (current_user) {
+            case 'admin':
+                return '管理员';
+            case 'xuehaipeng':
+                return '薛海鹏';
+            case 'zhouwei':
+                return '周惟';
+            case 'xiongxiaojun':
+                return '熊晓军';
+            case 'hesiyang':
+                return '何思洋';
+            case 'jiangyongrui':
+                return '姜永锐';
+            case 'wenduzi':
+                return '文都子';
+            case 'jiaolong':
+                return '焦龙';
+            case 'wangyubo':
+                return '王禹博';
+            case 'hushuai':
+                return '胡帅';
+            case 'zhaoxin':
+                return '赵鑫';
+            case 'hanxinyi':
+                return '韩心怡';
+            case 'wangqian':
+                return '王茜';
+            case 'xuguanxiong':
+                return '徐冠雄';
+            case 'baijie':
+                return '白洁';
+            case 'lvshuhua':
+                return '吕淑华';
+        }
+    }
+
     var table = $('#report_table').DataTable({
         "retrieve": true,
         "pageLength": 7,
@@ -195,7 +233,11 @@ $(function () {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
-        console.log("data: " + table.row('.selected').data());
+        if ( translateUser() != table.row('.selected').data().createUser ) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>对不起，您木有权限编辑此条目。</span>");
+            return;
+        }
+        console.log("data selected to edit: " + table.row('.selected').data());
         var id = table.row('.selected').data().id;
         var createDate;
         var createUser;
@@ -360,6 +402,9 @@ $(function () {
     $('#delete').click(function () {
         if ( table.row('.selected').data() == undefined || table.row('.selected').data().length == 0 ) {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI';'>您还未选择任何条目，请先选中一行记录！</span>");
+            return;
+        } else if (translateUser() != table.row('.selected').data().createUser) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>对不起，您木有权限删除此条目。</span>");
             return;
         } else {
             console.log("data: " + table.row('.selected').data());
