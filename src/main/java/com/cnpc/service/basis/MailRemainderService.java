@@ -62,7 +62,7 @@ public class MailRemainderService {
      * Weekly Report Filling Remainder
      * @throws MessagingException
      */
-    @Scheduled(cron = "00 00 10 * * 6")
+    @Scheduled(cron = "00 00 10 * * FRI")
     public void sendMimeMail() throws MessagingException {
 
         List<String> completed = reportRepo.findFilledUsers();
@@ -72,11 +72,12 @@ public class MailRemainderService {
         EmailUtils.sendMimeMail(SEND_FROM, unfinished, FILLING_REMAINDER_SUBJECT, null, mailSender);
     }
 
-    @Scheduled(cron = "00 00 11 * * 6")
+    @Scheduled(cron = "00 00 11 * * FRI")
     public void sendTemplateMail() throws MessagingException {
         Map<String, Long> map = this.mailContent();
-        String[] leaders = (String[]) this.getLeader().stream().map(e -> e.get("mail")).collect(Collectors.toList()).toArray();
-        EmailUtils.sendThymeleafMail(SEND_FROM, leaders, REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
+//        String[] leaders = (String[]) this.getLeader().stream().map(e -> e.get("mail")).collect(Collectors.toList()).toArray();
+        String[] leaders = new String[] {"wangqian91@cnpc.com.cn", "xuguanxiong@cnpc.com.cn"};
+                EmailUtils.sendThymeleafMail(SEND_FROM, leaders, REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
     }
 
     /**
@@ -123,6 +124,11 @@ public class MailRemainderService {
                 map.put(e, 0L);
             }
         });
+
+        map.put("count", reportRepo.totalReportCurrWeek());
+
+        long participation = (long) 100 * reportRepo.findFilledUsers().size() / this.getStaff().size();
+        map.put("participation", new Long(participation));
 
         return map;
     }

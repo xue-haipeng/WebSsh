@@ -23,16 +23,19 @@
 <p>
     尊敬的<em th:text="${username1}" style="font-size: larger; color: #F08080"></em> 、<em th:text="${username2}" style="font-size: larger; color: #F08080"></em> 女士/先生：
 </p>
-<p th:if="${count > 10}">
-    &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，其中：
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，填报参与率<b th:text="${participation}" style="font-size: larger; color: #20B2AA"></b>%，其中：
 </p>
+<!--<p th:if="${count > 10}">
+    &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，其中：
+</p>-->
 <!--
 <ul th:remove="all-but-first">
     <li th:each="hobby : ${hobbies}" th:text="${hobby}"></li>
 </ul>
 -->
 
-<div style="text-align: center;">
+<div style="text-align: center; padding-left: 2%;">
     <div class="row">
         <p style="padding-top: 1px; text-align: left; width: 100%;">工作类型：</p>
         <table class="table table-condensed table-bordered col-lg-8" style="width: 65%; color: #20B2AA">

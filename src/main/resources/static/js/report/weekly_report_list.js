@@ -321,6 +321,14 @@ $(function () {
     } );
 
     $('#save').click( function () {
+        if ( issue_brief == undefined || issue_brief == null || issue_brief == '' ) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您没有填写工作事项！</span>");
+            return;
+        }
+        if ( radio == undefined || radio == null || radio == '' ) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您没有填写工作类型！</span>");
+            return;
+        }
         // var system_name = $('#system_name').val();
         var project = $('#project').val();
         var issue_brief = $('#issue_brief').val();

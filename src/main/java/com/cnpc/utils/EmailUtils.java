@@ -61,7 +61,8 @@ public class EmailUtils {
         Context ctx = new Context();
         ctx.setVariable("username1", "王茜");
         ctx.setVariable("username2", "徐冠雄");
-        ctx.setVariable("count", 30);
+        ctx.setVariable("count", content.get("count"));
+        ctx.setVariable("participation", content.get("participation"));
         ctx.setVariable("date", LocalDate.now());
         ctx.setVariable("time", LocalTime.now());
         ctx.setVariable("hobbies", Arrays.asList("Cinema", "Sports", "Music"));

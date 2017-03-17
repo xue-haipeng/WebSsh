@@ -32,4 +32,7 @@ public interface WeeklyReportRepo extends JpaRepository<WeeklyReport, Long> {
     @Query("select w.appType, w.project, count(*) from WeeklyReport w group by w.appType, w.project")
     public List<Object[]> appWorkDistribution();
 
+    @Query("select count(*) from WeeklyReport w where w.createDate > sysdate - 6")
+    public Long totalReportCurrWeek();
+
 }
