@@ -61,9 +61,9 @@ public class MailSenderTest {
 
     @Test
     public void testRate() {
-//        System.out.println(reportService.completeRatio());
-        Map<String, Long> map = reportService.issueTypeCount();
-        map.forEach((k, v) -> System.out.println(k + " : " + v));
+        System.out.println(reportService.completeRatio());
+/*        Map<String, Long> map = reportService.issueTypeCount();
+        map.forEach((k, v) -> System.out.println(k + " : " + v));*/
     }
 
     @Test

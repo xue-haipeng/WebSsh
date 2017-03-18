@@ -233,7 +233,7 @@ $(function () {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
-        if ( translateUser() != table.row('.selected').data().createUser ) {
+        if (  current_user != 'admin' || translateUser() != table.row('.selected').data().createUser ) {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>对不起，您木有权限编辑此条目。</span>");
             return;
         }

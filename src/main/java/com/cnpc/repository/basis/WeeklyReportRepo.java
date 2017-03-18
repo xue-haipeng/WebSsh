@@ -14,7 +14,7 @@ import java.util.Map;
 @Repository
 public interface WeeklyReportRepo extends JpaRepository<WeeklyReport, Long> {
 
-    @Query("select distinct w.createUser from WeeklyReport w where w.createDate > sysdate - 6")
+    @Query("select distinct w.createUser from WeeklyReport w where w.createDate > trunc(sysdate, 'd')")
     public List<String> findFilledUsers();
 
     @Query("select w.workType, count(*) from WeeklyReport w group by w.workType")
@@ -32,7 +32,7 @@ public interface WeeklyReportRepo extends JpaRepository<WeeklyReport, Long> {
     @Query("select w.appType, w.project, count(*) from WeeklyReport w group by w.appType, w.project")
     public List<Object[]> appWorkDistribution();
 
-    @Query("select count(*) from WeeklyReport w where w.createDate > sysdate - 6")
+    @Query("select count(*) from WeeklyReport w where w.createDate > trunc(sysdate, 'd')")
     public Long totalReportCurrWeek();
 
 }

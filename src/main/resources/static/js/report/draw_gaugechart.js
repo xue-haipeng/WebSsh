@@ -65,7 +65,7 @@ $(function() {
             min: 0,
             max: 100,
             title: {
-                text: '填报完成率',
+                text: '本周填报完成率',
                 style: {
                     fontFamily: 'Microsoft YaHei UI',
                     fontSize: '14px'

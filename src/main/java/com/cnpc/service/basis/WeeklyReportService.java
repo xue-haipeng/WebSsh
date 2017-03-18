@@ -131,6 +131,7 @@ public class WeeklyReportService {
 
     @Autowired
     MailRemainderService mailRemainderService;
+
     public int completeRatio() {
         return (int) 100 * weeklyReportRepo.findFilledUsers().size() / mailRemainderService.getStaff().size();
     }
