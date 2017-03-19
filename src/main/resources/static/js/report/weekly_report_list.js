@@ -233,7 +233,7 @@ $(function () {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您还未选择任何条目，请先选中一行记录！</span>");
             return;
         }
-        if (  current_user != 'admin' || translateUser() != table.row('.selected').data().createUser ) {
+        if (  current_user != 'admin' && translateUser() != table.row('.selected').data().createUser ) {
             bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>对不起，您木有权限编辑此条目。</span>");
             return;
         }
@@ -321,14 +321,6 @@ $(function () {
     } );
 
     $('#save').click( function () {
-        if ( issue_brief == undefined || issue_brief == null || issue_brief == '' ) {
-            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您没有填写工作事项！</span>");
-            return;
-        }
-        if ( radio == undefined || radio == null || radio == '' ) {
-            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您没有填写工作类型！</span>");
-            return;
-        }
         // var system_name = $('#system_name').val();
         var project = $('#project').val();
         var issue_brief = $('#issue_brief').val();
@@ -346,6 +338,15 @@ $(function () {
         var reference_doc = $('#reference_doc').val();
         var file_path = $('#file_name').val().split("\\");
         var file_name = file_path == undefined || null || '' ? '': file_path[file_path.length - 1];
+
+        if ( issue_brief == undefined || issue_brief == null || issue_brief == '' ) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您没有填写工作事项！</span>");
+            return;
+        }
+        if ( radio == undefined || radio == null || radio == '' ) {
+            bootbox.alert("<span style='font-family: 'Microsoft Yahei UI'; color: '#C71585';'>您没有填写工作类型！</span>");
+            return;
+        }
 
         var data = {"project": project, "issueBrief": issue_brief, "appType": app_type, "workType": radio,
             "issueDetail": issue_detail, "solveProcedure": solve_procedure, "referenceDoc": reference_doc, "fileName": file_name};

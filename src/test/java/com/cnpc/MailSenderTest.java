@@ -1,4 +1,5 @@
 package com.cnpc;
+/*
 
 import com.cnpc.repository.basis.WeeklyReportRepo;
 import com.cnpc.service.basis.MailRemainderService;
@@ -62,8 +63,10 @@ public class MailSenderTest {
     @Test
     public void testRate() {
         System.out.println(reportService.completeRatio());
+*/
 /*        Map<String, Long> map = reportService.issueTypeCount();
-        map.forEach((k, v) -> System.out.println(k + " : " + v));*/
+        map.forEach((k, v) -> System.out.println(k + " : " + v));*//*
+
     }
 
     @Test
@@ -87,3 +90,4 @@ public class MailSenderTest {
     }
 
 }
+*/
