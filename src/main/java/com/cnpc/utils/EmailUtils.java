@@ -37,7 +37,7 @@ public class EmailUtils {
         helper.setText("<html><body><p style: \"font-size: 14px; font-family: 'Microsoft Yahei', 微软雅黑\">亲爱的系统用户：<br />" +
                 "&nbsp;&nbsp;&nbsp;&nbsp;您尚未提交本周工作周报，为使项目负责人和其他同事了解到您的本周工作内容，请尽快登陆系统填写周报，谢谢！<br/><br/>" +
                 "&nbsp;&nbsp;<a href=\"http://10.30.49.76:8080/basis/report/weeklyreport\">登陆填报平台</a><br/><br/>" +
-                "<span style: \"font-size: 10px; color: #a1a1a1; font-family: 'Microsoft Yahei', 微软雅黑\">&nbsp;&nbsp;Send from <b>S</b>ite <b>R</b>eliability <b>E</b>ngineering Platform<br/>" +
+                "<span style: \"font-size: 10px; color: #a1a1a1; font-family: 'Microsoft Yahei', 微软雅黑\">&nbsp;&nbsp;Send from the <b>S</b>ite <b>R</b>eliability <b>E</b>ngineering Platform<br/>" +
                 "&nbsp;&nbsp;Please DO NOT Reply</span></p></body></html>",true);
         recipients.forEach(recipient -> {
             try {
