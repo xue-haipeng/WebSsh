@@ -14,7 +14,7 @@
             font-family: "Microsoft Yahei", 微软雅黑, "Helvetica Neue", Arial, sans-serif;
         }
         table {
-            font-size: small;
+            font-size: smaller;
         }
     </style>
 
@@ -24,7 +24,7 @@
     尊敬的<em th:text="${username1}" style="font-size: larger; color: #F08080"></em> 、<em th:text="${username2}" style="font-size: larger; color: #F08080"></em> 女士/先生：
 </p>
 <p>
-    &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，填报参与率<b th:text="${participation}" style="font-size: larger; color: #20B2AA"></b>%，其中：
+    &nbsp;&nbsp;&nbsp;&nbsp;截至<b th:text="${date}"></b> <b th:text="${time}"></b>，本周系统新增<b th:text="${count}" style="font-size: x-large; color: #de5a59"></b>条工作报告，填报参与率<b th:text="${participation}" style="font-size: x-large; color: #de5a59"></b>%，其中：
 </p>
 <!--<p th:if="${count > 10}">
     &nbsp;&nbsp;&nbsp;&nbsp;截至<span th:text="${date}"></span> <span th:text="${time}"></span>，本周系统新增<b th:text="${count}" style="font-size: larger; color: #20B2AA"></b>条工作报告，其中：
@@ -37,10 +37,11 @@
 
 <div style="text-align: center; padding-left: 2%;">
     <div class="row">
-        <p style="padding-top: 1px; text-align: left; width: 100%;">工作类型：</p>
-        <table class="table table-condensed table-bordered col-lg-8" style="width: 65%; color: #20B2AA">
+        <!--<p style="padding-top: 1px; text-align: left; width: 100%;">工作类型：</p><br style="font-size: 1px;"/>-->
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 68%; color: #20B2AA">
             <thead>
             <tr>
+                <th>工作类型:</th>
                 <th>日常运维</th>
                 <th>排错</th>
                 <th>安装/实施</th>
@@ -50,6 +51,15 @@
             </thead>
             <tbody>
             <tr>
+                <th>本周</th>
+                <td th:text="${a}"></td>
+                <td th:text="${b}"></td>
+                <td th:text="${c}"></td>
+                <td th:text="${d}"></td>
+                <td th:text="${e}"></td>
+            </tr>
+            <tr>
+                <th>总计</th>
                 <td th:text="${A}"></td>
                 <td th:text="${B}"></td>
                 <td th:text="${C}"></td>
@@ -60,10 +70,11 @@
         </table>
     </div>
     <div class="row">
-        <p style="padding-top: 1px; text-align: left; width: 100%;">涉及问题：</p>
-        <table class="table table-condensed table-bordered col-lg-8" style="width: 70%; color: #DA70D6">
+        <!--<p style="padding-top: 1px; text-align: left; width: 100%;">涉及问题：</p><br style="font-size: 1px;"/>-->
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 82%; color: #DA70D6">
             <thead>
             <tr>
+                <th>涉及问题:</th>
                 <th>ERP</th>
                 <th>中间件/UEP</th>
                 <th>数据库</th>
@@ -74,6 +85,7 @@
             </thead>
             <tbody>
             <tr>
+                <td>本周</td>
                 <td th:text="${erp}"></td>
                 <td th:text="${mw_uep}"></td>
                 <td th:text="${db}"></td>
@@ -81,14 +93,24 @@
                 <td th:text="${hana}"></td>
                 <td th:text="${paas}"></td>
             </tr>
+            <tr>
+                <td>总计</td>
+                <td th:text="${ERP}"></td>
+                <td th:text="${MW_UEP}"></td>
+                <td th:text="${DB}"></td>
+                <td th:text="${OS}"></td>
+                <td th:text="${HANA}"></td>
+                <td th:text="${PAAS}"></td>
+            </tr>
             </tbody>
         </table>
     </div>
     <div class="row">
-        <p style="padding-top: 1px; text-align: left; width: 100%;">项目分布：</p>
-        <table class="table table-condensed table-bordered col-lg-8" style="width: 76%; color: #9370DB">
+        <!--<p style="padding-top: 1px; text-align: left; width: 100%;">项目分布：</p><br style="font-size: 1px;"/>-->
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 78%; color: #9370DB">
             <thead>
             <tr>
+                <th>项目分布:</th>
                 <th>总部/科研</th>
                 <th>勘探</th>
                 <th>化销</th>
@@ -102,6 +124,7 @@
             </thead>
             <tbody>
             <tr>
+                <td>本周</td>
                 <td th:text="${zbky}"></td>
                 <td th:text="${ktsc}"></td>
                 <td th:text="${hgxs}"></td>
@@ -112,14 +135,27 @@
                 <td th:text="${hw}"></td>
                 <td th:text="${blank_proj}"></td>
             </tr>
+            <tr>
+                <td>总计</td>
+                <td th:text="${Zbky}"></td>
+                <td th:text="${Ktsc}"></td>
+                <td th:text="${Hgxs}"></td>
+                <td th:text="${Gcju}"></td>
+                <td th:text="${Gcje}"></td>
+                <td th:text="${Zbzz}"></td>
+                <td th:text="${Rlzy}"></td>
+                <td th:text="${Hw}"></td>
+                <td th:text="${Blank_proj}"></td>
+            </tr>
             </tbody>
         </table>
     </div>
     <div class="row">
-        <p style="padding-top: 1px; text-align: left; width: 100%;">填报统计：</p>
-        <table class="table table-condensed table-bordered col-lg-8" style="width: 90%; color: #F08080">
+        <!--<p style="padding-top: 1px; text-align: left; width: 100%;">填报统计：</p><br style="font-size: 1px;"/>-->
+        <table class="table table-condensed table-bordered col-lg-8" style="width: 92%; color: #f09e8d">
             <thead>
             <tr>
+                <th>填报统计:</th>
                 <th>胡帅</th>
                 <th>韩心怡</th>
                 <th>周惟</th>
@@ -134,6 +170,20 @@
             </thead>
             <tbody>
             <tr>
+                <td>本周</td>
+                <td th:text="${_hushuai}"></td>
+                <td th:text="${_hanxinyi}"></td>
+                <td th:text="${_zhouwei}"></td>
+                <td th:text="${_jiangyongrui}"></td>
+                <td th:text="${_zhaoxin}"></td>
+                <td th:text="${_jiaolong}"></td>
+                <td th:text="${_wangyubo}"></td>
+                <td th:text="${_wenduzi}"></td>
+                <td th:text="${_xuehaipeng}"></td>
+                <td th:text="${_hesiyang}"></td>
+            </tr>
+            <tr>
+                <td>总计</td>
                 <td th:text="${hushuai}"></td>
                 <td th:text="${hanxinyi}"></td>
                 <td th:text="${zhouwei}"></td>
@@ -148,17 +198,20 @@
             </tbody>
         </table>
     </div>
+
+    <div class="row col-sm-12 col-md-12 col-lg-12" style="padding-top: 2%; text-align: left;">
+        <a href="http://10.30.49.76:8080/basis/report/weeklyreport">查看详情</a>
+        <br/>
+        <p>
+            <p style="font-size: 12px; color: #adadad; font-family: 'Microsoft Yahei', 微软雅黑">
+            <hr style="width: 35%; align: left; text-align: left; margin-right: 65%;"/>
+            Send from the <b style="color: #137dcb">S</b>ite <b style="color: #d75a59">R</b>eliability <b style="color: #FFA500">E</b>ngineering Platform<br/>
+            Please DO NOT Reply
+        </p>
+        </p>
+    </div>
 </div>
-&nbsp;&nbsp;<a href="http://10.30.49.76:8080/basis/report/weeklyreport">查看详情</a>
-<br/>
-<p>
-    <br />
-    <p style="font-size: 12px; color: #adadad; font-family: 'Microsoft Yahei', 微软雅黑">
-        <hr style="width: 35%; align: left; text-align: left; margin-right: 65%;"/>
-        &nbsp;&nbsp;Send from the <b style="color: #137dcb">S</b>ite <b style="color: #d75a59">R</b>eliability <b style="color: #00c000">E</b>ngineering Platform<br/>
-        &nbsp;&nbsp;Please DO NOT Reply
-    </p>
-</p>
+
 <!--<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>-->
 </body>
 </html>

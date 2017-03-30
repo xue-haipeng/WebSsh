@@ -17,14 +17,26 @@ public interface WeeklyReportRepo extends JpaRepository<WeeklyReport, Long> {
     @Query("select distinct w.createUser from WeeklyReport w where w.createDate > trunc(sysdate, 'd')")
     public List<String> findFilledUsers();
 
+    @Query("select w.workType, count(*) from WeeklyReport w where w.createDate > trunc(sysdate, 'd') group by w.workType")
+    public List<Object[]> workTypeDistrCurrWeek();
+
     @Query("select w.workType, count(*) from WeeklyReport w group by w.workType")
     public List<Object[]> workTypeDistribution();
+
+    @Query("select w.appType, count(*) from WeeklyReport w where w.createDate > trunc(sysdate, 'd') group by w.appType")
+    public List<Object[]> issueFieldDistrCurrWeek();
 
     @Query("select w.appType, count(*) from WeeklyReport w group by w.appType")
     public List<Object[]> issueFieldDistribution();
 
+    @Query("select w.project, count(*) from WeeklyReport w where w.createDate > trunc(sysdate, 'd') group by w.project")
+    public List<Object[]> projectDistrCurrWeek();
+
     @Query("select w.project, count(*) from WeeklyReport w group by w.project")
     public List<Object[]> projectDistribution();
+
+    @Query("select w.createUser, count(*) from WeeklyReport w where w.createDate > trunc(sysdate, 'd') group by w.createUser")
+    public List<Object[]> userDistrCurrWeek();
 
     @Query("select w.createUser, count(*) from WeeklyReport w group by w.createUser")
     public List<Object[]> userDistribution();

@@ -1,5 +1,4 @@
 package com.cnpc;
-/*
 
 import com.cnpc.repository.basis.WeeklyReportRepo;
 import com.cnpc.service.basis.MailRemainderService;
@@ -40,8 +39,7 @@ public class MailSenderTest {
 
     @Test
     public void testSendMail() throws MessagingException {
-//        remainderService.testSendMail();
-        remainderService.sendTemplateMail();
+        remainderService.testSendMail();
     }
 
     @Test
@@ -63,9 +61,8 @@ public class MailSenderTest {
     @Test
     public void testRate() {
         System.out.println(reportService.completeRatio());
-*/
-/*        Map<String, Long> map = reportService.issueTypeCount();
-        map.forEach((k, v) -> System.out.println(k + " : " + v));*//*
+        Map<String, Long> map = reportService.issueTypeCount();
+        map.forEach((k, v) -> System.out.println(k + " : " + v));
 
     }
 
@@ -90,4 +87,3 @@ public class MailSenderTest {
     }
 
 }
-*/
