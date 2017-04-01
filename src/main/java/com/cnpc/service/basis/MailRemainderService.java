@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -72,8 +73,8 @@ public class MailRemainderService {
         EmailUtils.sendMimeMail(SEND_FROM, unfinished, FILLING_REMAINDER_SUBJECT, null, mailSender);
     }
 
-    @Scheduled(cron = "00 00 11 * * FRI")
-    public void sendTemplateMail() throws MessagingException {
+    @Scheduled(cron = "00 30 11 * * FRI")
+    public void sendTemplateMail() throws MessagingException, UnsupportedEncodingException {
         Map<String, Long> map = this.mailContent();
 //        String[] leaders = (String[]) this.getLeader().stream().map(e -> e.get("mail")).collect(Collectors.toList()).toArray();
         String[] leaders = new String[] {"wangqian91@cnpc.com.cn", "xuguanxiong@cnpc.com.cn"};
@@ -84,7 +85,7 @@ public class MailRemainderService {
      * For Testing Purporse Only
      * @throws MessagingException
      */
-    public void testSendMail() throws MessagingException {
+    public void testSendMail() throws MessagingException, UnsupportedEncodingException {
 
         EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", new String[] {"xuehaipeng@cnpc.com.cn"}, REPORT_FILLING_SUMMARY,
                 this.mailContent(), mailSender, templateEngine);

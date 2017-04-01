@@ -1,4 +1,6 @@
 package com.cnpc;
+/*
+
 
 import com.cnpc.repository.basis.WeeklyReportRepo;
 import com.cnpc.service.basis.MailRemainderService;
@@ -10,11 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,7 +39,7 @@ public class MailSenderTest {
     }
 
     @Test
-    public void testSendMail() throws MessagingException {
+    public void testSendMail() throws MessagingException, UnsupportedEncodingException {
         remainderService.testSendMail();
     }
 
@@ -86,4 +87,6 @@ public class MailSenderTest {
         System.out.println(reportRepo.totalReportCurrWeek());
     }
 
+
 }
+*/

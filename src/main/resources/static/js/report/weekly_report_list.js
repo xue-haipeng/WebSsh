@@ -42,7 +42,7 @@ $(function () {
 
     var table = $('#report_table').DataTable({
         "retrieve": true,
-        "pageLength": 7,
+        "pageLength": 8,
             "order": [[ 0, "desc" ]],
         "ajax": {
             "url": "/basis/report/retrieve_reports",

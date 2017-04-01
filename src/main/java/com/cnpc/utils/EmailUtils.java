@@ -8,6 +8,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -34,8 +35,9 @@ public class EmailUtils {
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true);
         helper.setFrom(sendFrom);
         helper.setSubject(title);
-        helper.setText("<html><body><p style: \"font-size: 14px; font-family: 'Microsoft Yahei', 微软雅黑\">亲爱的系统用户：<br />" +
-                "&nbsp;&nbsp;&nbsp;&nbsp;您尚未提交本周工作周报，为使项目负责人和其他同事了解到您的本周工作内容，请尽快登陆系统填写周报，谢谢！<br/><br/>" +
+        helper.setText("<html><body><p style: \"font-size: 14px; font-family: 'Microsoft Yahei', 微软雅黑\">少年：<br />" +
+//                "&nbsp;&nbsp;&nbsp;&nbsp;您尚未提交本周工作周报，为使项目负责人和其他同事了解到您的本周工作内容，请尽快登陆系统填写周报，谢谢！<br/><br/>" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;快去填周报！<br/><br/>" +
                 "&nbsp;&nbsp;<a href=\"http://10.30.49.76:8080/basis/report/weeklyreport\">登陆填报平台</a><br/><br/>" +
                 "<span style: \"font-size: 10px; color: #a1a1a1; font-family: 'Microsoft Yahei', 微软雅黑\">&nbsp;&nbsp;Send from the <b>S</b>ite <b>R</b>eliability <b>E</b>ngineering Platform<br/>" +
                 "&nbsp;&nbsp;Please DO NOT Reply</span></p></body></html>",true);
@@ -51,11 +53,12 @@ public class EmailUtils {
     }
 
     public static void sendThymeleafMail(String sendFrom, String[] sendTo, String subject, Map<String, Long> content,
-                                  JavaMailSender mailSender, SpringTemplateEngine templateEngine) throws MessagingException {
+                                  JavaMailSender mailSender, SpringTemplateEngine templateEngine) throws MessagingException, UnsupportedEncodingException {
         final MimeMessage mimeMessage = mailSender.createMimeMessage();
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage,true,"UTF-8");
-        message.setFrom(sendFrom);
+//        message.setFrom(sendFrom);
         message.setTo(sendTo);
+        message.setFrom(sendFrom, "周报");
         message.setCc("xuehaipeng@cnpc.com.cn");
         message.setSubject(subject);
         Context ctx = new Context();
