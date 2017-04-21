@@ -3,8 +3,8 @@ spring:
     datasource:
         driver-class-name: oracle.jdbc.OracleDriver
         url: jdbc:oracle:thin:@10.30.49.76:1521/ORADB
-        username: basis
-        password: erpbasis0
+        username: ${DB_USERNAME}
+        password: ${DB_PASSWD}
 #        url: jdbc:oracle:thin:@192.168.147.143:1521/xe
 #        username: system
 #        password: oracle
@@ -27,10 +27,7 @@ spring:
     mail:
         host: mail.cnpc.com.cn
         username: erpyyjcadmin@cnpc.com.cn
-        password: bgp123
-#        host: smtp.163.com
-#        username: hpxue13@163.com
-#        password: 8121812
+        password: ${MAIL_PASSWD}
         properties:
             mail:
                 smtp:
@@ -153,15 +150,15 @@ sftp:
         - 10.30.47.120
         - 10.30.49.94
 
-    username: itmuser
-    passwd: itmuser
+    username: ${SSH_USERNAME}
+    passwd: ${SSH_PASSWD}
     remoteFile: /usr/openv/sap_oracle/hot_database_backup.sh.out
     
 # Ssh Configuration
 ssh:
     ip: 10.30.47.218
-    username: wladm
-    passwd: mybasis0
+    username: ${SSH_USERNAME}
+    passwd: ${SSH_PASSWD}
     cmd:
         - df -h
         - ifconfig
@@ -221,5 +218,5 @@ sap:
         11.11.49.237: /oracle/CDO/sapbackup/backCDO.log
         11.11.49.106: /oracle/JD1/sapbackup/backJD1.log
         10.30.47.159: /oracle/GD1/sapbackup/backGD1.log
-    username: itmuser
-    passwd: itmuser
+    username: ${SSH_USERNAME}
+    passwd: ${SSH_PASSWD}
