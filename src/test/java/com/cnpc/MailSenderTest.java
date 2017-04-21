@@ -1,4 +1,5 @@
 package com.cnpc;
+
 /*
 
 
@@ -25,7 +26,7 @@ public class MailSenderTest {
     MailRemainderService remainderService;
 
     @Test
-    public void sendRemainderMail() throws MessagingException {
+    public void sendRemainderMail() throws MessagingException, UnsupportedEncodingException {
         remainderService.sendMimeMail();
     }
 
@@ -89,4 +90,5 @@ public class MailSenderTest {
 
 
 }
+
 */

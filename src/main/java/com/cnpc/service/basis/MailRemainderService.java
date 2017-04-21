@@ -34,6 +34,8 @@ public class MailRemainderService {
     private List<Map<String, String>> leader;
     private List<Map<String, String>> staff;
 
+    private boolean enable_mail;
+
     public List<Map<String, String>> getLeader() {
         return leader;
     }
@@ -50,6 +52,14 @@ public class MailRemainderService {
         this.staff = staff;
     }
 
+    public boolean isEnable_mail() {
+        return enable_mail;
+    }
+
+    public void setEnable_mail(boolean enable_mail) {
+        this.enable_mail = enable_mail;
+    }
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -64,13 +74,16 @@ public class MailRemainderService {
      * @throws MessagingException
      */
     @Scheduled(cron = "00 00 10 * * FRI")
-    public void sendMimeMail() throws MessagingException {
+    public void sendMimeMail() throws MessagingException, UnsupportedEncodingException {
 
         List<String> completed = reportRepo.findFilledUsers();
         List<String> unfinished = this.getStaff().stream().filter(item -> !completed.contains(item.get("username"))).map(item -> item.get("mail")).collect(Collectors.toList());
         logger.info(unfinished.toString());
 
-        EmailUtils.sendMimeMail(SEND_FROM, unfinished, FILLING_REMAINDER_SUBJECT, null, mailSender);
+        if (isEnable_mail()) {
+            EmailUtils.sendMimeMail(SEND_FROM, unfinished, FILLING_REMAINDER_SUBJECT, null, mailSender);
+            logger.info("Send Mime Mail succeed!");
+        }
     }
 
     @Scheduled(cron = "00 30 11 * * FRI")
@@ -78,7 +91,11 @@ public class MailRemainderService {
         Map<String, Long> map = this.mailContent();
 //        String[] leaders = (String[]) this.getLeader().stream().map(e -> e.get("mail")).collect(Collectors.toList()).toArray();
         String[] leaders = new String[] {"wangqian91@cnpc.com.cn", "xuguanxiong@cnpc.com.cn"};
-                EmailUtils.sendThymeleafMail(SEND_FROM, leaders, REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
+        if (isEnable_mail()) {
+            EmailUtils.sendThymeleafMail(SEND_FROM, leaders, REPORT_FILLING_SUMMARY, map, mailSender, templateEngine);
+            logger.info("Send Thymeleaf Mail succeed!");
+        }
+
     }
 
     /**
@@ -86,7 +103,7 @@ public class MailRemainderService {
      * @throws MessagingException
      */
     public void testSendMail() throws MessagingException, UnsupportedEncodingException {
-
+        EmailUtils.sendMimeMail(SEND_FROM, Arrays.asList("xuehaipeng@cnpc.com.cn"), FILLING_REMAINDER_SUBJECT, null, mailSender);
         EmailUtils.sendThymeleafMail("erpyyjcadmin@cnpc.com.cn", new String[] {"xuehaipeng@cnpc.com.cn"}, REPORT_FILLING_SUMMARY,
                 this.mailContent(), mailSender, templateEngine);
     }

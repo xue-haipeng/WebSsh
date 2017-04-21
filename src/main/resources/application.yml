@@ -38,6 +38,7 @@ spring:
                     timeout: 25000
         default-encoding: UTF-8
         users:
+            enable_mail: true
             leader:
                 - username: wangqian
                   name: 王茜
@@ -70,9 +71,9 @@ spring:
                 - username: wenduzi
                   name: 文都子
                   mail: wenduzi@cnpc.com.cn
-                - username: xuehaipeng
-                  name: 薛海鹏
-                  mail: xuehaipeng@cnpc.com.cn
+#                - username: xuehaipeng
+#                  name: 薛海鹏
+#                  mail: xuehaipeng@cnpc.com.cn
                 - username: hesiyang
                   name: 何思洋
                   mail: hesiyang3@cnpc.com.cn
