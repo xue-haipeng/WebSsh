@@ -73,7 +73,7 @@ public class MailRemainderService {
      * Weekly Report Filling Remainder
      * @throws MessagingException
      */
-    @Scheduled(cron = "00 00 10 * * FRI")
+//    @Scheduled(cron = "00 00 10 * * FRI")
     public void sendMimeMail() throws MessagingException, UnsupportedEncodingException {
 
         List<String> completed = reportRepo.findFilledUsers();
@@ -86,7 +86,7 @@ public class MailRemainderService {
         }
     }
 
-    @Scheduled(cron = "00 30 11 * * FRI")
+//    @Scheduled(cron = "00 30 11 * * FRI")
     public void sendTemplateMail() throws MessagingException, UnsupportedEncodingException {
         Map<String, Long> map = this.mailContent();
 //        String[] leaders = (String[]) this.getLeader().stream().map(e -> e.get("mail")).collect(Collectors.toList()).toArray();

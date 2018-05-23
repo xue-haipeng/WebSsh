@@ -15,8 +15,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class OpenShiftConnUtil {
     private static final Logger logger = LoggerFactory.getLogger(OpenShiftConnUtil.class);
     private static final String masterUrl = "https://lb.cloud.cnpc:8443";
-    private static final String username = "xuehaipeng";
-    private static final String passwd = "ramily";
+    private static final String username = "admin";
+    private static final String passwd = "admin123";
     public static OpenShiftClient client;
 
     public static OpenShiftClient newConnection() {
